@@ -31,6 +31,7 @@
 \usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
 \usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
 \usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+\usepackage{hyperref} % Package for hyperlinks
 % These packages are all incorporated in the memoir class to one degree or another...
 
 %%% HEADERS & FOOTERS
@@ -55,20 +56,57 @@
 
 %%% The "real" document content comes below...
 
-\title{Újraömlesztéses kemence előzetes specifikáció}
-\author{Polgár Tamás}
+\title{Újraömlesztő kemence előzetes specifikáció}
+\author{Polgár Tamás \\ Budapesti Műszaki és Gazdaságtudományi Egyetem \\ \href{mailto:polgar.tamas@edu.bme.hu}{polgar.tamas@edu.bme.hu} }
 %\date{} % Activate to display a given date or no date (if empty),
          % otherwise the current date is printed 
 
 \begin{document}
 \maketitle
 
-\section{Követelmények}
+\section{Rövid imsertető}
+Elektronikus eszközök prototípus tervezésénél gyakran felmerülő megkötés, hogy LGA (Land Grid Array), BGA (Ball Grid Array) vagy ezekhez hasonló tokozású integrált áramkörök kézi forrasztása nehezen megoldható. Hőlégfúvóval, hot plate-tel kivitelezhető de a kötésekre vonatkozó megkötéseket nem egyszerű ellenőrizni. A PCB gyártók szolgáltatásai között gyakran megtalálható a beültetés, ezt azonban kizárólag nagy darabszám esetén megtérülő gazdaságilag. Ez a megoldás tehát kis darabszámú prototípusfejlesztés során nem jelent megoldást. Ezzel szemben a stencilhez aránylag olcsón hozzá lehet már jutni.
 
-Your text goes here.
-\section{Követelmények}
+Tehát egy újraömlesztő kemecére van szükség. Itt azonban ismét pénzügyi korlátokba ütközünk, mivel egy újraömlesztő kemece nagyon drága. Ennek oka, hogy szinte gyakorlatilag csak ipari felhasználásra gyártják. Ezekkel szemben követelmény a nagyon magas fokú megbízhatóság, automatizálhatóság egy szó mint száz ipari felhasználásra vannak kialakítva. A prototípusok elkészítésénél nincs szükség ezekre a tulajdonságokra. Kínából webáruházakból elérhetőek már 100 000 Ft-tól újraömlesztő kemencék, de ezek silány minőségére gyakran érkezik panasz. Az előbb említett profi berendezések milliós árkategóriába esnek.
 
-Your text goes here.
+Az interneten számos nyílt forrású projekt kering, ahol a fent vázolt problémát megoldva, a szerzők maguk készítették el saját újraömlesztő kemencéiket, mini sütők átalakításával. Mivel nincs szükség nagy mennyiségű NYÁK elkészítésére ezért elég ha egyszerre 1-2 fér be fűtött térbe. Ez abból a szempontból is könnyebbséget jelent a tervezőnek, hogy kisebb térfogaton kell melegíteni és elég egy kicsi ház, aminek egy átalakított mikrohullámú/sima sütő pont megfelelő választás. Saját újraömlesztő kemencémet ezekre a projektekre alapozva szeretném elkészíteni.
+
+\newpage
+
+\section{Előzetes rendszer specifikáció}
+\subsection{Kamra termikus követelmények}
+\begin{itemize}
+\item Legalább $300 ^{\circ}C$ üzemszerű maximális hőmérséklet
+\item Legalább $3 \frac{^{\circ}C}{sec}$  hőmérsékletemelkedési sebesség legalább $270 ^{\circ}C$-ig
+\item Legalább $-3 \frac{^{\circ}C}{sec}$  hőmérsékletcsökkenési sebesség legalább $150 ^{\circ}C$-ig
+\item Legalább $-1 \frac{^{\circ}C}{sec}$  hőmérsékletcsökkenési sebesség legalább $50 ^{\circ}C$-ig
+\end{itemize}
+
+\subsection{Mechanikai követelmények}
+\begin{itemize}
+\item Legalább $20\times20\times10 [cm^3]$ effektív kemence térfogat
+\item Hőszigetelt kamra, egy db. két rétegű ablakkal
+\end{itemize}
+
+
+\subsection{Elektromos követelmények}
+\begin{itemize}
+\item Biztonsági leállítás lehetősége
+\item Többszörösen biztosított indítás
+\item Teljesítménymonitorozás
+\item Human machine interface
+\item Távirányítású üzemmód
+\item Adatok továbbítása standad interface-en választott adatgyűjtő rendszer felé
+\item Hálózati feszültség optikai leválasztása
+\item HW védelem
+\end{itemize}
+
+\begin{figure}[hbt!]
+ \centering
+ \includegraphics[width=0.9\textwidth]{spec_v10}
+ \caption{Rendszerarchitektúra az előzetes specifikáció alapján}
+\end{figure}
+
 
 
 \end{document}
