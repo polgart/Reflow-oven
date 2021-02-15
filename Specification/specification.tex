@@ -65,9 +65,9 @@
 \maketitle
 
 \section{Rövid imsertető}
-Elektronikus eszközök prototípus tervezésénél gyakran felmerülő megkötés, hogy LGA (Land Grid Array), BGA (Ball Grid Array) vagy ezekhez hasonló tokozású integrált áramkörök kézi forrasztása nehezen megoldható. Hőlégfúvóval, hot plate-tel kivitelezhető de a kötésekre vonatkozó megkötéseket nem egyszerű ellenőrizni. A PCB gyártók szolgáltatásai között gyakran megtalálható a beültetés, ezt azonban kizárólag nagy darabszám esetén megtérülő gazdaságilag. Ez a megoldás tehát kis darabszámú prototípusfejlesztés során nem jelent megoldást. Ezzel szemben a stencilhez aránylag olcsón hozzá lehet már jutni.
+Elektronikus eszközök prototípus tervezésénél gyakran felmerülő probléma, hogy LGA (Land Grid Array), BGA (Ball Grid Array) vagy ezekhez hasonló tokozású integrált áramkörök kézi forrasztása nehezen megoldható. Hőlégfúvóval, hot plate-tel kivitelezhető de a kötésekre vonatkozó követelményeket nem egyszerű ellenőrizni. A PCB gyártók szolgáltatásai között gyakran megtalálható a beültetés, ez azonban kizárólag nagy darabszám esetén térül mrg. Ez a megoldás tehát kis darabszámú prototípusfejlesztés során nem jelent megoldást. Ezzel szemben a stencilhez aránylag olcsón hozzá lehet már jutni.
 
-Tehát egy újraömlesztő kemecére van szükség. Itt azonban ismét pénzügyi korlátokba ütközünk, mivel egy újraömlesztő kemece nagyon drága. Ennek oka, hogy szinte gyakorlatilag csak ipari felhasználásra gyártják. Ezekkel szemben követelmény a nagyon magas fokú megbízhatóság, automatizálhatóság egy szó mint száz ipari felhasználásra vannak kialakítva. A prototípusok elkészítésénél nincs szükség ezekre a tulajdonságokra. Kínából webáruházakból elérhetőek már 100 000 Ft-tól újraömlesztő kemencék, de ezek silány minőségére gyakran érkezik panasz. Az előbb említett profi berendezések milliós árkategóriába esnek.
+Tehát egy újraömlesztő kemecére van szükség. Itt azonban ismét pénzügyi korlátokba ütközünk, mivel egy újraömlesztő kemece nagyon drága. Ennek oka, hogy szinte gyakorlatilag csak ipari felhasználásra gyártják. Ezekkel szemben követelmény a nagyon magas fokú megbízhatóság, automatizálhatóság. A prototípusok elkészítésénél nincs szükség ezekre a tulajdonságokra. Kínából webáruházakból elérhetőek már 100 000 Ft-tól újraömlesztő kemencék, de ezek silány minőségére gyakran érkezik panasz. Az előbb említett profi berendezések milliós árkategóriába esnek.
 
 Az interneten számos nyílt forrású projekt kering, ahol a fent vázolt problémát megoldva, a szerzők maguk készítették el saját újraömlesztő kemencéiket, mini sütők átalakításával. Mivel nincs szükség nagy mennyiségű NYÁK elkészítésére ezért elég ha egyszerre 1-2 fér be fűtött térbe. Ez abból a szempontból is könnyebbséget jelent a tervezőnek, hogy kisebb térfogaton kell melegíteni és elég egy kicsi ház, aminek egy átalakított mikrohullámú/sima sütő pont megfelelő választás. Saját újraömlesztő kemencémet ezekre a projektekre alapozva szeretném elkészíteni.
 
@@ -93,7 +93,6 @@ Az interneten számos nyílt forrású projekt kering, ahol a fent vázolt probl
 \begin{itemize}
 \item Biztonsági leállítás lehetősége
 \item Többszörösen biztosított indítás
-\item Teljesítménymonitorozás
 \item Human machine interface
 \item Távirányítású üzemmód
 \item Adatok továbbítása standad interface-en választott adatgyűjtő rendszer felé
@@ -103,7 +102,7 @@ Az interneten számos nyílt forrású projekt kering, ahol a fent vázolt probl
 
 \begin{figure}[hbt!]
  \centering
- \includegraphics[width=0.9\textwidth]{spec_v10}
+ \includegraphics[width=1.0\textwidth]{spec_v10}
  \caption{Rendszerarchitektúra az előzetes specifikáció alapján}
 \end{figure}
 
