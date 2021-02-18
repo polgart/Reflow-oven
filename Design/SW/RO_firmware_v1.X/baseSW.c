@@ -4,6 +4,8 @@
 #include "mcc_generated_files/tmr2.h"
 #include "mcc_generated_files/uart1.h"
 #include "mcc_generated_files/uart2.h"
+#include "mcc_generated_files/spi1.h"
+#include "mcc_generated_files/i2c1.h"
 
 
 stateTaskList* IdleState = NULL;
@@ -12,16 +14,10 @@ stateTaskList* ReceiveNextionData = NULL;
 stateTaskList* ReceiveFTDI = NULL;
 stateTaskList* TranscieveNextionDATA = NULL;
 stateTaskList* TransciveFTDI = NULL;
+stateTaskList* ReadEEPROM = NULL;
+stateTaskList* WriteEEPROM = NULL;
 
 
-/**
-  baseSW_TMR2_ISR 
-  @Summary
- * Timer 2 inetrrupt service routine
-  @Description
- * Send data to Nextion and PC alternately
- * 
- */
 
 void IdleState_callback() {
     //Temperature protection - critical feature
@@ -31,35 +27,36 @@ void IdleState_callback() {
 }
 
 void ReadTemperatureData_callback() {
-    
+    uint32_t sensorData = SPI1_Exchange32bit((uint32_t)0x0);
+    // Process sensor data - critical feature
 }
 
 void ReceiveNextionData_callback() {
     uint8_t msg = UART1_Read();
-    if (msg | 0xFB == 0xFF) {
+    if ((msg | 0xFB) == 0xFF) {
         // Start heating - critical feature
     }
-    if (msg | 0xFD == 0xFF) {
+    if ((msg | 0xFD) == 0xFF) {
         //Stop heating - critical feature
     }
-    if (msg | 0xFE == 0xFF) {
+    if ((msg | 0xFE) == 0xFF) {
         //Set selected heat profile - non critical feature
     }
     
 }
 
 void ReceiveFTDI_callback() {    
-    uint8_t msg_type = UART1_Read();
-    switch(msg_type) {
+    uint8_t msg = UART1_Read();
+    switch(msg) {
         case 0:
-            uint8_t msg = UART1_Read();
-            if (msg | 0xFB == 0xFF) {
+            msg = UART1_Read();
+            if ((msg | 0xFB) == 0xFF) {
                 // Start heating - critical feature
             }
-            if (msg | 0xFD == 0xFF) {
+            if ((msg | 0xFD) == 0xFF) {
                 //Stop heating - critical feature
             }
-            if (msg | 0xFE == 0xFF) {
+            if ((msg | 0xFE) == 0xFF) {
                 //Set selected heat profile - non critical feature
             }
             break;
@@ -79,6 +76,17 @@ void TranscieveNextionDATA_callback() {
 void TransciveFTDI_callback() {
     //UART2_WriteBuffer();
 }
+
+void ReadEEPROM_callback() {
+    //I2C1_MasterRead(); Read data from EEPROM - non critical feature
+}
+
+void WriteEEPROM_callback() {
+    //I2C_MasterWrite(); Write data to EEPROM - non critical feature
+}
+
+
+
 
 /* Interrupt service routines */
 
@@ -118,10 +126,12 @@ stateTaskList* baseSW_Initialize(void) {
     ReceiveFTDI = createTask(ReceiveFTDI_callback);
     TranscieveNextionDATA = createTask(TranscieveNextionDATA_callback);
     TransciveFTDI = createTask(TransciveFTDI_callback);
+    ReadEEPROM = createTask(ReadEEPROM_callback);
+    WriteEEPROM = createTask(WriteEEPROM_callback);
     
     // Initialize task handler
     initilaizeTaskHandler(IdleState);
-
+    
     // Initilize ISRs
     TMR2_SetInterruptHandler(baseSW_TMR2_ISR);
     UART1_SetRxInterruptHandler(baseSW_UART1_rx_ISR); // UART1 -> NEXTION

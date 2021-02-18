@@ -2423,7 +2423,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="SPI1" registerAlias="SPICON1L" settingAlias="MODE32"/>
-         <value>disabled</value>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="UART1" registerAlias="UMODE" settingAlias="USIDL" alias="enabled"/>
@@ -6947,7 +6947,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="SPI1" name="DataModeSelect"/>
-         <value>8 bit</value>
+         <value>32 bit</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="IOCFB" settingAlias="IOCFB11" alias="enabled"/>
@@ -7383,7 +7383,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="SPI1" registerAlias="SPICON1L"/>
-         <value>32801</value>
+         <value>34849</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="TRISA" settingAlias="TRISA4" alias="output"/>
@@ -8301,7 +8301,7 @@
       </entry>
       <entry>
          <file>mcc_generated_files\spi1.h</file>
-         <hash>3d6fb8e840277056eed889228871f624de42a75ce7f23760dcd2a917770b3d16</hash>
+         <hash>d3fe491f86139b77ef035e0357e6f6ea04d2a4f6f3389c800f4ee1b69e1137f0</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\tmr2.c</file>
@@ -8313,7 +8313,7 @@
       </entry>
       <entry>
          <file>mcc_generated_files\pin_manager.c</file>
-         <hash>5bc3bc88192ea2a0d6c269e83848688c236b014b3800c6c0498f73e26d5a617e</hash>
+         <hash>277ebe7cc7afa2cd750a493bf8a2ac4cd2295d7c4305d522903146545078d8c4</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\system.h</file>
@@ -8321,7 +8321,7 @@
       </entry>
       <entry>
          <file>mcc_generated_files\spi1.c</file>
-         <hash>19335ff854a20ef66d50337b5e63300889622369555e0701948435ef053f5748</hash>
+         <hash>bcd45f4eec4a2a73866444c155550db433aad66fe1646dcabe1eb21911279406</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\system.c</file>
