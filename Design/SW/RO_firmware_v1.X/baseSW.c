@@ -24,9 +24,9 @@ stateTaskList* TransciveFTDI = NULL;
  */
 
 void IdleState_callback() {
-    //Temperature protection
+    //Temperature protection - critical feature
     
-    //Toggling signal protection
+    //Toggling signal protection - critical feature
     
 }
 
@@ -35,11 +35,41 @@ void ReadTemperatureData_callback() {
 }
 
 void ReceiveNextionData_callback() {
-    //El kell dönteni hány byteos legyen a protokol
+    uint8_t msg = UART1_Read();
+    if (msg | 0xFB == 0xFF) {
+        // Start heating - critical feature
+    }
+    if (msg | 0xFD == 0xFF) {
+        //Stop heating - critical feature
+    }
+    if (msg | 0xFE == 0xFF) {
+        //Set selected heat profile - non critical feature
+    }
+    
 }
 
-void ReceiveFTDI_callback() {
-    //El kell dönteni hány byteos legyen a protokol
+void ReceiveFTDI_callback() {    
+    uint8_t msg_type = UART1_Read();
+    switch(msg_type) {
+        case 0:
+            uint8_t msg = UART1_Read();
+            if (msg | 0xFB == 0xFF) {
+                // Start heating - critical feature
+            }
+            if (msg | 0xFD == 0xFF) {
+                //Stop heating - critical feature
+            }
+            if (msg | 0xFE == 0xFF) {
+                //Set selected heat profile - non critical feature
+            }
+            break;
+        case 1:
+            //Configuration mode  - non critical feature
+            break;
+        default:
+            //Error handler - non critical feature
+            break;
+    }
 }
 
 void TranscieveNextionDATA_callback() {

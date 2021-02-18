@@ -36,10 +36,10 @@ Stop heating - 1 bit
 Heat profile - 4 bit
 Set heat profile - 1
 
-D[7:4]         Select heat profile
-D3             Start heating
-D2             Stop heating
-D1             Set heat profile
+D[7:3]         Select heat profile
+D2             Start heating
+D1             Stop heating
+D0             Set heat profile
 
 ---------------------------------------
 UART2 (PC)
@@ -80,10 +80,10 @@ D[7:0]         Command type
 
 
 Normal mode:
-    D[7:4]         Select heat profile
-    D3             Start heating
-    D2             Stop heating
-    D1             Set heat profile
+    D[7:3]         Select heat profile
+    D2             Start heating
+    D1             Stop heating
+    D0             Set heat profile
 
 Configure heat profile:
     D[63:56]       time1

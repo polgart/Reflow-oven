@@ -63,8 +63,12 @@ int main(void)
 {
     // initialize the device
     SYSTEM_Initialize();
+    
+    // initalize base software
     stateTaskList* TaskObj = baseSW_Initialize(); 
     stateTaskHandler(TaskObj);
+    
+    
     
     while (1)
     {
