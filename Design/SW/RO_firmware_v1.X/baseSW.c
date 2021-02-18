@@ -43,11 +43,11 @@ void ReceiveFTDI_callback() {
 }
 
 void TranscieveNextionDATA_callback() {
-    UART1_WriteBuffer();
+    //UART1_WriteBuffer();
 }
 
 void TransciveFTDI_callback() {
-    UART2_WriteBuffer();
+    //UART2_WriteBuffer();
 }
 
 /* Interrupt service routines */
@@ -94,8 +94,8 @@ stateTaskList* baseSW_Initialize(void) {
 
     // Initilize ISRs
     TMR2_SetInterruptHandler(baseSW_TMR2_ISR);
-    UART1_SetRxInterruptHandler(baseSW_UART1_rec_ISR); // UART1 -> NEXTION
-    UART2_SetRxInterruptHandler(baseSW_UART2_rec_ISR); // UART2 -> FTDI
+    UART1_SetRxInterruptHandler(baseSW_UART1_rx_ISR); // UART1 -> NEXTION
+    UART2_SetRxInterruptHandler(baseSW_UART2_rx_ISR); // UART2 -> FTDI
     
     
     return IdleState;

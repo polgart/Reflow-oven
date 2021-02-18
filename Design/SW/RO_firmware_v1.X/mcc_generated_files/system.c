@@ -92,7 +92,7 @@
 #pragma config ALTCMPI = DISABLE    //Alternate Comparator Input Enable bit->C1INC, C2INC, and C3INC are on their standard pin locations
 #pragma config TMPRPIN = OFF    //Tamper Pin Enable bit->TMPRN pin function is disabled
 #pragma config SOSCHP = ON    //SOSC High Power Enable bit (valid only when SOSCSEL = 1->Enable SOSC high power mode (default)
-#pragma config ALTI2C1 = ALTI2CEN    //Alternate I2C pin Location->SDA1 and SCL1 on RB9 and RB8
+#pragma config ALTI2C1 = ALTI2CDIS    //Alternate I2C pin Location->ASDA1 and ASCL1 on RB5 and RB6
 
 #include "pin_manager.h"
 #include "clock.h"
@@ -103,6 +103,7 @@
 #include "tmr2.h"
 #include "uart1.h"
 #include "uart2.h"
+#include "i2c1.h"
 
 void SYSTEM_Initialize(void)
 {
@@ -111,6 +112,7 @@ void SYSTEM_Initialize(void)
     CLOCK_Initialize();
     UART2_Initialize();
     SPI1_Initialize();
+    I2C1_Initialize();
     UART1_Initialize();
     TMR2_Initialize();
 }

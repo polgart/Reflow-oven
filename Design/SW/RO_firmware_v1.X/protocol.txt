@@ -1,0 +1,96 @@
+SPI - 4 byte messages [read only]
+
+Hot junction - 14 bit
+Cold junction - 12 bit
+
+D[31:18]        14-Bit Thermocouple Temperature Data
+D17             Reserved
+D16             Fault
+D[15:4]         12-Bit Internal Temperature Data
+D3              Reserved
+D2              SCV Fault
+D1              SCG Fault
+D0              OC Fault
+
+Detailed function description and timing diagrams can be found in MAX31855 datasheet
+
+---------------------------------------
+UART1 (Nextion)
+
+MCU->Nextion: 4 byte messages
+Heating in progress - 1 bit
+Hot junction - 14 bit
+Cold junction - 12 bit
+Selected heat profile - 4 bit
+
+D[31:18]        14-Bit Thermocouple Temperature Data
+D[17:6]         12-Bit Internal Temperature Data
+D[5:2]          Selected heat profile
+D1              Heating in progress
+D0              Reserved
+
+
+Nextion->MCU: 1 byte messages
+Start heating - 1 bit
+Stop heating - 1 bit
+Heat profile - 4 bit
+Set heat profile - 1
+
+D[7:4]         Select heat profile
+D3             Start heating
+D2             Stop heating
+D1             Set heat profile
+
+---------------------------------------
+UART2 (PC)
+
+MCU->PC: 4 byte messages
+Heating in progress - 1 bit
+Hot junction - 14 bit
+Cold junction - 12 bit
+Selected heat profile - 4 bit
+
+D[31:18]        14-Bit Thermocouple Temperature Data
+D[17:6]         12-Bit Internal Temperature Data
+D[5:2]          Selected heat profile
+D1              Heating in progress
+D0              Reserved
+
+PC->MCU: Variable length [1/8] + 1 byte
+
+Normal mode: 1 byte
+Start heating - 1 bit
+Stop heating - 1 bit
+Heat profile - 4 bit
+Set heat profile - 1
+
+Configure heat profile: 8 byte
+time1 - 8 bit
+temp1 - 8 bit
+time2 - 8 bit
+temp2 - 8 bit
+time3 - 8 bit
+temp3 - 8 bit
+time4 - 8 bit
+temp4 - 8 bit
+
+D[7:0]         Command type
+               0x0: Normal mode
+               0x1: Configure heat profile
+
+
+Normal mode:
+    D[7:4]         Select heat profile
+    D3             Start heating
+    D2             Stop heating
+    D1             Set heat profile
+
+Configure heat profile:
+    D[63:56]       time1
+    D[55:48]       temp1 
+    D[47:40]       time2 
+    D[39:32]       temp2
+    D[31:24]       time3
+    D[23:16]       temp3
+    D[15:8]        time4
+    D[7:0]         temp4
