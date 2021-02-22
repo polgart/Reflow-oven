@@ -99,11 +99,11 @@
 #include "system.h"
 #include "interrupt_manager.h"
 #include "traps.h"
+#include "i2c1.h"
 #include "spi1.h"
 #include "tmr2.h"
-#include "uart1.h"
 #include "uart2.h"
-#include "i2c1.h"
+#include "uart1.h"
 
 void SYSTEM_Initialize(void)
 {

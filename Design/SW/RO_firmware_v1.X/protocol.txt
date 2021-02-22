@@ -56,7 +56,7 @@ D[5:2]          Selected heat profile
 D1              Heating in progress
 D0              Reserved
 
-PC->MCU: Variable length [1/8] + 1 byte
+PC->MCU: Variable length [1/1024] + 1 byte
 
 Normal mode: 1 byte
 Start heating - 1 bit
@@ -64,33 +64,13 @@ Stop heating - 1 bit
 Heat profile - 4 bit
 Set heat profile - 1
 
-Configure heat profile: 8 byte
-time1 - 8 bit
-temp1 - 8 bit
-time2 - 8 bit
-temp2 - 8 bit
-time3 - 8 bit
-temp3 - 8 bit
-time4 - 8 bit
-temp4 - 8 bit
+Configure heat profile: 1024 byte
+
 
 D[7:0]         Command type
                0x0: Normal mode
                0x1: Configure heat profile
 
 
-Normal mode:
-    D[7:3]         Select heat profile
-    D2             Start heating
-    D1             Stop heating
-    D0             Set heat profile
-
-Configure heat profile:
-    D[63:56]       time1
-    D[55:48]       temp1 
-    D[47:40]       time2 
-    D[39:32]       temp2
-    D[31:24]       time3
-    D[23:16]       temp3
-    D[15:8]        time4
-    D[7:0]         temp4
+Write EEPROM MODE:
+    D[7:0]         EEPROM address

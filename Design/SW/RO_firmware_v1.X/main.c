@@ -45,11 +45,15 @@
 /**
   Section: Included Files
 */
+
 #include "mcc_generated_files/system.h"
 #include "mcc_generated_files/pin_manager.h"
+#include "mcc_generated_files/i2c1.h"
 #include "stateTaskHandler.h"
 #include "baseSW.h"
 #include <stdlib.h>
+
+
 
 /*
                          Main application
@@ -63,6 +67,10 @@ int main(void)
 {
     // initialize the device
     SYSTEM_Initialize();
+    uint16_t address = 0x1111;
+    I2C1_MESSAGE_STATUS pstatus;
+    uint8_t data[2] = {0xFF , 0xE3};
+    I2C1_MasterWrite(&data, 2, address, &pstatus);
     
     // initalize base software
     stateTaskList* TaskObj = baseSW_Initialize(); 

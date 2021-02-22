@@ -21,6 +21,8 @@
       </logicalFolder>
       <itemPath>stateTaskHandler.h</itemPath>
       <itemPath>baseSW.h</itemPath>
+      <itemPath>EEPROM_driver.h</itemPath>
+      <itemPath>piclib30_wrapper.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -48,6 +50,7 @@
       <itemPath>stateTaskHandler.c</itemPath>
       <itemPath>baseSW.c</itemPath>
       <itemPath>protocol.txt</itemPath>
+      <itemPath>EEPROM_driver.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
