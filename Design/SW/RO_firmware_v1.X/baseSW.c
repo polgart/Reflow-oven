@@ -8,6 +8,7 @@
 #include "mcc_generated_files/spi1.h"
 #include "mcc_generated_files/i2c1.h"
 #include "EEPROM_driver.h"
+#include "mcc_generated_files/pin_manager.h"
 
 
 /* 
@@ -16,7 +17,9 @@
  *
  */
 
-static uint16_t EEPROM_ADDRESS = 0x00;
+static uint16_t EEPROM_ADDRESS = 0x00; 
+static uint16_t internalMaxTemp = 0x0000;
+static uint16_t thermocoupleMaxTemp = 0x0000;
 
 /* 
  *
@@ -124,6 +127,22 @@ typedef enum
 
 static FTDI_STATUS ftdiStatus = NORMAL_OPERATION;
 
+/* 
+ *
+ *                  NEXTION SECTION 
+ *
+ */
+
+typedef enum
+{
+    NEXTION_NORMAL_OPERATION,
+    NEXTION_WRITE_EEPROM_COMMAND_HIGH_BYTE,
+    NEXTION_WRITE_EEPROM_COMMAND_LOW_BYTE,
+    NEXTION_RECEIVE_PROFILE_FROM_EEPROM
+} NEXTION_STATUS;
+
+static NEXTION_STATUS nextionStatus = NEXTION_NORMAL_OPERATION;
+
 
 /* 
  *
@@ -168,42 +187,39 @@ static TRANSCIEVE_OBJ transciveObj;
  *                  IMPLEMENTATION SECTION 
  *
  */
+
+
+void enableHeat() {
+    HEAT_IN_PROGRESS = true;
+    SSR_OUTPUT_SetHigh();
+}
+
+void disableHeat() {
+    HEAT_IN_PROGRESS = false;
+    SSR_OUTPUT_SetLow();
+}
+
 void IdleState_callback() {
     //Temperature protection - critical feature
+    if (HEAT_IN_PROGRESS) {
+        if (SENSOR_DATA_HANDLER.dataArrayQue[SENSOR_DATA_HANDLER.dataArrayStatus.currentData].s.internal_temperature_data > internalMaxTemp)
+            disableHeat();
+    
+        if (SENSOR_DATA_HANDLER.dataArrayQue[SENSOR_DATA_HANDLER.dataArrayStatus.currentData].s.thermocouple_temperature_data > thermocoupleMaxTemp)
+            disableHeat();
+    }
     
     //Toggling signal protection - critical feature
-    
+    T_PROTECTION_Toggle();
 }
 
-void ReadTemperatureData_callback() {
-    uint32_t sensorData = SPI1_Exchange32bit((uint32_t)0x0);
-    SENSOR_DATA_HANDLER.dataArrayQue[SENSOR_DATA_HANDLER.dataArrayStatus.currentData].rawData = sensorData;
-    (SENSOR_DATA_HANDLER.dataArrayStatus.currentData)++;
-    if (SENSOR_DATA_HANDLER.dataArrayStatus.currentData == SENSOR_DATA_STORE_LENGTH) {
-        SENSOR_DATA_HANDLER.dataArrayStatus.currentData = 0;
-        SENSOR_DATA_HANDLER.dataArrayStatus.isUploaded = 0x1;
-    }
+
+void loadBuffer() {
+    memcpy(temperatureHeatProfile.currentProfile.data, temperatureHeatProfile.bufferProfile.data, HEAT_PROFILE_SIZE);
 }
 
-void ReceiveNextionData_callback() {
-    
-    uint8_t msg = UART1_Read();
-    if ((msg | 0xFB) == 0xFF) {
-        // Start heating - critical feature
-    }
-    if ((msg | 0xFD) == 0xFF) {
-        //Stop heating - critical feature
-    }
-    if ((msg | 0xFE) == 0xFF) {
-        //Set selected heat profile - non critical feature
-    }
-    
-}
 
 bool checkStartConditions() {
-    
-    uint16_t internalMaxTemp = 0x0000;
-    uint16_t thermocoupleMaxTemp = 0x0000;
     
     if (ftdiStatus!=NORMAL_OPERATION)
         return false; // Transmission in progress
@@ -227,6 +243,60 @@ bool checkStartConditions() {
     
 }
 
+
+void ReadTemperatureData_callback() {
+    uint32_t sensorData = SPI1_Exchange32bit((uint32_t)0x0);
+    SENSOR_DATA_HANDLER.dataArrayQue[SENSOR_DATA_HANDLER.dataArrayStatus.currentData].rawData = sensorData;
+    (SENSOR_DATA_HANDLER.dataArrayStatus.currentData)++;
+    if (SENSOR_DATA_HANDLER.dataArrayStatus.currentData == SENSOR_DATA_STORE_LENGTH) {
+        SENSOR_DATA_HANDLER.dataArrayStatus.currentData = 0;
+        SENSOR_DATA_HANDLER.dataArrayStatus.isUploaded = 0x1;
+    }
+}
+
+void ReceiveNextionData_callback() {
+    
+    uint8_t msg = UART1_Read();
+    switch(nextionStatus) {
+        case NORMAL_OPERATION:
+            switch(msg) {
+                case 0:
+                    msg = UART1_Read();
+                    if (msg & 0x01) {
+                        // Start heating - critical feature
+                        if (checkStartConditions()) {
+                            enableHeat();
+                        }
+                    }
+                    if (msg & 0x02) {
+                        disableHeat();
+                    }
+                    if (msg & 0x04) {
+                        loadBuffer();
+                    }
+                    break;
+                case 1:
+                    nextionStatus = NEXTION_WRITE_EEPROM_COMMAND_HIGH_BYTE;
+                case 2:
+                    nextionStatus = NEXTION_RECEIVE_PROFILE_FROM_EEPROM;
+            }
+            break;
+        case NEXTION_WRITE_EEPROM_COMMAND_HIGH_BYTE:
+            temperatureHeatProfile.addressBuffer = msg << 8;
+            nextionStatus = NEXTION_WRITE_EEPROM_COMMAND_LOW_BYTE;
+            break;
+        case NEXTION_WRITE_EEPROM_COMMAND_LOW_BYTE:
+            temperatureHeatProfile.addressBuffer = msg;
+            nextionStatus = NEXTION_NORMAL_OPERATION;
+            break;
+        case NEXTION_RECEIVE_PROFILE_FROM_EEPROM:
+            addTask(IdleState,ReadEEPROM);
+            nextionStatus = NEXTION_NORMAL_OPERATION;
+    }
+    
+}
+
+
 void ReceiveFTDI_callback() {
     uint8_t msg = UART2_Read();
     switch(ftdiStatus) {
@@ -237,11 +307,11 @@ void ReceiveFTDI_callback() {
                     if (msg & 0x01) {
                         // Start heating - critical feature
                         if (checkStartConditions()) {
-                            HEAT_IN_PROGRESS = true;
+                            enableHeat();
                         }
                     }
                     if (msg & 0x02) {
-                        HEAT_IN_PROGRESS = false;
+                        disableHeat();
                     }
                     if (msg & 0x04) {
                         loadBuffer();
@@ -288,25 +358,42 @@ void ReceiveFTDI_callback() {
             ftdiStatus = NORMAL_OPERATION;
     }
 }
-    genericTranciverFunction();
+
+void genericTranciverFunction() {
+    
+        uint8_t temp_lo = SENSOR_DATA_HANDLER.dataArrayQue[SENSOR_DATA_HANDLER.dataArrayStatus.currentData].s.thermocouple_temperature_data;
+        uint8_t temp_hi = SENSOR_DATA_HANDLER.dataArrayQue[SENSOR_DATA_HANDLER.dataArrayStatus.currentData].s.thermocouple_temperature_data >> 8;   
+        uint8_t int_temp_lo = SENSOR_DATA_HANDLER.dataArrayQue[SENSOR_DATA_HANDLER.dataArrayStatus.currentData].s.internal_temperature_data;
+        uint8_t int_temp_hi = SENSOR_DATA_HANDLER.dataArrayQue[SENSOR_DATA_HANDLER.dataArrayStatus.currentData].s.internal_temperature_data >> 8;
+        switch(transciveObj.status) {
+        case TRANSCIEVE_IDLE:
+            break;
+        case TRANSCIEVE_FULL_HEAT_PROFILE:
+            UART1_WriteBuffer(temperatureHeatProfile.currentProfile.data , HEAT_PROFILE_SIZE );
+            UART2_WriteBuffer(temperatureHeatProfile.currentProfile.data , HEAT_PROFILE_SIZE );
+            break;
+        case TRANSCIEVE_CURRENT_DATA:
+            UART1_Write(temp_lo);
+            UART1_Write(temp_hi);
+            UART1_Write(int_temp_lo);
+            UART1_Write(int_temp_hi);
+            UART2_Write(temp_lo);
+            UART2_Write(temp_hi);
+            UART2_Write(int_temp_lo);
+            UART2_Write(int_temp_hi);
+            break;
+    }
+}
+
+    
 void TranscieveNextionDATA_callback() {
     genericTranciverFunction();
 }
 
 void TransciveFTDI_callback() {
-    
+    genericTranciverFunction();
 }
 
-void genericTranciverFunction() {
-        switch(transciveObj.status) {
-        case TRANSCIEVE_IDLE:
-            break;
-        case TRANSCIEVE_FULL_HEAT_PROFILE:
-            break;
-        case TRANSCIEVE_CURRENT_DATA:
-            break;
-    }
-}
 
 void ReadEEPROM_callback() {
     EEPROM_Read(EEPROM_ADDRESS,temperatureHeatProfile.addressBuffer,temperatureHeatProfile.bufferProfile.data,HEAT_PROFILE_SIZE);
@@ -342,11 +429,6 @@ void WriteEEPROM_callback() {
     }
     temperatureHeatProfile.profileStatus = IDLE;
 }
-
-void loadBuffer() {
-    memcpy(temperatureHeatProfile.currentProfile.data, temperatureHeatProfile.bufferProfile.data, HEAT_PROFILE_SIZE);
-}
-
 
 
 

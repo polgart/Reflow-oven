@@ -67,24 +67,9 @@ int main(void)
 {
     // initialize the device
     SYSTEM_Initialize();
-    uint16_t address = 0x1111;
-    I2C1_MESSAGE_STATUS pstatus;
-    uint8_t data[2] = {0xFF , 0xE3};
-    I2C1_MasterWrite(&data, 2, address, &pstatus);
-    
     // initalize base software
-    stateTaskList* TaskObj = baseSW_Initialize(); 
-    stateTaskHandler(TaskObj);
+    stateTaskHandler(baseSW_Initialize());
     
-    
-    
-    while (1)
-    {
-        
-        
-        // Add your application code
-        IO_RB2_Toggle();
-    }
 
     return 1;
 }

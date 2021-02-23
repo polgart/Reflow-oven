@@ -44,7 +44,6 @@ void stateTaskHandler(stateTaskList* task) {
 void initilaizeTaskHandler(stateTaskList* idleTask) {
     idleTask->prev=idleTask;
     idleTask->next=idleTask;
-    idleTask->simaint=42;
 }
 
 /**
