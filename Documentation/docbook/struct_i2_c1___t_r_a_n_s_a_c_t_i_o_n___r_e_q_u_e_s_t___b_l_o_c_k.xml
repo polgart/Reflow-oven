@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_i2_c1___t_r_a_n_s_a_c_t_i_o_n___r_e_q_u_e_s_t___b_l_o_c_k" xml:lang="en-US">
+<title>I2C1_TRANSACTION_REQUEST_BLOCK Struct Reference</title>
+<indexterm><primary>I2C1_TRANSACTION_REQUEST_BLOCK</primary></indexterm>
+<para>
+<computeroutput>#include &lt;i2c1.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_struct_i2_c1___t_r_a_n_s_a_c_t_i_o_n___r_e_q_u_e_s_t___b_l_o_c_k_1a643d30df67a67c5915fde941c934f9f8"/>uint16_t <emphasis role="strong">address</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_i2_c1___t_r_a_n_s_a_c_t_i_o_n___r_e_q_u_e_s_t___b_l_o_c_k_1ab2b3adeb2a67e656ff030b56727fd0ac"/>uint8_t <emphasis role="strong">length</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_i2_c1___t_r_a_n_s_a_c_t_i_o_n___r_e_q_u_e_s_t___b_l_o_c_k_1afa90d4863e2cd07ca948fe103d6f9f4f"/>uint8_t * <emphasis role="strong">pbuffer</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>I2C Driver Transaction Request Block (TRB) type definition.</para>
+
+<para>@Summary This defines the Transaction Request Block (TRB) used by the i2c master in sending/receiving data to the i2c bus.</para>
+
+<para>@Description This data type is the i2c Transaction Request Block (TRB) that the needs to be built and sent to the driver to handle each i2c requests. Using the TRB, simple to complex i2c transactions can be constructed and sent to the i2c bus. This data type is only used by the master mode. </para>
+<para>
+Definition at line 109 of file i2c1.h.</para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/i2c1.h</section>
+</section>

@@ -1,0 +1,73 @@
+.TH "C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/traps.h" 3 "Wed Feb 24 2021" "Version 1.0" "Reflow Oven" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/traps.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdint\&.h>\fP
+.br
+
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBTRAPS_ERROR_CODE\fP { \fBTRAPS_OSC_FAIL\fP = 0, \fBTRAPS_STACK_ERR\fP = 1, \fBTRAPS_ADDRESS_ERR\fP = 2, \fBTRAPS_MATH_ERR\fP = 3, \fBTRAPS_NVM_ERR\fP = 7 }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBTRAPS_halt_on_error\fP (uint16_t code)"
+.br
+.in -1c
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBTRAPS_ERROR_CODE\fP"
+System Traps Generated Driver File
+.PP
+@Company: Microchip Technology Inc\&.
+.PP
+@File Name: \fBtraps\&.h\fP
+.PP
+@Summary: This is the generated driver implementation file for handling traps using PIC24 / dsPIC33 / PIC32MM MCUs
+.PP
+@Description: This source file provides implementations for PIC24 / dsPIC33 / PIC32MM MCUs traps\&. Generation Information : Product Revision : PIC24 / dsPIC33 / PIC32MM MCUs - 1\&.170\&.0 Device : PIC24FJ256GA702 The generated drivers are tested against the following: Compiler : XC16 v1\&.61 MPLAB : MPLAB X v5\&.45 Error codes 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fITRAPS_OSC_FAIL \fP\fP
+.TP
+\fB\fITRAPS_STACK_ERR \fP\fP
+Oscillator Fail Trap vector 
+.TP
+\fB\fITRAPS_ADDRESS_ERR \fP\fP
+Stack Error Trap Vector 
+.TP
+\fB\fITRAPS_MATH_ERR \fP\fP
+Address Error Trap Vector 
+.TP
+\fB\fITRAPS_NVM_ERR \fP\fP
+Math Error Trap Vector 
+.PP
+Definition at line 53 of file traps\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "void TRAPS_halt_on_error (uint16_t code)"
+@Summary Default handler for the traps
+.PP
+@Description This routine will be called whenever a trap happens\&. It stores the trap error code and waits forever\&. This routine has a weak attribute and can be over written\&.
+.PP
+@Preconditions None\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example None\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Reflow Oven from the source code\&.

@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_clock_8h" xml:lang="en-US">
+<title>C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/clock.h File Reference</title>
+<indexterm><primary>C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/clock.h</primary></indexterm>
+<programlisting>#include &lt;stdbool.h&gt;
+</programlisting>Include dependency graph for clock.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="clock_8h__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="clock_8h__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_clock_8h_1a024148e99a7143db044a48216664d03d">_XTAL_FREQ</link>   8000000UL</para>
+</listitem>
+            <listitem><para>#define <link linkend="_clock_8h_1ae20bf0a12edd902aa2ee56554d6d4790">CLOCK_SystemFrequencyGet</link>()   (8000000UL)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_clock_8h_1a192799fb698929f78edb9653d4eea55c">CLOCK_PeripheralFrequencyGet</link>()   (<link linkend="_clock_8h_1ae20bf0a12edd902aa2ee56554d6d4790">CLOCK_SystemFrequencyGet</link>() / 2)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_clock_8h_1a7c2fd6abb192260205b77d167d8e78da">CLOCK_InstructionFrequencyGet</link>()   (<link linkend="_clock_8h_1ae20bf0a12edd902aa2ee56554d6d4790">CLOCK_SystemFrequencyGet</link>() / 2)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_clock_8h_1a98390d19c7087c52765eab23eb8ded96">CLOCK_Initialize</link> (void)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_clock_8h_1a024148e99a7143db044a48216664d03d"/>    <section>
+    <title>_XTAL_FREQ</title>
+<indexterm><primary>_XTAL_FREQ</primary><secondary>clock.h</secondary></indexterm>
+<indexterm><primary>clock.h</primary><secondary>_XTAL_FREQ</secondary></indexterm>
+<para><computeroutput>#define _XTAL_FREQ   8000000UL</computeroutput></para>
+<para>@Generated PIC24 / dsPIC33 / PIC32MM MCUs Source File</para>
+
+<para>@Company: Microchip Technology Inc.</para>
+
+<para>@File Name: <link linkend="_clock_8h">clock.h</link></para>
+
+<para>@Summary: This is the <link linkend="_clock_8h">clock.h</link> file generated using PIC24 / dsPIC33 / PIC32MM MCUs</para>
+
+<para>@Description: This header file provides implementations for driver APIs for all modules selected in the GUI. Generation Information : Product Revision : PIC24 / dsPIC33 / PIC32MM MCUs - 1.170.0 Device : PIC24FJ256GA702 The generated drivers are tested against the following: Compiler : XC16 v1.61 MPLAB : MPLAB X v5.45 Section: Included Files </para>
+<para>
+Definition at line 55 of file clock.h.</para>
+    </section><anchor xml:id="_clock_8h_1a7c2fd6abb192260205b77d167d8e78da"/>    <section>
+    <title>CLOCK_InstructionFrequencyGet</title>
+<indexterm><primary>CLOCK_InstructionFrequencyGet</primary><secondary>clock.h</secondary></indexterm>
+<indexterm><primary>clock.h</primary><secondary>CLOCK_InstructionFrequencyGet</secondary></indexterm>
+<para><computeroutput>#define CLOCK_InstructionFrequencyGet( )   (<link linkend="_clock_8h_1ae20bf0a12edd902aa2ee56554d6d4790">CLOCK_SystemFrequencyGet</link>() / 2)</computeroutput></para><para>
+Definition at line 62 of file clock.h.</para>
+    </section><anchor xml:id="_clock_8h_1a192799fb698929f78edb9653d4eea55c"/>    <section>
+    <title>CLOCK_PeripheralFrequencyGet</title>
+<indexterm><primary>CLOCK_PeripheralFrequencyGet</primary><secondary>clock.h</secondary></indexterm>
+<indexterm><primary>clock.h</primary><secondary>CLOCK_PeripheralFrequencyGet</secondary></indexterm>
+<para><computeroutput>#define CLOCK_PeripheralFrequencyGet( )   (<link linkend="_clock_8h_1ae20bf0a12edd902aa2ee56554d6d4790">CLOCK_SystemFrequencyGet</link>() / 2)</computeroutput></para><para>
+Definition at line 60 of file clock.h.</para>
+    </section><anchor xml:id="_clock_8h_1ae20bf0a12edd902aa2ee56554d6d4790"/>    <section>
+    <title>CLOCK_SystemFrequencyGet</title>
+<indexterm><primary>CLOCK_SystemFrequencyGet</primary><secondary>clock.h</secondary></indexterm>
+<indexterm><primary>clock.h</primary><secondary>CLOCK_SystemFrequencyGet</secondary></indexterm>
+<para><computeroutput>#define CLOCK_SystemFrequencyGet( )   (8000000UL)</computeroutput></para><para>
+Definition at line 58 of file clock.h.</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_clock_8h_1a98390d19c7087c52765eab23eb8ded96"/>    <section>
+    <title>CLOCK_Initialize()</title>
+<indexterm><primary>CLOCK_Initialize</primary><secondary>clock.h</secondary></indexterm>
+<indexterm><primary>clock.h</primary><secondary>CLOCK_Initialize</secondary></indexterm>
+<para><computeroutput>void CLOCK_Initialize (void )</computeroutput></para>
+<para>@Param none @Returns none @Description Initializes the oscillator to the default states configured in the MCC GUI @Example <link linkend="_clock_8c_1a98390d19c7087c52765eab23eb8ded96">CLOCK_Initialize(void)</link>;</para>
+
+<para>@Generated PIC24 / dsPIC33 / PIC32MM MCUs Source File</para>
+
+<para>@Company: Microchip Technology Inc.</para>
+
+<para>@File Name: <link linkend="_clock_8c">clock.c</link></para>
+
+<para>@Summary: This is the <link linkend="_clock_8c">clock.c</link> file generated using PIC24 / dsPIC33 / PIC32MM MCUs</para>
+
+<para>@Description: This header file provides implementations for driver APIs for all modules selected in the GUI. Generation Information : Product Revision : PIC24 / dsPIC33 / PIC32MM MCUs - 1.170.0 Device : PIC24FJ256GA702 The generated drivers are tested against the following: Compiler : XC16 v1.61 MPLAB : MPLAB X v5.45 </para>
+<para>
+Definition at line 49 of file clock.c.</para>
+</section>
+</section>
+</section>

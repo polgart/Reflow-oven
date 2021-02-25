@@ -1,0 +1,85 @@
+.TH "stateTaskHandler.h" 3 "Thu Feb 25 2021" "Version 1.0" "Reflow Oven firmware" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+stateTaskHandler.h
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBstateTaskList_s\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBstateTaskList_s\fP \fBstateTaskList\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBstateTaskHandler\fP (\fBstateTaskList\fP *task)"
+.br
+.ti -1c
+.RI "\fBstateTaskList\fP * \fBcreateTask\fP (void(*function)(void))"
+.br
+.ti -1c
+.RI "void \fBinitilaizeTaskHandler\fP (\fBstateTaskList\fP *idleTask)"
+.br
+.ti -1c
+.RI "void \fBaddTask\fP (\fBstateTaskList\fP *idleTask, \fBstateTaskList\fP *newTask)"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBstateTaskList_s\fP \fBstateTaskList\fP"
+
+.PP
+Definition at line 1 of file stateTaskHandler\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "void addTask (\fBstateTaskList\fP * idleTask, \fBstateTaskList\fP * newTask)"
+stateTaskList
+.PP
+@Summary
+.PP
+@Description 
+.PP
+Definition at line 77 of file stateTaskHandler\&.c\&.
+.SS "\fBstateTaskList\fP* createTask (void(*)(void) function)"
+stateTaskList
+.PP
+@Summary
+.PP
+@Description 
+.PP
+Definition at line 59 of file stateTaskHandler\&.c\&.
+.SS "void initilaizeTaskHandler (\fBstateTaskList\fP * idleTask)"
+stateTaskList
+.PP
+@Summary
+.PP
+@Description 
+.PP
+Definition at line 44 of file stateTaskHandler\&.c\&.
+.SS "void stateTaskHandler (\fBstateTaskList\fP * task)"
+stateTaskList
+.PP
+@Summary
+.PP
+@Description stateTaskList
+.PP
+@Summary
+.PP
+@Description 
+.PP
+Definition at line 25 of file stateTaskHandler\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Reflow Oven firmware from the source code\&.

@@ -1,0 +1,87 @@
+\hypertarget{_e_e_p_r_o_m__driver_8h}{}\doxysection{EEPROM\+\_\+driver.\+h File Reference}
+\label{_e_e_p_r_o_m__driver_8h}\index{EEPROM\_driver.h@{EEPROM\_driver.h}}
+{\ttfamily \#include \char`\"{}mcc\+\_\+generated\+\_\+files/i2c1.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_e_e_p_r_o_m__driver_8h_a9cc051403ec4a8e46ad9803031217142}{DEVICE\+\_\+\+RETRY\+\_\+\+MAX}}~100
+\item 
+\#define \mbox{\hyperlink{_e_e_p_r_o_m__driver_8h_a457be1c5e5fee67ed7d01f5887c2d656}{DEVICE\+\_\+\+ADDRESS}}~0x50
+\item 
+\#define \mbox{\hyperlink{_e_e_p_r_o_m__driver_8h_a87a752ea5416747656e59831318ba29c}{DEVICE\+\_\+\+TIMEOUT}}~50
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+I2\+C1\+\_\+\+MESSAGE\+\_\+\+STATUS \mbox{\hyperlink{_e_e_p_r_o_m__driver_8h_a4a7ac4599f03f90076d31e960e3b5d7f}{EEPROM\+\_\+\+Read}} (uint16\+\_\+t slave\+Device\+Address, uint16\+\_\+t data\+Address, uint8\+\_\+t $\ast$p\+Data, uint16\+\_\+t n\+Count)
+\item 
+I2\+C1\+\_\+\+MESSAGE\+\_\+\+STATUS \mbox{\hyperlink{_e_e_p_r_o_m__driver_8h_a444b797a27772eb3c2cda0dd76b55b28}{EEPROM\+\_\+\+Write}} (uint16\+\_\+t slave\+Device\+Address, uint16\+\_\+t data\+Address, uint8\+\_\+t $\ast$p\+Data, uint16\+\_\+t n\+Count)
+\item 
+I2\+C1\+\_\+\+MESSAGE\+\_\+\+STATUS \mbox{\hyperlink{_e_e_p_r_o_m__driver_8h_ac65f0c4ca17c5717dc8bf08999f7ff60}{EEPROM\+\_\+\+Write\+Page}} (uint16\+\_\+t slave\+Device\+Address, uint16\+\_\+t data\+Address, uint8\+\_\+t $\ast$p\+Data)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_e_e_p_r_o_m__driver_8h_a457be1c5e5fee67ed7d01f5887c2d656}\label{_e_e_p_r_o_m__driver_8h_a457be1c5e5fee67ed7d01f5887c2d656}} 
+\index{EEPROM\_driver.h@{EEPROM\_driver.h}!DEVICE\_ADDRESS@{DEVICE\_ADDRESS}}
+\index{DEVICE\_ADDRESS@{DEVICE\_ADDRESS}!EEPROM\_driver.h@{EEPROM\_driver.h}}
+\doxysubsubsection{\texorpdfstring{DEVICE\_ADDRESS}{DEVICE\_ADDRESS}}
+{\footnotesize\ttfamily \#define DEVICE\+\_\+\+ADDRESS~0x50}
+
+
+
+Definition at line 12 of file EEPROM\+\_\+driver.\+h.
+
+\mbox{\Hypertarget{_e_e_p_r_o_m__driver_8h_a9cc051403ec4a8e46ad9803031217142}\label{_e_e_p_r_o_m__driver_8h_a9cc051403ec4a8e46ad9803031217142}} 
+\index{EEPROM\_driver.h@{EEPROM\_driver.h}!DEVICE\_RETRY\_MAX@{DEVICE\_RETRY\_MAX}}
+\index{DEVICE\_RETRY\_MAX@{DEVICE\_RETRY\_MAX}!EEPROM\_driver.h@{EEPROM\_driver.h}}
+\doxysubsubsection{\texorpdfstring{DEVICE\_RETRY\_MAX}{DEVICE\_RETRY\_MAX}}
+{\footnotesize\ttfamily \#define DEVICE\+\_\+\+RETRY\+\_\+\+MAX~100}
+
+
+
+Definition at line 11 of file EEPROM\+\_\+driver.\+h.
+
+\mbox{\Hypertarget{_e_e_p_r_o_m__driver_8h_a87a752ea5416747656e59831318ba29c}\label{_e_e_p_r_o_m__driver_8h_a87a752ea5416747656e59831318ba29c}} 
+\index{EEPROM\_driver.h@{EEPROM\_driver.h}!DEVICE\_TIMEOUT@{DEVICE\_TIMEOUT}}
+\index{DEVICE\_TIMEOUT@{DEVICE\_TIMEOUT}!EEPROM\_driver.h@{EEPROM\_driver.h}}
+\doxysubsubsection{\texorpdfstring{DEVICE\_TIMEOUT}{DEVICE\_TIMEOUT}}
+{\footnotesize\ttfamily \#define DEVICE\+\_\+\+TIMEOUT~50}
+
+
+
+Definition at line 13 of file EEPROM\+\_\+driver.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_e_e_p_r_o_m__driver_8h_a4a7ac4599f03f90076d31e960e3b5d7f}\label{_e_e_p_r_o_m__driver_8h_a4a7ac4599f03f90076d31e960e3b5d7f}} 
+\index{EEPROM\_driver.h@{EEPROM\_driver.h}!EEPROM\_Read@{EEPROM\_Read}}
+\index{EEPROM\_Read@{EEPROM\_Read}!EEPROM\_driver.h@{EEPROM\_driver.h}}
+\doxysubsubsection{\texorpdfstring{EEPROM\_Read()}{EEPROM\_Read()}}
+{\footnotesize\ttfamily I2\+C1\+\_\+\+MESSAGE\+\_\+\+STATUS EEPROM\+\_\+\+Read (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{slave\+Device\+Address,  }\item[{uint16\+\_\+t}]{data\+Address,  }\item[{uint8\+\_\+t $\ast$}]{p\+Data,  }\item[{uint16\+\_\+t}]{n\+Count }\end{DoxyParamCaption})}
+
+
+
+Definition at line 6 of file EEPROM\+\_\+driver.\+c.
+
+\mbox{\Hypertarget{_e_e_p_r_o_m__driver_8h_a444b797a27772eb3c2cda0dd76b55b28}\label{_e_e_p_r_o_m__driver_8h_a444b797a27772eb3c2cda0dd76b55b28}} 
+\index{EEPROM\_driver.h@{EEPROM\_driver.h}!EEPROM\_Write@{EEPROM\_Write}}
+\index{EEPROM\_Write@{EEPROM\_Write}!EEPROM\_driver.h@{EEPROM\_driver.h}}
+\doxysubsubsection{\texorpdfstring{EEPROM\_Write()}{EEPROM\_Write()}}
+{\footnotesize\ttfamily I2\+C1\+\_\+\+MESSAGE\+\_\+\+STATUS EEPROM\+\_\+\+Write (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{slave\+Device\+Address,  }\item[{uint16\+\_\+t}]{data\+Address,  }\item[{uint8\+\_\+t $\ast$}]{p\+Data,  }\item[{uint16\+\_\+t}]{n\+Count }\end{DoxyParamCaption})}
+
+
+
+Definition at line 78 of file EEPROM\+\_\+driver.\+c.
+
+\mbox{\Hypertarget{_e_e_p_r_o_m__driver_8h_ac65f0c4ca17c5717dc8bf08999f7ff60}\label{_e_e_p_r_o_m__driver_8h_ac65f0c4ca17c5717dc8bf08999f7ff60}} 
+\index{EEPROM\_driver.h@{EEPROM\_driver.h}!EEPROM\_WritePage@{EEPROM\_WritePage}}
+\index{EEPROM\_WritePage@{EEPROM\_WritePage}!EEPROM\_driver.h@{EEPROM\_driver.h}}
+\doxysubsubsection{\texorpdfstring{EEPROM\_WritePage()}{EEPROM\_WritePage()}}
+{\footnotesize\ttfamily I2\+C1\+\_\+\+MESSAGE\+\_\+\+STATUS EEPROM\+\_\+\+Write\+Page (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{slave\+Device\+Address,  }\item[{uint16\+\_\+t}]{data\+Address,  }\item[{uint8\+\_\+t $\ast$}]{p\+Data }\end{DoxyParamCaption})}
+
+
+
+Definition at line 153 of file EEPROM\+\_\+driver.\+c.
+

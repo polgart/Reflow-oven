@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_base_s_w_8h" xml:lang="en-US">
+<title>baseSW.h File Reference</title>
+<indexterm><primary>baseSW.h</primary></indexterm>
+<programlisting>#include &quot;stateTaskHandler.h&quot;
+</programlisting><simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_state_task_handler_8h_1ac70d77726e89cd77b1604f36f0768724">stateTaskList</link> * <link linkend="_base_s_w_8h_1a26152edbd9eb97c5e90eb637c8535600">baseSW_Initialize</link> (void)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_base_s_w_8h_1a26152edbd9eb97c5e90eb637c8535600"/>    <section>
+    <title>baseSW_Initialize()</title>
+<indexterm><primary>baseSW_Initialize</primary><secondary>baseSW.h</secondary></indexterm>
+<indexterm><primary>baseSW.h</primary><secondary>baseSW_Initialize</secondary></indexterm>
+<para><computeroutput><link linkend="_state_task_handler_8h_1ac70d77726e89cd77b1604f36f0768724">stateTaskList</link>* baseSW_Initialize (void )</computeroutput></para><para>
+Definition at line 559 of file baseSW.c.</para>
+</section>
+</section>
+</section>

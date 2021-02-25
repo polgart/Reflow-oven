@@ -1,0 +1,1205 @@
+.TH "C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/pin_manager.h" 3 "Wed Feb 24 2021" "Version 1.0" "Reflow Oven" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/pin_manager.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <xc\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBT_PROTECTION_SetHigh\fP()   (_LATA0 = 1)"
+.br
+.ti -1c
+.RI "#define \fBT_PROTECTION_SetLow\fP()   (_LATA0 = 0)"
+.br
+.ti -1c
+.RI "#define \fBT_PROTECTION_Toggle\fP()   (_LATA0 ^= 1)"
+.br
+.ti -1c
+.RI "#define \fBT_PROTECTION_GetValue\fP()   _RA0"
+.br
+.ti -1c
+.RI "#define \fBT_PROTECTION_SetDigitalInput\fP()   (_TRISA0 = 1)"
+.br
+.ti -1c
+.RI "#define \fBT_PROTECTION_SetDigitalOutput\fP()   (_TRISA0 = 0)"
+.br
+.ti -1c
+.RI "#define \fBGPIO1_SetHigh\fP()   (_LATA1 = 1)"
+.br
+.ti -1c
+.RI "#define \fBGPIO1_SetLow\fP()   (_LATA1 = 0)"
+.br
+.ti -1c
+.RI "#define \fBGPIO1_Toggle\fP()   (_LATA1 ^= 1)"
+.br
+.ti -1c
+.RI "#define \fBGPIO1_GetValue\fP()   _RA1"
+.br
+.ti -1c
+.RI "#define \fBGPIO1_SetDigitalInput\fP()   (_TRISA1 = 1)"
+.br
+.ti -1c
+.RI "#define \fBGPIO1_SetDigitalOutput\fP()   (_TRISA1 = 0)"
+.br
+.ti -1c
+.RI "#define \fBGPIO2_SetHigh\fP()   (_LATA2 = 1)"
+.br
+.ti -1c
+.RI "#define \fBGPIO2_SetLow\fP()   (_LATA2 = 0)"
+.br
+.ti -1c
+.RI "#define \fBGPIO2_Toggle\fP()   (_LATA2 ^= 1)"
+.br
+.ti -1c
+.RI "#define \fBGPIO2_GetValue\fP()   _RA2"
+.br
+.ti -1c
+.RI "#define \fBGPIO2_SetDigitalInput\fP()   (_TRISA2 = 1)"
+.br
+.ti -1c
+.RI "#define \fBGPIO2_SetDigitalOutput\fP()   (_TRISA2 = 0)"
+.br
+.ti -1c
+.RI "#define \fBSSR_OUTPUT_SetHigh\fP()   (_LATA4 = 1)"
+.br
+.ti -1c
+.RI "#define \fBSSR_OUTPUT_SetLow\fP()   (_LATA4 = 0)"
+.br
+.ti -1c
+.RI "#define \fBSSR_OUTPUT_Toggle\fP()   (_LATA4 ^= 1)"
+.br
+.ti -1c
+.RI "#define \fBSSR_OUTPUT_GetValue\fP()   _RA4"
+.br
+.ti -1c
+.RI "#define \fBSSR_OUTPUT_SetDigitalInput\fP()   (_TRISA4 = 1)"
+.br
+.ti -1c
+.RI "#define \fBSSR_OUTPUT_SetDigitalOutput\fP()   (_TRISA4 = 0)"
+.br
+.ti -1c
+.RI "#define \fBSS1OUT_SetHigh\fP()   (_LATB10 = 1)"
+.br
+.ti -1c
+.RI "#define \fBSS1OUT_SetLow\fP()   (_LATB10 = 0)"
+.br
+.ti -1c
+.RI "#define \fBSS1OUT_Toggle\fP()   (_LATB10 ^= 1)"
+.br
+.ti -1c
+.RI "#define \fBSS1OUT_GetValue\fP()   _RB10"
+.br
+.ti -1c
+.RI "#define \fBSS1OUT_SetDigitalInput\fP()   (_TRISB10 = 1)"
+.br
+.ti -1c
+.RI "#define \fBSS1OUT_SetDigitalOutput\fP()   (_TRISB10 = 0)"
+.br
+.ti -1c
+.RI "#define \fBGPIO3_SetHigh\fP()   (_LATB2 = 1)"
+.br
+.ti -1c
+.RI "#define \fBGPIO3_SetLow\fP()   (_LATB2 = 0)"
+.br
+.ti -1c
+.RI "#define \fBGPIO3_Toggle\fP()   (_LATB2 ^= 1)"
+.br
+.ti -1c
+.RI "#define \fBGPIO3_GetValue\fP()   _RB2"
+.br
+.ti -1c
+.RI "#define \fBGPIO3_SetDigitalInput\fP()   (_TRISB2 = 1)"
+.br
+.ti -1c
+.RI "#define \fBGPIO3_SetDigitalOutput\fP()   (_TRISB2 = 0)"
+.br
+.ti -1c
+.RI "#define \fBGPIO4_SetHigh\fP()   (_LATB3 = 1)"
+.br
+.ti -1c
+.RI "#define \fBGPIO4_SetLow\fP()   (_LATB3 = 0)"
+.br
+.ti -1c
+.RI "#define \fBGPIO4_Toggle\fP()   (_LATB3 ^= 1)"
+.br
+.ti -1c
+.RI "#define \fBGPIO4_GetValue\fP()   _RB3"
+.br
+.ti -1c
+.RI "#define \fBGPIO4_SetDigitalInput\fP()   (_TRISB3 = 1)"
+.br
+.ti -1c
+.RI "#define \fBGPIO4_SetDigitalOutput\fP()   (_TRISB3 = 0)"
+.br
+.ti -1c
+.RI "#define \fBGPIO5_SetHigh\fP()   (_LATB4 = 1)"
+.br
+.ti -1c
+.RI "#define \fBGPIO5_SetLow\fP()   (_LATB4 = 0)"
+.br
+.ti -1c
+.RI "#define \fBGPIO5_Toggle\fP()   (_LATB4 ^= 1)"
+.br
+.ti -1c
+.RI "#define \fBGPIO5_GetValue\fP()   _RB4"
+.br
+.ti -1c
+.RI "#define \fBGPIO5_SetDigitalInput\fP()   (_TRISB4 = 1)"
+.br
+.ti -1c
+.RI "#define \fBGPIO5_SetDigitalOutput\fP()   (_TRISB4 = 0)"
+.br
+.ti -1c
+.RI "#define \fBGPIO6_SetHigh\fP()   (_LATB7 = 1)"
+.br
+.ti -1c
+.RI "#define \fBGPIO6_SetLow\fP()   (_LATB7 = 0)"
+.br
+.ti -1c
+.RI "#define \fBGPIO6_Toggle\fP()   (_LATB7 ^= 1)"
+.br
+.ti -1c
+.RI "#define \fBGPIO6_GetValue\fP()   _RB7"
+.br
+.ti -1c
+.RI "#define \fBGPIO6_SetDigitalInput\fP()   (_TRISB7 = 1)"
+.br
+.ti -1c
+.RI "#define \fBGPIO6_SetDigitalOutput\fP()   (_TRISB7 = 0)"
+.br
+.ti -1c
+.RI "#define \fBSCK1OUT_SetHigh\fP()   (_LATB8 = 1)"
+.br
+.ti -1c
+.RI "#define \fBSCK1OUT_SetLow\fP()   (_LATB8 = 0)"
+.br
+.ti -1c
+.RI "#define \fBSCK1OUT_Toggle\fP()   (_LATB8 ^= 1)"
+.br
+.ti -1c
+.RI "#define \fBSCK1OUT_GetValue\fP()   _RB8"
+.br
+.ti -1c
+.RI "#define \fBSCK1OUT_SetDigitalInput\fP()   (_TRISB8 = 1)"
+.br
+.ti -1c
+.RI "#define \fBSCK1OUT_SetDigitalOutput\fP()   (_TRISB8 = 0)"
+.br
+.ti -1c
+.RI "#define \fBSDI1_SetHigh\fP()   (_LATB9 = 1)"
+.br
+.ti -1c
+.RI "#define \fBSDI1_SetLow\fP()   (_LATB9 = 0)"
+.br
+.ti -1c
+.RI "#define \fBSDI1_Toggle\fP()   (_LATB9 ^= 1)"
+.br
+.ti -1c
+.RI "#define \fBSDI1_GetValue\fP()   _RB9"
+.br
+.ti -1c
+.RI "#define \fBSDI1_SetDigitalInput\fP()   (_TRISB9 = 1)"
+.br
+.ti -1c
+.RI "#define \fBSDI1_SetDigitalOutput\fP()   (_TRISB9 = 0)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBPIN_MANAGER_Initialize\fP (void)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define GPIO1_GetValue()   _RA1"
+@Summary Reads the value of the GPIO pin, RA1\&.
+.PP
+@Description Reads the value of the GPIO pin, RA1\&.
+.PP
+@Preconditions None\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC uint16_t portValue;\fP
+.PP
+\fCRead RA1 postValue = \fBGPIO1_GetValue()\fP; \fP 
+.PP
+Definition at line 300 of file pin_manager\&.h\&.
+.SS "#define GPIO1_SetDigitalInput()   (_TRISA1 = 1)"
+@Summary Configures the GPIO pin, RA1, as an input\&.
+.PP
+@Description Configures the GPIO pin, RA1, as an input\&.
+.PP
+@Preconditions None\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Sets the RA1 as an input \fBGPIO1_SetDigitalInput()\fP; \fP 
+.PP
+Definition at line 324 of file pin_manager\&.h\&.
+.SS "#define GPIO1_SetDigitalOutput()   (_TRISA1 = 0)"
+@Summary Configures the GPIO pin, RA1, as an output\&.
+.PP
+@Description Configures the GPIO pin, RA1, as an output\&.
+.PP
+@Preconditions None\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Sets the RA1 as an output \fBGPIO1_SetDigitalOutput()\fP; \fP 
+.PP
+Definition at line 348 of file pin_manager\&.h\&.
+.SS "#define GPIO1_SetHigh()   (_LATA1 = 1)"
+@Summary Sets the GPIO pin, RA1, high using LATA1\&.
+.PP
+@Description Sets the GPIO pin, RA1, high using LATA1\&.
+.PP
+@Preconditions The RA1 must be set to an output\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Set RA1 high (1) \fBGPIO1_SetHigh()\fP; \fP 
+.PP
+Definition at line 226 of file pin_manager\&.h\&.
+.SS "#define GPIO1_SetLow()   (_LATA1 = 0)"
+@Summary Sets the GPIO pin, RA1, low using LATA1\&.
+.PP
+@Description Sets the GPIO pin, RA1, low using LATA1\&.
+.PP
+@Preconditions The RA1 must be set to an output\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Set RA1 low (0) \fBGPIO1_SetLow()\fP; \fP 
+.PP
+Definition at line 250 of file pin_manager\&.h\&.
+.SS "#define GPIO1_Toggle()   (_LATA1 ^= 1)"
+@Summary Toggles the GPIO pin, RA1, using LATA1\&.
+.PP
+@Description Toggles the GPIO pin, RA1, using LATA1\&.
+.PP
+@Preconditions The RA1 must be set to an output\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Toggle RA1 \fBGPIO1_Toggle()\fP; \fP 
+.PP
+Definition at line 274 of file pin_manager\&.h\&.
+.SS "#define GPIO2_GetValue()   _RA2"
+@Summary Reads the value of the GPIO pin, RA2\&.
+.PP
+@Description Reads the value of the GPIO pin, RA2\&.
+.PP
+@Preconditions None\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC uint16_t portValue;\fP
+.PP
+\fCRead RA2 postValue = \fBGPIO2_GetValue()\fP; \fP 
+.PP
+Definition at line 446 of file pin_manager\&.h\&.
+.SS "#define GPIO2_SetDigitalInput()   (_TRISA2 = 1)"
+@Summary Configures the GPIO pin, RA2, as an input\&.
+.PP
+@Description Configures the GPIO pin, RA2, as an input\&.
+.PP
+@Preconditions None\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Sets the RA2 as an input \fBGPIO2_SetDigitalInput()\fP; \fP 
+.PP
+Definition at line 470 of file pin_manager\&.h\&.
+.SS "#define GPIO2_SetDigitalOutput()   (_TRISA2 = 0)"
+@Summary Configures the GPIO pin, RA2, as an output\&.
+.PP
+@Description Configures the GPIO pin, RA2, as an output\&.
+.PP
+@Preconditions None\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Sets the RA2 as an output \fBGPIO2_SetDigitalOutput()\fP; \fP 
+.PP
+Definition at line 494 of file pin_manager\&.h\&.
+.SS "#define GPIO2_SetHigh()   (_LATA2 = 1)"
+@Summary Sets the GPIO pin, RA2, high using LATA2\&.
+.PP
+@Description Sets the GPIO pin, RA2, high using LATA2\&.
+.PP
+@Preconditions The RA2 must be set to an output\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Set RA2 high (1) \fBGPIO2_SetHigh()\fP; \fP 
+.PP
+Definition at line 372 of file pin_manager\&.h\&.
+.SS "#define GPIO2_SetLow()   (_LATA2 = 0)"
+@Summary Sets the GPIO pin, RA2, low using LATA2\&.
+.PP
+@Description Sets the GPIO pin, RA2, low using LATA2\&.
+.PP
+@Preconditions The RA2 must be set to an output\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Set RA2 low (0) \fBGPIO2_SetLow()\fP; \fP 
+.PP
+Definition at line 396 of file pin_manager\&.h\&.
+.SS "#define GPIO2_Toggle()   (_LATA2 ^= 1)"
+@Summary Toggles the GPIO pin, RA2, using LATA2\&.
+.PP
+@Description Toggles the GPIO pin, RA2, using LATA2\&.
+.PP
+@Preconditions The RA2 must be set to an output\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Toggle RA2 \fBGPIO2_Toggle()\fP; \fP 
+.PP
+Definition at line 420 of file pin_manager\&.h\&.
+.SS "#define GPIO3_GetValue()   _RB2"
+@Summary Reads the value of the GPIO pin, RB2\&.
+.PP
+@Description Reads the value of the GPIO pin, RB2\&.
+.PP
+@Preconditions None\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC uint16_t portValue;\fP
+.PP
+\fCRead RB2 postValue = \fBGPIO3_GetValue()\fP; \fP 
+.PP
+Definition at line 884 of file pin_manager\&.h\&.
+.SS "#define GPIO3_SetDigitalInput()   (_TRISB2 = 1)"
+@Summary Configures the GPIO pin, RB2, as an input\&.
+.PP
+@Description Configures the GPIO pin, RB2, as an input\&.
+.PP
+@Preconditions None\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Sets the RB2 as an input \fBGPIO3_SetDigitalInput()\fP; \fP 
+.PP
+Definition at line 908 of file pin_manager\&.h\&.
+.SS "#define GPIO3_SetDigitalOutput()   (_TRISB2 = 0)"
+@Summary Configures the GPIO pin, RB2, as an output\&.
+.PP
+@Description Configures the GPIO pin, RB2, as an output\&.
+.PP
+@Preconditions None\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Sets the RB2 as an output \fBGPIO3_SetDigitalOutput()\fP; \fP 
+.PP
+Definition at line 932 of file pin_manager\&.h\&.
+.SS "#define GPIO3_SetHigh()   (_LATB2 = 1)"
+@Summary Sets the GPIO pin, RB2, high using LATB2\&.
+.PP
+@Description Sets the GPIO pin, RB2, high using LATB2\&.
+.PP
+@Preconditions The RB2 must be set to an output\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Set RB2 high (1) \fBGPIO3_SetHigh()\fP; \fP 
+.PP
+Definition at line 810 of file pin_manager\&.h\&.
+.SS "#define GPIO3_SetLow()   (_LATB2 = 0)"
+@Summary Sets the GPIO pin, RB2, low using LATB2\&.
+.PP
+@Description Sets the GPIO pin, RB2, low using LATB2\&.
+.PP
+@Preconditions The RB2 must be set to an output\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Set RB2 low (0) \fBGPIO3_SetLow()\fP; \fP 
+.PP
+Definition at line 834 of file pin_manager\&.h\&.
+.SS "#define GPIO3_Toggle()   (_LATB2 ^= 1)"
+@Summary Toggles the GPIO pin, RB2, using LATB2\&.
+.PP
+@Description Toggles the GPIO pin, RB2, using LATB2\&.
+.PP
+@Preconditions The RB2 must be set to an output\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Toggle RB2 \fBGPIO3_Toggle()\fP; \fP 
+.PP
+Definition at line 858 of file pin_manager\&.h\&.
+.SS "#define GPIO4_GetValue()   _RB3"
+@Summary Reads the value of the GPIO pin, RB3\&.
+.PP
+@Description Reads the value of the GPIO pin, RB3\&.
+.PP
+@Preconditions None\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC uint16_t portValue;\fP
+.PP
+\fCRead RB3 postValue = \fBGPIO4_GetValue()\fP; \fP 
+.PP
+Definition at line 1030 of file pin_manager\&.h\&.
+.SS "#define GPIO4_SetDigitalInput()   (_TRISB3 = 1)"
+@Summary Configures the GPIO pin, RB3, as an input\&.
+.PP
+@Description Configures the GPIO pin, RB3, as an input\&.
+.PP
+@Preconditions None\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Sets the RB3 as an input \fBGPIO4_SetDigitalInput()\fP; \fP 
+.PP
+Definition at line 1054 of file pin_manager\&.h\&.
+.SS "#define GPIO4_SetDigitalOutput()   (_TRISB3 = 0)"
+@Summary Configures the GPIO pin, RB3, as an output\&.
+.PP
+@Description Configures the GPIO pin, RB3, as an output\&.
+.PP
+@Preconditions None\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Sets the RB3 as an output \fBGPIO4_SetDigitalOutput()\fP; \fP 
+.PP
+Definition at line 1078 of file pin_manager\&.h\&.
+.SS "#define GPIO4_SetHigh()   (_LATB3 = 1)"
+@Summary Sets the GPIO pin, RB3, high using LATB3\&.
+.PP
+@Description Sets the GPIO pin, RB3, high using LATB3\&.
+.PP
+@Preconditions The RB3 must be set to an output\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Set RB3 high (1) \fBGPIO4_SetHigh()\fP; \fP 
+.PP
+Definition at line 956 of file pin_manager\&.h\&.
+.SS "#define GPIO4_SetLow()   (_LATB3 = 0)"
+@Summary Sets the GPIO pin, RB3, low using LATB3\&.
+.PP
+@Description Sets the GPIO pin, RB3, low using LATB3\&.
+.PP
+@Preconditions The RB3 must be set to an output\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Set RB3 low (0) \fBGPIO4_SetLow()\fP; \fP 
+.PP
+Definition at line 980 of file pin_manager\&.h\&.
+.SS "#define GPIO4_Toggle()   (_LATB3 ^= 1)"
+@Summary Toggles the GPIO pin, RB3, using LATB3\&.
+.PP
+@Description Toggles the GPIO pin, RB3, using LATB3\&.
+.PP
+@Preconditions The RB3 must be set to an output\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Toggle RB3 \fBGPIO4_Toggle()\fP; \fP 
+.PP
+Definition at line 1004 of file pin_manager\&.h\&.
+.SS "#define GPIO5_GetValue()   _RB4"
+@Summary Reads the value of the GPIO pin, RB4\&.
+.PP
+@Description Reads the value of the GPIO pin, RB4\&.
+.PP
+@Preconditions None\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC uint16_t portValue;\fP
+.PP
+\fCRead RB4 postValue = \fBGPIO5_GetValue()\fP; \fP 
+.PP
+Definition at line 1176 of file pin_manager\&.h\&.
+.SS "#define GPIO5_SetDigitalInput()   (_TRISB4 = 1)"
+@Summary Configures the GPIO pin, RB4, as an input\&.
+.PP
+@Description Configures the GPIO pin, RB4, as an input\&.
+.PP
+@Preconditions None\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Sets the RB4 as an input \fBGPIO5_SetDigitalInput()\fP; \fP 
+.PP
+Definition at line 1200 of file pin_manager\&.h\&.
+.SS "#define GPIO5_SetDigitalOutput()   (_TRISB4 = 0)"
+@Summary Configures the GPIO pin, RB4, as an output\&.
+.PP
+@Description Configures the GPIO pin, RB4, as an output\&.
+.PP
+@Preconditions None\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Sets the RB4 as an output \fBGPIO5_SetDigitalOutput()\fP; \fP 
+.PP
+Definition at line 1224 of file pin_manager\&.h\&.
+.SS "#define GPIO5_SetHigh()   (_LATB4 = 1)"
+@Summary Sets the GPIO pin, RB4, high using LATB4\&.
+.PP
+@Description Sets the GPIO pin, RB4, high using LATB4\&.
+.PP
+@Preconditions The RB4 must be set to an output\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Set RB4 high (1) \fBGPIO5_SetHigh()\fP; \fP 
+.PP
+Definition at line 1102 of file pin_manager\&.h\&.
+.SS "#define GPIO5_SetLow()   (_LATB4 = 0)"
+@Summary Sets the GPIO pin, RB4, low using LATB4\&.
+.PP
+@Description Sets the GPIO pin, RB4, low using LATB4\&.
+.PP
+@Preconditions The RB4 must be set to an output\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Set RB4 low (0) \fBGPIO5_SetLow()\fP; \fP 
+.PP
+Definition at line 1126 of file pin_manager\&.h\&.
+.SS "#define GPIO5_Toggle()   (_LATB4 ^= 1)"
+@Summary Toggles the GPIO pin, RB4, using LATB4\&.
+.PP
+@Description Toggles the GPIO pin, RB4, using LATB4\&.
+.PP
+@Preconditions The RB4 must be set to an output\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Toggle RB4 \fBGPIO5_Toggle()\fP; \fP 
+.PP
+Definition at line 1150 of file pin_manager\&.h\&.
+.SS "#define GPIO6_GetValue()   _RB7"
+@Summary Reads the value of the GPIO pin, RB7\&.
+.PP
+@Description Reads the value of the GPIO pin, RB7\&.
+.PP
+@Preconditions None\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC uint16_t portValue;\fP
+.PP
+\fCRead RB7 postValue = \fBGPIO6_GetValue()\fP; \fP 
+.PP
+Definition at line 1322 of file pin_manager\&.h\&.
+.SS "#define GPIO6_SetDigitalInput()   (_TRISB7 = 1)"
+@Summary Configures the GPIO pin, RB7, as an input\&.
+.PP
+@Description Configures the GPIO pin, RB7, as an input\&.
+.PP
+@Preconditions None\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Sets the RB7 as an input \fBGPIO6_SetDigitalInput()\fP; \fP 
+.PP
+Definition at line 1346 of file pin_manager\&.h\&.
+.SS "#define GPIO6_SetDigitalOutput()   (_TRISB7 = 0)"
+@Summary Configures the GPIO pin, RB7, as an output\&.
+.PP
+@Description Configures the GPIO pin, RB7, as an output\&.
+.PP
+@Preconditions None\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Sets the RB7 as an output \fBGPIO6_SetDigitalOutput()\fP; \fP 
+.PP
+Definition at line 1370 of file pin_manager\&.h\&.
+.SS "#define GPIO6_SetHigh()   (_LATB7 = 1)"
+@Summary Sets the GPIO pin, RB7, high using LATB7\&.
+.PP
+@Description Sets the GPIO pin, RB7, high using LATB7\&.
+.PP
+@Preconditions The RB7 must be set to an output\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Set RB7 high (1) \fBGPIO6_SetHigh()\fP; \fP 
+.PP
+Definition at line 1248 of file pin_manager\&.h\&.
+.SS "#define GPIO6_SetLow()   (_LATB7 = 0)"
+@Summary Sets the GPIO pin, RB7, low using LATB7\&.
+.PP
+@Description Sets the GPIO pin, RB7, low using LATB7\&.
+.PP
+@Preconditions The RB7 must be set to an output\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Set RB7 low (0) \fBGPIO6_SetLow()\fP; \fP 
+.PP
+Definition at line 1272 of file pin_manager\&.h\&.
+.SS "#define GPIO6_Toggle()   (_LATB7 ^= 1)"
+@Summary Toggles the GPIO pin, RB7, using LATB7\&.
+.PP
+@Description Toggles the GPIO pin, RB7, using LATB7\&.
+.PP
+@Preconditions The RB7 must be set to an output\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Toggle RB7 \fBGPIO6_Toggle()\fP; \fP 
+.PP
+Definition at line 1296 of file pin_manager\&.h\&.
+.SS "#define SCK1OUT_GetValue()   _RB8"
+@Summary Reads the value of the GPIO pin, RB8\&.
+.PP
+@Description Reads the value of the GPIO pin, RB8\&.
+.PP
+@Preconditions None\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC uint16_t portValue;\fP
+.PP
+\fCRead RB8 postValue = \fBSCK1OUT_GetValue()\fP; \fP 
+.PP
+Definition at line 1468 of file pin_manager\&.h\&.
+.SS "#define SCK1OUT_SetDigitalInput()   (_TRISB8 = 1)"
+@Summary Configures the GPIO pin, RB8, as an input\&.
+.PP
+@Description Configures the GPIO pin, RB8, as an input\&.
+.PP
+@Preconditions None\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Sets the RB8 as an input \fBSCK1OUT_SetDigitalInput()\fP; \fP 
+.PP
+Definition at line 1492 of file pin_manager\&.h\&.
+.SS "#define SCK1OUT_SetDigitalOutput()   (_TRISB8 = 0)"
+@Summary Configures the GPIO pin, RB8, as an output\&.
+.PP
+@Description Configures the GPIO pin, RB8, as an output\&.
+.PP
+@Preconditions None\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Sets the RB8 as an output \fBSCK1OUT_SetDigitalOutput()\fP; \fP 
+.PP
+Definition at line 1516 of file pin_manager\&.h\&.
+.SS "#define SCK1OUT_SetHigh()   (_LATB8 = 1)"
+@Summary Sets the GPIO pin, RB8, high using LATB8\&.
+.PP
+@Description Sets the GPIO pin, RB8, high using LATB8\&.
+.PP
+@Preconditions The RB8 must be set to an output\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Set RB8 high (1) \fBSCK1OUT_SetHigh()\fP; \fP 
+.PP
+Definition at line 1394 of file pin_manager\&.h\&.
+.SS "#define SCK1OUT_SetLow()   (_LATB8 = 0)"
+@Summary Sets the GPIO pin, RB8, low using LATB8\&.
+.PP
+@Description Sets the GPIO pin, RB8, low using LATB8\&.
+.PP
+@Preconditions The RB8 must be set to an output\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Set RB8 low (0) \fBSCK1OUT_SetLow()\fP; \fP 
+.PP
+Definition at line 1418 of file pin_manager\&.h\&.
+.SS "#define SCK1OUT_Toggle()   (_LATB8 ^= 1)"
+@Summary Toggles the GPIO pin, RB8, using LATB8\&.
+.PP
+@Description Toggles the GPIO pin, RB8, using LATB8\&.
+.PP
+@Preconditions The RB8 must be set to an output\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Toggle RB8 \fBSCK1OUT_Toggle()\fP; \fP 
+.PP
+Definition at line 1442 of file pin_manager\&.h\&.
+.SS "#define SDI1_GetValue()   _RB9"
+@Summary Reads the value of the GPIO pin, RB9\&.
+.PP
+@Description Reads the value of the GPIO pin, RB9\&.
+.PP
+@Preconditions None\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC uint16_t portValue;\fP
+.PP
+\fCRead RB9 postValue = \fBSDI1_GetValue()\fP; \fP 
+.PP
+Definition at line 1614 of file pin_manager\&.h\&.
+.SS "#define SDI1_SetDigitalInput()   (_TRISB9 = 1)"
+@Summary Configures the GPIO pin, RB9, as an input\&.
+.PP
+@Description Configures the GPIO pin, RB9, as an input\&.
+.PP
+@Preconditions None\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Sets the RB9 as an input \fBSDI1_SetDigitalInput()\fP; \fP 
+.PP
+Definition at line 1638 of file pin_manager\&.h\&.
+.SS "#define SDI1_SetDigitalOutput()   (_TRISB9 = 0)"
+@Summary Configures the GPIO pin, RB9, as an output\&.
+.PP
+@Description Configures the GPIO pin, RB9, as an output\&.
+.PP
+@Preconditions None\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Sets the RB9 as an output \fBSDI1_SetDigitalOutput()\fP; \fP 
+.PP
+Definition at line 1662 of file pin_manager\&.h\&.
+.SS "#define SDI1_SetHigh()   (_LATB9 = 1)"
+@Summary Sets the GPIO pin, RB9, high using LATB9\&.
+.PP
+@Description Sets the GPIO pin, RB9, high using LATB9\&.
+.PP
+@Preconditions The RB9 must be set to an output\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Set RB9 high (1) \fBSDI1_SetHigh()\fP; \fP 
+.PP
+Definition at line 1540 of file pin_manager\&.h\&.
+.SS "#define SDI1_SetLow()   (_LATB9 = 0)"
+@Summary Sets the GPIO pin, RB9, low using LATB9\&.
+.PP
+@Description Sets the GPIO pin, RB9, low using LATB9\&.
+.PP
+@Preconditions The RB9 must be set to an output\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Set RB9 low (0) \fBSDI1_SetLow()\fP; \fP 
+.PP
+Definition at line 1564 of file pin_manager\&.h\&.
+.SS "#define SDI1_Toggle()   (_LATB9 ^= 1)"
+@Summary Toggles the GPIO pin, RB9, using LATB9\&.
+.PP
+@Description Toggles the GPIO pin, RB9, using LATB9\&.
+.PP
+@Preconditions The RB9 must be set to an output\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Toggle RB9 \fBSDI1_Toggle()\fP; \fP 
+.PP
+Definition at line 1588 of file pin_manager\&.h\&.
+.SS "#define SS1OUT_GetValue()   _RB10"
+@Summary Reads the value of the GPIO pin, RB10\&.
+.PP
+@Description Reads the value of the GPIO pin, RB10\&.
+.PP
+@Preconditions None\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC uint16_t portValue;\fP
+.PP
+\fCRead RB10 postValue = \fBSS1OUT_GetValue()\fP; \fP 
+.PP
+Definition at line 738 of file pin_manager\&.h\&.
+.SS "#define SS1OUT_SetDigitalInput()   (_TRISB10 = 1)"
+@Summary Configures the GPIO pin, RB10, as an input\&.
+.PP
+@Description Configures the GPIO pin, RB10, as an input\&.
+.PP
+@Preconditions None\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Sets the RB10 as an input \fBSS1OUT_SetDigitalInput()\fP; \fP 
+.PP
+Definition at line 762 of file pin_manager\&.h\&.
+.SS "#define SS1OUT_SetDigitalOutput()   (_TRISB10 = 0)"
+@Summary Configures the GPIO pin, RB10, as an output\&.
+.PP
+@Description Configures the GPIO pin, RB10, as an output\&.
+.PP
+@Preconditions None\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Sets the RB10 as an output \fBSS1OUT_SetDigitalOutput()\fP; \fP 
+.PP
+Definition at line 786 of file pin_manager\&.h\&.
+.SS "#define SS1OUT_SetHigh()   (_LATB10 = 1)"
+@Summary Sets the GPIO pin, RB10, high using LATB10\&.
+.PP
+@Description Sets the GPIO pin, RB10, high using LATB10\&.
+.PP
+@Preconditions The RB10 must be set to an output\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Set RB10 high (1) \fBSS1OUT_SetHigh()\fP; \fP 
+.PP
+Definition at line 664 of file pin_manager\&.h\&.
+.SS "#define SS1OUT_SetLow()   (_LATB10 = 0)"
+@Summary Sets the GPIO pin, RB10, low using LATB10\&.
+.PP
+@Description Sets the GPIO pin, RB10, low using LATB10\&.
+.PP
+@Preconditions The RB10 must be set to an output\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Set RB10 low (0) \fBSS1OUT_SetLow()\fP; \fP 
+.PP
+Definition at line 688 of file pin_manager\&.h\&.
+.SS "#define SS1OUT_Toggle()   (_LATB10 ^= 1)"
+@Summary Toggles the GPIO pin, RB10, using LATB10\&.
+.PP
+@Description Toggles the GPIO pin, RB10, using LATB10\&.
+.PP
+@Preconditions The RB10 must be set to an output\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Toggle RB10 \fBSS1OUT_Toggle()\fP; \fP 
+.PP
+Definition at line 712 of file pin_manager\&.h\&.
+.SS "#define SSR_OUTPUT_GetValue()   _RA4"
+@Summary Reads the value of the GPIO pin, RA4\&.
+.PP
+@Description Reads the value of the GPIO pin, RA4\&.
+.PP
+@Preconditions None\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC uint16_t portValue;\fP
+.PP
+\fCRead RA4 postValue = \fBSSR_OUTPUT_GetValue()\fP; \fP 
+.PP
+Definition at line 592 of file pin_manager\&.h\&.
+.SS "#define SSR_OUTPUT_SetDigitalInput()   (_TRISA4 = 1)"
+@Summary Configures the GPIO pin, RA4, as an input\&.
+.PP
+@Description Configures the GPIO pin, RA4, as an input\&.
+.PP
+@Preconditions None\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Sets the RA4 as an input \fBSSR_OUTPUT_SetDigitalInput()\fP; \fP 
+.PP
+Definition at line 616 of file pin_manager\&.h\&.
+.SS "#define SSR_OUTPUT_SetDigitalOutput()   (_TRISA4 = 0)"
+@Summary Configures the GPIO pin, RA4, as an output\&.
+.PP
+@Description Configures the GPIO pin, RA4, as an output\&.
+.PP
+@Preconditions None\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Sets the RA4 as an output \fBSSR_OUTPUT_SetDigitalOutput()\fP; \fP 
+.PP
+Definition at line 640 of file pin_manager\&.h\&.
+.SS "#define SSR_OUTPUT_SetHigh()   (_LATA4 = 1)"
+@Summary Sets the GPIO pin, RA4, high using LATA4\&.
+.PP
+@Description Sets the GPIO pin, RA4, high using LATA4\&.
+.PP
+@Preconditions The RA4 must be set to an output\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Set RA4 high (1) \fBSSR_OUTPUT_SetHigh()\fP; \fP 
+.PP
+Definition at line 518 of file pin_manager\&.h\&.
+.SS "#define SSR_OUTPUT_SetLow()   (_LATA4 = 0)"
+@Summary Sets the GPIO pin, RA4, low using LATA4\&.
+.PP
+@Description Sets the GPIO pin, RA4, low using LATA4\&.
+.PP
+@Preconditions The RA4 must be set to an output\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Set RA4 low (0) \fBSSR_OUTPUT_SetLow()\fP; \fP 
+.PP
+Definition at line 542 of file pin_manager\&.h\&.
+.SS "#define SSR_OUTPUT_Toggle()   (_LATA4 ^= 1)"
+@Summary Toggles the GPIO pin, RA4, using LATA4\&.
+.PP
+@Description Toggles the GPIO pin, RA4, using LATA4\&.
+.PP
+@Preconditions The RA4 must be set to an output\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Toggle RA4 \fBSSR_OUTPUT_Toggle()\fP; \fP 
+.PP
+Definition at line 566 of file pin_manager\&.h\&.
+.SS "#define T_PROTECTION_GetValue()   _RA0"
+@Summary Reads the value of the GPIO pin, RA0\&.
+.PP
+@Description Reads the value of the GPIO pin, RA0\&.
+.PP
+@Preconditions None\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC uint16_t portValue;\fP
+.PP
+\fCRead RA0 postValue = \fBT_PROTECTION_GetValue()\fP; \fP 
+.PP
+Definition at line 154 of file pin_manager\&.h\&.
+.SS "#define T_PROTECTION_SetDigitalInput()   (_TRISA0 = 1)"
+@Summary Configures the GPIO pin, RA0, as an input\&.
+.PP
+@Description Configures the GPIO pin, RA0, as an input\&.
+.PP
+@Preconditions None\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Sets the RA0 as an input \fBT_PROTECTION_SetDigitalInput()\fP; \fP 
+.PP
+Definition at line 178 of file pin_manager\&.h\&.
+.SS "#define T_PROTECTION_SetDigitalOutput()   (_TRISA0 = 0)"
+@Summary Configures the GPIO pin, RA0, as an output\&.
+.PP
+@Description Configures the GPIO pin, RA0, as an output\&.
+.PP
+@Preconditions None\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Sets the RA0 as an output \fBT_PROTECTION_SetDigitalOutput()\fP; \fP 
+.PP
+Definition at line 202 of file pin_manager\&.h\&.
+.SS "#define T_PROTECTION_SetHigh()   (_LATA0 = 1)"
+PIN MANAGER Generated Driver File
+.PP
+@Company: Microchip Technology Inc\&.
+.PP
+@File Name: \fBpin_manager\&.h\fP
+.PP
+@Summary: This is the generated manager file for the PIC24 / dsPIC33 / PIC32MM MCUs device\&. This manager configures the pins direction, initial state, analog setting\&. The peripheral pin select, PPS, configuration is also handled by this manager\&.
+.PP
+@Description: This source file provides implementations for PIN MANAGER\&. Generation Information : Product Revision : PIC24 / dsPIC33 / PIC32MM MCUs - 1\&.170\&.0 Device : PIC24FJ256GA702 The generated drivers are tested against the following: Compiler : XC16 v1\&.61 MPLAB : MPLAB X v5\&.45 Section: Includes Section: Device Pin Macros @Summary Sets the GPIO pin, RA0, high using LATA0\&.
+.PP
+@Description Sets the GPIO pin, RA0, high using LATA0\&.
+.PP
+@Preconditions The RA0 must be set to an output\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Set RA0 high (1) \fBT_PROTECTION_SetHigh()\fP; \fP 
+.PP
+Definition at line 80 of file pin_manager\&.h\&.
+.SS "#define T_PROTECTION_SetLow()   (_LATA0 = 0)"
+@Summary Sets the GPIO pin, RA0, low using LATA0\&.
+.PP
+@Description Sets the GPIO pin, RA0, low using LATA0\&.
+.PP
+@Preconditions The RA0 must be set to an output\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Set RA0 low (0) \fBT_PROTECTION_SetLow()\fP; \fP 
+.PP
+Definition at line 104 of file pin_manager\&.h\&.
+.SS "#define T_PROTECTION_Toggle()   (_LATA0 ^= 1)"
+@Summary Toggles the GPIO pin, RA0, using LATA0\&.
+.PP
+@Description Toggles the GPIO pin, RA0, using LATA0\&.
+.PP
+@Preconditions The RA0 must be set to an output\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC Toggle RA0 \fBT_PROTECTION_Toggle()\fP; \fP 
+.PP
+Definition at line 128 of file pin_manager\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "void PIN_MANAGER_Initialize (void)"
+Section: Function Prototypes @Summary Configures the pin settings of the PIC24FJ256GA702 The peripheral pin select, PPS, configuration is also handled by this manager\&.
+.PP
+@Description This is the generated manager file for the PIC24 / dsPIC33 / PIC32MM MCUs device\&. This manager configures the pins direction, initial state, analog setting\&. The peripheral pin select, PPS, configuration is also handled by this manager\&.
+.PP
+@Preconditions None\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC void \fBSYSTEM_Initialize(void)\fP { Other initializers are called from this function \fBPIN_MANAGER_Initialize()\fP; } \fP
+.PP
+PIN MANAGER Generated Driver File
+.PP
+@Company: Microchip Technology Inc\&.
+.PP
+@File Name: \fBpin_manager\&.c\fP
+.PP
+@Summary: This is the generated manager file for the PIC24 / dsPIC33 / PIC32MM MCUs device\&. This manager configures the pins direction, initial state, analog setting\&. The peripheral pin select, PPS, configuration is also handled by this manager\&.
+.PP
+@Description: This source file provides implementations for PIN MANAGER\&. Generation Information : Product Revision : PIC24 / dsPIC33 / PIC32MM MCUs - 1\&.170\&.0 Device : PIC24FJ256GA702 The generated drivers are tested against the following: Compiler : XC16 v1\&.61 MPLAB : MPLAB X v5\&.45 Section: Includes Section: Driver Interface Function Definitions 
+.PP
+Definition at line 59 of file pin_manager\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Reflow Oven from the source code\&.

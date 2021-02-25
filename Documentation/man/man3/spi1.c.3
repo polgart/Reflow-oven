@@ -1,0 +1,136 @@
+.TH "C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/spi1.c" 3 "Wed Feb 24 2021" "Version 1.0" "Reflow Oven" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/spi1.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'spi1\&.h'\fP
+.br
+
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBSPI1_TRANSFER_MODE\fP { \fBSPI1_TRANSFER_MODE_32BIT\fP = 2, \fBSPI1_TRANSFER_MODE_16BIT\fP = 1, \fBSPI1_TRANSFER_MODE_8BIT\fP = 0 }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__attribute__\fP ((__always_inline__))"
+.br
+.ti -1c
+.RI "void \fBSPI1_Exchange\fP (uint8_t *pTransmitData, uint8_t *pReceiveData)"
+.br
+.ti -1c
+.RI "uint16_t \fBSPI1_ExchangeBuffer\fP (uint8_t *pTransmitData, uint16_t byteCount, uint8_t *pReceiveData)"
+.br
+.ti -1c
+.RI "uint32_t \fBSPI1_Exchange32bit\fP (uint32_t data)"
+.br
+.ti -1c
+.RI "uint16_t \fBSPI1_Exchange32bitBuffer\fP (uint32_t *dataTransmitted, uint16_t byteCount, uint32_t *dataReceived)"
+.br
+.ti -1c
+.RI "\fBSPI1_STATUS\fP \fBSPI1_StatusGet\fP ()"
+.br
+.in -1c
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBSPI1_TRANSFER_MODE\fP"
+SPI1 Generated Driver API Source File
+.PP
+Company: Microchip Technology Inc\&.
+.PP
+File Name: \fBspi1\&.c\fP
+.PP
+@Summary This is the generated source file for the SPI1 driver using PIC24 / dsPIC33 / PIC32MM MCUs
+.PP
+@Description This source file provides APIs for driver for SPI1\&. Generation Information : Product Revision : PIC24 / dsPIC33 / PIC32MM MCUs - 1\&.170\&.0 Device : PIC24FJ256GA702 The generated drivers are tested against the following: Compiler : XC16 v1\&.61 MPLAB : MPLAB X v5\&.45 Section: Included Files Section: File specific functions SPI1 Transfer Mode Enumeration
+.PP
+@Summary Defines the Transfer Mode enumeration for SPI1\&.
+.PP
+@Description This defines the Transfer Mode enumeration for SPI1\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISPI1_TRANSFER_MODE_32BIT \fP\fP
+.TP
+\fB\fISPI1_TRANSFER_MODE_16BIT \fP\fP
+.TP
+\fB\fISPI1_TRANSFER_MODE_8BIT \fP\fP
+.PP
+Definition at line 65 of file spi1\&.c\&.
+.SH "Function Documentation"
+.PP 
+.SS "__attribute__ ((__always_inline__))\fC [inline]\fP"
+Section: Driver Interface Function Definitions 
+.PP
+Definition at line 71 of file spi1\&.c\&.
+.SS "void SPI1_Exchange (uint8_t * pTransmitData, uint8_t * pReceiveData)"
+
+.PP
+Definition at line 103 of file spi1\&.c\&.
+.SS "uint32_t SPI1_Exchange32bit (uint32_t data)"
+@Summary Exchanges two word of data from SPI1
+.PP
+@Description This routine exchanges two word of data from SPI1\&.
+.PP
+@Preconditions The SPI1_Initialize routine must have been called for the specified SPI1 driver instance\&. This is a blocking routine\&.
+.PP
+@Returns Data read from SPI1
+.PP
+@Param data - Data to be written onto SPI1\&.
+.PP
+@Example Refer to \fBSPI1_Initialize()\fP for an example 
+.br
+ 
+.PP
+Definition at line 209 of file spi1\&.c\&.
+.SS "uint16_t SPI1_Exchange32bitBuffer (uint32_t * dataTransmitted, uint16_t byteCount, uint32_t * dataReceived)"
+@Summary Exchanges data from a buffer of size two word from SPI1
+.PP
+@Description This routine exchanges data from a buffer of size two word from the SPI1\&. This is a blocking routine\&.
+.PP
+@Preconditions The SPI1_Initialize routine must have been called for the specified SPI1 driver instance\&.
+.PP
+@Returns Number of 32bit data written/read\&.
+.PP
+@Param dataTransmitted - Buffer of data to be written onto SPI1\&.
+.PP
+@Param byteCount - Number of bytes to be exchanged\&.
+.PP
+@Param dataTransmitted - Buffer of data to be read from SPI1\&.
+.PP
+@Example Refer to \fBSPI1_Initialize()\fP for an example 
+.br
+ 
+.PP
+Definition at line 219 of file spi1\&.c\&.
+.SS "uint16_t SPI1_ExchangeBuffer (uint8_t * pTransmitData, uint16_t byteCount, uint8_t * pReceiveData)"
+
+.PP
+Definition at line 124 of file spi1\&.c\&.
+.SS "\fBSPI1_STATUS\fP SPI1_StatusGet (void)"
+@Summary Returns the value of the status register of SPI instance : 1
+.PP
+@Description This routine returns the value of the status register of SPI1 driver instance : 1
+.PP
+@Preconditions None\&.
+.PP
+@Returns Returns the value of the status register\&.
+.PP
+@Param None\&.
+.PP
+@Example Refer to \fBSPI1_Initialize()\fP for an example 
+.br
+ 
+.PP
+Definition at line 236 of file spi1\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Reflow Oven from the source code\&.

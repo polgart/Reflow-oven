@@ -1,0 +1,1533 @@
+\hypertarget{pin__manager_8h}{}\doxysection{C\+:/\+Users/\+EDU\+\_\+\+OBOS\+\_\+5057/\+Documents/\+Reflow oven/\+Design/\+SW/\+RO\+\_\+firmware\+\_\+v1.X/mcc\+\_\+generated\+\_\+files/pin\+\_\+manager.h File Reference}
+\label{pin__manager_8h}\index{C:/Users/EDU\_OBOS\_5057/Documents/Reflow oven/Design/SW/RO\_firmware\_v1.X/mcc\_generated\_files/pin\_manager.h@{C:/Users/EDU\_OBOS\_5057/Documents/Reflow oven/Design/SW/RO\_firmware\_v1.X/mcc\_generated\_files/pin\_manager.h}}
+{\ttfamily \#include $<$xc.\+h$>$}\newline
+Include dependency graph for pin\+\_\+manager.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a9bf939f90340bba60939186bcdb195ab}{T\+\_\+\+PROTECTION\+\_\+\+Set\+High}}()~(\+\_\+\+LATA0 = 1)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_aef562403d754e0cd4d9b0d3855059505}{T\+\_\+\+PROTECTION\+\_\+\+Set\+Low}}()~(\+\_\+\+LATA0 = 0)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a0a29127d494fa12cc6800951b1411353}{T\+\_\+\+PROTECTION\+\_\+\+Toggle}}()~(\+\_\+\+LATA0 $^\wedge$= 1)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a19f2907385f19e80ba80492567284697}{T\+\_\+\+PROTECTION\+\_\+\+Get\+Value}}()~\+\_\+\+RA0
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a813973d3bb11430fbb2c527136a7c617}{T\+\_\+\+PROTECTION\+\_\+\+Set\+Digital\+Input}}()~(\+\_\+\+TRISA0 = 1)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_aee2ab0015dc75f663357b6edd64ffd7f}{T\+\_\+\+PROTECTION\+\_\+\+Set\+Digital\+Output}}()~(\+\_\+\+TRISA0 = 0)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a03b7eec4e29f8a7099f43760d15f49ca}{GPIO1\+\_\+\+Set\+High}}()~(\+\_\+\+LATA1 = 1)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_abfbaa21173bfee590a02f758bae6f907}{GPIO1\+\_\+\+Set\+Low}}()~(\+\_\+\+LATA1 = 0)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a48c9e55a82632742ae32e6f3a150de1a}{GPIO1\+\_\+\+Toggle}}()~(\+\_\+\+LATA1 $^\wedge$= 1)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_ad4bc75a0ea0b394a9eee7109d110b5b6}{GPIO1\+\_\+\+Get\+Value}}()~\+\_\+\+RA1
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a0820311886b2d7471905a86b2b2da166}{GPIO1\+\_\+\+Set\+Digital\+Input}}()~(\+\_\+\+TRISA1 = 1)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_ad993c993d336681b8644f113833551d0}{GPIO1\+\_\+\+Set\+Digital\+Output}}()~(\+\_\+\+TRISA1 = 0)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_aa5e46a8876405b19fa6dcf048293bf51}{GPIO2\+\_\+\+Set\+High}}()~(\+\_\+\+LATA2 = 1)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_afd1ee7a018bcafc95d5a54cd29db8572}{GPIO2\+\_\+\+Set\+Low}}()~(\+\_\+\+LATA2 = 0)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a4603282d218311599f1c00bc61889d01}{GPIO2\+\_\+\+Toggle}}()~(\+\_\+\+LATA2 $^\wedge$= 1)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a601671f5396795f61d469f15bb437492}{GPIO2\+\_\+\+Get\+Value}}()~\+\_\+\+RA2
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a762edc3c99a5e9df37c2448f0ca23c63}{GPIO2\+\_\+\+Set\+Digital\+Input}}()~(\+\_\+\+TRISA2 = 1)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a410e841c20a44a60d77a77f01e072127}{GPIO2\+\_\+\+Set\+Digital\+Output}}()~(\+\_\+\+TRISA2 = 0)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a6d2805ee19c7d69df3af13eb2908b923}{SSR\+\_\+\+OUTPUT\+\_\+\+Set\+High}}()~(\+\_\+\+LATA4 = 1)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a62b6be7b4c428bb0a34238de1c1dcd9c}{SSR\+\_\+\+OUTPUT\+\_\+\+Set\+Low}}()~(\+\_\+\+LATA4 = 0)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a8fa8aed7e63f03971a5843d84b58ab31}{SSR\+\_\+\+OUTPUT\+\_\+\+Toggle}}()~(\+\_\+\+LATA4 $^\wedge$= 1)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_ad2b70353a76292471d1fd5e37f54a7d6}{SSR\+\_\+\+OUTPUT\+\_\+\+Get\+Value}}()~\+\_\+\+RA4
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a789805beefbad0b922c6ab5c39462123}{SSR\+\_\+\+OUTPUT\+\_\+\+Set\+Digital\+Input}}()~(\+\_\+\+TRISA4 = 1)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_af3bc17bb4e56d9d1a55039895df92c64}{SSR\+\_\+\+OUTPUT\+\_\+\+Set\+Digital\+Output}}()~(\+\_\+\+TRISA4 = 0)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_aec60b08a13986ba796c7c9fae101160f}{SS1\+OUT\+\_\+\+Set\+High}}()~(\+\_\+\+LATB10 = 1)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a06305d207514dd1a07a032ff028b4ed9}{SS1\+OUT\+\_\+\+Set\+Low}}()~(\+\_\+\+LATB10 = 0)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a2c49082a62f5eb99a4e5eec7ba3be21d}{SS1\+OUT\+\_\+\+Toggle}}()~(\+\_\+\+LATB10 $^\wedge$= 1)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a140dcc3d8be22d094fe254c5335eb509}{SS1\+OUT\+\_\+\+Get\+Value}}()~\+\_\+\+RB10
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a07b685f42af2ef8dafab0bcd9fe05f06}{SS1\+OUT\+\_\+\+Set\+Digital\+Input}}()~(\+\_\+\+TRISB10 = 1)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a85c69a884bce561aa4bdf1c590b44f0e}{SS1\+OUT\+\_\+\+Set\+Digital\+Output}}()~(\+\_\+\+TRISB10 = 0)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a61c26bd1674ae83a96874b3896414a12}{GPIO3\+\_\+\+Set\+High}}()~(\+\_\+\+LATB2 = 1)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a288964f493e158fbb591b1ab8bbbe0a4}{GPIO3\+\_\+\+Set\+Low}}()~(\+\_\+\+LATB2 = 0)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a6a5e3505b9aa3b1aa9f381c0883cea5b}{GPIO3\+\_\+\+Toggle}}()~(\+\_\+\+LATB2 $^\wedge$= 1)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a96be21accf0d3b491a4a628a0e6a5bf1}{GPIO3\+\_\+\+Get\+Value}}()~\+\_\+\+RB2
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_adc9fe6c66fd49db239e1cf67afbcca53}{GPIO3\+\_\+\+Set\+Digital\+Input}}()~(\+\_\+\+TRISB2 = 1)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_aa495b607cd24bfd134457660b87cf344}{GPIO3\+\_\+\+Set\+Digital\+Output}}()~(\+\_\+\+TRISB2 = 0)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a57bb8b849de61f1aa7f113f0b8ed5180}{GPIO4\+\_\+\+Set\+High}}()~(\+\_\+\+LATB3 = 1)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a82833b7a4ec581a859f1ac4a46f04ce8}{GPIO4\+\_\+\+Set\+Low}}()~(\+\_\+\+LATB3 = 0)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a3d15317cdc2ba25703f5b0bd16fb1b2d}{GPIO4\+\_\+\+Toggle}}()~(\+\_\+\+LATB3 $^\wedge$= 1)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a3b032fabf42b6866fac5f703e3c96682}{GPIO4\+\_\+\+Get\+Value}}()~\+\_\+\+RB3
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a5a97712e04082d83ca5dca8aa863d695}{GPIO4\+\_\+\+Set\+Digital\+Input}}()~(\+\_\+\+TRISB3 = 1)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a80446a9f9bd65619b96ec4e4ae2a4271}{GPIO4\+\_\+\+Set\+Digital\+Output}}()~(\+\_\+\+TRISB3 = 0)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a7917f89e3b02a9c7bc4e4ddcaeb27582}{GPIO5\+\_\+\+Set\+High}}()~(\+\_\+\+LATB4 = 1)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a31f70a916cb4ac960c9c3c2388051ac5}{GPIO5\+\_\+\+Set\+Low}}()~(\+\_\+\+LATB4 = 0)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a968a681b648e39ceca88c2d5a7afd324}{GPIO5\+\_\+\+Toggle}}()~(\+\_\+\+LATB4 $^\wedge$= 1)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_adde5423734dd2cf7c6589cf20e8ae56b}{GPIO5\+\_\+\+Get\+Value}}()~\+\_\+\+RB4
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a3686e2b3b223ace346bbf10fb5e0c90a}{GPIO5\+\_\+\+Set\+Digital\+Input}}()~(\+\_\+\+TRISB4 = 1)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a9b84492e10c30aa71e9819b912ca2bb3}{GPIO5\+\_\+\+Set\+Digital\+Output}}()~(\+\_\+\+TRISB4 = 0)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a659ead7bb14c83557a3ecbf010c76996}{GPIO6\+\_\+\+Set\+High}}()~(\+\_\+\+LATB7 = 1)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_ae1546edc5600fdc8594bc88cc6bf27b7}{GPIO6\+\_\+\+Set\+Low}}()~(\+\_\+\+LATB7 = 0)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_abe5b7c5af0589bcd9be8f46141bb7c1c}{GPIO6\+\_\+\+Toggle}}()~(\+\_\+\+LATB7 $^\wedge$= 1)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a0f3279497262e55812e625163c26d601}{GPIO6\+\_\+\+Get\+Value}}()~\+\_\+\+RB7
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a6b0bfc8af6055372e204ba700316221d}{GPIO6\+\_\+\+Set\+Digital\+Input}}()~(\+\_\+\+TRISB7 = 1)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_ae6eeb1bb1513fdfc74d036c1e0d7ed78}{GPIO6\+\_\+\+Set\+Digital\+Output}}()~(\+\_\+\+TRISB7 = 0)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a7f01ad4f03c3d48851f924268eca687a}{SCK1\+OUT\+\_\+\+Set\+High}}()~(\+\_\+\+LATB8 = 1)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_aa997ef3df331d54fec912d3c18076b31}{SCK1\+OUT\+\_\+\+Set\+Low}}()~(\+\_\+\+LATB8 = 0)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a75e619680a9da14df7adc2b0707cd0f3}{SCK1\+OUT\+\_\+\+Toggle}}()~(\+\_\+\+LATB8 $^\wedge$= 1)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a31c43b53840001d6e975fd7dfacc8880}{SCK1\+OUT\+\_\+\+Get\+Value}}()~\+\_\+\+RB8
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a249198a3636276642645ae6f14ef0fb9}{SCK1\+OUT\+\_\+\+Set\+Digital\+Input}}()~(\+\_\+\+TRISB8 = 1)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a57c5f8c76d8ce0b71e8106980ee675e9}{SCK1\+OUT\+\_\+\+Set\+Digital\+Output}}()~(\+\_\+\+TRISB8 = 0)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a07c2b8ce56d6b325d763eecbf9c1a097}{SDI1\+\_\+\+Set\+High}}()~(\+\_\+\+LATB9 = 1)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_aee8638c1ee4e03574d5ed9f87bf08b34}{SDI1\+\_\+\+Set\+Low}}()~(\+\_\+\+LATB9 = 0)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a7bddb806cfa20736485fb4401c2efb8f}{SDI1\+\_\+\+Toggle}}()~(\+\_\+\+LATB9 $^\wedge$= 1)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a8c451ca02afea8b18221fb0c224bdfbb}{SDI1\+\_\+\+Get\+Value}}()~\+\_\+\+RB9
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a4123806296d967f313f62e5862c598bc}{SDI1\+\_\+\+Set\+Digital\+Input}}()~(\+\_\+\+TRISB9 = 1)
+\item 
+\#define \mbox{\hyperlink{pin__manager_8h_a9c6bd9615f563b00a0a7965c973be437}{SDI1\+\_\+\+Set\+Digital\+Output}}()~(\+\_\+\+TRISB9 = 0)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{pin__manager_8h_a50357774183a136d9490f64ad0d5c6cb}{PIN\+\_\+\+MANAGER\+\_\+\+Initialize}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{pin__manager_8h_ad4bc75a0ea0b394a9eee7109d110b5b6}\label{pin__manager_8h_ad4bc75a0ea0b394a9eee7109d110b5b6}} 
+\index{pin\_manager.h@{pin\_manager.h}!GPIO1\_GetValue@{GPIO1\_GetValue}}
+\index{GPIO1\_GetValue@{GPIO1\_GetValue}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{GPIO1\_GetValue}{GPIO1\_GetValue}}
+{\footnotesize\ttfamily \#define GPIO1\+\_\+\+Get\+Value(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+RA1}
+
+@\+Summary Reads the value of the GPIO pin, RA1.
+
+@\+Description Reads the value of the GPIO pin, RA1.
+
+@\+Preconditions None.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  uint16\+\_\+t port\+Value;}
+
+{\ttfamily Read RA1 post\+Value = \mbox{\hyperlink{pin__manager_8h_ad4bc75a0ea0b394a9eee7109d110b5b6}{GPIO1\+\_\+\+Get\+Value()}}; } 
+
+Definition at line 300 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a0820311886b2d7471905a86b2b2da166}\label{pin__manager_8h_a0820311886b2d7471905a86b2b2da166}} 
+\index{pin\_manager.h@{pin\_manager.h}!GPIO1\_SetDigitalInput@{GPIO1\_SetDigitalInput}}
+\index{GPIO1\_SetDigitalInput@{GPIO1\_SetDigitalInput}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{GPIO1\_SetDigitalInput}{GPIO1\_SetDigitalInput}}
+{\footnotesize\ttfamily \#define GPIO1\+\_\+\+Set\+Digital\+Input(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+TRISA1 = 1)}
+
+@\+Summary Configures the GPIO pin, RA1, as an input.
+
+@\+Description Configures the GPIO pin, RA1, as an input.
+
+@\+Preconditions None.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Sets the RA1 as an input \mbox{\hyperlink{pin__manager_8h_a0820311886b2d7471905a86b2b2da166}{GPIO1\+\_\+\+Set\+Digital\+Input()}}; } 
+
+Definition at line 324 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_ad993c993d336681b8644f113833551d0}\label{pin__manager_8h_ad993c993d336681b8644f113833551d0}} 
+\index{pin\_manager.h@{pin\_manager.h}!GPIO1\_SetDigitalOutput@{GPIO1\_SetDigitalOutput}}
+\index{GPIO1\_SetDigitalOutput@{GPIO1\_SetDigitalOutput}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{GPIO1\_SetDigitalOutput}{GPIO1\_SetDigitalOutput}}
+{\footnotesize\ttfamily \#define GPIO1\+\_\+\+Set\+Digital\+Output(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+TRISA1 = 0)}
+
+@\+Summary Configures the GPIO pin, RA1, as an output.
+
+@\+Description Configures the GPIO pin, RA1, as an output.
+
+@\+Preconditions None.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Sets the RA1 as an output \mbox{\hyperlink{pin__manager_8h_ad993c993d336681b8644f113833551d0}{GPIO1\+\_\+\+Set\+Digital\+Output()}}; } 
+
+Definition at line 348 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a03b7eec4e29f8a7099f43760d15f49ca}\label{pin__manager_8h_a03b7eec4e29f8a7099f43760d15f49ca}} 
+\index{pin\_manager.h@{pin\_manager.h}!GPIO1\_SetHigh@{GPIO1\_SetHigh}}
+\index{GPIO1\_SetHigh@{GPIO1\_SetHigh}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{GPIO1\_SetHigh}{GPIO1\_SetHigh}}
+{\footnotesize\ttfamily \#define GPIO1\+\_\+\+Set\+High(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+LATA1 = 1)}
+
+@\+Summary Sets the GPIO pin, RA1, high using LATA1.
+
+@\+Description Sets the GPIO pin, RA1, high using LATA1.
+
+@\+Preconditions The RA1 must be set to an output.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Set RA1 high (1) \mbox{\hyperlink{pin__manager_8h_a03b7eec4e29f8a7099f43760d15f49ca}{GPIO1\+\_\+\+Set\+High()}}; } 
+
+Definition at line 226 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_abfbaa21173bfee590a02f758bae6f907}\label{pin__manager_8h_abfbaa21173bfee590a02f758bae6f907}} 
+\index{pin\_manager.h@{pin\_manager.h}!GPIO1\_SetLow@{GPIO1\_SetLow}}
+\index{GPIO1\_SetLow@{GPIO1\_SetLow}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{GPIO1\_SetLow}{GPIO1\_SetLow}}
+{\footnotesize\ttfamily \#define GPIO1\+\_\+\+Set\+Low(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+LATA1 = 0)}
+
+@\+Summary Sets the GPIO pin, RA1, low using LATA1.
+
+@\+Description Sets the GPIO pin, RA1, low using LATA1.
+
+@\+Preconditions The RA1 must be set to an output.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Set RA1 low (0) \mbox{\hyperlink{pin__manager_8h_abfbaa21173bfee590a02f758bae6f907}{GPIO1\+\_\+\+Set\+Low()}}; } 
+
+Definition at line 250 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a48c9e55a82632742ae32e6f3a150de1a}\label{pin__manager_8h_a48c9e55a82632742ae32e6f3a150de1a}} 
+\index{pin\_manager.h@{pin\_manager.h}!GPIO1\_Toggle@{GPIO1\_Toggle}}
+\index{GPIO1\_Toggle@{GPIO1\_Toggle}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{GPIO1\_Toggle}{GPIO1\_Toggle}}
+{\footnotesize\ttfamily \#define GPIO1\+\_\+\+Toggle(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+LATA1 $^\wedge$= 1)}
+
+@\+Summary Toggles the GPIO pin, RA1, using LATA1.
+
+@\+Description Toggles the GPIO pin, RA1, using LATA1.
+
+@\+Preconditions The RA1 must be set to an output.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Toggle RA1 \mbox{\hyperlink{pin__manager_8h_a48c9e55a82632742ae32e6f3a150de1a}{GPIO1\+\_\+\+Toggle()}}; } 
+
+Definition at line 274 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a601671f5396795f61d469f15bb437492}\label{pin__manager_8h_a601671f5396795f61d469f15bb437492}} 
+\index{pin\_manager.h@{pin\_manager.h}!GPIO2\_GetValue@{GPIO2\_GetValue}}
+\index{GPIO2\_GetValue@{GPIO2\_GetValue}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{GPIO2\_GetValue}{GPIO2\_GetValue}}
+{\footnotesize\ttfamily \#define GPIO2\+\_\+\+Get\+Value(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+RA2}
+
+@\+Summary Reads the value of the GPIO pin, RA2.
+
+@\+Description Reads the value of the GPIO pin, RA2.
+
+@\+Preconditions None.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  uint16\+\_\+t port\+Value;}
+
+{\ttfamily Read RA2 post\+Value = \mbox{\hyperlink{pin__manager_8h_a601671f5396795f61d469f15bb437492}{GPIO2\+\_\+\+Get\+Value()}}; } 
+
+Definition at line 446 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a762edc3c99a5e9df37c2448f0ca23c63}\label{pin__manager_8h_a762edc3c99a5e9df37c2448f0ca23c63}} 
+\index{pin\_manager.h@{pin\_manager.h}!GPIO2\_SetDigitalInput@{GPIO2\_SetDigitalInput}}
+\index{GPIO2\_SetDigitalInput@{GPIO2\_SetDigitalInput}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{GPIO2\_SetDigitalInput}{GPIO2\_SetDigitalInput}}
+{\footnotesize\ttfamily \#define GPIO2\+\_\+\+Set\+Digital\+Input(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+TRISA2 = 1)}
+
+@\+Summary Configures the GPIO pin, RA2, as an input.
+
+@\+Description Configures the GPIO pin, RA2, as an input.
+
+@\+Preconditions None.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Sets the RA2 as an input \mbox{\hyperlink{pin__manager_8h_a762edc3c99a5e9df37c2448f0ca23c63}{GPIO2\+\_\+\+Set\+Digital\+Input()}}; } 
+
+Definition at line 470 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a410e841c20a44a60d77a77f01e072127}\label{pin__manager_8h_a410e841c20a44a60d77a77f01e072127}} 
+\index{pin\_manager.h@{pin\_manager.h}!GPIO2\_SetDigitalOutput@{GPIO2\_SetDigitalOutput}}
+\index{GPIO2\_SetDigitalOutput@{GPIO2\_SetDigitalOutput}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{GPIO2\_SetDigitalOutput}{GPIO2\_SetDigitalOutput}}
+{\footnotesize\ttfamily \#define GPIO2\+\_\+\+Set\+Digital\+Output(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+TRISA2 = 0)}
+
+@\+Summary Configures the GPIO pin, RA2, as an output.
+
+@\+Description Configures the GPIO pin, RA2, as an output.
+
+@\+Preconditions None.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Sets the RA2 as an output \mbox{\hyperlink{pin__manager_8h_a410e841c20a44a60d77a77f01e072127}{GPIO2\+\_\+\+Set\+Digital\+Output()}}; } 
+
+Definition at line 494 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_aa5e46a8876405b19fa6dcf048293bf51}\label{pin__manager_8h_aa5e46a8876405b19fa6dcf048293bf51}} 
+\index{pin\_manager.h@{pin\_manager.h}!GPIO2\_SetHigh@{GPIO2\_SetHigh}}
+\index{GPIO2\_SetHigh@{GPIO2\_SetHigh}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{GPIO2\_SetHigh}{GPIO2\_SetHigh}}
+{\footnotesize\ttfamily \#define GPIO2\+\_\+\+Set\+High(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+LATA2 = 1)}
+
+@\+Summary Sets the GPIO pin, RA2, high using LATA2.
+
+@\+Description Sets the GPIO pin, RA2, high using LATA2.
+
+@\+Preconditions The RA2 must be set to an output.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Set RA2 high (1) \mbox{\hyperlink{pin__manager_8h_aa5e46a8876405b19fa6dcf048293bf51}{GPIO2\+\_\+\+Set\+High()}}; } 
+
+Definition at line 372 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_afd1ee7a018bcafc95d5a54cd29db8572}\label{pin__manager_8h_afd1ee7a018bcafc95d5a54cd29db8572}} 
+\index{pin\_manager.h@{pin\_manager.h}!GPIO2\_SetLow@{GPIO2\_SetLow}}
+\index{GPIO2\_SetLow@{GPIO2\_SetLow}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{GPIO2\_SetLow}{GPIO2\_SetLow}}
+{\footnotesize\ttfamily \#define GPIO2\+\_\+\+Set\+Low(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+LATA2 = 0)}
+
+@\+Summary Sets the GPIO pin, RA2, low using LATA2.
+
+@\+Description Sets the GPIO pin, RA2, low using LATA2.
+
+@\+Preconditions The RA2 must be set to an output.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Set RA2 low (0) \mbox{\hyperlink{pin__manager_8h_afd1ee7a018bcafc95d5a54cd29db8572}{GPIO2\+\_\+\+Set\+Low()}}; } 
+
+Definition at line 396 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a4603282d218311599f1c00bc61889d01}\label{pin__manager_8h_a4603282d218311599f1c00bc61889d01}} 
+\index{pin\_manager.h@{pin\_manager.h}!GPIO2\_Toggle@{GPIO2\_Toggle}}
+\index{GPIO2\_Toggle@{GPIO2\_Toggle}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{GPIO2\_Toggle}{GPIO2\_Toggle}}
+{\footnotesize\ttfamily \#define GPIO2\+\_\+\+Toggle(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+LATA2 $^\wedge$= 1)}
+
+@\+Summary Toggles the GPIO pin, RA2, using LATA2.
+
+@\+Description Toggles the GPIO pin, RA2, using LATA2.
+
+@\+Preconditions The RA2 must be set to an output.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Toggle RA2 \mbox{\hyperlink{pin__manager_8h_a4603282d218311599f1c00bc61889d01}{GPIO2\+\_\+\+Toggle()}}; } 
+
+Definition at line 420 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a96be21accf0d3b491a4a628a0e6a5bf1}\label{pin__manager_8h_a96be21accf0d3b491a4a628a0e6a5bf1}} 
+\index{pin\_manager.h@{pin\_manager.h}!GPIO3\_GetValue@{GPIO3\_GetValue}}
+\index{GPIO3\_GetValue@{GPIO3\_GetValue}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{GPIO3\_GetValue}{GPIO3\_GetValue}}
+{\footnotesize\ttfamily \#define GPIO3\+\_\+\+Get\+Value(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+RB2}
+
+@\+Summary Reads the value of the GPIO pin, RB2.
+
+@\+Description Reads the value of the GPIO pin, RB2.
+
+@\+Preconditions None.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  uint16\+\_\+t port\+Value;}
+
+{\ttfamily Read RB2 post\+Value = \mbox{\hyperlink{pin__manager_8h_a96be21accf0d3b491a4a628a0e6a5bf1}{GPIO3\+\_\+\+Get\+Value()}}; } 
+
+Definition at line 884 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_adc9fe6c66fd49db239e1cf67afbcca53}\label{pin__manager_8h_adc9fe6c66fd49db239e1cf67afbcca53}} 
+\index{pin\_manager.h@{pin\_manager.h}!GPIO3\_SetDigitalInput@{GPIO3\_SetDigitalInput}}
+\index{GPIO3\_SetDigitalInput@{GPIO3\_SetDigitalInput}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{GPIO3\_SetDigitalInput}{GPIO3\_SetDigitalInput}}
+{\footnotesize\ttfamily \#define GPIO3\+\_\+\+Set\+Digital\+Input(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+TRISB2 = 1)}
+
+@\+Summary Configures the GPIO pin, RB2, as an input.
+
+@\+Description Configures the GPIO pin, RB2, as an input.
+
+@\+Preconditions None.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Sets the RB2 as an input \mbox{\hyperlink{pin__manager_8h_adc9fe6c66fd49db239e1cf67afbcca53}{GPIO3\+\_\+\+Set\+Digital\+Input()}}; } 
+
+Definition at line 908 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_aa495b607cd24bfd134457660b87cf344}\label{pin__manager_8h_aa495b607cd24bfd134457660b87cf344}} 
+\index{pin\_manager.h@{pin\_manager.h}!GPIO3\_SetDigitalOutput@{GPIO3\_SetDigitalOutput}}
+\index{GPIO3\_SetDigitalOutput@{GPIO3\_SetDigitalOutput}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{GPIO3\_SetDigitalOutput}{GPIO3\_SetDigitalOutput}}
+{\footnotesize\ttfamily \#define GPIO3\+\_\+\+Set\+Digital\+Output(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+TRISB2 = 0)}
+
+@\+Summary Configures the GPIO pin, RB2, as an output.
+
+@\+Description Configures the GPIO pin, RB2, as an output.
+
+@\+Preconditions None.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Sets the RB2 as an output \mbox{\hyperlink{pin__manager_8h_aa495b607cd24bfd134457660b87cf344}{GPIO3\+\_\+\+Set\+Digital\+Output()}}; } 
+
+Definition at line 932 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a61c26bd1674ae83a96874b3896414a12}\label{pin__manager_8h_a61c26bd1674ae83a96874b3896414a12}} 
+\index{pin\_manager.h@{pin\_manager.h}!GPIO3\_SetHigh@{GPIO3\_SetHigh}}
+\index{GPIO3\_SetHigh@{GPIO3\_SetHigh}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{GPIO3\_SetHigh}{GPIO3\_SetHigh}}
+{\footnotesize\ttfamily \#define GPIO3\+\_\+\+Set\+High(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+LATB2 = 1)}
+
+@\+Summary Sets the GPIO pin, RB2, high using LATB2.
+
+@\+Description Sets the GPIO pin, RB2, high using LATB2.
+
+@\+Preconditions The RB2 must be set to an output.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Set RB2 high (1) \mbox{\hyperlink{pin__manager_8h_a61c26bd1674ae83a96874b3896414a12}{GPIO3\+\_\+\+Set\+High()}}; } 
+
+Definition at line 810 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a288964f493e158fbb591b1ab8bbbe0a4}\label{pin__manager_8h_a288964f493e158fbb591b1ab8bbbe0a4}} 
+\index{pin\_manager.h@{pin\_manager.h}!GPIO3\_SetLow@{GPIO3\_SetLow}}
+\index{GPIO3\_SetLow@{GPIO3\_SetLow}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{GPIO3\_SetLow}{GPIO3\_SetLow}}
+{\footnotesize\ttfamily \#define GPIO3\+\_\+\+Set\+Low(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+LATB2 = 0)}
+
+@\+Summary Sets the GPIO pin, RB2, low using LATB2.
+
+@\+Description Sets the GPIO pin, RB2, low using LATB2.
+
+@\+Preconditions The RB2 must be set to an output.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Set RB2 low (0) \mbox{\hyperlink{pin__manager_8h_a288964f493e158fbb591b1ab8bbbe0a4}{GPIO3\+\_\+\+Set\+Low()}}; } 
+
+Definition at line 834 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a6a5e3505b9aa3b1aa9f381c0883cea5b}\label{pin__manager_8h_a6a5e3505b9aa3b1aa9f381c0883cea5b}} 
+\index{pin\_manager.h@{pin\_manager.h}!GPIO3\_Toggle@{GPIO3\_Toggle}}
+\index{GPIO3\_Toggle@{GPIO3\_Toggle}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{GPIO3\_Toggle}{GPIO3\_Toggle}}
+{\footnotesize\ttfamily \#define GPIO3\+\_\+\+Toggle(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+LATB2 $^\wedge$= 1)}
+
+@\+Summary Toggles the GPIO pin, RB2, using LATB2.
+
+@\+Description Toggles the GPIO pin, RB2, using LATB2.
+
+@\+Preconditions The RB2 must be set to an output.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Toggle RB2 \mbox{\hyperlink{pin__manager_8h_a6a5e3505b9aa3b1aa9f381c0883cea5b}{GPIO3\+\_\+\+Toggle()}}; } 
+
+Definition at line 858 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a3b032fabf42b6866fac5f703e3c96682}\label{pin__manager_8h_a3b032fabf42b6866fac5f703e3c96682}} 
+\index{pin\_manager.h@{pin\_manager.h}!GPIO4\_GetValue@{GPIO4\_GetValue}}
+\index{GPIO4\_GetValue@{GPIO4\_GetValue}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{GPIO4\_GetValue}{GPIO4\_GetValue}}
+{\footnotesize\ttfamily \#define GPIO4\+\_\+\+Get\+Value(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+RB3}
+
+@\+Summary Reads the value of the GPIO pin, RB3.
+
+@\+Description Reads the value of the GPIO pin, RB3.
+
+@\+Preconditions None.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  uint16\+\_\+t port\+Value;}
+
+{\ttfamily Read RB3 post\+Value = \mbox{\hyperlink{pin__manager_8h_a3b032fabf42b6866fac5f703e3c96682}{GPIO4\+\_\+\+Get\+Value()}}; } 
+
+Definition at line 1030 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a5a97712e04082d83ca5dca8aa863d695}\label{pin__manager_8h_a5a97712e04082d83ca5dca8aa863d695}} 
+\index{pin\_manager.h@{pin\_manager.h}!GPIO4\_SetDigitalInput@{GPIO4\_SetDigitalInput}}
+\index{GPIO4\_SetDigitalInput@{GPIO4\_SetDigitalInput}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{GPIO4\_SetDigitalInput}{GPIO4\_SetDigitalInput}}
+{\footnotesize\ttfamily \#define GPIO4\+\_\+\+Set\+Digital\+Input(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+TRISB3 = 1)}
+
+@\+Summary Configures the GPIO pin, RB3, as an input.
+
+@\+Description Configures the GPIO pin, RB3, as an input.
+
+@\+Preconditions None.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Sets the RB3 as an input \mbox{\hyperlink{pin__manager_8h_a5a97712e04082d83ca5dca8aa863d695}{GPIO4\+\_\+\+Set\+Digital\+Input()}}; } 
+
+Definition at line 1054 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a80446a9f9bd65619b96ec4e4ae2a4271}\label{pin__manager_8h_a80446a9f9bd65619b96ec4e4ae2a4271}} 
+\index{pin\_manager.h@{pin\_manager.h}!GPIO4\_SetDigitalOutput@{GPIO4\_SetDigitalOutput}}
+\index{GPIO4\_SetDigitalOutput@{GPIO4\_SetDigitalOutput}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{GPIO4\_SetDigitalOutput}{GPIO4\_SetDigitalOutput}}
+{\footnotesize\ttfamily \#define GPIO4\+\_\+\+Set\+Digital\+Output(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+TRISB3 = 0)}
+
+@\+Summary Configures the GPIO pin, RB3, as an output.
+
+@\+Description Configures the GPIO pin, RB3, as an output.
+
+@\+Preconditions None.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Sets the RB3 as an output \mbox{\hyperlink{pin__manager_8h_a80446a9f9bd65619b96ec4e4ae2a4271}{GPIO4\+\_\+\+Set\+Digital\+Output()}}; } 
+
+Definition at line 1078 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a57bb8b849de61f1aa7f113f0b8ed5180}\label{pin__manager_8h_a57bb8b849de61f1aa7f113f0b8ed5180}} 
+\index{pin\_manager.h@{pin\_manager.h}!GPIO4\_SetHigh@{GPIO4\_SetHigh}}
+\index{GPIO4\_SetHigh@{GPIO4\_SetHigh}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{GPIO4\_SetHigh}{GPIO4\_SetHigh}}
+{\footnotesize\ttfamily \#define GPIO4\+\_\+\+Set\+High(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+LATB3 = 1)}
+
+@\+Summary Sets the GPIO pin, RB3, high using LATB3.
+
+@\+Description Sets the GPIO pin, RB3, high using LATB3.
+
+@\+Preconditions The RB3 must be set to an output.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Set RB3 high (1) \mbox{\hyperlink{pin__manager_8h_a57bb8b849de61f1aa7f113f0b8ed5180}{GPIO4\+\_\+\+Set\+High()}}; } 
+
+Definition at line 956 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a82833b7a4ec581a859f1ac4a46f04ce8}\label{pin__manager_8h_a82833b7a4ec581a859f1ac4a46f04ce8}} 
+\index{pin\_manager.h@{pin\_manager.h}!GPIO4\_SetLow@{GPIO4\_SetLow}}
+\index{GPIO4\_SetLow@{GPIO4\_SetLow}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{GPIO4\_SetLow}{GPIO4\_SetLow}}
+{\footnotesize\ttfamily \#define GPIO4\+\_\+\+Set\+Low(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+LATB3 = 0)}
+
+@\+Summary Sets the GPIO pin, RB3, low using LATB3.
+
+@\+Description Sets the GPIO pin, RB3, low using LATB3.
+
+@\+Preconditions The RB3 must be set to an output.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Set RB3 low (0) \mbox{\hyperlink{pin__manager_8h_a82833b7a4ec581a859f1ac4a46f04ce8}{GPIO4\+\_\+\+Set\+Low()}}; } 
+
+Definition at line 980 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a3d15317cdc2ba25703f5b0bd16fb1b2d}\label{pin__manager_8h_a3d15317cdc2ba25703f5b0bd16fb1b2d}} 
+\index{pin\_manager.h@{pin\_manager.h}!GPIO4\_Toggle@{GPIO4\_Toggle}}
+\index{GPIO4\_Toggle@{GPIO4\_Toggle}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{GPIO4\_Toggle}{GPIO4\_Toggle}}
+{\footnotesize\ttfamily \#define GPIO4\+\_\+\+Toggle(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+LATB3 $^\wedge$= 1)}
+
+@\+Summary Toggles the GPIO pin, RB3, using LATB3.
+
+@\+Description Toggles the GPIO pin, RB3, using LATB3.
+
+@\+Preconditions The RB3 must be set to an output.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Toggle RB3 \mbox{\hyperlink{pin__manager_8h_a3d15317cdc2ba25703f5b0bd16fb1b2d}{GPIO4\+\_\+\+Toggle()}}; } 
+
+Definition at line 1004 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_adde5423734dd2cf7c6589cf20e8ae56b}\label{pin__manager_8h_adde5423734dd2cf7c6589cf20e8ae56b}} 
+\index{pin\_manager.h@{pin\_manager.h}!GPIO5\_GetValue@{GPIO5\_GetValue}}
+\index{GPIO5\_GetValue@{GPIO5\_GetValue}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{GPIO5\_GetValue}{GPIO5\_GetValue}}
+{\footnotesize\ttfamily \#define GPIO5\+\_\+\+Get\+Value(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+RB4}
+
+@\+Summary Reads the value of the GPIO pin, RB4.
+
+@\+Description Reads the value of the GPIO pin, RB4.
+
+@\+Preconditions None.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  uint16\+\_\+t port\+Value;}
+
+{\ttfamily Read RB4 post\+Value = \mbox{\hyperlink{pin__manager_8h_adde5423734dd2cf7c6589cf20e8ae56b}{GPIO5\+\_\+\+Get\+Value()}}; } 
+
+Definition at line 1176 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a3686e2b3b223ace346bbf10fb5e0c90a}\label{pin__manager_8h_a3686e2b3b223ace346bbf10fb5e0c90a}} 
+\index{pin\_manager.h@{pin\_manager.h}!GPIO5\_SetDigitalInput@{GPIO5\_SetDigitalInput}}
+\index{GPIO5\_SetDigitalInput@{GPIO5\_SetDigitalInput}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{GPIO5\_SetDigitalInput}{GPIO5\_SetDigitalInput}}
+{\footnotesize\ttfamily \#define GPIO5\+\_\+\+Set\+Digital\+Input(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+TRISB4 = 1)}
+
+@\+Summary Configures the GPIO pin, RB4, as an input.
+
+@\+Description Configures the GPIO pin, RB4, as an input.
+
+@\+Preconditions None.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Sets the RB4 as an input \mbox{\hyperlink{pin__manager_8h_a3686e2b3b223ace346bbf10fb5e0c90a}{GPIO5\+\_\+\+Set\+Digital\+Input()}}; } 
+
+Definition at line 1200 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a9b84492e10c30aa71e9819b912ca2bb3}\label{pin__manager_8h_a9b84492e10c30aa71e9819b912ca2bb3}} 
+\index{pin\_manager.h@{pin\_manager.h}!GPIO5\_SetDigitalOutput@{GPIO5\_SetDigitalOutput}}
+\index{GPIO5\_SetDigitalOutput@{GPIO5\_SetDigitalOutput}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{GPIO5\_SetDigitalOutput}{GPIO5\_SetDigitalOutput}}
+{\footnotesize\ttfamily \#define GPIO5\+\_\+\+Set\+Digital\+Output(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+TRISB4 = 0)}
+
+@\+Summary Configures the GPIO pin, RB4, as an output.
+
+@\+Description Configures the GPIO pin, RB4, as an output.
+
+@\+Preconditions None.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Sets the RB4 as an output \mbox{\hyperlink{pin__manager_8h_a9b84492e10c30aa71e9819b912ca2bb3}{GPIO5\+\_\+\+Set\+Digital\+Output()}}; } 
+
+Definition at line 1224 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a7917f89e3b02a9c7bc4e4ddcaeb27582}\label{pin__manager_8h_a7917f89e3b02a9c7bc4e4ddcaeb27582}} 
+\index{pin\_manager.h@{pin\_manager.h}!GPIO5\_SetHigh@{GPIO5\_SetHigh}}
+\index{GPIO5\_SetHigh@{GPIO5\_SetHigh}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{GPIO5\_SetHigh}{GPIO5\_SetHigh}}
+{\footnotesize\ttfamily \#define GPIO5\+\_\+\+Set\+High(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+LATB4 = 1)}
+
+@\+Summary Sets the GPIO pin, RB4, high using LATB4.
+
+@\+Description Sets the GPIO pin, RB4, high using LATB4.
+
+@\+Preconditions The RB4 must be set to an output.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Set RB4 high (1) \mbox{\hyperlink{pin__manager_8h_a7917f89e3b02a9c7bc4e4ddcaeb27582}{GPIO5\+\_\+\+Set\+High()}}; } 
+
+Definition at line 1102 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a31f70a916cb4ac960c9c3c2388051ac5}\label{pin__manager_8h_a31f70a916cb4ac960c9c3c2388051ac5}} 
+\index{pin\_manager.h@{pin\_manager.h}!GPIO5\_SetLow@{GPIO5\_SetLow}}
+\index{GPIO5\_SetLow@{GPIO5\_SetLow}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{GPIO5\_SetLow}{GPIO5\_SetLow}}
+{\footnotesize\ttfamily \#define GPIO5\+\_\+\+Set\+Low(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+LATB4 = 0)}
+
+@\+Summary Sets the GPIO pin, RB4, low using LATB4.
+
+@\+Description Sets the GPIO pin, RB4, low using LATB4.
+
+@\+Preconditions The RB4 must be set to an output.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Set RB4 low (0) \mbox{\hyperlink{pin__manager_8h_a31f70a916cb4ac960c9c3c2388051ac5}{GPIO5\+\_\+\+Set\+Low()}}; } 
+
+Definition at line 1126 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a968a681b648e39ceca88c2d5a7afd324}\label{pin__manager_8h_a968a681b648e39ceca88c2d5a7afd324}} 
+\index{pin\_manager.h@{pin\_manager.h}!GPIO5\_Toggle@{GPIO5\_Toggle}}
+\index{GPIO5\_Toggle@{GPIO5\_Toggle}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{GPIO5\_Toggle}{GPIO5\_Toggle}}
+{\footnotesize\ttfamily \#define GPIO5\+\_\+\+Toggle(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+LATB4 $^\wedge$= 1)}
+
+@\+Summary Toggles the GPIO pin, RB4, using LATB4.
+
+@\+Description Toggles the GPIO pin, RB4, using LATB4.
+
+@\+Preconditions The RB4 must be set to an output.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Toggle RB4 \mbox{\hyperlink{pin__manager_8h_a968a681b648e39ceca88c2d5a7afd324}{GPIO5\+\_\+\+Toggle()}}; } 
+
+Definition at line 1150 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a0f3279497262e55812e625163c26d601}\label{pin__manager_8h_a0f3279497262e55812e625163c26d601}} 
+\index{pin\_manager.h@{pin\_manager.h}!GPIO6\_GetValue@{GPIO6\_GetValue}}
+\index{GPIO6\_GetValue@{GPIO6\_GetValue}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{GPIO6\_GetValue}{GPIO6\_GetValue}}
+{\footnotesize\ttfamily \#define GPIO6\+\_\+\+Get\+Value(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+RB7}
+
+@\+Summary Reads the value of the GPIO pin, RB7.
+
+@\+Description Reads the value of the GPIO pin, RB7.
+
+@\+Preconditions None.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  uint16\+\_\+t port\+Value;}
+
+{\ttfamily Read RB7 post\+Value = \mbox{\hyperlink{pin__manager_8h_a0f3279497262e55812e625163c26d601}{GPIO6\+\_\+\+Get\+Value()}}; } 
+
+Definition at line 1322 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a6b0bfc8af6055372e204ba700316221d}\label{pin__manager_8h_a6b0bfc8af6055372e204ba700316221d}} 
+\index{pin\_manager.h@{pin\_manager.h}!GPIO6\_SetDigitalInput@{GPIO6\_SetDigitalInput}}
+\index{GPIO6\_SetDigitalInput@{GPIO6\_SetDigitalInput}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{GPIO6\_SetDigitalInput}{GPIO6\_SetDigitalInput}}
+{\footnotesize\ttfamily \#define GPIO6\+\_\+\+Set\+Digital\+Input(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+TRISB7 = 1)}
+
+@\+Summary Configures the GPIO pin, RB7, as an input.
+
+@\+Description Configures the GPIO pin, RB7, as an input.
+
+@\+Preconditions None.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Sets the RB7 as an input \mbox{\hyperlink{pin__manager_8h_a6b0bfc8af6055372e204ba700316221d}{GPIO6\+\_\+\+Set\+Digital\+Input()}}; } 
+
+Definition at line 1346 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_ae6eeb1bb1513fdfc74d036c1e0d7ed78}\label{pin__manager_8h_ae6eeb1bb1513fdfc74d036c1e0d7ed78}} 
+\index{pin\_manager.h@{pin\_manager.h}!GPIO6\_SetDigitalOutput@{GPIO6\_SetDigitalOutput}}
+\index{GPIO6\_SetDigitalOutput@{GPIO6\_SetDigitalOutput}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{GPIO6\_SetDigitalOutput}{GPIO6\_SetDigitalOutput}}
+{\footnotesize\ttfamily \#define GPIO6\+\_\+\+Set\+Digital\+Output(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+TRISB7 = 0)}
+
+@\+Summary Configures the GPIO pin, RB7, as an output.
+
+@\+Description Configures the GPIO pin, RB7, as an output.
+
+@\+Preconditions None.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Sets the RB7 as an output \mbox{\hyperlink{pin__manager_8h_ae6eeb1bb1513fdfc74d036c1e0d7ed78}{GPIO6\+\_\+\+Set\+Digital\+Output()}}; } 
+
+Definition at line 1370 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a659ead7bb14c83557a3ecbf010c76996}\label{pin__manager_8h_a659ead7bb14c83557a3ecbf010c76996}} 
+\index{pin\_manager.h@{pin\_manager.h}!GPIO6\_SetHigh@{GPIO6\_SetHigh}}
+\index{GPIO6\_SetHigh@{GPIO6\_SetHigh}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{GPIO6\_SetHigh}{GPIO6\_SetHigh}}
+{\footnotesize\ttfamily \#define GPIO6\+\_\+\+Set\+High(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+LATB7 = 1)}
+
+@\+Summary Sets the GPIO pin, RB7, high using LATB7.
+
+@\+Description Sets the GPIO pin, RB7, high using LATB7.
+
+@\+Preconditions The RB7 must be set to an output.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Set RB7 high (1) \mbox{\hyperlink{pin__manager_8h_a659ead7bb14c83557a3ecbf010c76996}{GPIO6\+\_\+\+Set\+High()}}; } 
+
+Definition at line 1248 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_ae1546edc5600fdc8594bc88cc6bf27b7}\label{pin__manager_8h_ae1546edc5600fdc8594bc88cc6bf27b7}} 
+\index{pin\_manager.h@{pin\_manager.h}!GPIO6\_SetLow@{GPIO6\_SetLow}}
+\index{GPIO6\_SetLow@{GPIO6\_SetLow}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{GPIO6\_SetLow}{GPIO6\_SetLow}}
+{\footnotesize\ttfamily \#define GPIO6\+\_\+\+Set\+Low(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+LATB7 = 0)}
+
+@\+Summary Sets the GPIO pin, RB7, low using LATB7.
+
+@\+Description Sets the GPIO pin, RB7, low using LATB7.
+
+@\+Preconditions The RB7 must be set to an output.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Set RB7 low (0) \mbox{\hyperlink{pin__manager_8h_ae1546edc5600fdc8594bc88cc6bf27b7}{GPIO6\+\_\+\+Set\+Low()}}; } 
+
+Definition at line 1272 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_abe5b7c5af0589bcd9be8f46141bb7c1c}\label{pin__manager_8h_abe5b7c5af0589bcd9be8f46141bb7c1c}} 
+\index{pin\_manager.h@{pin\_manager.h}!GPIO6\_Toggle@{GPIO6\_Toggle}}
+\index{GPIO6\_Toggle@{GPIO6\_Toggle}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{GPIO6\_Toggle}{GPIO6\_Toggle}}
+{\footnotesize\ttfamily \#define GPIO6\+\_\+\+Toggle(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+LATB7 $^\wedge$= 1)}
+
+@\+Summary Toggles the GPIO pin, RB7, using LATB7.
+
+@\+Description Toggles the GPIO pin, RB7, using LATB7.
+
+@\+Preconditions The RB7 must be set to an output.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Toggle RB7 \mbox{\hyperlink{pin__manager_8h_abe5b7c5af0589bcd9be8f46141bb7c1c}{GPIO6\+\_\+\+Toggle()}}; } 
+
+Definition at line 1296 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a31c43b53840001d6e975fd7dfacc8880}\label{pin__manager_8h_a31c43b53840001d6e975fd7dfacc8880}} 
+\index{pin\_manager.h@{pin\_manager.h}!SCK1OUT\_GetValue@{SCK1OUT\_GetValue}}
+\index{SCK1OUT\_GetValue@{SCK1OUT\_GetValue}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{SCK1OUT\_GetValue}{SCK1OUT\_GetValue}}
+{\footnotesize\ttfamily \#define SCK1\+OUT\+\_\+\+Get\+Value(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+RB8}
+
+@\+Summary Reads the value of the GPIO pin, RB8.
+
+@\+Description Reads the value of the GPIO pin, RB8.
+
+@\+Preconditions None.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  uint16\+\_\+t port\+Value;}
+
+{\ttfamily Read RB8 post\+Value = \mbox{\hyperlink{pin__manager_8h_a31c43b53840001d6e975fd7dfacc8880}{SCK1\+OUT\+\_\+\+Get\+Value()}}; } 
+
+Definition at line 1468 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a249198a3636276642645ae6f14ef0fb9}\label{pin__manager_8h_a249198a3636276642645ae6f14ef0fb9}} 
+\index{pin\_manager.h@{pin\_manager.h}!SCK1OUT\_SetDigitalInput@{SCK1OUT\_SetDigitalInput}}
+\index{SCK1OUT\_SetDigitalInput@{SCK1OUT\_SetDigitalInput}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{SCK1OUT\_SetDigitalInput}{SCK1OUT\_SetDigitalInput}}
+{\footnotesize\ttfamily \#define SCK1\+OUT\+\_\+\+Set\+Digital\+Input(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+TRISB8 = 1)}
+
+@\+Summary Configures the GPIO pin, RB8, as an input.
+
+@\+Description Configures the GPIO pin, RB8, as an input.
+
+@\+Preconditions None.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Sets the RB8 as an input \mbox{\hyperlink{pin__manager_8h_a249198a3636276642645ae6f14ef0fb9}{SCK1\+OUT\+\_\+\+Set\+Digital\+Input()}}; } 
+
+Definition at line 1492 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a57c5f8c76d8ce0b71e8106980ee675e9}\label{pin__manager_8h_a57c5f8c76d8ce0b71e8106980ee675e9}} 
+\index{pin\_manager.h@{pin\_manager.h}!SCK1OUT\_SetDigitalOutput@{SCK1OUT\_SetDigitalOutput}}
+\index{SCK1OUT\_SetDigitalOutput@{SCK1OUT\_SetDigitalOutput}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{SCK1OUT\_SetDigitalOutput}{SCK1OUT\_SetDigitalOutput}}
+{\footnotesize\ttfamily \#define SCK1\+OUT\+\_\+\+Set\+Digital\+Output(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+TRISB8 = 0)}
+
+@\+Summary Configures the GPIO pin, RB8, as an output.
+
+@\+Description Configures the GPIO pin, RB8, as an output.
+
+@\+Preconditions None.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Sets the RB8 as an output \mbox{\hyperlink{pin__manager_8h_a57c5f8c76d8ce0b71e8106980ee675e9}{SCK1\+OUT\+\_\+\+Set\+Digital\+Output()}}; } 
+
+Definition at line 1516 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a7f01ad4f03c3d48851f924268eca687a}\label{pin__manager_8h_a7f01ad4f03c3d48851f924268eca687a}} 
+\index{pin\_manager.h@{pin\_manager.h}!SCK1OUT\_SetHigh@{SCK1OUT\_SetHigh}}
+\index{SCK1OUT\_SetHigh@{SCK1OUT\_SetHigh}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{SCK1OUT\_SetHigh}{SCK1OUT\_SetHigh}}
+{\footnotesize\ttfamily \#define SCK1\+OUT\+\_\+\+Set\+High(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+LATB8 = 1)}
+
+@\+Summary Sets the GPIO pin, RB8, high using LATB8.
+
+@\+Description Sets the GPIO pin, RB8, high using LATB8.
+
+@\+Preconditions The RB8 must be set to an output.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Set RB8 high (1) \mbox{\hyperlink{pin__manager_8h_a7f01ad4f03c3d48851f924268eca687a}{SCK1\+OUT\+\_\+\+Set\+High()}}; } 
+
+Definition at line 1394 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_aa997ef3df331d54fec912d3c18076b31}\label{pin__manager_8h_aa997ef3df331d54fec912d3c18076b31}} 
+\index{pin\_manager.h@{pin\_manager.h}!SCK1OUT\_SetLow@{SCK1OUT\_SetLow}}
+\index{SCK1OUT\_SetLow@{SCK1OUT\_SetLow}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{SCK1OUT\_SetLow}{SCK1OUT\_SetLow}}
+{\footnotesize\ttfamily \#define SCK1\+OUT\+\_\+\+Set\+Low(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+LATB8 = 0)}
+
+@\+Summary Sets the GPIO pin, RB8, low using LATB8.
+
+@\+Description Sets the GPIO pin, RB8, low using LATB8.
+
+@\+Preconditions The RB8 must be set to an output.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Set RB8 low (0) \mbox{\hyperlink{pin__manager_8h_aa997ef3df331d54fec912d3c18076b31}{SCK1\+OUT\+\_\+\+Set\+Low()}}; } 
+
+Definition at line 1418 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a75e619680a9da14df7adc2b0707cd0f3}\label{pin__manager_8h_a75e619680a9da14df7adc2b0707cd0f3}} 
+\index{pin\_manager.h@{pin\_manager.h}!SCK1OUT\_Toggle@{SCK1OUT\_Toggle}}
+\index{SCK1OUT\_Toggle@{SCK1OUT\_Toggle}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{SCK1OUT\_Toggle}{SCK1OUT\_Toggle}}
+{\footnotesize\ttfamily \#define SCK1\+OUT\+\_\+\+Toggle(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+LATB8 $^\wedge$= 1)}
+
+@\+Summary Toggles the GPIO pin, RB8, using LATB8.
+
+@\+Description Toggles the GPIO pin, RB8, using LATB8.
+
+@\+Preconditions The RB8 must be set to an output.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Toggle RB8 \mbox{\hyperlink{pin__manager_8h_a75e619680a9da14df7adc2b0707cd0f3}{SCK1\+OUT\+\_\+\+Toggle()}}; } 
+
+Definition at line 1442 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a8c451ca02afea8b18221fb0c224bdfbb}\label{pin__manager_8h_a8c451ca02afea8b18221fb0c224bdfbb}} 
+\index{pin\_manager.h@{pin\_manager.h}!SDI1\_GetValue@{SDI1\_GetValue}}
+\index{SDI1\_GetValue@{SDI1\_GetValue}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{SDI1\_GetValue}{SDI1\_GetValue}}
+{\footnotesize\ttfamily \#define SDI1\+\_\+\+Get\+Value(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+RB9}
+
+@\+Summary Reads the value of the GPIO pin, RB9.
+
+@\+Description Reads the value of the GPIO pin, RB9.
+
+@\+Preconditions None.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  uint16\+\_\+t port\+Value;}
+
+{\ttfamily Read RB9 post\+Value = \mbox{\hyperlink{pin__manager_8h_a8c451ca02afea8b18221fb0c224bdfbb}{SDI1\+\_\+\+Get\+Value()}}; } 
+
+Definition at line 1614 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a4123806296d967f313f62e5862c598bc}\label{pin__manager_8h_a4123806296d967f313f62e5862c598bc}} 
+\index{pin\_manager.h@{pin\_manager.h}!SDI1\_SetDigitalInput@{SDI1\_SetDigitalInput}}
+\index{SDI1\_SetDigitalInput@{SDI1\_SetDigitalInput}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{SDI1\_SetDigitalInput}{SDI1\_SetDigitalInput}}
+{\footnotesize\ttfamily \#define SDI1\+\_\+\+Set\+Digital\+Input(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+TRISB9 = 1)}
+
+@\+Summary Configures the GPIO pin, RB9, as an input.
+
+@\+Description Configures the GPIO pin, RB9, as an input.
+
+@\+Preconditions None.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Sets the RB9 as an input \mbox{\hyperlink{pin__manager_8h_a4123806296d967f313f62e5862c598bc}{SDI1\+\_\+\+Set\+Digital\+Input()}}; } 
+
+Definition at line 1638 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a9c6bd9615f563b00a0a7965c973be437}\label{pin__manager_8h_a9c6bd9615f563b00a0a7965c973be437}} 
+\index{pin\_manager.h@{pin\_manager.h}!SDI1\_SetDigitalOutput@{SDI1\_SetDigitalOutput}}
+\index{SDI1\_SetDigitalOutput@{SDI1\_SetDigitalOutput}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{SDI1\_SetDigitalOutput}{SDI1\_SetDigitalOutput}}
+{\footnotesize\ttfamily \#define SDI1\+\_\+\+Set\+Digital\+Output(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+TRISB9 = 0)}
+
+@\+Summary Configures the GPIO pin, RB9, as an output.
+
+@\+Description Configures the GPIO pin, RB9, as an output.
+
+@\+Preconditions None.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Sets the RB9 as an output \mbox{\hyperlink{pin__manager_8h_a9c6bd9615f563b00a0a7965c973be437}{SDI1\+\_\+\+Set\+Digital\+Output()}}; } 
+
+Definition at line 1662 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a07c2b8ce56d6b325d763eecbf9c1a097}\label{pin__manager_8h_a07c2b8ce56d6b325d763eecbf9c1a097}} 
+\index{pin\_manager.h@{pin\_manager.h}!SDI1\_SetHigh@{SDI1\_SetHigh}}
+\index{SDI1\_SetHigh@{SDI1\_SetHigh}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{SDI1\_SetHigh}{SDI1\_SetHigh}}
+{\footnotesize\ttfamily \#define SDI1\+\_\+\+Set\+High(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+LATB9 = 1)}
+
+@\+Summary Sets the GPIO pin, RB9, high using LATB9.
+
+@\+Description Sets the GPIO pin, RB9, high using LATB9.
+
+@\+Preconditions The RB9 must be set to an output.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Set RB9 high (1) \mbox{\hyperlink{pin__manager_8h_a07c2b8ce56d6b325d763eecbf9c1a097}{SDI1\+\_\+\+Set\+High()}}; } 
+
+Definition at line 1540 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_aee8638c1ee4e03574d5ed9f87bf08b34}\label{pin__manager_8h_aee8638c1ee4e03574d5ed9f87bf08b34}} 
+\index{pin\_manager.h@{pin\_manager.h}!SDI1\_SetLow@{SDI1\_SetLow}}
+\index{SDI1\_SetLow@{SDI1\_SetLow}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{SDI1\_SetLow}{SDI1\_SetLow}}
+{\footnotesize\ttfamily \#define SDI1\+\_\+\+Set\+Low(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+LATB9 = 0)}
+
+@\+Summary Sets the GPIO pin, RB9, low using LATB9.
+
+@\+Description Sets the GPIO pin, RB9, low using LATB9.
+
+@\+Preconditions The RB9 must be set to an output.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Set RB9 low (0) \mbox{\hyperlink{pin__manager_8h_aee8638c1ee4e03574d5ed9f87bf08b34}{SDI1\+\_\+\+Set\+Low()}}; } 
+
+Definition at line 1564 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a7bddb806cfa20736485fb4401c2efb8f}\label{pin__manager_8h_a7bddb806cfa20736485fb4401c2efb8f}} 
+\index{pin\_manager.h@{pin\_manager.h}!SDI1\_Toggle@{SDI1\_Toggle}}
+\index{SDI1\_Toggle@{SDI1\_Toggle}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{SDI1\_Toggle}{SDI1\_Toggle}}
+{\footnotesize\ttfamily \#define SDI1\+\_\+\+Toggle(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+LATB9 $^\wedge$= 1)}
+
+@\+Summary Toggles the GPIO pin, RB9, using LATB9.
+
+@\+Description Toggles the GPIO pin, RB9, using LATB9.
+
+@\+Preconditions The RB9 must be set to an output.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Toggle RB9 \mbox{\hyperlink{pin__manager_8h_a7bddb806cfa20736485fb4401c2efb8f}{SDI1\+\_\+\+Toggle()}}; } 
+
+Definition at line 1588 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a140dcc3d8be22d094fe254c5335eb509}\label{pin__manager_8h_a140dcc3d8be22d094fe254c5335eb509}} 
+\index{pin\_manager.h@{pin\_manager.h}!SS1OUT\_GetValue@{SS1OUT\_GetValue}}
+\index{SS1OUT\_GetValue@{SS1OUT\_GetValue}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{SS1OUT\_GetValue}{SS1OUT\_GetValue}}
+{\footnotesize\ttfamily \#define SS1\+OUT\+\_\+\+Get\+Value(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+RB10}
+
+@\+Summary Reads the value of the GPIO pin, RB10.
+
+@\+Description Reads the value of the GPIO pin, RB10.
+
+@\+Preconditions None.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  uint16\+\_\+t port\+Value;}
+
+{\ttfamily Read RB10 post\+Value = \mbox{\hyperlink{pin__manager_8h_a140dcc3d8be22d094fe254c5335eb509}{SS1\+OUT\+\_\+\+Get\+Value()}}; } 
+
+Definition at line 738 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a07b685f42af2ef8dafab0bcd9fe05f06}\label{pin__manager_8h_a07b685f42af2ef8dafab0bcd9fe05f06}} 
+\index{pin\_manager.h@{pin\_manager.h}!SS1OUT\_SetDigitalInput@{SS1OUT\_SetDigitalInput}}
+\index{SS1OUT\_SetDigitalInput@{SS1OUT\_SetDigitalInput}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{SS1OUT\_SetDigitalInput}{SS1OUT\_SetDigitalInput}}
+{\footnotesize\ttfamily \#define SS1\+OUT\+\_\+\+Set\+Digital\+Input(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+TRISB10 = 1)}
+
+@\+Summary Configures the GPIO pin, RB10, as an input.
+
+@\+Description Configures the GPIO pin, RB10, as an input.
+
+@\+Preconditions None.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Sets the RB10 as an input \mbox{\hyperlink{pin__manager_8h_a07b685f42af2ef8dafab0bcd9fe05f06}{SS1\+OUT\+\_\+\+Set\+Digital\+Input()}}; } 
+
+Definition at line 762 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a85c69a884bce561aa4bdf1c590b44f0e}\label{pin__manager_8h_a85c69a884bce561aa4bdf1c590b44f0e}} 
+\index{pin\_manager.h@{pin\_manager.h}!SS1OUT\_SetDigitalOutput@{SS1OUT\_SetDigitalOutput}}
+\index{SS1OUT\_SetDigitalOutput@{SS1OUT\_SetDigitalOutput}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{SS1OUT\_SetDigitalOutput}{SS1OUT\_SetDigitalOutput}}
+{\footnotesize\ttfamily \#define SS1\+OUT\+\_\+\+Set\+Digital\+Output(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+TRISB10 = 0)}
+
+@\+Summary Configures the GPIO pin, RB10, as an output.
+
+@\+Description Configures the GPIO pin, RB10, as an output.
+
+@\+Preconditions None.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Sets the RB10 as an output \mbox{\hyperlink{pin__manager_8h_a85c69a884bce561aa4bdf1c590b44f0e}{SS1\+OUT\+\_\+\+Set\+Digital\+Output()}}; } 
+
+Definition at line 786 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_aec60b08a13986ba796c7c9fae101160f}\label{pin__manager_8h_aec60b08a13986ba796c7c9fae101160f}} 
+\index{pin\_manager.h@{pin\_manager.h}!SS1OUT\_SetHigh@{SS1OUT\_SetHigh}}
+\index{SS1OUT\_SetHigh@{SS1OUT\_SetHigh}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{SS1OUT\_SetHigh}{SS1OUT\_SetHigh}}
+{\footnotesize\ttfamily \#define SS1\+OUT\+\_\+\+Set\+High(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+LATB10 = 1)}
+
+@\+Summary Sets the GPIO pin, RB10, high using LATB10.
+
+@\+Description Sets the GPIO pin, RB10, high using LATB10.
+
+@\+Preconditions The RB10 must be set to an output.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Set RB10 high (1) \mbox{\hyperlink{pin__manager_8h_aec60b08a13986ba796c7c9fae101160f}{SS1\+OUT\+\_\+\+Set\+High()}}; } 
+
+Definition at line 664 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a06305d207514dd1a07a032ff028b4ed9}\label{pin__manager_8h_a06305d207514dd1a07a032ff028b4ed9}} 
+\index{pin\_manager.h@{pin\_manager.h}!SS1OUT\_SetLow@{SS1OUT\_SetLow}}
+\index{SS1OUT\_SetLow@{SS1OUT\_SetLow}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{SS1OUT\_SetLow}{SS1OUT\_SetLow}}
+{\footnotesize\ttfamily \#define SS1\+OUT\+\_\+\+Set\+Low(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+LATB10 = 0)}
+
+@\+Summary Sets the GPIO pin, RB10, low using LATB10.
+
+@\+Description Sets the GPIO pin, RB10, low using LATB10.
+
+@\+Preconditions The RB10 must be set to an output.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Set RB10 low (0) \mbox{\hyperlink{pin__manager_8h_a06305d207514dd1a07a032ff028b4ed9}{SS1\+OUT\+\_\+\+Set\+Low()}}; } 
+
+Definition at line 688 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a2c49082a62f5eb99a4e5eec7ba3be21d}\label{pin__manager_8h_a2c49082a62f5eb99a4e5eec7ba3be21d}} 
+\index{pin\_manager.h@{pin\_manager.h}!SS1OUT\_Toggle@{SS1OUT\_Toggle}}
+\index{SS1OUT\_Toggle@{SS1OUT\_Toggle}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{SS1OUT\_Toggle}{SS1OUT\_Toggle}}
+{\footnotesize\ttfamily \#define SS1\+OUT\+\_\+\+Toggle(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+LATB10 $^\wedge$= 1)}
+
+@\+Summary Toggles the GPIO pin, RB10, using LATB10.
+
+@\+Description Toggles the GPIO pin, RB10, using LATB10.
+
+@\+Preconditions The RB10 must be set to an output.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Toggle RB10 \mbox{\hyperlink{pin__manager_8h_a2c49082a62f5eb99a4e5eec7ba3be21d}{SS1\+OUT\+\_\+\+Toggle()}}; } 
+
+Definition at line 712 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_ad2b70353a76292471d1fd5e37f54a7d6}\label{pin__manager_8h_ad2b70353a76292471d1fd5e37f54a7d6}} 
+\index{pin\_manager.h@{pin\_manager.h}!SSR\_OUTPUT\_GetValue@{SSR\_OUTPUT\_GetValue}}
+\index{SSR\_OUTPUT\_GetValue@{SSR\_OUTPUT\_GetValue}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{SSR\_OUTPUT\_GetValue}{SSR\_OUTPUT\_GetValue}}
+{\footnotesize\ttfamily \#define SSR\+\_\+\+OUTPUT\+\_\+\+Get\+Value(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+RA4}
+
+@\+Summary Reads the value of the GPIO pin, RA4.
+
+@\+Description Reads the value of the GPIO pin, RA4.
+
+@\+Preconditions None.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  uint16\+\_\+t port\+Value;}
+
+{\ttfamily Read RA4 post\+Value = \mbox{\hyperlink{pin__manager_8h_ad2b70353a76292471d1fd5e37f54a7d6}{SSR\+\_\+\+OUTPUT\+\_\+\+Get\+Value()}}; } 
+
+Definition at line 592 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a789805beefbad0b922c6ab5c39462123}\label{pin__manager_8h_a789805beefbad0b922c6ab5c39462123}} 
+\index{pin\_manager.h@{pin\_manager.h}!SSR\_OUTPUT\_SetDigitalInput@{SSR\_OUTPUT\_SetDigitalInput}}
+\index{SSR\_OUTPUT\_SetDigitalInput@{SSR\_OUTPUT\_SetDigitalInput}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{SSR\_OUTPUT\_SetDigitalInput}{SSR\_OUTPUT\_SetDigitalInput}}
+{\footnotesize\ttfamily \#define SSR\+\_\+\+OUTPUT\+\_\+\+Set\+Digital\+Input(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+TRISA4 = 1)}
+
+@\+Summary Configures the GPIO pin, RA4, as an input.
+
+@\+Description Configures the GPIO pin, RA4, as an input.
+
+@\+Preconditions None.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Sets the RA4 as an input \mbox{\hyperlink{pin__manager_8h_a789805beefbad0b922c6ab5c39462123}{SSR\+\_\+\+OUTPUT\+\_\+\+Set\+Digital\+Input()}}; } 
+
+Definition at line 616 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_af3bc17bb4e56d9d1a55039895df92c64}\label{pin__manager_8h_af3bc17bb4e56d9d1a55039895df92c64}} 
+\index{pin\_manager.h@{pin\_manager.h}!SSR\_OUTPUT\_SetDigitalOutput@{SSR\_OUTPUT\_SetDigitalOutput}}
+\index{SSR\_OUTPUT\_SetDigitalOutput@{SSR\_OUTPUT\_SetDigitalOutput}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{SSR\_OUTPUT\_SetDigitalOutput}{SSR\_OUTPUT\_SetDigitalOutput}}
+{\footnotesize\ttfamily \#define SSR\+\_\+\+OUTPUT\+\_\+\+Set\+Digital\+Output(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+TRISA4 = 0)}
+
+@\+Summary Configures the GPIO pin, RA4, as an output.
+
+@\+Description Configures the GPIO pin, RA4, as an output.
+
+@\+Preconditions None.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Sets the RA4 as an output \mbox{\hyperlink{pin__manager_8h_af3bc17bb4e56d9d1a55039895df92c64}{SSR\+\_\+\+OUTPUT\+\_\+\+Set\+Digital\+Output()}}; } 
+
+Definition at line 640 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a6d2805ee19c7d69df3af13eb2908b923}\label{pin__manager_8h_a6d2805ee19c7d69df3af13eb2908b923}} 
+\index{pin\_manager.h@{pin\_manager.h}!SSR\_OUTPUT\_SetHigh@{SSR\_OUTPUT\_SetHigh}}
+\index{SSR\_OUTPUT\_SetHigh@{SSR\_OUTPUT\_SetHigh}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{SSR\_OUTPUT\_SetHigh}{SSR\_OUTPUT\_SetHigh}}
+{\footnotesize\ttfamily \#define SSR\+\_\+\+OUTPUT\+\_\+\+Set\+High(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+LATA4 = 1)}
+
+@\+Summary Sets the GPIO pin, RA4, high using LATA4.
+
+@\+Description Sets the GPIO pin, RA4, high using LATA4.
+
+@\+Preconditions The RA4 must be set to an output.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Set RA4 high (1) \mbox{\hyperlink{pin__manager_8h_a6d2805ee19c7d69df3af13eb2908b923}{SSR\+\_\+\+OUTPUT\+\_\+\+Set\+High()}}; } 
+
+Definition at line 518 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a62b6be7b4c428bb0a34238de1c1dcd9c}\label{pin__manager_8h_a62b6be7b4c428bb0a34238de1c1dcd9c}} 
+\index{pin\_manager.h@{pin\_manager.h}!SSR\_OUTPUT\_SetLow@{SSR\_OUTPUT\_SetLow}}
+\index{SSR\_OUTPUT\_SetLow@{SSR\_OUTPUT\_SetLow}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{SSR\_OUTPUT\_SetLow}{SSR\_OUTPUT\_SetLow}}
+{\footnotesize\ttfamily \#define SSR\+\_\+\+OUTPUT\+\_\+\+Set\+Low(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+LATA4 = 0)}
+
+@\+Summary Sets the GPIO pin, RA4, low using LATA4.
+
+@\+Description Sets the GPIO pin, RA4, low using LATA4.
+
+@\+Preconditions The RA4 must be set to an output.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Set RA4 low (0) \mbox{\hyperlink{pin__manager_8h_a62b6be7b4c428bb0a34238de1c1dcd9c}{SSR\+\_\+\+OUTPUT\+\_\+\+Set\+Low()}}; } 
+
+Definition at line 542 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a8fa8aed7e63f03971a5843d84b58ab31}\label{pin__manager_8h_a8fa8aed7e63f03971a5843d84b58ab31}} 
+\index{pin\_manager.h@{pin\_manager.h}!SSR\_OUTPUT\_Toggle@{SSR\_OUTPUT\_Toggle}}
+\index{SSR\_OUTPUT\_Toggle@{SSR\_OUTPUT\_Toggle}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{SSR\_OUTPUT\_Toggle}{SSR\_OUTPUT\_Toggle}}
+{\footnotesize\ttfamily \#define SSR\+\_\+\+OUTPUT\+\_\+\+Toggle(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+LATA4 $^\wedge$= 1)}
+
+@\+Summary Toggles the GPIO pin, RA4, using LATA4.
+
+@\+Description Toggles the GPIO pin, RA4, using LATA4.
+
+@\+Preconditions The RA4 must be set to an output.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Toggle RA4 \mbox{\hyperlink{pin__manager_8h_a8fa8aed7e63f03971a5843d84b58ab31}{SSR\+\_\+\+OUTPUT\+\_\+\+Toggle()}}; } 
+
+Definition at line 566 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a19f2907385f19e80ba80492567284697}\label{pin__manager_8h_a19f2907385f19e80ba80492567284697}} 
+\index{pin\_manager.h@{pin\_manager.h}!T\_PROTECTION\_GetValue@{T\_PROTECTION\_GetValue}}
+\index{T\_PROTECTION\_GetValue@{T\_PROTECTION\_GetValue}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{T\_PROTECTION\_GetValue}{T\_PROTECTION\_GetValue}}
+{\footnotesize\ttfamily \#define T\+\_\+\+PROTECTION\+\_\+\+Get\+Value(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+RA0}
+
+@\+Summary Reads the value of the GPIO pin, RA0.
+
+@\+Description Reads the value of the GPIO pin, RA0.
+
+@\+Preconditions None.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  uint16\+\_\+t port\+Value;}
+
+{\ttfamily Read RA0 post\+Value = \mbox{\hyperlink{pin__manager_8h_a19f2907385f19e80ba80492567284697}{T\+\_\+\+PROTECTION\+\_\+\+Get\+Value()}}; } 
+
+Definition at line 154 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a813973d3bb11430fbb2c527136a7c617}\label{pin__manager_8h_a813973d3bb11430fbb2c527136a7c617}} 
+\index{pin\_manager.h@{pin\_manager.h}!T\_PROTECTION\_SetDigitalInput@{T\_PROTECTION\_SetDigitalInput}}
+\index{T\_PROTECTION\_SetDigitalInput@{T\_PROTECTION\_SetDigitalInput}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{T\_PROTECTION\_SetDigitalInput}{T\_PROTECTION\_SetDigitalInput}}
+{\footnotesize\ttfamily \#define T\+\_\+\+PROTECTION\+\_\+\+Set\+Digital\+Input(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+TRISA0 = 1)}
+
+@\+Summary Configures the GPIO pin, RA0, as an input.
+
+@\+Description Configures the GPIO pin, RA0, as an input.
+
+@\+Preconditions None.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Sets the RA0 as an input \mbox{\hyperlink{pin__manager_8h_a813973d3bb11430fbb2c527136a7c617}{T\+\_\+\+PROTECTION\+\_\+\+Set\+Digital\+Input()}}; } 
+
+Definition at line 178 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_aee2ab0015dc75f663357b6edd64ffd7f}\label{pin__manager_8h_aee2ab0015dc75f663357b6edd64ffd7f}} 
+\index{pin\_manager.h@{pin\_manager.h}!T\_PROTECTION\_SetDigitalOutput@{T\_PROTECTION\_SetDigitalOutput}}
+\index{T\_PROTECTION\_SetDigitalOutput@{T\_PROTECTION\_SetDigitalOutput}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{T\_PROTECTION\_SetDigitalOutput}{T\_PROTECTION\_SetDigitalOutput}}
+{\footnotesize\ttfamily \#define T\+\_\+\+PROTECTION\+\_\+\+Set\+Digital\+Output(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+TRISA0 = 0)}
+
+@\+Summary Configures the GPIO pin, RA0, as an output.
+
+@\+Description Configures the GPIO pin, RA0, as an output.
+
+@\+Preconditions None.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Sets the RA0 as an output \mbox{\hyperlink{pin__manager_8h_aee2ab0015dc75f663357b6edd64ffd7f}{T\+\_\+\+PROTECTION\+\_\+\+Set\+Digital\+Output()}}; } 
+
+Definition at line 202 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a9bf939f90340bba60939186bcdb195ab}\label{pin__manager_8h_a9bf939f90340bba60939186bcdb195ab}} 
+\index{pin\_manager.h@{pin\_manager.h}!T\_PROTECTION\_SetHigh@{T\_PROTECTION\_SetHigh}}
+\index{T\_PROTECTION\_SetHigh@{T\_PROTECTION\_SetHigh}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{T\_PROTECTION\_SetHigh}{T\_PROTECTION\_SetHigh}}
+{\footnotesize\ttfamily \#define T\+\_\+\+PROTECTION\+\_\+\+Set\+High(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+LATA0 = 1)}
+
+PIN MANAGER Generated Driver File
+
+@\+Company\+: Microchip Technology Inc.
+
+@\+File Name\+: \mbox{\hyperlink{pin__manager_8h}{pin\+\_\+manager.\+h}}
+
+@\+Summary\+: This is the generated manager file for the PIC24 / ds\+PIC33 / PIC32\+MM MCUs device. This manager configures the pins direction, initial state, analog setting. The peripheral pin select, PPS, configuration is also handled by this manager.
+
+@\+Description\+: This source file provides implementations for PIN MANAGER. Generation Information \+: Product Revision \+: PIC24 / ds\+PIC33 / PIC32\+MM MCUs -\/ 1.\+170.\+0 Device \+: PIC24\+FJ256\+GA702 The generated drivers are tested against the following\+: Compiler \+: XC16 v1.\+61 MPLAB \+: MPLAB X v5.\+45 Section\+: Includes Section\+: Device Pin Macros @\+Summary Sets the GPIO pin, RA0, high using LATA0.
+
+@\+Description Sets the GPIO pin, RA0, high using LATA0.
+
+@\+Preconditions The RA0 must be set to an output.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Set RA0 high (1) \mbox{\hyperlink{pin__manager_8h_a9bf939f90340bba60939186bcdb195ab}{T\+\_\+\+PROTECTION\+\_\+\+Set\+High()}}; } 
+
+Definition at line 80 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_aef562403d754e0cd4d9b0d3855059505}\label{pin__manager_8h_aef562403d754e0cd4d9b0d3855059505}} 
+\index{pin\_manager.h@{pin\_manager.h}!T\_PROTECTION\_SetLow@{T\_PROTECTION\_SetLow}}
+\index{T\_PROTECTION\_SetLow@{T\_PROTECTION\_SetLow}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{T\_PROTECTION\_SetLow}{T\_PROTECTION\_SetLow}}
+{\footnotesize\ttfamily \#define T\+\_\+\+PROTECTION\+\_\+\+Set\+Low(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+LATA0 = 0)}
+
+@\+Summary Sets the GPIO pin, RA0, low using LATA0.
+
+@\+Description Sets the GPIO pin, RA0, low using LATA0.
+
+@\+Preconditions The RA0 must be set to an output.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Set RA0 low (0) \mbox{\hyperlink{pin__manager_8h_aef562403d754e0cd4d9b0d3855059505}{T\+\_\+\+PROTECTION\+\_\+\+Set\+Low()}}; } 
+
+Definition at line 104 of file pin\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{pin__manager_8h_a0a29127d494fa12cc6800951b1411353}\label{pin__manager_8h_a0a29127d494fa12cc6800951b1411353}} 
+\index{pin\_manager.h@{pin\_manager.h}!T\_PROTECTION\_Toggle@{T\_PROTECTION\_Toggle}}
+\index{T\_PROTECTION\_Toggle@{T\_PROTECTION\_Toggle}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{T\_PROTECTION\_Toggle}{T\_PROTECTION\_Toggle}}
+{\footnotesize\ttfamily \#define T\+\_\+\+PROTECTION\+\_\+\+Toggle(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+LATA0 $^\wedge$= 1)}
+
+@\+Summary Toggles the GPIO pin, RA0, using LATA0.
+
+@\+Description Toggles the GPIO pin, RA0, using LATA0.
+
+@\+Preconditions The RA0 must be set to an output.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  Toggle RA0 \mbox{\hyperlink{pin__manager_8h_a0a29127d494fa12cc6800951b1411353}{T\+\_\+\+PROTECTION\+\_\+\+Toggle()}}; } 
+
+Definition at line 128 of file pin\+\_\+manager.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{pin__manager_8h_a50357774183a136d9490f64ad0d5c6cb}\label{pin__manager_8h_a50357774183a136d9490f64ad0d5c6cb}} 
+\index{pin\_manager.h@{pin\_manager.h}!PIN\_MANAGER\_Initialize@{PIN\_MANAGER\_Initialize}}
+\index{PIN\_MANAGER\_Initialize@{PIN\_MANAGER\_Initialize}!pin\_manager.h@{pin\_manager.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_MANAGER\_Initialize()}{PIN\_MANAGER\_Initialize()}}
+{\footnotesize\ttfamily void PIN\+\_\+\+MANAGER\+\_\+\+Initialize (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Section\+: Function Prototypes @\+Summary Configures the pin settings of the PIC24\+FJ256\+GA702 The peripheral pin select, PPS, configuration is also handled by this manager.
+
+@\+Description This is the generated manager file for the PIC24 / ds\+PIC33 / PIC32\+MM MCUs device. This manager configures the pins direction, initial state, analog setting. The peripheral pin select, PPS, configuration is also handled by this manager.
+
+@\+Preconditions None.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  void \mbox{\hyperlink{system_8h_a5e8391114a0cf91ac20002be25e3d352}{SYSTEM\+\_\+\+Initialize(void)}} \{ Other initializers are called from this function \mbox{\hyperlink{pin__manager_8c_a50357774183a136d9490f64ad0d5c6cb}{PIN\+\_\+\+MANAGER\+\_\+\+Initialize()}}; \} }
+
+PIN MANAGER Generated Driver File
+
+@\+Company\+: Microchip Technology Inc.
+
+@\+File Name\+: \mbox{\hyperlink{pin__manager_8c}{pin\+\_\+manager.\+c}}
+
+@\+Summary\+: This is the generated manager file for the PIC24 / ds\+PIC33 / PIC32\+MM MCUs device. This manager configures the pins direction, initial state, analog setting. The peripheral pin select, PPS, configuration is also handled by this manager.
+
+@\+Description\+: This source file provides implementations for PIN MANAGER. Generation Information \+: Product Revision \+: PIC24 / ds\+PIC33 / PIC32\+MM MCUs -\/ 1.\+170.\+0 Device \+: PIC24\+FJ256\+GA702 The generated drivers are tested against the following\+: Compiler \+: XC16 v1.\+61 MPLAB \+: MPLAB X v5.\+45 Section\+: Includes Section\+: Driver Interface Function Definitions 
+
+Definition at line 59 of file pin\+\_\+manager.\+c.
+

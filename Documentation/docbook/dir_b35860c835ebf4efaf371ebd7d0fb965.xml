@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_b35860c835ebf4efaf371ebd7d0fb965" xml:lang="en-US">
+<title>SW Directory Reference</title>
+<indexterm><primary>SW Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_3b9fde39f5c0c05cff50c7bc821c5939">RO_firmware_v1.X</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

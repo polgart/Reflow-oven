@@ -1,0 +1,97 @@
+\hypertarget{clock_8h}{}\doxysection{C\+:/\+Users/\+EDU\+\_\+\+OBOS\+\_\+5057/\+Documents/\+Reflow oven/\+Design/\+SW/\+RO\+\_\+firmware\+\_\+v1.X/mcc\+\_\+generated\+\_\+files/clock.h File Reference}
+\label{clock_8h}\index{C:/Users/EDU\_OBOS\_5057/Documents/Reflow oven/Design/SW/RO\_firmware\_v1.X/mcc\_generated\_files/clock.h@{C:/Users/EDU\_OBOS\_5057/Documents/Reflow oven/Design/SW/RO\_firmware\_v1.X/mcc\_generated\_files/clock.h}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+Include dependency graph for clock.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{clock_8h_a024148e99a7143db044a48216664d03d}{\+\_\+\+XTAL\+\_\+\+FREQ}}~8000000\+UL
+\item 
+\#define \mbox{\hyperlink{clock_8h_ae20bf0a12edd902aa2ee56554d6d4790}{CLOCK\+\_\+\+System\+Frequency\+Get}}()~(8000000\+UL)
+\item 
+\#define \mbox{\hyperlink{clock_8h_a192799fb698929f78edb9653d4eea55c}{CLOCK\+\_\+\+Peripheral\+Frequency\+Get}}()~(\mbox{\hyperlink{clock_8h_ae20bf0a12edd902aa2ee56554d6d4790}{CLOCK\+\_\+\+System\+Frequency\+Get}}() / 2)
+\item 
+\#define \mbox{\hyperlink{clock_8h_a7c2fd6abb192260205b77d167d8e78da}{CLOCK\+\_\+\+Instruction\+Frequency\+Get}}()~(\mbox{\hyperlink{clock_8h_ae20bf0a12edd902aa2ee56554d6d4790}{CLOCK\+\_\+\+System\+Frequency\+Get}}() / 2)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{clock_8h_a98390d19c7087c52765eab23eb8ded96}{CLOCK\+\_\+\+Initialize}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{clock_8h_a024148e99a7143db044a48216664d03d}\label{clock_8h_a024148e99a7143db044a48216664d03d}} 
+\index{clock.h@{clock.h}!\_XTAL\_FREQ@{\_XTAL\_FREQ}}
+\index{\_XTAL\_FREQ@{\_XTAL\_FREQ}!clock.h@{clock.h}}
+\doxysubsubsection{\texorpdfstring{\_XTAL\_FREQ}{\_XTAL\_FREQ}}
+{\footnotesize\ttfamily \#define \+\_\+\+XTAL\+\_\+\+FREQ~8000000\+UL}
+
+@\+Generated PIC24 / ds\+PIC33 / PIC32\+MM MCUs Source File
+
+@\+Company\+: Microchip Technology Inc.
+
+@\+File Name\+: \mbox{\hyperlink{clock_8h}{clock.\+h}}
+
+@\+Summary\+: This is the \mbox{\hyperlink{clock_8h}{clock.\+h}} file generated using PIC24 / ds\+PIC33 / PIC32\+MM MCUs
+
+@\+Description\+: This header file provides implementations for driver APIs for all modules selected in the GUI. Generation Information \+: Product Revision \+: PIC24 / ds\+PIC33 / PIC32\+MM MCUs -\/ 1.\+170.\+0 Device \+: PIC24\+FJ256\+GA702 The generated drivers are tested against the following\+: Compiler \+: XC16 v1.\+61 MPLAB \+: MPLAB X v5.\+45 Section\+: Included Files 
+
+Definition at line 55 of file clock.\+h.
+
+\mbox{\Hypertarget{clock_8h_a7c2fd6abb192260205b77d167d8e78da}\label{clock_8h_a7c2fd6abb192260205b77d167d8e78da}} 
+\index{clock.h@{clock.h}!CLOCK\_InstructionFrequencyGet@{CLOCK\_InstructionFrequencyGet}}
+\index{CLOCK\_InstructionFrequencyGet@{CLOCK\_InstructionFrequencyGet}!clock.h@{clock.h}}
+\doxysubsubsection{\texorpdfstring{CLOCK\_InstructionFrequencyGet}{CLOCK\_InstructionFrequencyGet}}
+{\footnotesize\ttfamily \#define CLOCK\+\_\+\+Instruction\+Frequency\+Get(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\mbox{\hyperlink{clock_8h_ae20bf0a12edd902aa2ee56554d6d4790}{CLOCK\+\_\+\+System\+Frequency\+Get}}() / 2)}
+
+
+
+Definition at line 62 of file clock.\+h.
+
+\mbox{\Hypertarget{clock_8h_a192799fb698929f78edb9653d4eea55c}\label{clock_8h_a192799fb698929f78edb9653d4eea55c}} 
+\index{clock.h@{clock.h}!CLOCK\_PeripheralFrequencyGet@{CLOCK\_PeripheralFrequencyGet}}
+\index{CLOCK\_PeripheralFrequencyGet@{CLOCK\_PeripheralFrequencyGet}!clock.h@{clock.h}}
+\doxysubsubsection{\texorpdfstring{CLOCK\_PeripheralFrequencyGet}{CLOCK\_PeripheralFrequencyGet}}
+{\footnotesize\ttfamily \#define CLOCK\+\_\+\+Peripheral\+Frequency\+Get(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\mbox{\hyperlink{clock_8h_ae20bf0a12edd902aa2ee56554d6d4790}{CLOCK\+\_\+\+System\+Frequency\+Get}}() / 2)}
+
+
+
+Definition at line 60 of file clock.\+h.
+
+\mbox{\Hypertarget{clock_8h_ae20bf0a12edd902aa2ee56554d6d4790}\label{clock_8h_ae20bf0a12edd902aa2ee56554d6d4790}} 
+\index{clock.h@{clock.h}!CLOCK\_SystemFrequencyGet@{CLOCK\_SystemFrequencyGet}}
+\index{CLOCK\_SystemFrequencyGet@{CLOCK\_SystemFrequencyGet}!clock.h@{clock.h}}
+\doxysubsubsection{\texorpdfstring{CLOCK\_SystemFrequencyGet}{CLOCK\_SystemFrequencyGet}}
+{\footnotesize\ttfamily \#define CLOCK\+\_\+\+System\+Frequency\+Get(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(8000000\+UL)}
+
+
+
+Definition at line 58 of file clock.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{clock_8h_a98390d19c7087c52765eab23eb8ded96}\label{clock_8h_a98390d19c7087c52765eab23eb8ded96}} 
+\index{clock.h@{clock.h}!CLOCK\_Initialize@{CLOCK\_Initialize}}
+\index{CLOCK\_Initialize@{CLOCK\_Initialize}!clock.h@{clock.h}}
+\doxysubsubsection{\texorpdfstring{CLOCK\_Initialize()}{CLOCK\_Initialize()}}
+{\footnotesize\ttfamily void CLOCK\+\_\+\+Initialize (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+@\+Param none @\+Returns none @\+Description Initializes the oscillator to the default states configured in the MCC GUI @\+Example \mbox{\hyperlink{clock_8c_a98390d19c7087c52765eab23eb8ded96}{CLOCK\+\_\+\+Initialize(void)}};
+
+@\+Generated PIC24 / ds\+PIC33 / PIC32\+MM MCUs Source File
+
+@\+Company\+: Microchip Technology Inc.
+
+@\+File Name\+: \mbox{\hyperlink{clock_8c}{clock.\+c}}
+
+@\+Summary\+: This is the \mbox{\hyperlink{clock_8c}{clock.\+c}} file generated using PIC24 / ds\+PIC33 / PIC32\+MM MCUs
+
+@\+Description\+: This header file provides implementations for driver APIs for all modules selected in the GUI. Generation Information \+: Product Revision \+: PIC24 / ds\+PIC33 / PIC32\+MM MCUs -\/ 1.\+170.\+0 Device \+: PIC24\+FJ256\+GA702 The generated drivers are tested against the following\+: Compiler \+: XC16 v1.\+61 MPLAB \+: MPLAB X v5.\+45 
+
+Definition at line 49 of file clock.\+c.
+

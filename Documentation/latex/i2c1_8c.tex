@@ -1,0 +1,638 @@
+\hypertarget{i2c1_8c}{}\doxysection{C\+:/\+Users/\+EDU\+\_\+\+OBOS\+\_\+5057/\+Documents/\+Reflow oven/\+Design/\+SW/\+RO\+\_\+firmware\+\_\+v1.X/mcc\+\_\+generated\+\_\+files/i2c1.c File Reference}
+\label{i2c1_8c}\index{C:/Users/EDU\_OBOS\_5057/Documents/Reflow oven/Design/SW/RO\_firmware\_v1.X/mcc\_generated\_files/i2c1.c@{C:/Users/EDU\_OBOS\_5057/Documents/Reflow oven/Design/SW/RO\_firmware\_v1.X/mcc\_generated\_files/i2c1.c}}
+{\ttfamily \#include \char`\"{}i2c1.\+h\char`\"{}}\newline
+Include dependency graph for i2c1.\+c\+:
+% FIG 0
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+union \mbox{\hyperlink{union_i2_c___t_r___q_u_e_u_e___s_t_a_t_u_s}{I2\+C\+\_\+\+TR\+\_\+\+QUEUE\+\_\+\+STATUS}}
+\item 
+struct \mbox{\hyperlink{struct_i2_c___t_r___q_u_e_u_e___e_n_t_r_y}{I2\+C\+\_\+\+TR\+\_\+\+QUEUE\+\_\+\+ENTRY}}
+\item 
+struct \mbox{\hyperlink{struct_i2_c___o_b_j_e_c_t}{I2\+C\+\_\+\+OBJECT}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{i2c1_8c_a460cfe1aaefd7aa5d4ea1a376aad706e}{I2\+C1\+\_\+\+CONFIG\+\_\+\+TR\+\_\+\+QUEUE\+\_\+\+LENGTH}}~1
+\item 
+\#define \mbox{\hyperlink{i2c1_8c_a69c67e897e7e2b1113e6e4b926f8eb9c}{I2\+C1\+\_\+\+TRANSMIT\+\_\+\+REG}}~I2\+C1\+TRN
+\item 
+\#define \mbox{\hyperlink{i2c1_8c_a367a769e18c83a43587982753cdd116b}{I2\+C1\+\_\+\+RECEIVE\+\_\+\+REG}}~I2\+C1\+RCV
+\item 
+\#define \mbox{\hyperlink{i2c1_8c_aa7fb2320407d823dafe02270bcba519b}{I2\+C1\+\_\+\+WRITE\+\_\+\+COLLISION\+\_\+\+STATUS\+\_\+\+BIT}}~I2\+C1\+STATbits.\+IWCOL
+\item 
+\#define \mbox{\hyperlink{i2c1_8c_a94148d783cc94c85e0c37e93c0b2b893}{I2\+C1\+\_\+\+ACKNOWLEDGE\+\_\+\+STATUS\+\_\+\+BIT}}~I2\+C1\+STATbits.\+ACKSTAT
+\item 
+\#define \mbox{\hyperlink{i2c1_8c_a1ea71bcd040887c88fe5f16ff8de6147}{I2\+C1\+\_\+\+START\+\_\+\+CONDITION\+\_\+\+ENABLE\+\_\+\+BIT}}~I2\+C1\+CONLbits.\+SEN
+\item 
+\#define \mbox{\hyperlink{i2c1_8c_a425f54bb744d8d99bef15f02d24b9b8a}{I2\+C1\+\_\+\+REPEAT\+\_\+\+START\+\_\+\+CONDITION\+\_\+\+ENABLE\+\_\+\+BIT}}~I2\+C1\+CONLbits.\+RSEN
+\item 
+\#define \mbox{\hyperlink{i2c1_8c_a40ac8a3e7eb72bde0e24003858520bbd}{I2\+C1\+\_\+\+RECEIVE\+\_\+\+ENABLE\+\_\+\+BIT}}~I2\+C1\+CONLbits.\+RCEN
+\item 
+\#define \mbox{\hyperlink{i2c1_8c_a9315c7f757183ffead2ba65749d1159d}{I2\+C1\+\_\+\+STOP\+\_\+\+CONDITION\+\_\+\+ENABLE\+\_\+\+BIT}}~I2\+C1\+CONLbits.\+PEN
+\item 
+\#define \mbox{\hyperlink{i2c1_8c_adabdd43b0acffa8c59b3b6a4d31bc938}{I2\+C1\+\_\+\+ACKNOWLEDGE\+\_\+\+ENABLE\+\_\+\+BIT}}~I2\+C1\+CONLbits.\+ACKEN
+\item 
+\#define \mbox{\hyperlink{i2c1_8c_aa64ff5f46a7f49610164f09b3d326d52}{I2\+C1\+\_\+\+ACKNOWLEDGE\+\_\+\+DATA\+\_\+\+BIT}}~I2\+C1\+CONLbits.\+ACKDT
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0f}{I2\+C\+\_\+\+MASTER\+\_\+\+STATES}} \{ \newline
+\mbox{\hyperlink{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0fa176901f13bc453aa2b3976d200036445}{S\+\_\+\+MASTER\+\_\+\+IDLE}}
+, \mbox{\hyperlink{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0fa890f0b9724647d019b7c094effb29829}{S\+\_\+\+MASTER\+\_\+\+RESTART}}
+, \mbox{\hyperlink{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0fab153f8645264a9f595ada7b4b077be25}{S\+\_\+\+MASTER\+\_\+\+SEND\+\_\+\+ADDR}}
+, \mbox{\hyperlink{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0fa751a2d95afa15429f7b133748f182fc3}{S\+\_\+\+MASTER\+\_\+\+SEND\+\_\+\+DATA}}
+, \newline
+\mbox{\hyperlink{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0fab0a1265b526eae628893327400eb725f}{S\+\_\+\+MASTER\+\_\+\+SEND\+\_\+\+STOP}}
+, \mbox{\hyperlink{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0fa31d2c28ce4df9ef864359bdd646447c9}{S\+\_\+\+MASTER\+\_\+\+ACK\+\_\+\+ADDR}}
+, \mbox{\hyperlink{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0fa5c0d5fe507eb6989bceabd95e3251e84}{S\+\_\+\+MASTER\+\_\+\+RCV\+\_\+\+DATA}}
+, \mbox{\hyperlink{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0faeb3a7f71a58eb5eebe1b3a541bac0234}{S\+\_\+\+MASTER\+\_\+\+RCV\+\_\+\+STOP}}
+, \newline
+\mbox{\hyperlink{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0fa731fced166724e3d40efd58bd8b66fa4}{S\+\_\+\+MASTER\+\_\+\+ACK\+\_\+\+RCV\+\_\+\+DATA}}
+, \mbox{\hyperlink{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0fa642f30fc8a71b9ae8f7c8340f31d234d}{S\+\_\+\+MASTER\+\_\+\+NOACK\+\_\+\+STOP}}
+, \mbox{\hyperlink{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0fa76991bf03acbf17048aa69bc3bc91c3d}{S\+\_\+\+MASTER\+\_\+\+SEND\+\_\+\+ADDR\+\_\+10\+BIT\+\_\+\+LSB}}
+, \mbox{\hyperlink{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0fa98514d6c8159591033b6fd2429fc2a9e}{S\+\_\+\+MASTER\+\_\+10\+BIT\+\_\+\+RESTART}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{i2c1_8c_a0d2688c99f12f3c79e9867b3f48a4b70}{I2\+C1\+\_\+\+Initialize}} (void)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{i2c1_8c_a2ba88fbf53eb3cd1859383563102674a}{I2\+C1\+\_\+\+Error\+Count\+Get}} (void)
+\item 
+void \mbox{\hyperlink{i2c1_8c_a226557d5e42f7e29ddaff30606138459}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}} ((interrupt, no\+\_\+auto\+\_\+psv))
+\item 
+void \mbox{\hyperlink{i2c1_8c_ac1c5623a0a38d361ec389aba34921822}{I2\+C1\+\_\+\+Master\+Write}} (uint8\+\_\+t $\ast$pdata, uint8\+\_\+t length, uint16\+\_\+t address, \mbox{\hyperlink{i2c1_8h_a3aa7471e380d7a4957f9a0eb726c6582}{I2\+C1\+\_\+\+MESSAGE\+\_\+\+STATUS}} $\ast$pstatus)
+\item 
+void \mbox{\hyperlink{i2c1_8c_a80893177a8cb40f7c30c9932bc5e8006}{I2\+C1\+\_\+\+Master\+Read}} (uint8\+\_\+t $\ast$pdata, uint8\+\_\+t length, uint16\+\_\+t address, \mbox{\hyperlink{i2c1_8h_a3aa7471e380d7a4957f9a0eb726c6582}{I2\+C1\+\_\+\+MESSAGE\+\_\+\+STATUS}} $\ast$pstatus)
+\item 
+void \mbox{\hyperlink{i2c1_8c_a860d0c61c4bfa0434f345692cd277328}{I2\+C1\+\_\+\+Master\+TRBInsert}} (uint8\+\_\+t count, \mbox{\hyperlink{struct_i2_c1___t_r_a_n_s_a_c_t_i_o_n___r_e_q_u_e_s_t___b_l_o_c_k}{I2\+C1\+\_\+\+TRANSACTION\+\_\+\+REQUEST\+\_\+\+BLOCK}} $\ast$ptrb\+\_\+list, \mbox{\hyperlink{i2c1_8h_a3aa7471e380d7a4957f9a0eb726c6582}{I2\+C1\+\_\+\+MESSAGE\+\_\+\+STATUS}} $\ast$pflag)
+\item 
+void \mbox{\hyperlink{i2c1_8c_a92070148034b505be5339108b9f449d0}{I2\+C1\+\_\+\+Master\+Read\+TRBBuild}} (\mbox{\hyperlink{struct_i2_c1___t_r_a_n_s_a_c_t_i_o_n___r_e_q_u_e_s_t___b_l_o_c_k}{I2\+C1\+\_\+\+TRANSACTION\+\_\+\+REQUEST\+\_\+\+BLOCK}} $\ast$ptrb, uint8\+\_\+t $\ast$pdata, uint8\+\_\+t length, uint16\+\_\+t address)
+\item 
+void \mbox{\hyperlink{i2c1_8c_a0ec0129336e0fcb629eeb55210707c2d}{I2\+C1\+\_\+\+Master\+Write\+TRBBuild}} (\mbox{\hyperlink{struct_i2_c1___t_r_a_n_s_a_c_t_i_o_n___r_e_q_u_e_s_t___b_l_o_c_k}{I2\+C1\+\_\+\+TRANSACTION\+\_\+\+REQUEST\+\_\+\+BLOCK}} $\ast$ptrb, uint8\+\_\+t $\ast$pdata, uint8\+\_\+t length, uint16\+\_\+t address)
+\item 
+bool \mbox{\hyperlink{i2c1_8c_a707a253166a254c3ddd39f3f6c111728}{I2\+C1\+\_\+\+Master\+Queue\+Is\+Empty}} (void)
+\item 
+bool \mbox{\hyperlink{i2c1_8c_a0dead192d1f64473cc539c69695612a1}{I2\+C1\+\_\+\+Master\+Queue\+Is\+Full}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{i2c1_8c_aa64ff5f46a7f49610164f09b3d326d52}\label{i2c1_8c_aa64ff5f46a7f49610164f09b3d326d52}} 
+\index{i2c1.c@{i2c1.c}!I2C1\_ACKNOWLEDGE\_DATA\_BIT@{I2C1\_ACKNOWLEDGE\_DATA\_BIT}}
+\index{I2C1\_ACKNOWLEDGE\_DATA\_BIT@{I2C1\_ACKNOWLEDGE\_DATA\_BIT}!i2c1.c@{i2c1.c}}
+\doxysubsubsection{\texorpdfstring{I2C1\_ACKNOWLEDGE\_DATA\_BIT}{I2C1\_ACKNOWLEDGE\_DATA\_BIT}}
+{\footnotesize\ttfamily \#define I2\+C1\+\_\+\+ACKNOWLEDGE\+\_\+\+DATA\+\_\+\+BIT~I2\+C1\+CONLbits.\+ACKDT}
+
+
+
+Definition at line 170 of file i2c1.\+c.
+
+\mbox{\Hypertarget{i2c1_8c_adabdd43b0acffa8c59b3b6a4d31bc938}\label{i2c1_8c_adabdd43b0acffa8c59b3b6a4d31bc938}} 
+\index{i2c1.c@{i2c1.c}!I2C1\_ACKNOWLEDGE\_ENABLE\_BIT@{I2C1\_ACKNOWLEDGE\_ENABLE\_BIT}}
+\index{I2C1\_ACKNOWLEDGE\_ENABLE\_BIT@{I2C1\_ACKNOWLEDGE\_ENABLE\_BIT}!i2c1.c@{i2c1.c}}
+\doxysubsubsection{\texorpdfstring{I2C1\_ACKNOWLEDGE\_ENABLE\_BIT}{I2C1\_ACKNOWLEDGE\_ENABLE\_BIT}}
+{\footnotesize\ttfamily \#define I2\+C1\+\_\+\+ACKNOWLEDGE\+\_\+\+ENABLE\+\_\+\+BIT~I2\+C1\+CONLbits.\+ACKEN}
+
+
+
+Definition at line 169 of file i2c1.\+c.
+
+\mbox{\Hypertarget{i2c1_8c_a94148d783cc94c85e0c37e93c0b2b893}\label{i2c1_8c_a94148d783cc94c85e0c37e93c0b2b893}} 
+\index{i2c1.c@{i2c1.c}!I2C1\_ACKNOWLEDGE\_STATUS\_BIT@{I2C1\_ACKNOWLEDGE\_STATUS\_BIT}}
+\index{I2C1\_ACKNOWLEDGE\_STATUS\_BIT@{I2C1\_ACKNOWLEDGE\_STATUS\_BIT}!i2c1.c@{i2c1.c}}
+\doxysubsubsection{\texorpdfstring{I2C1\_ACKNOWLEDGE\_STATUS\_BIT}{I2C1\_ACKNOWLEDGE\_STATUS\_BIT}}
+{\footnotesize\ttfamily \#define I2\+C1\+\_\+\+ACKNOWLEDGE\+\_\+\+STATUS\+\_\+\+BIT~I2\+C1\+STATbits.\+ACKSTAT}
+
+
+
+Definition at line 163 of file i2c1.\+c.
+
+\mbox{\Hypertarget{i2c1_8c_a460cfe1aaefd7aa5d4ea1a376aad706e}\label{i2c1_8c_a460cfe1aaefd7aa5d4ea1a376aad706e}} 
+\index{i2c1.c@{i2c1.c}!I2C1\_CONFIG\_TR\_QUEUE\_LENGTH@{I2C1\_CONFIG\_TR\_QUEUE\_LENGTH}}
+\index{I2C1\_CONFIG\_TR\_QUEUE\_LENGTH@{I2C1\_CONFIG\_TR\_QUEUE\_LENGTH}!i2c1.c@{i2c1.c}}
+\doxysubsubsection{\texorpdfstring{I2C1\_CONFIG\_TR\_QUEUE\_LENGTH}{I2C1\_CONFIG\_TR\_QUEUE\_LENGTH}}
+{\footnotesize\ttfamily \#define I2\+C1\+\_\+\+CONFIG\+\_\+\+TR\+\_\+\+QUEUE\+\_\+\+LENGTH~1}
+
+Section\+: Macro Definitions 
+
+Definition at line 154 of file i2c1.\+c.
+
+\mbox{\Hypertarget{i2c1_8c_a40ac8a3e7eb72bde0e24003858520bbd}\label{i2c1_8c_a40ac8a3e7eb72bde0e24003858520bbd}} 
+\index{i2c1.c@{i2c1.c}!I2C1\_RECEIVE\_ENABLE\_BIT@{I2C1\_RECEIVE\_ENABLE\_BIT}}
+\index{I2C1\_RECEIVE\_ENABLE\_BIT@{I2C1\_RECEIVE\_ENABLE\_BIT}!i2c1.c@{i2c1.c}}
+\doxysubsubsection{\texorpdfstring{I2C1\_RECEIVE\_ENABLE\_BIT}{I2C1\_RECEIVE\_ENABLE\_BIT}}
+{\footnotesize\ttfamily \#define I2\+C1\+\_\+\+RECEIVE\+\_\+\+ENABLE\+\_\+\+BIT~I2\+C1\+CONLbits.\+RCEN}
+
+
+
+Definition at line 167 of file i2c1.\+c.
+
+\mbox{\Hypertarget{i2c1_8c_a367a769e18c83a43587982753cdd116b}\label{i2c1_8c_a367a769e18c83a43587982753cdd116b}} 
+\index{i2c1.c@{i2c1.c}!I2C1\_RECEIVE\_REG@{I2C1\_RECEIVE\_REG}}
+\index{I2C1\_RECEIVE\_REG@{I2C1\_RECEIVE\_REG}!i2c1.c@{i2c1.c}}
+\doxysubsubsection{\texorpdfstring{I2C1\_RECEIVE\_REG}{I2C1\_RECEIVE\_REG}}
+{\footnotesize\ttfamily \#define I2\+C1\+\_\+\+RECEIVE\+\_\+\+REG~I2\+C1\+RCV}
+
+
+
+Definition at line 158 of file i2c1.\+c.
+
+\mbox{\Hypertarget{i2c1_8c_a425f54bb744d8d99bef15f02d24b9b8a}\label{i2c1_8c_a425f54bb744d8d99bef15f02d24b9b8a}} 
+\index{i2c1.c@{i2c1.c}!I2C1\_REPEAT\_START\_CONDITION\_ENABLE\_BIT@{I2C1\_REPEAT\_START\_CONDITION\_ENABLE\_BIT}}
+\index{I2C1\_REPEAT\_START\_CONDITION\_ENABLE\_BIT@{I2C1\_REPEAT\_START\_CONDITION\_ENABLE\_BIT}!i2c1.c@{i2c1.c}}
+\doxysubsubsection{\texorpdfstring{I2C1\_REPEAT\_START\_CONDITION\_ENABLE\_BIT}{I2C1\_REPEAT\_START\_CONDITION\_ENABLE\_BIT}}
+{\footnotesize\ttfamily \#define I2\+C1\+\_\+\+REPEAT\+\_\+\+START\+\_\+\+CONDITION\+\_\+\+ENABLE\+\_\+\+BIT~I2\+C1\+CONLbits.\+RSEN}
+
+
+
+Definition at line 166 of file i2c1.\+c.
+
+\mbox{\Hypertarget{i2c1_8c_a1ea71bcd040887c88fe5f16ff8de6147}\label{i2c1_8c_a1ea71bcd040887c88fe5f16ff8de6147}} 
+\index{i2c1.c@{i2c1.c}!I2C1\_START\_CONDITION\_ENABLE\_BIT@{I2C1\_START\_CONDITION\_ENABLE\_BIT}}
+\index{I2C1\_START\_CONDITION\_ENABLE\_BIT@{I2C1\_START\_CONDITION\_ENABLE\_BIT}!i2c1.c@{i2c1.c}}
+\doxysubsubsection{\texorpdfstring{I2C1\_START\_CONDITION\_ENABLE\_BIT}{I2C1\_START\_CONDITION\_ENABLE\_BIT}}
+{\footnotesize\ttfamily \#define I2\+C1\+\_\+\+START\+\_\+\+CONDITION\+\_\+\+ENABLE\+\_\+\+BIT~I2\+C1\+CONLbits.\+SEN}
+
+
+
+Definition at line 165 of file i2c1.\+c.
+
+\mbox{\Hypertarget{i2c1_8c_a9315c7f757183ffead2ba65749d1159d}\label{i2c1_8c_a9315c7f757183ffead2ba65749d1159d}} 
+\index{i2c1.c@{i2c1.c}!I2C1\_STOP\_CONDITION\_ENABLE\_BIT@{I2C1\_STOP\_CONDITION\_ENABLE\_BIT}}
+\index{I2C1\_STOP\_CONDITION\_ENABLE\_BIT@{I2C1\_STOP\_CONDITION\_ENABLE\_BIT}!i2c1.c@{i2c1.c}}
+\doxysubsubsection{\texorpdfstring{I2C1\_STOP\_CONDITION\_ENABLE\_BIT}{I2C1\_STOP\_CONDITION\_ENABLE\_BIT}}
+{\footnotesize\ttfamily \#define I2\+C1\+\_\+\+STOP\+\_\+\+CONDITION\+\_\+\+ENABLE\+\_\+\+BIT~I2\+C1\+CONLbits.\+PEN}
+
+
+
+Definition at line 168 of file i2c1.\+c.
+
+\mbox{\Hypertarget{i2c1_8c_a69c67e897e7e2b1113e6e4b926f8eb9c}\label{i2c1_8c_a69c67e897e7e2b1113e6e4b926f8eb9c}} 
+\index{i2c1.c@{i2c1.c}!I2C1\_TRANSMIT\_REG@{I2C1\_TRANSMIT\_REG}}
+\index{I2C1\_TRANSMIT\_REG@{I2C1\_TRANSMIT\_REG}!i2c1.c@{i2c1.c}}
+\doxysubsubsection{\texorpdfstring{I2C1\_TRANSMIT\_REG}{I2C1\_TRANSMIT\_REG}}
+{\footnotesize\ttfamily \#define I2\+C1\+\_\+\+TRANSMIT\+\_\+\+REG~I2\+C1\+TRN}
+
+
+
+Definition at line 157 of file i2c1.\+c.
+
+\mbox{\Hypertarget{i2c1_8c_aa7fb2320407d823dafe02270bcba519b}\label{i2c1_8c_aa7fb2320407d823dafe02270bcba519b}} 
+\index{i2c1.c@{i2c1.c}!I2C1\_WRITE\_COLLISION\_STATUS\_BIT@{I2C1\_WRITE\_COLLISION\_STATUS\_BIT}}
+\index{I2C1\_WRITE\_COLLISION\_STATUS\_BIT@{I2C1\_WRITE\_COLLISION\_STATUS\_BIT}!i2c1.c@{i2c1.c}}
+\doxysubsubsection{\texorpdfstring{I2C1\_WRITE\_COLLISION\_STATUS\_BIT}{I2C1\_WRITE\_COLLISION\_STATUS\_BIT}}
+{\footnotesize\ttfamily \#define I2\+C1\+\_\+\+WRITE\+\_\+\+COLLISION\+\_\+\+STATUS\+\_\+\+BIT~I2\+C1\+STATbits.\+IWCOL}
+
+
+
+Definition at line 162 of file i2c1.\+c.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0f}\label{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0f}} 
+\index{i2c1.c@{i2c1.c}!I2C\_MASTER\_STATES@{I2C\_MASTER\_STATES}}
+\index{I2C\_MASTER\_STATES@{I2C\_MASTER\_STATES}!i2c1.c@{i2c1.c}}
+\doxysubsubsection{\texorpdfstring{I2C\_MASTER\_STATES}{I2C\_MASTER\_STATES}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0f}{I2\+C\+\_\+\+MASTER\+\_\+\+STATES}}}
+
+I2C Master Driver State Enumeration
+
+@\+Summary Defines the different states of the i2c master.
+
+@\+Description This defines the different states that the i2c master used to process transactions on the i2c bus. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\_MASTER\_IDLE@{S\_MASTER\_IDLE}!i2c1.c@{i2c1.c}}\index{i2c1.c@{i2c1.c}!S\_MASTER\_IDLE@{S\_MASTER\_IDLE}}}\mbox{\Hypertarget{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0fa176901f13bc453aa2b3976d200036445}\label{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0fa176901f13bc453aa2b3976d200036445}} 
+S\+\_\+\+MASTER\+\_\+\+IDLE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\_MASTER\_RESTART@{S\_MASTER\_RESTART}!i2c1.c@{i2c1.c}}\index{i2c1.c@{i2c1.c}!S\_MASTER\_RESTART@{S\_MASTER\_RESTART}}}\mbox{\Hypertarget{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0fa890f0b9724647d019b7c094effb29829}\label{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0fa890f0b9724647d019b7c094effb29829}} 
+S\+\_\+\+MASTER\+\_\+\+RESTART&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\_MASTER\_SEND\_ADDR@{S\_MASTER\_SEND\_ADDR}!i2c1.c@{i2c1.c}}\index{i2c1.c@{i2c1.c}!S\_MASTER\_SEND\_ADDR@{S\_MASTER\_SEND\_ADDR}}}\mbox{\Hypertarget{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0fab153f8645264a9f595ada7b4b077be25}\label{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0fab153f8645264a9f595ada7b4b077be25}} 
+S\+\_\+\+MASTER\+\_\+\+SEND\+\_\+\+ADDR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\_MASTER\_SEND\_DATA@{S\_MASTER\_SEND\_DATA}!i2c1.c@{i2c1.c}}\index{i2c1.c@{i2c1.c}!S\_MASTER\_SEND\_DATA@{S\_MASTER\_SEND\_DATA}}}\mbox{\Hypertarget{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0fa751a2d95afa15429f7b133748f182fc3}\label{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0fa751a2d95afa15429f7b133748f182fc3}} 
+S\+\_\+\+MASTER\+\_\+\+SEND\+\_\+\+DATA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\_MASTER\_SEND\_STOP@{S\_MASTER\_SEND\_STOP}!i2c1.c@{i2c1.c}}\index{i2c1.c@{i2c1.c}!S\_MASTER\_SEND\_STOP@{S\_MASTER\_SEND\_STOP}}}\mbox{\Hypertarget{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0fab0a1265b526eae628893327400eb725f}\label{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0fab0a1265b526eae628893327400eb725f}} 
+S\+\_\+\+MASTER\+\_\+\+SEND\+\_\+\+STOP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\_MASTER\_ACK\_ADDR@{S\_MASTER\_ACK\_ADDR}!i2c1.c@{i2c1.c}}\index{i2c1.c@{i2c1.c}!S\_MASTER\_ACK\_ADDR@{S\_MASTER\_ACK\_ADDR}}}\mbox{\Hypertarget{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0fa31d2c28ce4df9ef864359bdd646447c9}\label{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0fa31d2c28ce4df9ef864359bdd646447c9}} 
+S\+\_\+\+MASTER\+\_\+\+ACK\+\_\+\+ADDR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\_MASTER\_RCV\_DATA@{S\_MASTER\_RCV\_DATA}!i2c1.c@{i2c1.c}}\index{i2c1.c@{i2c1.c}!S\_MASTER\_RCV\_DATA@{S\_MASTER\_RCV\_DATA}}}\mbox{\Hypertarget{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0fa5c0d5fe507eb6989bceabd95e3251e84}\label{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0fa5c0d5fe507eb6989bceabd95e3251e84}} 
+S\+\_\+\+MASTER\+\_\+\+RCV\+\_\+\+DATA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\_MASTER\_RCV\_STOP@{S\_MASTER\_RCV\_STOP}!i2c1.c@{i2c1.c}}\index{i2c1.c@{i2c1.c}!S\_MASTER\_RCV\_STOP@{S\_MASTER\_RCV\_STOP}}}\mbox{\Hypertarget{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0faeb3a7f71a58eb5eebe1b3a541bac0234}\label{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0faeb3a7f71a58eb5eebe1b3a541bac0234}} 
+S\+\_\+\+MASTER\+\_\+\+RCV\+\_\+\+STOP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\_MASTER\_ACK\_RCV\_DATA@{S\_MASTER\_ACK\_RCV\_DATA}!i2c1.c@{i2c1.c}}\index{i2c1.c@{i2c1.c}!S\_MASTER\_ACK\_RCV\_DATA@{S\_MASTER\_ACK\_RCV\_DATA}}}\mbox{\Hypertarget{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0fa731fced166724e3d40efd58bd8b66fa4}\label{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0fa731fced166724e3d40efd58bd8b66fa4}} 
+S\+\_\+\+MASTER\+\_\+\+ACK\+\_\+\+RCV\+\_\+\+DATA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\_MASTER\_NOACK\_STOP@{S\_MASTER\_NOACK\_STOP}!i2c1.c@{i2c1.c}}\index{i2c1.c@{i2c1.c}!S\_MASTER\_NOACK\_STOP@{S\_MASTER\_NOACK\_STOP}}}\mbox{\Hypertarget{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0fa642f30fc8a71b9ae8f7c8340f31d234d}\label{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0fa642f30fc8a71b9ae8f7c8340f31d234d}} 
+S\+\_\+\+MASTER\+\_\+\+NOACK\+\_\+\+STOP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\_MASTER\_SEND\_ADDR\_10BIT\_LSB@{S\_MASTER\_SEND\_ADDR\_10BIT\_LSB}!i2c1.c@{i2c1.c}}\index{i2c1.c@{i2c1.c}!S\_MASTER\_SEND\_ADDR\_10BIT\_LSB@{S\_MASTER\_SEND\_ADDR\_10BIT\_LSB}}}\mbox{\Hypertarget{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0fa76991bf03acbf17048aa69bc3bc91c3d}\label{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0fa76991bf03acbf17048aa69bc3bc91c3d}} 
+S\+\_\+\+MASTER\+\_\+\+SEND\+\_\+\+ADDR\+\_\+10\+BIT\+\_\+\+LSB&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\_MASTER\_10BIT\_RESTART@{S\_MASTER\_10BIT\_RESTART}!i2c1.c@{i2c1.c}}\index{i2c1.c@{i2c1.c}!S\_MASTER\_10BIT\_RESTART@{S\_MASTER\_10BIT\_RESTART}}}\mbox{\Hypertarget{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0fa98514d6c8159591033b6fd2429fc2a9e}\label{i2c1_8c_a182c6d46d4da569fb7c6b9cdf0bd9f0fa98514d6c8159591033b6fd2429fc2a9e}} 
+S\+\_\+\+MASTER\+\_\+10\+BIT\+\_\+\+RESTART&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 129 of file i2c1.\+c.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{i2c1_8c_a226557d5e42f7e29ddaff30606138459}\label{i2c1_8c_a226557d5e42f7e29ddaff30606138459}} 
+\index{i2c1.c@{i2c1.c}!\_\_attribute\_\_@{\_\_attribute\_\_}}
+\index{\_\_attribute\_\_@{\_\_attribute\_\_}!i2c1.c@{i2c1.c}}
+\doxysubsubsection{\texorpdfstring{\_\_attribute\_\_()}{\_\_attribute\_\_()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+attribute\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{(interrupt, no\+\_\+auto\+\_\+psv)}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 231 of file i2c1.\+c.
+
+\mbox{\Hypertarget{i2c1_8c_a2ba88fbf53eb3cd1859383563102674a}\label{i2c1_8c_a2ba88fbf53eb3cd1859383563102674a}} 
+\index{i2c1.c@{i2c1.c}!I2C1\_ErrorCountGet@{I2C1\_ErrorCountGet}}
+\index{I2C1\_ErrorCountGet@{I2C1\_ErrorCountGet}!i2c1.c@{i2c1.c}}
+\doxysubsubsection{\texorpdfstring{I2C1\_ErrorCountGet()}{I2C1\_ErrorCountGet()}}
+{\footnotesize\ttfamily uint8\+\_\+t I2\+C1\+\_\+\+Error\+Count\+Get (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 223 of file i2c1.\+c.
+
+\mbox{\Hypertarget{i2c1_8c_a0d2688c99f12f3c79e9867b3f48a4b70}\label{i2c1_8c_a0d2688c99f12f3c79e9867b3f48a4b70}} 
+\index{i2c1.c@{i2c1.c}!I2C1\_Initialize@{I2C1\_Initialize}}
+\index{I2C1\_Initialize@{I2C1\_Initialize}!i2c1.c@{i2c1.c}}
+\doxysubsubsection{\texorpdfstring{I2C1\_Initialize()}{I2C1\_Initialize()}}
+{\footnotesize\ttfamily void I2\+C1\+\_\+\+Initialize (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Section\+: Driver Interface 
+
+Definition at line 196 of file i2c1.\+c.
+
+\mbox{\Hypertarget{i2c1_8c_a707a253166a254c3ddd39f3f6c111728}\label{i2c1_8c_a707a253166a254c3ddd39f3f6c111728}} 
+\index{i2c1.c@{i2c1.c}!I2C1\_MasterQueueIsEmpty@{I2C1\_MasterQueueIsEmpty}}
+\index{I2C1\_MasterQueueIsEmpty@{I2C1\_MasterQueueIsEmpty}!i2c1.c@{i2c1.c}}
+\doxysubsubsection{\texorpdfstring{I2C1\_MasterQueueIsEmpty()}{I2C1\_MasterQueueIsEmpty()}}
+{\footnotesize\ttfamily bool I2\+C1\+\_\+\+Master\+Queue\+Is\+Empty (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}@Summary
+    This function returns the empty status of the Master
+    queue.
+
+@Description
+    This function returns the empty status of the Master
+    queue. Use this function to check if the queue is empty.
+    This can verify if the Master is currently idle.
+
+@Preconditions
+    None
+
+@Param
+    None
+
+@Returns
+    True if the queue is empty and false if the queue is not empty.
+
+@Example
+    <code>
+        #define MCHP24AA512_ADDRESS    0x50 // slave device address
+\end{DoxyVerb}
+ check until queue is empty while(\mbox{\hyperlink{i2c1_8h_a707a253166a254c3ddd39f3f6c111728}{I2\+C1\+\_\+\+Master\+Queue\+Is\+Empty()}} == false);
+
+now send more data (assume read\+Buffer is initialized) I2\+C1\+\_\+\+Master\+Read( read\+Buffer, 3, MCHP24\+AA512\+\_\+\+ADDRESS, \&status); ~\newline
+
+
+Definition at line 707 of file i2c1.\+c.
+
+\mbox{\Hypertarget{i2c1_8c_a0dead192d1f64473cc539c69695612a1}\label{i2c1_8c_a0dead192d1f64473cc539c69695612a1}} 
+\index{i2c1.c@{i2c1.c}!I2C1\_MasterQueueIsFull@{I2C1\_MasterQueueIsFull}}
+\index{I2C1\_MasterQueueIsFull@{I2C1\_MasterQueueIsFull}!i2c1.c@{i2c1.c}}
+\doxysubsubsection{\texorpdfstring{I2C1\_MasterQueueIsFull()}{I2C1\_MasterQueueIsFull()}}
+{\footnotesize\ttfamily bool I2\+C1\+\_\+\+Master\+Queue\+Is\+Full (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}@Summary
+    This function returns the full status of the Master
+    queue.
+
+@Description
+    This function returns the full status of the Master
+    queue. Use this function to check if the queue is full.
+    This can verify if the Master will not be able to accept
+    addition transactions.
+
+@Preconditions
+    None
+
+@Param
+    None
+
+@Returns
+    True if the queue is full and false if the queue is not full.
+
+@Example
+    <code>
+        #define MCHP24AA512_ADDRESS    0x50 // slave device address
+\end{DoxyVerb}
+ check until queue has space while(\mbox{\hyperlink{i2c1_8h_a0dead192d1f64473cc539c69695612a1}{I2\+C1\+\_\+\+Master\+Queue\+Is\+Full()}} == true);
+
+now send more data (assume read\+Buffer is initialized) I2\+C1\+\_\+\+Master\+Read( read\+Buffer, 3, MCHP24\+AA512\+\_\+\+ADDRESS, \&status);  
+
+Definition at line 712 of file i2c1.\+c.
+
+\mbox{\Hypertarget{i2c1_8c_a80893177a8cb40f7c30c9932bc5e8006}\label{i2c1_8c_a80893177a8cb40f7c30c9932bc5e8006}} 
+\index{i2c1.c@{i2c1.c}!I2C1\_MasterRead@{I2C1\_MasterRead}}
+\index{I2C1\_MasterRead@{I2C1\_MasterRead}!i2c1.c@{i2c1.c}}
+\doxysubsubsection{\texorpdfstring{I2C1\_MasterRead()}{I2C1\_MasterRead()}}
+{\footnotesize\ttfamily void I2\+C1\+\_\+\+Master\+Read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{pdata,  }\item[{uint8\+\_\+t}]{length,  }\item[{uint16\+\_\+t}]{address,  }\item[{\mbox{\hyperlink{i2c1_8h_a3aa7471e380d7a4957f9a0eb726c6582}{I2\+C1\+\_\+\+MESSAGE\+\_\+\+STATUS}} $\ast$}]{pstatus }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}@Summary
+    Handles one i2c master read transaction with the
+    supplied parameters.
+
+@Description
+    This function prepares a TRB, then inserts it on the i2c queue.
+    Finally, it waits for the transaction to complete and returns
+    the result.
+
+@Preconditions
+    None
+
+@Param
+    address - The address of the i2c peripheral to be accessed
+
+@Param
+    length - The length of the data block to be sent
+
+@Param
+     pdata - A pointer to the memory location where received data will
+             be stored
+
+@Param
+     pstatus - A pointer to the status variable that the i2c driver
+        updates during the execution of the message.
+
+@Returns
+    I2C1_MESSAGE_STATUS
+
+@Example
+    <code>
+
+        #define MCHP24AA512_RETRY_MAX       100  // define the retry count
+        #define MCHP24AA512_ADDRESS         0x50 // slave device address
+        #define MCHP24AA512_DEVICE_TIMEOUT  50   // define slave timeout 
+
+
+        uint8_t MCHP24AA512_Read(
+                                        uint16_t address,
+                                        uint8_t *pData,
+                                        uint16_t nCount)
+        {
+            I2C1_MESSAGE_STATUS status;
+            uint8_t     writeBuffer[3];
+            uint16_t    retryTimeOut, slaveTimeOut;
+            uint16_t    counter;
+            uint8_t     *pD;
+
+            pD = pData;
+
+            for (counter = 0; counter < nCount; counter++)
+            {
+\end{DoxyVerb}
+ build the write buffer first starting address of the EEPROM memory write\+Buffer\mbox{[}0\mbox{]} = (address $>$$>$ 8); // high address write\+Buffer\mbox{[}1\mbox{]} = (uint8\+\_\+t)(address); // low low address
+
+Now it is possible that the slave device will be slow. As a work around on these slaves, the application can retry sending the transaction retry\+Time\+Out = 0; slave\+Time\+Out = 0;
+
+while(status != I2\+C1\+\_\+\+MESSAGE\+\_\+\+FAIL) \{ write one byte to EEPROM (2 is the count of bytes to write) I2\+C1\+\_\+\+Master\+Write( write\+Buffer, 2, MCHP24\+AA512\+\_\+\+ADDRESS, \&status);
+
+wait for the message to be sent or status has changed. while(status == I2\+C1\+\_\+\+MESSAGE\+\_\+\+PENDING) \{ add some delay here
+
+timeout checking check for max retry and skip this byte if (slave\+Time\+Out == MCHP24\+AA512\+\_\+\+DEVICE\+\_\+\+TIMEOUT) return (0); else slave\+Time\+Out++; \}
+
+if (status == I2\+C1\+\_\+\+MESSAGE\+\_\+\+COMPLETE) break;
+
+if status is I2\+C1\+\_\+\+MESSAGE\+\_\+\+ADDRESS\+\_\+\+NO\+\_\+\+ACK, or I2\+C1\+\_\+\+DATA\+\_\+\+NO\+\_\+\+ACK, The device may be busy and needs more time for the last write so we can retry writing the data, this is why we use a while loop here
+
+check for max retry and skip this byte if (retry\+Time\+Out == MCHP24\+AA512\+\_\+\+RETRY\+\_\+\+MAX) break; else retry\+Time\+Out++; \}
+
+if (status == I2\+C1\+\_\+\+MESSAGE\+\_\+\+COMPLETE) \{
+
+this portion will read the byte from the memory location. retry\+Time\+Out = 0; slave\+Time\+Out = 0;
+
+while(status != I2\+C1\+\_\+\+MESSAGE\+\_\+\+FAIL) \{ write one byte to EEPROM (2 is the count of bytes to write) I2\+C1\+\_\+\+Master\+Read( pD, 1, MCHP24\+AA512\+\_\+\+ADDRESS, \&status);
+
+wait for the message to be sent or status has changed. while(status == I2\+C1\+\_\+\+MESSAGE\+\_\+\+PENDING) \{ add some delay here
+
+timeout checking check for max retry and skip this byte if (slave\+Time\+Out == MCHP24\+AA512\+\_\+\+DEVICE\+\_\+\+TIMEOUT) return (0); else slave\+Time\+Out++; \}
+
+if (status == I2\+C1\+\_\+\+MESSAGE\+\_\+\+COMPLETE) break;
+
+if status is I2\+C1\+\_\+\+MESSAGE\+\_\+\+ADDRESS\+\_\+\+NO\+\_\+\+ACK, or I2\+C1\+\_\+\+DATA\+\_\+\+NO\+\_\+\+ACK, The device may be busy and needs more time for the last write so we can retry writing the data, this is why we use a while loop here
+
+check for max retry and skip this byte if (retry\+Time\+Out == MCHP24\+AA512\+\_\+\+RETRY\+\_\+\+MAX) break; else retry\+Time\+Out++; \} \}
+
+exit if the last transaction failed if (status == I2\+C1\+\_\+\+MESSAGE\+\_\+\+FAIL) \{ return(0); break; \}
+
+p\+D++; address++;
+
+\} return(1);
+
+\}
+
+\begin{DoxyVerb} </code>
+\end{DoxyVerb}
+ 
+
+Definition at line 611 of file i2c1.\+c.
+
+\mbox{\Hypertarget{i2c1_8c_a92070148034b505be5339108b9f449d0}\label{i2c1_8c_a92070148034b505be5339108b9f449d0}} 
+\index{i2c1.c@{i2c1.c}!I2C1\_MasterReadTRBBuild@{I2C1\_MasterReadTRBBuild}}
+\index{I2C1\_MasterReadTRBBuild@{I2C1\_MasterReadTRBBuild}!i2c1.c@{i2c1.c}}
+\doxysubsubsection{\texorpdfstring{I2C1\_MasterReadTRBBuild()}{I2C1\_MasterReadTRBBuild()}}
+{\footnotesize\ttfamily void I2\+C1\+\_\+\+Master\+Read\+TRBBuild (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_i2_c1___t_r_a_n_s_a_c_t_i_o_n___r_e_q_u_e_s_t___b_l_o_c_k}{I2\+C1\+\_\+\+TRANSACTION\+\_\+\+REQUEST\+\_\+\+BLOCK}} $\ast$}]{ptrb,  }\item[{uint8\+\_\+t $\ast$}]{pdata,  }\item[{uint8\+\_\+t}]{length,  }\item[{uint16\+\_\+t}]{address }\end{DoxyParamCaption})}
+
+@\+Summary This function populates a trb supplied by the calling function with the parameters supplied by the calling function.
+
+@\+Description All i2c requests are in the form of TRB\textquotesingle{}s. This helper function takes standard parameters and correctly formats the TRB. The R/W bit is set to ensure that the resulting TRB describes an i2c read operation.
+
+This function does not send the transaction. To send the transaction, the TRB insert function (\mbox{\hyperlink{i2c1_8h_a860d0c61c4bfa0434f345692cd277328}{I2\+C1\+\_\+\+Master\+TRBInsert()}}) must be called.
+
+@\+Preconditions None
+
+@\+Param ptrb -\/ A pointer to a caller supplied TRB.
+
+@\+Param pdata -\/ A pointer to the block of data to be received
+
+@\+Param length -\/ The length of the data block to be received
+
+@\+Param address -\/ The address of the i2c peripheral to be accessed
+
+@\+Returns None
+
+@\+Example {\ttfamily  Refer to \mbox{\hyperlink{i2c1_8h_a860d0c61c4bfa0434f345692cd277328}{I2\+C1\+\_\+\+Master\+TRBInsert()}} for an example ~\newline
+ } 
+
+Definition at line 683 of file i2c1.\+c.
+
+\mbox{\Hypertarget{i2c1_8c_a860d0c61c4bfa0434f345692cd277328}\label{i2c1_8c_a860d0c61c4bfa0434f345692cd277328}} 
+\index{i2c1.c@{i2c1.c}!I2C1\_MasterTRBInsert@{I2C1\_MasterTRBInsert}}
+\index{I2C1\_MasterTRBInsert@{I2C1\_MasterTRBInsert}!i2c1.c@{i2c1.c}}
+\doxysubsubsection{\texorpdfstring{I2C1\_MasterTRBInsert()}{I2C1\_MasterTRBInsert()}}
+{\footnotesize\ttfamily void I2\+C1\+\_\+\+Master\+TRBInsert (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{count,  }\item[{\mbox{\hyperlink{struct_i2_c1___t_r_a_n_s_a_c_t_i_o_n___r_e_q_u_e_s_t___b_l_o_c_k}{I2\+C1\+\_\+\+TRANSACTION\+\_\+\+REQUEST\+\_\+\+BLOCK}} $\ast$}]{ptrb\+\_\+list,  }\item[{\mbox{\hyperlink{i2c1_8h_a3aa7471e380d7a4957f9a0eb726c6582}{I2\+C1\+\_\+\+MESSAGE\+\_\+\+STATUS}} $\ast$}]{pflag }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}@Summary
+    Inserts a list of i2c transaction requests into the i2c
+    transaction queue.
+
+@Description
+    The i2c processes lists of transaction requests.  Each transaction
+    list is handled as a string of i2c restarts.  When the list of
+    transactions is complete, an i2c stop is produced, the flag is set
+    with the correct condition code and the next list is processed
+    from the queue.
+
+    This function inserts lists of requests prepared by the user
+    application into the queue along with a pointer to the completion
+    flag.
+
+    The transaction is inserted into the list only if there is space
+    in the list. If there is no space, the function exits with the
+    flag set to I2C1_MESSAGE_FAIL.
+
+@Preconditions
+    None
+
+@Param
+    count - The numer of transaction requests in the trb_list.
+
+@Param
+     ptrb_list - A pointer to an array of transaction requests (TRB).
+        See I2C1_TRANSACTION_REQUEST_BLOCK definition for details.
+
+@Param
+     pflag - A pointer to a completion flag.
+
+@Returns
+    None
+
+@Example
+    <code>
+
+
+        uint8_t EMULATED_EEPROM_Read(
+                                       uint16_t slaveDeviceAddress,
+                                       uint16_t dataAddress,
+                                       uint8_t *pData,
+                                       uint16_t nCount)
+        {
+            I2C1_MESSAGE_STATUS status;
+            I2C1_TRANSACTION_REQUEST_BLOCK readTRB[2];
+            uint8_t     writeBuffer[3];
+            uint16_t    timeOut, slaveTimeOut;
+\end{DoxyVerb}
+ this initial value is important status = I2\+C1\+\_\+\+MESSAGE\+\_\+\+PENDING;
+
+build the write buffer first starting address of the EEPROM memory write\+Buffer\mbox{[}0\mbox{]} = (data\+Address $>$$>$ 8); // high address write\+Buffer\mbox{[}1\mbox{]} = (uint8\+\_\+t)(data\+Address); // low low address
+
+we need to create the TRBs for a random read sequence to the EEPROM Build TRB for sending address I2\+C1\+\_\+\+Master\+Write\+TRBBuild( \&read\+TRB\mbox{[}0\mbox{]}, write\+Buffer, 2, slave\+Device\+Address); Build TRB for receiving data I2\+C1\+\_\+\+Master\+Read\+TRBBuild( \&read\+TRB\mbox{[}1\mbox{]}, p\+Data, n\+Count, slave\+Device\+Address);
+
+time\+Out = 0; slave\+Time\+Out = 0;
+
+while(status != I2\+C1\+\_\+\+MESSAGE\+\_\+\+FAIL) \{ now send the transactions I2\+C1\+\_\+\+Master\+TRBInsert(2, read\+TRB, \&status);
+
+wait for the message to be sent or status has changed. while(status == I2\+C1\+\_\+\+MESSAGE\+\_\+\+PENDING) \{ add some delay here
+
+timeout checking check for max retry and skip this byte if (slave\+Time\+Out == SLAVE\+\_\+\+I2\+C\+\_\+\+GENERIC\+\_\+\+SLAVE\+\_\+\+TIMEOUT) return (0); else slave\+Time\+Out++; \}
+
+if (status == I2\+C1\+\_\+\+MESSAGE\+\_\+\+COMPLETE) break;
+
+if status is I2\+C1\+\_\+\+MESSAGE\+\_\+\+ADDRESS\+\_\+\+NO\+\_\+\+ACK, or I2\+C1\+\_\+\+DATA\+\_\+\+NO\+\_\+\+ACK, The device may be busy and needs more time for the last write so we can retry writing the data, this is why we use a while loop here
+
+check for max retry and skip this byte if (time\+Out == SLAVE\+\_\+\+I2\+C\+\_\+\+GENERIC\+\_\+\+RETRY\+\_\+\+MAX) return (0); else time\+Out++;
+
+\} return (1);
+
+\} ~\newline
+
+
+Definition at line 633 of file i2c1.\+c.
+
+\mbox{\Hypertarget{i2c1_8c_ac1c5623a0a38d361ec389aba34921822}\label{i2c1_8c_ac1c5623a0a38d361ec389aba34921822}} 
+\index{i2c1.c@{i2c1.c}!I2C1\_MasterWrite@{I2C1\_MasterWrite}}
+\index{I2C1\_MasterWrite@{I2C1\_MasterWrite}!i2c1.c@{i2c1.c}}
+\doxysubsubsection{\texorpdfstring{I2C1\_MasterWrite()}{I2C1\_MasterWrite()}}
+{\footnotesize\ttfamily void I2\+C1\+\_\+\+Master\+Write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{pdata,  }\item[{uint8\+\_\+t}]{length,  }\item[{uint16\+\_\+t}]{address,  }\item[{\mbox{\hyperlink{i2c1_8h_a3aa7471e380d7a4957f9a0eb726c6582}{I2\+C1\+\_\+\+MESSAGE\+\_\+\+STATUS}} $\ast$}]{pstatus }\end{DoxyParamCaption})}
+
+@\+Summary Handles one i2c master write transaction with the supplied parameters.
+
+@\+Description This function prepares a TRB, then inserts it on the i2c queue. Finally, it waits for the transaction to complete and returns the result.
+
+@\+Preconditions None
+
+@\+Param address -\/ The address of the i2c peripheral to be accessed
+
+@\+Param length -\/ The length of the data block to be sent
+
+@\+Param pdata -\/ A pointer to the block of data to be sent
+
+@\+Param pstatus -\/ A pointer to the status variable that the i2c driver updates during the execution of the message.
+
+@\+Returns I2\+C1\+\_\+\+MESSAGE\+\_\+\+STATUS
+
+@\+Example {\ttfamily  Refer to \mbox{\hyperlink{i2c1_8h_a0d2688c99f12f3c79e9867b3f48a4b70}{I2\+C1\+\_\+\+Initialize()}} and \mbox{\hyperlink{i2c1_8h_a80893177a8cb40f7c30c9932bc5e8006}{I2\+C1\+\_\+\+Master\+Read()}} for an examples ~\newline
+ } 
+
+Definition at line 590 of file i2c1.\+c.
+
+\mbox{\Hypertarget{i2c1_8c_a0ec0129336e0fcb629eeb55210707c2d}\label{i2c1_8c_a0ec0129336e0fcb629eeb55210707c2d}} 
+\index{i2c1.c@{i2c1.c}!I2C1\_MasterWriteTRBBuild@{I2C1\_MasterWriteTRBBuild}}
+\index{I2C1\_MasterWriteTRBBuild@{I2C1\_MasterWriteTRBBuild}!i2c1.c@{i2c1.c}}
+\doxysubsubsection{\texorpdfstring{I2C1\_MasterWriteTRBBuild()}{I2C1\_MasterWriteTRBBuild()}}
+{\footnotesize\ttfamily void I2\+C1\+\_\+\+Master\+Write\+TRBBuild (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_i2_c1___t_r_a_n_s_a_c_t_i_o_n___r_e_q_u_e_s_t___b_l_o_c_k}{I2\+C1\+\_\+\+TRANSACTION\+\_\+\+REQUEST\+\_\+\+BLOCK}} $\ast$}]{ptrb,  }\item[{uint8\+\_\+t $\ast$}]{pdata,  }\item[{uint8\+\_\+t}]{length,  }\item[{uint16\+\_\+t}]{address }\end{DoxyParamCaption})}
+
+@\+Summary This function populates a trb supplied by the calling function with the parameters supplied by the calling function.
+
+@\+Description All i2c requests are in the form of TRB\textquotesingle{}s. This helper function takes standard parameters and correctly formats the TRB. The R/W bit is cleared to ensure that the resulting TRB describes an i2c write operation.
+
+This function does not send the transaction. To send the transaction, the TRB insert function (\mbox{\hyperlink{i2c1_8h_a860d0c61c4bfa0434f345692cd277328}{I2\+C1\+\_\+\+Master\+TRBInsert()}}) must be called.
+
+@\+Preconditions None
+
+@\+Param ptrb -\/ A pointer to a caller supplied TRB.
+
+@\+Param pdata -\/ A pointer to the block of data to be sent
+
+@\+Param length -\/ The length of the data block to be sent
+
+@\+Param address -\/ The address of the i2c peripheral to be accessed
+
+@\+Returns None
+
+@\+Example {\ttfamily  Refer to \mbox{\hyperlink{i2c1_8h_a860d0c61c4bfa0434f345692cd277328}{I2\+C1\+\_\+\+Master\+TRBInsert()}} for an example ~\newline
+ } 
+
+Definition at line 696 of file i2c1.\+c.
+

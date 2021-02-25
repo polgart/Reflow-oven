@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_piclib30__wrapper_8h" xml:lang="en-US">
+<title>piclib30_wrapper.h File Reference</title>
+<indexterm><primary>piclib30_wrapper.h</primary></indexterm>
+<programlisting>#include &lt;libpic30.h&gt;
+</programlisting><simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_piclib30__wrapper_8h_1a99d7c812ba23bfdba5d29ec2fddf1e83">FCY</link>   4000000UL</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_piclib30__wrapper_8h_1a99d7c812ba23bfdba5d29ec2fddf1e83"/>    <section>
+    <title>FCY</title>
+<indexterm><primary>FCY</primary><secondary>piclib30_wrapper.h</secondary></indexterm>
+<indexterm><primary>piclib30_wrapper.h</primary><secondary>FCY</secondary></indexterm>
+<para><computeroutput>#define FCY   4000000UL</computeroutput></para><para>
+Definition at line 15 of file piclib30_wrapper.h.</para>
+</section>
+</section>
+</section>

@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_36150de6f2b4bab4ac56ee3a1d2e4e4b" xml:lang="en-US">
+<title>C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files Directory Reference</title>
+<indexterm><primary>C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="_clock_8c">clock.c</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_clock_8h">clock.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_i2c1_8c">i2c1.c</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_i2c1_8h">i2c1.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_interrupt__manager_8c">interrupt_manager.c</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_interrupt__manager_8h">interrupt_manager.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_mcc_8c">mcc.c</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_mcc_8h">mcc.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_pin__manager_8c">pin_manager.c</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_pin__manager_8h">pin_manager.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_spi1_8c">spi1.c</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_spi1_8h">spi1.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_system_8c">system.c</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_system_8h">system.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_tmr2_8c">tmr2.c</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_tmr2_8h">tmr2.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_traps_8c">traps.c</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_traps_8h">traps.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_uart1_8c">uart1.c</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_uart1_8h">uart1.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_uart2_8c">uart2.c</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_uart2_8h">uart2.h</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

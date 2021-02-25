@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_pin__manager_8c" xml:lang="en-US">
+<title>C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/pin_manager.c File Reference</title>
+<indexterm><primary>C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/pin_manager.c</primary></indexterm>
+<programlisting>#include &lt;xc.h&gt;
+#include &lt;stdio.h&gt;
+#include &quot;pin_manager.h&quot;
+</programlisting>Include dependency graph for pin_manager.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="pin__manager_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_pin__manager_8c_1a50357774183a136d9490f64ad0d5c6cb">PIN_MANAGER_Initialize</link> (void)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_pin__manager_8c_1a50357774183a136d9490f64ad0d5c6cb"/>    <section>
+    <title>PIN_MANAGER_Initialize()</title>
+<indexterm><primary>PIN_MANAGER_Initialize</primary><secondary>pin_manager.c</secondary></indexterm>
+<indexterm><primary>pin_manager.c</primary><secondary>PIN_MANAGER_Initialize</secondary></indexterm>
+<para><computeroutput>void PIN_MANAGER_Initialize (void )</computeroutput></para>
+<para>PIN MANAGER Generated Driver File</para>
+
+<para>@Company: Microchip Technology Inc.</para>
+
+<para>@File Name: <link linkend="_pin__manager_8c">pin_manager.c</link></para>
+
+<para>@Summary: This is the generated manager file for the PIC24 / dsPIC33 / PIC32MM MCUs device. This manager configures the pins direction, initial state, analog setting. The peripheral pin select, PPS, configuration is also handled by this manager.</para>
+
+<para>@Description: This source file provides implementations for PIN MANAGER. Generation Information : Product Revision : PIC24 / dsPIC33 / PIC32MM MCUs - 1.170.0 Device : PIC24FJ256GA702 The generated drivers are tested against the following: Compiler : XC16 v1.61 MPLAB : MPLAB X v5.45 Section: Includes Section: Driver Interface Function Definitions </para>
+<para>
+Definition at line 59 of file pin_manager.c.</para>
+</section>
+</section>
+</section>

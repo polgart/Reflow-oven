@@ -1,0 +1,99 @@
+.TH "C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/traps.c" 3 "Wed Feb 24 2021" "Version 1.0" "Reflow Oven" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/traps.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <xc\&.h>\fP
+.br
+\fC#include 'traps\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBERROR_HANDLER\fP   \fB__attribute__\fP((interrupt,no_auto_psv))"
+.br
+.ti -1c
+.RI "#define \fBFAILSAFE_STACK_GUARDSIZE\fP   8"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fB__attribute__\fP ((weak))"
+.br
+.ti -1c
+.RI "void \fBERROR_HANDLER\fP \fB_OscillatorFail\fP (void)"
+.br
+.ti -1c
+.RI "void \fBERROR_HANDLER\fP \fB_StackError\fP (void)"
+.br
+.ti -1c
+.RI "void \fBERROR_HANDLER\fP \fB_AddressError\fP (void)"
+.br
+.ti -1c
+.RI "void \fBERROR_HANDLER\fP \fB_MathError\fP (void)"
+.br
+.ti -1c
+.RI "void \fBERROR_HANDLER\fP \fB_NVMError\fP (void)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define ERROR_HANDLER   \fB__attribute__\fP((interrupt,no_auto_psv))"
+System Traps Generated Driver File
+.PP
+@Company: Microchip Technology Inc\&.
+.PP
+@File Name: \fBtraps\&.h\fP
+.PP
+@Summary: This is the generated driver implementation file for handling traps using PIC24 / dsPIC33 / PIC32MM MCUs
+.PP
+@Description: This source file provides implementations for PIC24 / dsPIC33 / PIC32MM MCUs traps\&. Generation Information : Product Revision : PIC24 / dsPIC33 / PIC32MM MCUs - 1\&.170\&.0 Device : PIC24FJ256GA702 The generated drivers are tested against the following: Compiler : XC16 v1\&.61 MPLAB : MPLAB X v5\&.45 Section: Includes 
+.PP
+Definition at line 51 of file traps\&.c\&.
+.SS "#define FAILSAFE_STACK_GUARDSIZE   8"
+
+.PP
+Definition at line 52 of file traps\&.c\&.
+.SH "Function Documentation"
+.PP 
+.SS "void __attribute__ ((weak))"
+Halts
+.PP
+\fBParameters\fP
+.RS 4
+\fIcode\fP error code 
+.RE
+.PP
+
+.PP
+Definition at line 64 of file traps\&.c\&.
+.SS "void \fBERROR_HANDLER\fP _AddressError (void)"
+Address Error Trap Vector 
+.PP
+Definition at line 112 of file traps\&.c\&.
+.SS "void \fBERROR_HANDLER\fP _MathError (void)"
+Math Error Trap Vector 
+.PP
+Definition at line 118 of file traps\&.c\&.
+.SS "void \fBERROR_HANDLER\fP _NVMError (void)"
+NVM Error Trap Vector 
+.PP
+Definition at line 124 of file traps\&.c\&.
+.SS "void \fBERROR_HANDLER\fP _OscillatorFail (void)"
+Oscillator Fail Trap vector 
+.PP
+Definition at line 95 of file traps\&.c\&.
+.SS "void \fBERROR_HANDLER\fP _StackError (void)"
+Stack Error Trap Vector 
+.PP
+Definition at line 101 of file traps\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Reflow Oven from the source code\&.

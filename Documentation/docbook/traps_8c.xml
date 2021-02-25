@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_traps_8c" xml:lang="en-US">
+<title>C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/traps.c File Reference</title>
+<indexterm><primary>C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/traps.c</primary></indexterm>
+<programlisting>#include &lt;xc.h&gt;
+#include &quot;traps.h&quot;
+</programlisting>Include dependency graph for traps.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="traps_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_traps_8c_1afc1223fc26cddba5ffba1c5bd5def82f">ERROR_HANDLER</link>   <link linkend="_uart2_8h_1af0c91f00f37dd7675964c4158ef235db">__attribute__</link>((interrupt,no_auto_psv))</para>
+</listitem>
+            <listitem><para>#define <link linkend="_traps_8c_1a8d6c626527a12311e8a698a87daae6f7">FAILSAFE_STACK_GUARDSIZE</link>   8</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_traps_8c_1a201468129b483039afc5a619e2d31097">__attribute__</link> ((weak))</para>
+</listitem>
+            <listitem><para>void <link linkend="_traps_8c_1afc1223fc26cddba5ffba1c5bd5def82f">ERROR_HANDLER</link> <link linkend="_traps_8c_1ae50a96c4daa59acda66ca62e59b2a9a9">_OscillatorFail</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_traps_8c_1afc1223fc26cddba5ffba1c5bd5def82f">ERROR_HANDLER</link> <link linkend="_traps_8c_1a2bb82ba68a7d3e7a3384ae5b6d2c5205">_StackError</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_traps_8c_1afc1223fc26cddba5ffba1c5bd5def82f">ERROR_HANDLER</link> <link linkend="_traps_8c_1a369f76085b5e8862ed6c95ebc4196240">_AddressError</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_traps_8c_1afc1223fc26cddba5ffba1c5bd5def82f">ERROR_HANDLER</link> <link linkend="_traps_8c_1a2017082168ce25fa118fc65101c58620">_MathError</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_traps_8c_1afc1223fc26cddba5ffba1c5bd5def82f">ERROR_HANDLER</link> <link linkend="_traps_8c_1a83b43b87a245038820f448eca03edf01">_NVMError</link> (void)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_traps_8c_1afc1223fc26cddba5ffba1c5bd5def82f"/>    <section>
+    <title>ERROR_HANDLER</title>
+<indexterm><primary>ERROR_HANDLER</primary><secondary>traps.c</secondary></indexterm>
+<indexterm><primary>traps.c</primary><secondary>ERROR_HANDLER</secondary></indexterm>
+<para><computeroutput>#define ERROR_HANDLER   <link linkend="_uart2_8h_1af0c91f00f37dd7675964c4158ef235db">__attribute__</link>((interrupt,no_auto_psv))</computeroutput></para>
+<para>System Traps Generated Driver File</para>
+
+<para>@Company: Microchip Technology Inc.</para>
+
+<para>@File Name: <link linkend="_traps_8h">traps.h</link></para>
+
+<para>@Summary: This is the generated driver implementation file for handling traps using PIC24 / dsPIC33 / PIC32MM MCUs</para>
+
+<para>@Description: This source file provides implementations for PIC24 / dsPIC33 / PIC32MM MCUs traps. Generation Information : Product Revision : PIC24 / dsPIC33 / PIC32MM MCUs - 1.170.0 Device : PIC24FJ256GA702 The generated drivers are tested against the following: Compiler : XC16 v1.61 MPLAB : MPLAB X v5.45 Section: Includes </para>
+<para>
+Definition at line 51 of file traps.c.</para>
+    </section><anchor xml:id="_traps_8c_1a8d6c626527a12311e8a698a87daae6f7"/>    <section>
+    <title>FAILSAFE_STACK_GUARDSIZE</title>
+<indexterm><primary>FAILSAFE_STACK_GUARDSIZE</primary><secondary>traps.c</secondary></indexterm>
+<indexterm><primary>traps.c</primary><secondary>FAILSAFE_STACK_GUARDSIZE</secondary></indexterm>
+<para><computeroutput>#define FAILSAFE_STACK_GUARDSIZE   8</computeroutput></para><para>
+Definition at line 52 of file traps.c.</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_traps_8c_1a201468129b483039afc5a619e2d31097"/>    <section>
+    <title>__attribute__()</title>
+<indexterm><primary>__attribute__</primary><secondary>traps.c</secondary></indexterm>
+<indexterm><primary>traps.c</primary><secondary>__attribute__</secondary></indexterm>
+<para><computeroutput>void __attribute__ ((weak) )</computeroutput></para>
+<para>Halts</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>code</entry>
+                                <entry>
+<para>error code </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line 64 of file traps.c.</para>
+    </section><anchor xml:id="_traps_8c_1a369f76085b5e8862ed6c95ebc4196240"/>    <section>
+    <title>_AddressError()</title>
+<indexterm><primary>_AddressError</primary><secondary>traps.c</secondary></indexterm>
+<indexterm><primary>traps.c</primary><secondary>_AddressError</secondary></indexterm>
+<para><computeroutput>void <link linkend="_traps_8c_1afc1223fc26cddba5ffba1c5bd5def82f">ERROR_HANDLER</link> _AddressError (void )</computeroutput></para>
+<para>Address Error Trap Vector </para>
+<para>
+Definition at line 112 of file traps.c.</para>
+    </section><anchor xml:id="_traps_8c_1a2017082168ce25fa118fc65101c58620"/>    <section>
+    <title>_MathError()</title>
+<indexterm><primary>_MathError</primary><secondary>traps.c</secondary></indexterm>
+<indexterm><primary>traps.c</primary><secondary>_MathError</secondary></indexterm>
+<para><computeroutput>void <link linkend="_traps_8c_1afc1223fc26cddba5ffba1c5bd5def82f">ERROR_HANDLER</link> _MathError (void )</computeroutput></para>
+<para>Math Error Trap Vector </para>
+<para>
+Definition at line 118 of file traps.c.</para>
+    </section><anchor xml:id="_traps_8c_1a83b43b87a245038820f448eca03edf01"/>    <section>
+    <title>_NVMError()</title>
+<indexterm><primary>_NVMError</primary><secondary>traps.c</secondary></indexterm>
+<indexterm><primary>traps.c</primary><secondary>_NVMError</secondary></indexterm>
+<para><computeroutput>void <link linkend="_traps_8c_1afc1223fc26cddba5ffba1c5bd5def82f">ERROR_HANDLER</link> _NVMError (void )</computeroutput></para>
+<para>NVM Error Trap Vector </para>
+<para>
+Definition at line 124 of file traps.c.</para>
+    </section><anchor xml:id="_traps_8c_1ae50a96c4daa59acda66ca62e59b2a9a9"/>    <section>
+    <title>_OscillatorFail()</title>
+<indexterm><primary>_OscillatorFail</primary><secondary>traps.c</secondary></indexterm>
+<indexterm><primary>traps.c</primary><secondary>_OscillatorFail</secondary></indexterm>
+<para><computeroutput>void <link linkend="_traps_8c_1afc1223fc26cddba5ffba1c5bd5def82f">ERROR_HANDLER</link> _OscillatorFail (void )</computeroutput></para>
+<para>Oscillator Fail Trap vector </para>
+<para>
+Definition at line 95 of file traps.c.</para>
+    </section><anchor xml:id="_traps_8c_1a2bb82ba68a7d3e7a3384ae5b6d2c5205"/>    <section>
+    <title>_StackError()</title>
+<indexterm><primary>_StackError</primary><secondary>traps.c</secondary></indexterm>
+<indexterm><primary>traps.c</primary><secondary>_StackError</secondary></indexterm>
+<para><computeroutput>void <link linkend="_traps_8c_1afc1223fc26cddba5ffba1c5bd5def82f">ERROR_HANDLER</link> _StackError (void )</computeroutput></para>
+<para>Stack Error Trap Vector </para>
+<para>
+Definition at line 101 of file traps.c.</para>
+</section>
+</section>
+</section>

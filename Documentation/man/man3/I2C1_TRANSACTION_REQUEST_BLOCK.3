@@ -1,0 +1,36 @@
+.TH "I2C1_TRANSACTION_REQUEST_BLOCK" 3 "Wed Feb 24 2021" "Version 1.0" "Reflow Oven" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+I2C1_TRANSACTION_REQUEST_BLOCK
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <i2c1\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "uint16_t \fBaddress\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBlength\fP"
+.br
+.ti -1c
+.RI "uint8_t * \fBpbuffer\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+I2C Driver Transaction Request Block (TRB) type definition\&.
+.PP
+@Summary This defines the Transaction Request Block (TRB) used by the i2c master in sending/receiving data to the i2c bus\&.
+.PP
+@Description This data type is the i2c Transaction Request Block (TRB) that the needs to be built and sent to the driver to handle each i2c requests\&. Using the TRB, simple to complex i2c transactions can be constructed and sent to the i2c bus\&. This data type is only used by the master mode\&. 
+.PP
+Definition at line 109 of file i2c1\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Reflow Oven from the source code\&.

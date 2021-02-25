@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_main_8c" xml:lang="en-US">
+<title>main.c File Reference</title>
+<indexterm><primary>main.c</primary></indexterm>
+<programlisting>#include &quot;mcc_generated_files/system.h&quot;
+#include &quot;mcc_generated_files/pin_manager.h&quot;
+#include &quot;mcc_generated_files/i2c1.h&quot;
+#include &quot;stateTaskHandler.h&quot;
+#include &quot;baseSW.h&quot;
+#include &lt;stdlib.h&gt;
+</programlisting><simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_main_8c_1a840291bc02cba5474a4cb46a9b9566fe">main</link> (void)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_main_8c_1a840291bc02cba5474a4cb46a9b9566fe"/>    <section>
+    <title>main()</title>
+<indexterm><primary>main</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>main</secondary></indexterm>
+<para><computeroutput>int main (void )</computeroutput></para>
+<para>Generated <link linkend="_main_8c">main.c</link> file from MPLAB Code Configurator</para>
+
+<para>@Company Microchip Technology Inc.</para>
+
+<para>@File Name <link linkend="_main_8c">main.c</link></para>
+
+<para>@Summary This is the generated <link linkend="_main_8c">main.c</link> using PIC24 / dsPIC33 / PIC32MM MCUs.</para>
+
+<para>@Description This source file provides main entry point for system initialization and application code development. Generation Information : Product Revision : PIC24 / dsPIC33 / PIC32MM MCUs - 1.170.0 Device : PIC24FJ256GA702 The generated drivers are tested against the following: Compiler : XC16 v1.61 MPLAB : MPLAB X v5.45 Section: Included Files </para>
+<para>
+Definition at line 66 of file main.c.</para>
+</section>
+</section>
+</section>

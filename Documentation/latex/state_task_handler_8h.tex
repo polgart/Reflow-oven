@@ -1,0 +1,99 @@
+\hypertarget{state_task_handler_8h}{}\doxysection{state\+Task\+Handler.\+h File Reference}
+\label{state_task_handler_8h}\index{stateTaskHandler.h@{stateTaskHandler.h}}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structstate_task_list__s}{state\+Task\+List\+\_\+s}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structstate_task_list__s}{state\+Task\+List\+\_\+s}} \mbox{\hyperlink{state_task_handler_8h_ac70d77726e89cd77b1604f36f0768724}{state\+Task\+List}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{state_task_handler_8h_a9bd504f8607c59cfa51aa82a2fddec5f}{state\+Task\+Handler}} (\mbox{\hyperlink{state_task_handler_8h_ac70d77726e89cd77b1604f36f0768724}{state\+Task\+List}} $\ast$task)
+\item 
+\mbox{\hyperlink{state_task_handler_8h_ac70d77726e89cd77b1604f36f0768724}{state\+Task\+List}} $\ast$ \mbox{\hyperlink{state_task_handler_8h_aa13c6985471c7d75306316805c317981}{create\+Task}} (void($\ast$function)(void))
+\item 
+void \mbox{\hyperlink{state_task_handler_8h_a98a2fc80782b345201abe6dfbb757c13}{initilaize\+Task\+Handler}} (\mbox{\hyperlink{state_task_handler_8h_ac70d77726e89cd77b1604f36f0768724}{state\+Task\+List}} $\ast$idle\+Task)
+\item 
+void \mbox{\hyperlink{state_task_handler_8h_a0e389e9bc8beed2ef6025c91227d010b}{add\+Task}} (\mbox{\hyperlink{state_task_handler_8h_ac70d77726e89cd77b1604f36f0768724}{state\+Task\+List}} $\ast$idle\+Task, \mbox{\hyperlink{state_task_handler_8h_ac70d77726e89cd77b1604f36f0768724}{state\+Task\+List}} $\ast$new\+Task)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{state_task_handler_8h_ac70d77726e89cd77b1604f36f0768724}\label{state_task_handler_8h_ac70d77726e89cd77b1604f36f0768724}} 
+\index{stateTaskHandler.h@{stateTaskHandler.h}!stateTaskList@{stateTaskList}}
+\index{stateTaskList@{stateTaskList}!stateTaskHandler.h@{stateTaskHandler.h}}
+\doxysubsubsection{\texorpdfstring{stateTaskList}{stateTaskList}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structstate_task_list__s}{state\+Task\+List\+\_\+s}} \mbox{\hyperlink{state_task_handler_8h_ac70d77726e89cd77b1604f36f0768724}{state\+Task\+List}}}
+
+
+
+Definition at line 1 of file state\+Task\+Handler.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{state_task_handler_8h_a0e389e9bc8beed2ef6025c91227d010b}\label{state_task_handler_8h_a0e389e9bc8beed2ef6025c91227d010b}} 
+\index{stateTaskHandler.h@{stateTaskHandler.h}!addTask@{addTask}}
+\index{addTask@{addTask}!stateTaskHandler.h@{stateTaskHandler.h}}
+\doxysubsubsection{\texorpdfstring{addTask()}{addTask()}}
+{\footnotesize\ttfamily void add\+Task (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{state_task_handler_8h_ac70d77726e89cd77b1604f36f0768724}{state\+Task\+List}} $\ast$}]{idle\+Task,  }\item[{\mbox{\hyperlink{state_task_handler_8h_ac70d77726e89cd77b1604f36f0768724}{state\+Task\+List}} $\ast$}]{new\+Task }\end{DoxyParamCaption})}
+
+state\+Task\+List
+
+@\+Summary
+
+@\+Description 
+
+Definition at line 77 of file state\+Task\+Handler.\+c.
+
+\mbox{\Hypertarget{state_task_handler_8h_aa13c6985471c7d75306316805c317981}\label{state_task_handler_8h_aa13c6985471c7d75306316805c317981}} 
+\index{stateTaskHandler.h@{stateTaskHandler.h}!createTask@{createTask}}
+\index{createTask@{createTask}!stateTaskHandler.h@{stateTaskHandler.h}}
+\doxysubsubsection{\texorpdfstring{createTask()}{createTask()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{state_task_handler_8h_ac70d77726e89cd77b1604f36f0768724}{state\+Task\+List}}$\ast$ create\+Task (\begin{DoxyParamCaption}\item[{void($\ast$)(void)}]{function }\end{DoxyParamCaption})}
+
+state\+Task\+List
+
+@\+Summary
+
+@\+Description 
+
+Definition at line 59 of file state\+Task\+Handler.\+c.
+
+\mbox{\Hypertarget{state_task_handler_8h_a98a2fc80782b345201abe6dfbb757c13}\label{state_task_handler_8h_a98a2fc80782b345201abe6dfbb757c13}} 
+\index{stateTaskHandler.h@{stateTaskHandler.h}!initilaizeTaskHandler@{initilaizeTaskHandler}}
+\index{initilaizeTaskHandler@{initilaizeTaskHandler}!stateTaskHandler.h@{stateTaskHandler.h}}
+\doxysubsubsection{\texorpdfstring{initilaizeTaskHandler()}{initilaizeTaskHandler()}}
+{\footnotesize\ttfamily void initilaize\+Task\+Handler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{state_task_handler_8h_ac70d77726e89cd77b1604f36f0768724}{state\+Task\+List}} $\ast$}]{idle\+Task }\end{DoxyParamCaption})}
+
+state\+Task\+List
+
+@\+Summary
+
+@\+Description 
+
+Definition at line 44 of file state\+Task\+Handler.\+c.
+
+\mbox{\Hypertarget{state_task_handler_8h_a9bd504f8607c59cfa51aa82a2fddec5f}\label{state_task_handler_8h_a9bd504f8607c59cfa51aa82a2fddec5f}} 
+\index{stateTaskHandler.h@{stateTaskHandler.h}!stateTaskHandler@{stateTaskHandler}}
+\index{stateTaskHandler@{stateTaskHandler}!stateTaskHandler.h@{stateTaskHandler.h}}
+\doxysubsubsection{\texorpdfstring{stateTaskHandler()}{stateTaskHandler()}}
+{\footnotesize\ttfamily void state\+Task\+Handler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{state_task_handler_8h_ac70d77726e89cd77b1604f36f0768724}{state\+Task\+List}} $\ast$}]{task }\end{DoxyParamCaption})}
+
+state\+Task\+List
+
+@\+Summary
+
+@\+Description state\+Task\+List
+
+@\+Summary
+
+@\+Description 
+
+Definition at line 25 of file state\+Task\+Handler.\+c.
+

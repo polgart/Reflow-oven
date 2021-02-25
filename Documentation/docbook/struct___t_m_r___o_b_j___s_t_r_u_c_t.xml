@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct___t_m_r___o_b_j___s_t_r_u_c_t" xml:lang="en-US">
+<title>_TMR_OBJ_STRUCT Struct Reference</title>
+<indexterm><primary>_TMR_OBJ_STRUCT</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_struct___t_m_r___o_b_j___s_t_r_u_c_t_1a8160771aa7ac1fa823b61ce5996fecc6"/>volatile bool <emphasis role="strong">timerElapsed</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct___t_m_r___o_b_j___s_t_r_u_c_t_1aef4c4f3630ede69cba8c75369a5459af"/>volatile uint8_t <emphasis role="strong">count</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Section: Data Type Definitions TMR Driver Hardware Instance Object</para>
+
+<para>@Summary Defines the object required for the maintenance of the hardware instance.</para>
+
+<para>@Description This defines the object required for the maintenance of the hardware instance. This object exists once per hardware instance of the peripheral.</para>
+
+<para>Remarks: None. </para>
+<para>
+Definition at line 76 of file tmr2.c.</para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/tmr2.c</section>
+</section>

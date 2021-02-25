@@ -17,9 +17,9 @@
  *
  */
 
-static uint16_t EEPROM_ADDRESS = 0x00; 
-static uint16_t internalMaxTemp = 0x0000;
-static uint16_t thermocoupleMaxTemp = 0x0000;
+const uint16_t EEPROM_ADDRESS = 0x00;
+const uint16_t INTERNAL_MAX_TEMPERATURE = 0x0000;
+const uint16_t THERMOCOUPLE_MAX_TEMPERATURE = 0x0000;
 
 /* 
  *
@@ -27,49 +27,135 @@ static uint16_t thermocoupleMaxTemp = 0x0000;
  *
  */
 
+
+/*! \brief Heat profile buffer size
+ *
+ *  Each byte in the buffer represents a reference temeprature
+ *  at a given time. The maximum reference temperature is
+ *  25+255=280 celsis degree, and the minimum reference temperature is
+ *  25 celsius degree.
+ */
 #define HEAT_PROFILE_SIZE 1024
 
+/*! \brief Idle state
+ *
+ *  The task connected to this state cannot be deleted from the task que.
+ *  This task provides the toggling protection to the SSR, ensuring that
+ *  the software is properly running. This task is also responsible for
+ *  disableing the heating process if one of the limits is exceeded.
+ */
 stateTaskList* IdleState = NULL;
+
+/*! \brief Read data from MAX31855KASA+T state
+ *
+ *  The task connected to this state reads 4 bytes of data from MAX31855KASA+T.
+ *  Hot junction temperature is stored in 14 bit format while the cold junction
+ *  temperature is only 11 bits. Besides the measured temperatures, diagnostic
+ *  data can also be read from the IC.
+ *  [IC datasheet](https://www.micro-semiconductor.com/datasheet/12-MAX31855TASA-T.pdf)
+ */
 stateTaskList* ReadTemperatureData = NULL;
+
+/*! \brief Receive data from Nextion HMI state
+ *
+ *  In this task varios control commands are received from the Nextion touch
+ *  screen HMI. Heating process can be enabled or disabled, new heat profile can
+ *  be choosen, and it can be loaded from the EEPROM to the microcontroller.
+ * [NX4832T035](https://nextion.tech/datasheets/nx4832t035/)
+ */
 stateTaskList* ReceiveNextionData = NULL;
+
+/*! \brief Receive data from FTDI state
+ *
+ *  In this task varios control commands are received from the PC via the
+ *  FTDI UART USB bridge. Heating process can be enabled or disabled,
+ *  new heat profile can be choosen, and it can be loaded from the EEPROM to the
+ *  microcontroller. New heat profiles (generated on the PC) can be downloaded
+ *  into the microcontroller and it can be saved into the EEPROM for further use.
+ *  [FT232R](http://www.farnell.com/datasheets/2007793.pdf)
+ */
 stateTaskList* ReceiveFTDI = NULL;
+
+/*! \brief Broadcast temperature data to the Nextion HMI
+ *
+ *  Broadcast temperature data to the Nextion HMI. 
+ * [NX4832T035](https://nextion.tech/datasheets/nx4832t035/)
+ */
 stateTaskList* TranscieveNextionDATA = NULL;
+
+/*! \brief Broadcast temperature data to the PC
+ *
+ *  Broadcast temperature data to the PC [FT232R](http://www.farnell.com/datasheets/2007793.pdf)
+ */
 stateTaskList* TransciveFTDI = NULL;
+
+/*! \brief Read heat profile from EEPROM
+ *
+ *  Heat profile is read from the EEPROM via 400kHz I2C communication interface.
+ *  This task use sequential read implemented in EEPROM_driver.c for the maximum
+ *  transmission speed. [24LC64](http://ww1.microchip.com/downloads/en/devicedoc/21189f.pdf)
+ */
 stateTaskList* ReadEEPROM = NULL;
+
+/*! \brief Write heat profile into EEPROM
+ *
+ *  Heat profile is written into the EEPROM via 400kHz I2C communication interface.
+ *  This task use page write implemented in EEPROM_driver.c for the maximum
+ *  transmission speed. [24LC64](http://ww1.microchip.com/downloads/en/devicedoc/21189f.pdf)
+ */
 stateTaskList* WriteEEPROM = NULL;
 
-uint8_t heatProfileCurrent[HEAT_PROFILE_SIZE];
-uint8_t heatProfileBuffer[HEAT_PROFILE_SIZE];
-uint8_t heatProfileDefult[HEAT_PROFILE_SIZE];
+uint8_t heatProfileCurrent[HEAT_PROFILE_SIZE];/*!< Currently selected heat profile. */
+uint8_t heatProfileBuffer[HEAT_PROFILE_SIZE];/*!< Heat profile buffer for memory operations. It can't be used directily, it has to be loaded into heatProfileCurrent*/
+uint8_t heatProfileDefult[HEAT_PROFILE_SIZE];/*!< Default heat profile, cannot be deleted */
 
 
+/*! \brief Reference temperature buffer
+ *
+ *  This temperature buffer structure conatins a 8 bit unsigned integer pointer,
+ * and an offset value. The offset used during memory operations or denotes the
+ * actual temperature reference (based on time) in the array depending on the
+ * context.
+ */
 typedef struct
-{
-    /* Read/Write Queue */
-    uint8_t     *data;      // Buffer array pointer
-    uint16_t    offset;     // Buffer offset value
+{   
+    uint8_t     *data;      /*!< Buffer array pointer */
+    uint16_t    offset;     /*!<  Buffer offset value */
 } TEMPERATURE_BUFFER;
 
+
+/*! \brief Reference temperature buffer status
+ *
+ * Actual status of the refernce temperature buffer is stored in this enum. The
+ * status.
+ */
 typedef enum
 {
-    TB_RECEIVE_FROM_PC,
-    TB_SEND_TO_EEPROM,
-    TB_RECEIVE_FROM_EEPROM,
-    IDLE
+    TB_RECEIVE_FROM_PC, /*!< Temperature buffer is receiving from PC is in progress */
+    TB_SEND_TO_EEPROM, /*!< Temperature buffer is tranciving to EEPROM is in progress */
+    TB_RECEIVE_FROM_EEPROM, /*!< Temperature buffer is receiving from EEPROM is in progress */
+    IDLE /*!< Temperature buffer is in idle state and ready to be used */
 } TEMPERATURE_BUFFER_STATUS;
 
+/*! \brief Reference temperature profile
+ *
+ * Reference temperature profile three TEMPERATURE_BUFFER, a TEMPERATURE_BUFFER_STATUS
+ * and an addressBuffer. The addressBuffer is used to store the EEPROM address.
+ * Only bufferProfile can be used for memory operations, and currentProfile only can be used
+ * for heating processes.
+ */
 typedef struct
 {
     /* Read/Write Queue */
-    TEMPERATURE_BUFFER          currentProfile;     // Current profile array pointer
-    TEMPERATURE_BUFFER          bufferProfile;      // Buffer profile array pointer
-    TEMPERATURE_BUFFER          defaultProfile;     // Default profile buffer array pointer
-    TEMPERATURE_BUFFER_STATUS   profileStatus;      // Temperature profile status
-    uint16_t                    addressBuffer;      // This buffers stores the EEPROM address
+    TEMPERATURE_BUFFER          currentProfile;     /*!< Current profile array pointer */
+    TEMPERATURE_BUFFER          bufferProfile;      /*!< Buffer profile array pointer */
+    TEMPERATURE_BUFFER          defaultProfile;     /*!< Default profile buffer array pointer */
+    TEMPERATURE_BUFFER_STATUS   profileStatus;      /*!< Temperature profile status */
+    uint16_t                    addressBuffer;      /*!< This buffers stores the EEPROM address */
 } TEMPERATURE_PROFILE;
 
-static TEMPERATURE_PROFILE temperatureHeatProfile;
-static TEMPERATURE_BUFFER temperatureBufferArray[3];
+static TEMPERATURE_PROFILE temperatureHeatProfile; /*!< Global varible, it stores heat profile related data */
+TEMPERATURE_BUFFER temperatureBufferArray[3];
 
 
 /* 
@@ -191,7 +277,6 @@ static TRANSCIEVE_OBJ transciveObj;
 
 void enableHeat() {
     HEAT_IN_PROGRESS = true;
-    SSR_OUTPUT_SetHigh();
 }
 
 void disableHeat() {
@@ -201,12 +286,22 @@ void disableHeat() {
 
 void IdleState_callback() {
     //Temperature protection - critical feature
-    if (HEAT_IN_PROGRESS) {
-        if (SENSOR_DATA_HANDLER.dataArrayQue[SENSOR_DATA_HANDLER.dataArrayStatus.currentData].s.internal_temperature_data > internalMaxTemp)
-            disableHeat();
+    uint16_t internalTemp = SENSOR_DATA_HANDLER.dataArrayQue[SENSOR_DATA_HANDLER.dataArrayStatus.currentData].s.internal_temperature_data;
+    uint16_t sensorTemp = SENSOR_DATA_HANDLER.dataArrayQue[SENSOR_DATA_HANDLER.dataArrayStatus.currentData].s.thermocouple_temperature_data;
+    uint16_t desiredTemp = (uint16_t)temperatureHeatProfile.currentProfile.data[temperatureHeatProfile.currentProfile.offset];
     
-        if (SENSOR_DATA_HANDLER.dataArrayQue[SENSOR_DATA_HANDLER.dataArrayStatus.currentData].s.thermocouple_temperature_data > thermocoupleMaxTemp)
+    if (HEAT_IN_PROGRESS) {
+        if (internalTemp > INTERNAL_MAX_TEMPERATURE) {
             disableHeat();
+            return;
+        }
+    
+        if (sensorTemp > THERMOCOUPLE_MAX_TEMPERATURE || sensorTemp > desiredTemp) {
+            disableHeat();
+            return;
+        }
+        
+        SSR_OUTPUT_SetHigh();
     }
     
     //Toggling signal protection - critical feature
@@ -233,10 +328,10 @@ bool checkStartConditions() {
     if (SENSOR_DATA_HANDLER.dataArrayQue[SENSOR_DATA_HANDLER.dataArrayStatus.currentData].s.scv)
         return false; // Thermocouple is short-circuited to VCC
     
-    if (SENSOR_DATA_HANDLER.dataArrayQue[SENSOR_DATA_HANDLER.dataArrayStatus.currentData].s.internal_temperature_data < internalMaxTemp)
+    if (SENSOR_DATA_HANDLER.dataArrayQue[SENSOR_DATA_HANDLER.dataArrayStatus.currentData].s.internal_temperature_data < INTERNAL_MAX_TEMPERATURE)
         return false; // Inernal maximum temperature exceeded
     
-    if (SENSOR_DATA_HANDLER.dataArrayQue[SENSOR_DATA_HANDLER.dataArrayStatus.currentData].s.thermocouple_temperature_data < thermocoupleMaxTemp)
+    if (SENSOR_DATA_HANDLER.dataArrayQue[SENSOR_DATA_HANDLER.dataArrayStatus.currentData].s.thermocouple_temperature_data < THERMOCOUPLE_MAX_TEMPERATURE)
         return false; // Thermocouple maximum temperature exceeded
     
     return true;

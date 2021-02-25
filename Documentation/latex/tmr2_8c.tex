@@ -1,0 +1,311 @@
+\hypertarget{tmr2_8c}{}\doxysection{C\+:/\+Users/\+EDU\+\_\+\+OBOS\+\_\+5057/\+Documents/\+Reflow oven/\+Design/\+SW/\+RO\+\_\+firmware\+\_\+v1.X/mcc\+\_\+generated\+\_\+files/tmr2.c File Reference}
+\label{tmr2_8c}\index{C:/Users/EDU\_OBOS\_5057/Documents/Reflow oven/Design/SW/RO\_firmware\_v1.X/mcc\_generated\_files/tmr2.c@{C:/Users/EDU\_OBOS\_5057/Documents/Reflow oven/Design/SW/RO\_firmware\_v1.X/mcc\_generated\_files/tmr2.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}tmr2.\+h\char`\"{}}\newline
+Include dependency graph for tmr2.\+c\+:
+% FIG 0
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct___t_m_r___o_b_j___s_t_r_u_c_t}{\+\_\+\+TMR\+\_\+\+OBJ\+\_\+\+STRUCT}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct___t_m_r___o_b_j___s_t_r_u_c_t}{\+\_\+\+TMR\+\_\+\+OBJ\+\_\+\+STRUCT}} \mbox{\hyperlink{tmr2_8c_a39ad12262a38227a21229f0960418394}{TMR\+\_\+\+OBJ}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{tmr2_8c_a3636eea703b4350add3364d56101e4c1}{TMR2\+\_\+\+Call\+Back}} (void)
+\item 
+void \mbox{\hyperlink{tmr2_8c_a46c13c9255379e99c10240229a145d37}{TMR2\+\_\+\+Initialize}} (void)
+\item 
+void \mbox{\hyperlink{tmr2_8c_a226557d5e42f7e29ddaff30606138459}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}} ((interrupt, no\+\_\+auto\+\_\+psv))
+\item 
+void \mbox{\hyperlink{tmr2_8c_a029b45c0db9f00c1e569879790b617c9}{TMR2\+\_\+\+Period16\+Bit\+Set}} (uint16\+\_\+t value)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{tmr2_8c_ae0659f551ba74dfbbe77b676fe368103}{TMR2\+\_\+\+Period16\+Bit\+Get}} (void)
+\item 
+void \mbox{\hyperlink{tmr2_8c_aa7921f4935894ed5a4f643cc531c54a6}{TMR2\+\_\+\+Counter16\+Bit\+Set}} (uint16\+\_\+t value)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{tmr2_8c_aadc6b4b53f1bbde0bf8cadd351d7f8b5}{TMR2\+\_\+\+Counter16\+Bit\+Get}} (void)
+\item 
+void \mbox{\hyperlink{tmr2_8c_a201468129b483039afc5a619e2d31097}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}} ((weak))
+\item 
+void \mbox{\hyperlink{tmr2_8c_a96213f388ab9dc5b3cd3ff3b06732b59}{TMR2\+\_\+\+Set\+Interrupt\+Handler}} (void($\ast$Interrupt\+Handler)(void))
+\item 
+void \mbox{\hyperlink{tmr2_8c_a7eccfd0fac278e0099d27631e116cfbf}{TMR2\+\_\+\+Start}} (void)
+\item 
+void \mbox{\hyperlink{tmr2_8c_a90159f110263038f478f43a3ac9ab3ee}{TMR2\+\_\+\+Stop}} (void)
+\item 
+bool \mbox{\hyperlink{tmr2_8c_af78ac8c3a760ed1dc1768c090b3fe952}{TMR2\+\_\+\+Get\+Elapsed\+Then\+Clear}} (void)
+\item 
+int \mbox{\hyperlink{tmr2_8c_a241db09d6e4141c5ef4a8b6bea8b22ad}{TMR2\+\_\+\+Software\+Counter\+Get}} (void)
+\item 
+void \mbox{\hyperlink{tmr2_8c_a7f4921638056d85138f0a7a743b44ef9}{TMR2\+\_\+\+Software\+Counter\+Clear}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+void($\ast$ \mbox{\hyperlink{tmr2_8c_a622a11f661317b0f3da80e5416e47c12}{TMR2\+\_\+\+Interrupt\+Handler}} )(void) = NULL
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{tmr2_8c_a39ad12262a38227a21229f0960418394}\label{tmr2_8c_a39ad12262a38227a21229f0960418394}} 
+\index{tmr2.c@{tmr2.c}!TMR\_OBJ@{TMR\_OBJ}}
+\index{TMR\_OBJ@{TMR\_OBJ}!tmr2.c@{tmr2.c}}
+\doxysubsubsection{\texorpdfstring{TMR\_OBJ}{TMR\_OBJ}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct___t_m_r___o_b_j___s_t_r_u_c_t}{\+\_\+\+TMR\+\_\+\+OBJ\+\_\+\+STRUCT}} \mbox{\hyperlink{tmr2_8c_a39ad12262a38227a21229f0960418394}{TMR\+\_\+\+OBJ}}}
+
+Section\+: Data Type Definitions TMR Driver Hardware Instance Object
+
+@\+Summary Defines the object required for the maintenance of the hardware instance.
+
+@\+Description This defines the object required for the maintenance of the hardware instance. This object exists once per hardware instance of the peripheral.
+
+Remarks\+: None. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{tmr2_8c_a226557d5e42f7e29ddaff30606138459}\label{tmr2_8c_a226557d5e42f7e29ddaff30606138459}} 
+\index{tmr2.c@{tmr2.c}!\_\_attribute\_\_@{\_\_attribute\_\_}}
+\index{\_\_attribute\_\_@{\_\_attribute\_\_}!tmr2.c@{tmr2.c}}
+\doxysubsubsection{\texorpdfstring{\_\_attribute\_\_()}{\_\_attribute\_\_()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+attribute\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{(interrupt, no\+\_\+auto\+\_\+psv)}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 113 of file tmr2.\+c.
+
+\mbox{\Hypertarget{tmr2_8c_a201468129b483039afc5a619e2d31097}\label{tmr2_8c_a201468129b483039afc5a619e2d31097}} 
+\index{tmr2.c@{tmr2.c}!\_\_attribute\_\_@{\_\_attribute\_\_}}
+\index{\_\_attribute\_\_@{\_\_attribute\_\_}!tmr2.c@{tmr2.c}}
+\doxysubsubsection{\texorpdfstring{\_\_attribute\_\_()}{\_\_attribute\_\_()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+attribute\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{(weak)}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 160 of file tmr2.\+c.
+
+\mbox{\Hypertarget{tmr2_8c_a3636eea703b4350add3364d56101e4c1}\label{tmr2_8c_a3636eea703b4350add3364d56101e4c1}} 
+\index{tmr2.c@{tmr2.c}!TMR2\_CallBack@{TMR2\_CallBack}}
+\index{TMR2\_CallBack@{TMR2\_CallBack}!tmr2.c@{tmr2.c}}
+\doxysubsubsection{\texorpdfstring{TMR2\_CallBack()}{TMR2\_CallBack()}}
+{\footnotesize\ttfamily void TMR2\+\_\+\+Call\+Back (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{tmr2_8c_aadc6b4b53f1bbde0bf8cadd351d7f8b5}\label{tmr2_8c_aadc6b4b53f1bbde0bf8cadd351d7f8b5}} 
+\index{tmr2.c@{tmr2.c}!TMR2\_Counter16BitGet@{TMR2\_Counter16BitGet}}
+\index{TMR2\_Counter16BitGet@{TMR2\_Counter16BitGet}!tmr2.c@{tmr2.c}}
+\doxysubsubsection{\texorpdfstring{TMR2\_Counter16BitGet()}{TMR2\_Counter16BitGet()}}
+{\footnotesize\ttfamily uint16\+\_\+t TMR2\+\_\+\+Counter16\+Bit\+Get (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+@\+Summary Provides 16-\/bit current counter value
+
+@\+Description This routine provides 16-\/bit current counter value
+
+@\+Param None.
+
+@\+Returns 16-\/bit current counter value
+
+@\+Example Refer to the example of \mbox{\hyperlink{tmr2_8h_aa7921f4935894ed5a4f643cc531c54a6}{TMR2\+\_\+\+Counter16\+Bit\+Set()}}; 
+
+Definition at line 154 of file tmr2.\+c.
+
+\mbox{\Hypertarget{tmr2_8c_aa7921f4935894ed5a4f643cc531c54a6}\label{tmr2_8c_aa7921f4935894ed5a4f643cc531c54a6}} 
+\index{tmr2.c@{tmr2.c}!TMR2\_Counter16BitSet@{TMR2\_Counter16BitSet}}
+\index{TMR2\_Counter16BitSet@{TMR2\_Counter16BitSet}!tmr2.c@{tmr2.c}}
+\doxysubsubsection{\texorpdfstring{TMR2\_Counter16BitSet()}{TMR2\_Counter16BitSet()}}
+{\footnotesize\ttfamily void TMR2\+\_\+\+Counter16\+Bit\+Set (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+@\+Summary Updates the timer\textquotesingle{}s 16-\/bit value
+
+@\+Description This routine updates the timer\textquotesingle{}s 16-\/bit value
+
+@\+Param None.
+
+@\+Returns None
+
+@\+Example {\ttfamily  uint16\+\_\+t value=0x\+F0\+F0;}
+
+{\ttfamily  TMR2\+\_\+\+Counter16\+Bit\+Set(value));}
+
+{\ttfamily  while(1) \{ TMR2\+\_\+\+Tasks(); if( (value == \mbox{\hyperlink{tmr2_8h_aadc6b4b53f1bbde0bf8cadd351d7f8b5}{TMR2\+\_\+\+Counter16\+Bit\+Get()}})) \{ \mbox{\hyperlink{tmr2_8h_a90159f110263038f478f43a3ac9ab3ee}{TMR2\+\_\+\+Stop()}}; \} \} } 
+
+Definition at line 146 of file tmr2.\+c.
+
+\mbox{\Hypertarget{tmr2_8c_af78ac8c3a760ed1dc1768c090b3fe952}\label{tmr2_8c_af78ac8c3a760ed1dc1768c090b3fe952}} 
+\index{tmr2.c@{tmr2.c}!TMR2\_GetElapsedThenClear@{TMR2\_GetElapsedThenClear}}
+\index{TMR2\_GetElapsedThenClear@{TMR2\_GetElapsedThenClear}!tmr2.c@{tmr2.c}}
+\doxysubsubsection{\texorpdfstring{TMR2\_GetElapsedThenClear()}{TMR2\_GetElapsedThenClear()}}
+{\footnotesize\ttfamily bool TMR2\+\_\+\+Get\+Elapsed\+Then\+Clear (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+@\+Summary Returns the elapsed status of the timer and clears if flag is set.
+
+@\+Description This routine returns the elapsed status of the timer and clears flag if its set.
+
+@\+Param None.
+
+@\+Returns True -\/ Timer has elapsed. False -\/ Timer has not elapsed.
+
+@\+Example Refer to the example of \mbox{\hyperlink{tmr2_8h_a46c13c9255379e99c10240229a145d37}{TMR2\+\_\+\+Initialize()}}; 
+
+Definition at line 193 of file tmr2.\+c.
+
+\mbox{\Hypertarget{tmr2_8c_a46c13c9255379e99c10240229a145d37}\label{tmr2_8c_a46c13c9255379e99c10240229a145d37}} 
+\index{tmr2.c@{tmr2.c}!TMR2\_Initialize@{TMR2\_Initialize}}
+\index{TMR2\_Initialize@{TMR2\_Initialize}!tmr2.c@{tmr2.c}}
+\doxysubsubsection{\texorpdfstring{TMR2\_Initialize()}{TMR2\_Initialize()}}
+{\footnotesize\ttfamily void TMR2\+\_\+\+Initialize (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Section\+: Driver Interface 
+
+Definition at line 91 of file tmr2.\+c.
+
+\mbox{\Hypertarget{tmr2_8c_ae0659f551ba74dfbbe77b676fe368103}\label{tmr2_8c_ae0659f551ba74dfbbe77b676fe368103}} 
+\index{tmr2.c@{tmr2.c}!TMR2\_Period16BitGet@{TMR2\_Period16BitGet}}
+\index{TMR2\_Period16BitGet@{TMR2\_Period16BitGet}!tmr2.c@{tmr2.c}}
+\doxysubsubsection{\texorpdfstring{TMR2\_Period16BitGet()}{TMR2\_Period16BitGet()}}
+{\footnotesize\ttfamily uint16\+\_\+t TMR2\+\_\+\+Period16\+Bit\+Get (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+@\+Summary Provides the timer 16-\/bit period value
+
+@\+Description This routine provides the timer 16-\/bit period value
+
+@\+Param None.
+
+@\+Returns Timer 16-\/bit period value
+
+@\+Example Refer to the example of \mbox{\hyperlink{tmr2_8h_a46c13c9255379e99c10240229a145d37}{TMR2\+\_\+\+Initialize()}}; 
+
+Definition at line 141 of file tmr2.\+c.
+
+\mbox{\Hypertarget{tmr2_8c_a029b45c0db9f00c1e569879790b617c9}\label{tmr2_8c_a029b45c0db9f00c1e569879790b617c9}} 
+\index{tmr2.c@{tmr2.c}!TMR2\_Period16BitSet@{TMR2\_Period16BitSet}}
+\index{TMR2\_Period16BitSet@{TMR2\_Period16BitSet}!tmr2.c@{tmr2.c}}
+\doxysubsubsection{\texorpdfstring{TMR2\_Period16BitSet()}{TMR2\_Period16BitSet()}}
+{\footnotesize\ttfamily void TMR2\+\_\+\+Period16\+Bit\+Set (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+@\+Summary Updates 16-\/bit timer value
+
+@\+Description This routine updates 16-\/bit timer value
+
+@\+Param None.
+
+@\+Returns None
+
+@\+Example Refer to the example of \mbox{\hyperlink{tmr2_8h_a46c13c9255379e99c10240229a145d37}{TMR2\+\_\+\+Initialize()}}; 
+
+Definition at line 133 of file tmr2.\+c.
+
+\mbox{\Hypertarget{tmr2_8c_a96213f388ab9dc5b3cd3ff3b06732b59}\label{tmr2_8c_a96213f388ab9dc5b3cd3ff3b06732b59}} 
+\index{tmr2.c@{tmr2.c}!TMR2\_SetInterruptHandler@{TMR2\_SetInterruptHandler}}
+\index{TMR2\_SetInterruptHandler@{TMR2\_SetInterruptHandler}!tmr2.c@{tmr2.c}}
+\doxysubsubsection{\texorpdfstring{TMR2\_SetInterruptHandler()}{TMR2\_SetInterruptHandler()}}
+{\footnotesize\ttfamily void TMR2\+\_\+\+Set\+Interrupt\+Handler (\begin{DoxyParamCaption}\item[{void($\ast$)(void)}]{Interrupt\+Handler }\end{DoxyParamCaption})}
+
+@\+Summary Assigns a function pointer with a callback address.
+
+@\+Description This routine assigns a function pointer with a callback address.
+
+@\+Param Address of the callback routine.
+
+@\+Returns None
+
+@\+Example {\ttfamily  TMR2\+\_\+\+Set\+Interrupt\+Handler(\&\+TMR2\+\_\+\+Call\+Back); } 
+
+Definition at line 165 of file tmr2.\+c.
+
+\mbox{\Hypertarget{tmr2_8c_a7f4921638056d85138f0a7a743b44ef9}\label{tmr2_8c_a7f4921638056d85138f0a7a743b44ef9}} 
+\index{tmr2.c@{tmr2.c}!TMR2\_SoftwareCounterClear@{TMR2\_SoftwareCounterClear}}
+\index{TMR2\_SoftwareCounterClear@{TMR2\_SoftwareCounterClear}!tmr2.c@{tmr2.c}}
+\doxysubsubsection{\texorpdfstring{TMR2\_SoftwareCounterClear()}{TMR2\_SoftwareCounterClear()}}
+{\footnotesize\ttfamily void TMR2\+\_\+\+Software\+Counter\+Clear (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+@\+Summary Clears the software counter value.
+
+@\+Description This routine clears the software counter value.
+
+@\+Param None.
+
+@\+Returns None
+
+@\+Example Refer to the example of \mbox{\hyperlink{tmr2_8h_a46c13c9255379e99c10240229a145d37}{TMR2\+\_\+\+Initialize()}}; 
+
+Definition at line 211 of file tmr2.\+c.
+
+\mbox{\Hypertarget{tmr2_8c_a241db09d6e4141c5ef4a8b6bea8b22ad}\label{tmr2_8c_a241db09d6e4141c5ef4a8b6bea8b22ad}} 
+\index{tmr2.c@{tmr2.c}!TMR2\_SoftwareCounterGet@{TMR2\_SoftwareCounterGet}}
+\index{TMR2\_SoftwareCounterGet@{TMR2\_SoftwareCounterGet}!tmr2.c@{tmr2.c}}
+\doxysubsubsection{\texorpdfstring{TMR2\_SoftwareCounterGet()}{TMR2\_SoftwareCounterGet()}}
+{\footnotesize\ttfamily int TMR2\+\_\+\+Software\+Counter\+Get (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+@\+Summary Returns the software counter value.
+
+@\+Description This routine returns the software counter value.
+
+@\+Param None.
+
+@\+Returns Software counter value.
+
+@\+Example Refer to the example of \mbox{\hyperlink{tmr2_8h_a46c13c9255379e99c10240229a145d37}{TMR2\+\_\+\+Initialize()}}; 
+
+Definition at line 206 of file tmr2.\+c.
+
+\mbox{\Hypertarget{tmr2_8c_a7eccfd0fac278e0099d27631e116cfbf}\label{tmr2_8c_a7eccfd0fac278e0099d27631e116cfbf}} 
+\index{tmr2.c@{tmr2.c}!TMR2\_Start@{TMR2\_Start}}
+\index{TMR2\_Start@{TMR2\_Start}!tmr2.c@{tmr2.c}}
+\doxysubsubsection{\texorpdfstring{TMR2\_Start()}{TMR2\_Start()}}
+{\footnotesize\ttfamily void TMR2\+\_\+\+Start (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+@\+Summary Starts the TMR
+
+@\+Description This routine starts the TMR
+
+@\+Param None.
+
+@\+Returns None
+
+@\+Example Refer to the example of \mbox{\hyperlink{tmr2_8h_a46c13c9255379e99c10240229a145d37}{TMR2\+\_\+\+Initialize()}}; 
+
+Definition at line 172 of file tmr2.\+c.
+
+\mbox{\Hypertarget{tmr2_8c_a90159f110263038f478f43a3ac9ab3ee}\label{tmr2_8c_a90159f110263038f478f43a3ac9ab3ee}} 
+\index{tmr2.c@{tmr2.c}!TMR2\_Stop@{TMR2\_Stop}}
+\index{TMR2\_Stop@{TMR2\_Stop}!tmr2.c@{tmr2.c}}
+\doxysubsubsection{\texorpdfstring{TMR2\_Stop()}{TMR2\_Stop()}}
+{\footnotesize\ttfamily void TMR2\+\_\+\+Stop (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+@\+Summary Stops the TMR
+
+@\+Description This routine stops the TMR
+
+@\+Param None.
+
+@\+Returns None
+
+@\+Example Refer to the example of \mbox{\hyperlink{tmr2_8h_a46c13c9255379e99c10240229a145d37}{TMR2\+\_\+\+Initialize()}}; 
+
+Definition at line 184 of file tmr2.\+c.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{tmr2_8c_a622a11f661317b0f3da80e5416e47c12}\label{tmr2_8c_a622a11f661317b0f3da80e5416e47c12}} 
+\index{tmr2.c@{tmr2.c}!TMR2\_InterruptHandler@{TMR2\_InterruptHandler}}
+\index{TMR2\_InterruptHandler@{TMR2\_InterruptHandler}!tmr2.c@{tmr2.c}}
+\doxysubsubsection{\texorpdfstring{TMR2\_InterruptHandler}{TMR2\_InterruptHandler}}
+{\footnotesize\ttfamily void($\ast$ TMR2\+\_\+\+Interrupt\+Handler) (void) (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) = NULL}
+
+TMR2 Generated Driver API Source File
+
+@\+Company Microchip Technology Inc.
+
+@\+File Name \mbox{\hyperlink{tmr2_8c}{tmr2.\+c}}
+
+@\+Summary This is the generated source file for the TMR2 driver using PIC24 / ds\+PIC33 / PIC32\+MM MCUs
+
+@\+Description This source file provides APIs for driver for TMR2. Generation Information \+: Product Revision \+: PIC24 / ds\+PIC33 / PIC32\+MM MCUs -\/ 1.\+170.\+0 Device \+: PIC24\+FJ256\+GA702 The generated drivers are tested against the following\+: Compiler \+: XC16 v1.\+61 MPLAB \+: MPLAB X v5.\+45 Section\+: Included Files Section\+: File specific functions 
+
+Definition at line 56 of file tmr2.\+c.
+

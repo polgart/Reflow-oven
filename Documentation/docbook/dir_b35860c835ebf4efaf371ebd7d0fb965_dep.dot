@@ -1,0 +1,13 @@
+digraph "C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_5f09ffc654cb74a36b76a99b4e5ca3e7 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="Design" fontname="Helvetica", fontsize="10", URL="dir_5f09ffc654cb74a36b76a99b4e5ca3e7.html"]
+  subgraph clusterdir_b35860c835ebf4efaf371ebd7d0fb965 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_b35860c835ebf4efaf371ebd7d0fb965.html"];
+    dir_b35860c835ebf4efaf371ebd7d0fb965 [shape=plaintext label="SW"];
+  dir_3b9fde39f5c0c05cff50c7bc821c5939 [shape=box label="RO_firmware_v1.X" fillcolor="white" style="filled" color="red" URL="dir_3b9fde39f5c0c05cff50c7bc821c5939.html"];
+  }
+  }
+}

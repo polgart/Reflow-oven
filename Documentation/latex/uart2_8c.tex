@@ -1,0 +1,233 @@
+\hypertarget{uart2_8c}{}\doxysection{C\+:/\+Users/\+EDU\+\_\+\+OBOS\+\_\+5057/\+Documents/\+Reflow oven/\+Design/\+SW/\+RO\+\_\+firmware\+\_\+v1.X/mcc\+\_\+generated\+\_\+files/uart2.c File Reference}
+\label{uart2_8c}\index{C:/Users/EDU\_OBOS\_5057/Documents/Reflow oven/Design/SW/RO\_firmware\_v1.X/mcc\_generated\_files/uart2.c@{C:/Users/EDU\_OBOS\_5057/Documents/Reflow oven/Design/SW/RO\_firmware\_v1.X/mcc\_generated\_files/uart2.c}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}xc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}uart2.\+h\char`\"{}}\newline
+Include dependency graph for uart2.\+c\+:
+% FIG 0
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{uart2_8c_ad8a2a140cf18d6c2d0048f8ed45ef052}{UART2\+\_\+\+CONFIG\+\_\+\+TX\+\_\+\+BYTEQ\+\_\+\+LENGTH}}~(8+1)
+\item 
+\#define \mbox{\hyperlink{uart2_8c_a16d2e91a322aa54a7f9d08fd8f8eaeb7}{UART2\+\_\+\+CONFIG\+\_\+\+RX\+\_\+\+BYTEQ\+\_\+\+LENGTH}}~(8+1)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{uart2_8c_a1c7f32800f7e5955bc04306b2686a0d7}{UART2\+\_\+\+Initialize}} (void)
+\item 
+void \mbox{\hyperlink{uart2_8c_a741b3f9d648836d5c6be99408a85c625}{UART2\+\_\+\+Set\+Tx\+Interrupt\+Handler}} (void($\ast$interrupt\+Handler)(void))
+\item 
+void \mbox{\hyperlink{uart2_8c_a226557d5e42f7e29ddaff30606138459}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}} ((interrupt, no\+\_\+auto\+\_\+psv))
+\item 
+void \mbox{\hyperlink{uart2_8c_a201468129b483039afc5a619e2d31097}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}} ((weak))
+\item 
+void \mbox{\hyperlink{uart2_8c_a1668b0cf18a2d12b03a004fc398442b7}{UART2\+\_\+\+Set\+Rx\+Interrupt\+Handler}} (void($\ast$interrupt\+Handler)(void))
+\item 
+uint8\+\_\+t \mbox{\hyperlink{uart2_8c_ab56d5afa62daf8dd586d6b8ebf33160d}{UART2\+\_\+\+Read}} (void)
+\item 
+void \mbox{\hyperlink{uart2_8c_aa1bdaee21f13989dbac96458da3edb94}{UART2\+\_\+\+Write}} (uint8\+\_\+t byte)
+\item 
+bool \mbox{\hyperlink{uart2_8c_aab535f85407eaec157b6aafe34c5d3f9}{UART2\+\_\+\+Is\+Rx\+Ready}} (void)
+\item 
+bool \mbox{\hyperlink{uart2_8c_a1fceb28e9345bc0eb683e7b05f263b52}{UART2\+\_\+\+Is\+Tx\+Ready}} (void)
+\item 
+bool \mbox{\hyperlink{uart2_8c_a66bc4f6654ba88d62508d05fe3f6c260}{UART2\+\_\+\+Is\+Tx\+Done}} (void)
+\item 
+unsigned int \mbox{\hyperlink{uart2_8c_ae5ba78607a8375e69d112ebeb07c211f}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}} ((deprecated))
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+void($\ast$ \mbox{\hyperlink{uart2_8c_a68a410ec3af1a00f670b364772138738}{UART2\+\_\+\+Tx\+Default\+Interrupt\+Handler}} )(void)
+\item 
+void($\ast$ \mbox{\hyperlink{uart2_8c_a8c2d11929101019fc5873453f854fd34}{UART2\+\_\+\+Rx\+Default\+Interrupt\+Handler}} )(void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{uart2_8c_a16d2e91a322aa54a7f9d08fd8f8eaeb7}\label{uart2_8c_a16d2e91a322aa54a7f9d08fd8f8eaeb7}} 
+\index{uart2.c@{uart2.c}!UART2\_CONFIG\_RX\_BYTEQ\_LENGTH@{UART2\_CONFIG\_RX\_BYTEQ\_LENGTH}}
+\index{UART2\_CONFIG\_RX\_BYTEQ\_LENGTH@{UART2\_CONFIG\_RX\_BYTEQ\_LENGTH}!uart2.c@{uart2.c}}
+\doxysubsubsection{\texorpdfstring{UART2\_CONFIG\_RX\_BYTEQ\_LENGTH}{UART2\_CONFIG\_RX\_BYTEQ\_LENGTH}}
+{\footnotesize\ttfamily \#define UART2\+\_\+\+CONFIG\+\_\+\+RX\+\_\+\+BYTEQ\+\_\+\+LENGTH~(8+1)}
+
+
+
+Definition at line 84 of file uart2.\+c.
+
+\mbox{\Hypertarget{uart2_8c_ad8a2a140cf18d6c2d0048f8ed45ef052}\label{uart2_8c_ad8a2a140cf18d6c2d0048f8ed45ef052}} 
+\index{uart2.c@{uart2.c}!UART2\_CONFIG\_TX\_BYTEQ\_LENGTH@{UART2\_CONFIG\_TX\_BYTEQ\_LENGTH}}
+\index{UART2\_CONFIG\_TX\_BYTEQ\_LENGTH@{UART2\_CONFIG\_TX\_BYTEQ\_LENGTH}!uart2.c@{uart2.c}}
+\doxysubsubsection{\texorpdfstring{UART2\_CONFIG\_TX\_BYTEQ\_LENGTH}{UART2\_CONFIG\_TX\_BYTEQ\_LENGTH}}
+{\footnotesize\ttfamily \#define UART2\+\_\+\+CONFIG\+\_\+\+TX\+\_\+\+BYTEQ\+\_\+\+LENGTH~(8+1)}
+
+UART Driver Queue Length
+
+@\+Summary Defines the length of the Transmit and Receive Buffers 
+
+Definition at line 83 of file uart2.\+c.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{uart2_8c_ae5ba78607a8375e69d112ebeb07c211f}\label{uart2_8c_ae5ba78607a8375e69d112ebeb07c211f}} 
+\index{uart2.c@{uart2.c}!\_\_attribute\_\_@{\_\_attribute\_\_}}
+\index{\_\_attribute\_\_@{\_\_attribute\_\_}!uart2.c@{uart2.c}}
+\doxysubsubsection{\texorpdfstring{\_\_attribute\_\_()}{\_\_attribute\_\_()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily unsigned int \+\_\+\+\_\+attribute\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{(deprecated)}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 369 of file uart2.\+c.
+
+\mbox{\Hypertarget{uart2_8c_a226557d5e42f7e29ddaff30606138459}\label{uart2_8c_a226557d5e42f7e29ddaff30606138459}} 
+\index{uart2.c@{uart2.c}!\_\_attribute\_\_@{\_\_attribute\_\_}}
+\index{\_\_attribute\_\_@{\_\_attribute\_\_}!uart2.c@{uart2.c}}
+\doxysubsubsection{\texorpdfstring{\_\_attribute\_\_()}{\_\_attribute\_\_()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+attribute\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{(interrupt, no\+\_\+auto\+\_\+psv)}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 152 of file uart2.\+c.
+
+\mbox{\Hypertarget{uart2_8c_a201468129b483039afc5a619e2d31097}\label{uart2_8c_a201468129b483039afc5a619e2d31097}} 
+\index{uart2.c@{uart2.c}!\_\_attribute\_\_@{\_\_attribute\_\_}}
+\index{\_\_attribute\_\_@{\_\_attribute\_\_}!uart2.c@{uart2.c}}
+\doxysubsubsection{\texorpdfstring{\_\_attribute\_\_()}{\_\_attribute\_\_()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+attribute\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{(weak)}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 182 of file uart2.\+c.
+
+\mbox{\Hypertarget{uart2_8c_a1c7f32800f7e5955bc04306b2686a0d7}\label{uart2_8c_a1c7f32800f7e5955bc04306b2686a0d7}} 
+\index{uart2.c@{uart2.c}!UART2\_Initialize@{UART2\_Initialize}}
+\index{UART2\_Initialize@{UART2\_Initialize}!uart2.c@{uart2.c}}
+\doxysubsubsection{\texorpdfstring{UART2\_Initialize()}{UART2\_Initialize()}}
+{\footnotesize\ttfamily void UART2\+\_\+\+Initialize (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Section\+: Driver Interface 
+
+Definition at line 103 of file uart2.\+c.
+
+\mbox{\Hypertarget{uart2_8c_aab535f85407eaec157b6aafe34c5d3f9}\label{uart2_8c_aab535f85407eaec157b6aafe34c5d3f9}} 
+\index{uart2.c@{uart2.c}!UART2\_IsRxReady@{UART2\_IsRxReady}}
+\index{UART2\_IsRxReady@{UART2\_IsRxReady}!uart2.c@{uart2.c}}
+\doxysubsubsection{\texorpdfstring{UART2\_IsRxReady()}{UART2\_IsRxReady()}}
+{\footnotesize\ttfamily bool UART2\+\_\+\+Is\+Rx\+Ready (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+@\+Description Indicates of there is data available to read.
+
+@\+Returns true if byte can be read. false if byte can\textquotesingle{}t be read right now. 
+
+Definition at line 285 of file uart2.\+c.
+
+\mbox{\Hypertarget{uart2_8c_a66bc4f6654ba88d62508d05fe3f6c260}\label{uart2_8c_a66bc4f6654ba88d62508d05fe3f6c260}} 
+\index{uart2.c@{uart2.c}!UART2\_IsTxDone@{UART2\_IsTxDone}}
+\index{UART2\_IsTxDone@{UART2\_IsTxDone}!uart2.c@{uart2.c}}
+\doxysubsubsection{\texorpdfstring{UART2\_IsTxDone()}{UART2\_IsTxDone()}}
+{\footnotesize\ttfamily bool UART2\+\_\+\+Is\+Tx\+Done (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+@\+Description Indicates if all bytes have been transferred.
+
+@\+Returns true if all bytes transfered. false if there is still data pending to transfer. 
+
+Definition at line 307 of file uart2.\+c.
+
+\mbox{\Hypertarget{uart2_8c_a1fceb28e9345bc0eb683e7b05f263b52}\label{uart2_8c_a1fceb28e9345bc0eb683e7b05f263b52}} 
+\index{uart2.c@{uart2.c}!UART2\_IsTxReady@{UART2\_IsTxReady}}
+\index{UART2\_IsTxReady@{UART2\_IsTxReady}!uart2.c@{uart2.c}}
+\doxysubsubsection{\texorpdfstring{UART2\_IsTxReady()}{UART2\_IsTxReady()}}
+{\footnotesize\ttfamily bool UART2\+\_\+\+Is\+Tx\+Ready (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+@\+Description Indicates if a byte can be written.
+
+@\+Returns true if byte can be written. false if byte can\textquotesingle{}t be written right now. 
+
+Definition at line 290 of file uart2.\+c.
+
+\mbox{\Hypertarget{uart2_8c_ab56d5afa62daf8dd586d6b8ebf33160d}\label{uart2_8c_ab56d5afa62daf8dd586d6b8ebf33160d}} 
+\index{uart2.c@{uart2.c}!UART2\_Read@{UART2\_Read}}
+\index{UART2\_Read@{UART2\_Read}!uart2.c@{uart2.c}}
+\doxysubsubsection{\texorpdfstring{UART2\_Read()}{UART2\_Read()}}
+{\footnotesize\ttfamily uint8\+\_\+t UART2\+\_\+\+Read (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Section\+: UART Driver Client Routines 
+
+Definition at line 248 of file uart2.\+c.
+
+\mbox{\Hypertarget{uart2_8c_a1668b0cf18a2d12b03a004fc398442b7}\label{uart2_8c_a1668b0cf18a2d12b03a004fc398442b7}} 
+\index{uart2.c@{uart2.c}!UART2\_SetRxInterruptHandler@{UART2\_SetRxInterruptHandler}}
+\index{UART2\_SetRxInterruptHandler@{UART2\_SetRxInterruptHandler}!uart2.c@{uart2.c}}
+\doxysubsubsection{\texorpdfstring{UART2\_SetRxInterruptHandler()}{UART2\_SetRxInterruptHandler()}}
+{\footnotesize\ttfamily void UART2\+\_\+\+Set\+Rx\+Interrupt\+Handler (\begin{DoxyParamCaption}\item[{void($\ast$)(void)}]{interrupt\+Handler }\end{DoxyParamCaption})}
+
+@\+Summary Assigns a function pointer with a receive callback address.
+
+@\+Description This routine assigns a function pointer with a receive callback address.
+
+@\+Param Address of the callback routine.
+
+@\+Returns None
+
+@\+Example {\ttfamily  UART2\+\_\+\+Set\+Rx\+Interrupt\+Handler(\&\+UART2\+\_\+\+Receive\+\_\+\+Call\+Back); } 
+
+Definition at line 187 of file uart2.\+c.
+
+\mbox{\Hypertarget{uart2_8c_a741b3f9d648836d5c6be99408a85c625}\label{uart2_8c_a741b3f9d648836d5c6be99408a85c625}} 
+\index{uart2.c@{uart2.c}!UART2\_SetTxInterruptHandler@{UART2\_SetTxInterruptHandler}}
+\index{UART2\_SetTxInterruptHandler@{UART2\_SetTxInterruptHandler}!uart2.c@{uart2.c}}
+\doxysubsubsection{\texorpdfstring{UART2\_SetTxInterruptHandler()}{UART2\_SetTxInterruptHandler()}}
+{\footnotesize\ttfamily void UART2\+\_\+\+Set\+Tx\+Interrupt\+Handler (\begin{DoxyParamCaption}\item[{void($\ast$)(void)}]{interrupt\+Handler }\end{DoxyParamCaption})}
+
+Maintains the driver\textquotesingle{}s transmitter state machine and implements its ISR 
+
+Definition at line 140 of file uart2.\+c.
+
+\mbox{\Hypertarget{uart2_8c_aa1bdaee21f13989dbac96458da3edb94}\label{uart2_8c_aa1bdaee21f13989dbac96458da3edb94}} 
+\index{uart2.c@{uart2.c}!UART2\_Write@{UART2\_Write}}
+\index{UART2\_Write@{UART2\_Write}!uart2.c@{uart2.c}}
+\doxysubsubsection{\texorpdfstring{UART2\_Write()}{UART2\_Write()}}
+{\footnotesize\ttfamily void UART2\+\_\+\+Write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{byte }\end{DoxyParamCaption})}
+
+@\+Summary Writes a byte of data to the UART2
+
+@\+Description This routine writes a byte of data to the UART2.
+
+@\+Preconditions UART2\+\_\+\+Initialize function should have been called before calling this function. The transfer status should be checked to see if transmitter is not full before calling this function.
+
+@\+Param byte -\/ Data byte to write to the UART2
+
+@\+Returns None.
+
+@\+Example None. 
+
+Definition at line 267 of file uart2.\+c.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{uart2_8c_a8c2d11929101019fc5873453f854fd34}\label{uart2_8c_a8c2d11929101019fc5873453f854fd34}} 
+\index{uart2.c@{uart2.c}!UART2\_RxDefaultInterruptHandler@{UART2\_RxDefaultInterruptHandler}}
+\index{UART2\_RxDefaultInterruptHandler@{UART2\_RxDefaultInterruptHandler}!uart2.c@{uart2.c}}
+\doxysubsubsection{\texorpdfstring{UART2\_RxDefaultInterruptHandler}{UART2\_RxDefaultInterruptHandler}}
+{\footnotesize\ttfamily void($\ast$ UART2\+\_\+\+Rx\+Default\+Interrupt\+Handler) (void) (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 97 of file uart2.\+c.
+
+\mbox{\Hypertarget{uart2_8c_a68a410ec3af1a00f670b364772138738}\label{uart2_8c_a68a410ec3af1a00f670b364772138738}} 
+\index{uart2.c@{uart2.c}!UART2\_TxDefaultInterruptHandler@{UART2\_TxDefaultInterruptHandler}}
+\index{UART2\_TxDefaultInterruptHandler@{UART2\_TxDefaultInterruptHandler}!uart2.c@{uart2.c}}
+\doxysubsubsection{\texorpdfstring{UART2\_TxDefaultInterruptHandler}{UART2\_TxDefaultInterruptHandler}}
+{\footnotesize\ttfamily void($\ast$ UART2\+\_\+\+Tx\+Default\+Interrupt\+Handler) (void) (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 96 of file uart2.\+c.
+

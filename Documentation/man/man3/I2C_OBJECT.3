@@ -1,0 +1,40 @@
+.TH "I2C_OBJECT" 3 "Wed Feb 24 2021" "Version 1.0" "Reflow Oven" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+I2C_OBJECT
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBI2C_TR_QUEUE_ENTRY\fP * \fBpTrTail\fP"
+.br
+.ti -1c
+.RI "\fBI2C_TR_QUEUE_ENTRY\fP * \fBpTrHead\fP"
+.br
+.ti -1c
+.RI "\fBI2C_TR_QUEUE_STATUS\fP \fBtrStatus\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBi2cDoneFlag\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBi2cErrors\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+I2C Master Driver Object Type
+.PP
+@Summary Defines the object that manages the i2c master\&.
+.PP
+@Description This defines the object that manages the sending and receiving of i2c master transactions\&. 
+.PP
+Definition at line 105 of file i2c1\&.c\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Reflow Oven from the source code\&.

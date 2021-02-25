@@ -1,0 +1,561 @@
+\hypertarget{uart1_8c}{}\doxysection{C\+:/\+Users/\+EDU\+\_\+\+OBOS\+\_\+5057/\+Documents/\+Reflow oven/\+Design/\+SW/\+RO\+\_\+firmware\+\_\+v1.X/mcc\+\_\+generated\+\_\+files/uart1.c File Reference}
+\label{uart1_8c}\index{C:/Users/EDU\_OBOS\_5057/Documents/Reflow oven/Design/SW/RO\_firmware\_v1.X/mcc\_generated\_files/uart1.c@{C:/Users/EDU\_OBOS\_5057/Documents/Reflow oven/Design/SW/RO\_firmware\_v1.X/mcc\_generated\_files/uart1.c}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}xc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}uart1.\+h\char`\"{}}\newline
+Include dependency graph for uart1.\+c\+:
+% FIG 0
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{uart1_8c_ab55cfc0120f06935cefce58c28c90663}{UART1\+\_\+\+CONFIG\+\_\+\+TX\+\_\+\+BYTEQ\+\_\+\+LENGTH}}~(8+1)
+\item 
+\#define \mbox{\hyperlink{uart1_8c_a4e8a53fe27933d14b278e49b13a5b5fd}{UART1\+\_\+\+CONFIG\+\_\+\+RX\+\_\+\+BYTEQ\+\_\+\+LENGTH}}~(8+1)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{uart1_8c_a10757505060dc7bf0fe148c5363eae08}{UART1\+\_\+\+Initialize}} (void)
+\item 
+void \mbox{\hyperlink{uart1_8c_aae82bc4b606e9f317ced09e030c3ed2a}{UART1\+\_\+\+Set\+Tx\+Interrupt\+Handler}} (void($\ast$interrupt\+Handler)(void))
+\item 
+void \mbox{\hyperlink{uart1_8c_a226557d5e42f7e29ddaff30606138459}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}} ((interrupt, no\+\_\+auto\+\_\+psv))
+\item 
+void \mbox{\hyperlink{uart1_8c_a201468129b483039afc5a619e2d31097}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}} ((weak))
+\item 
+void \mbox{\hyperlink{uart1_8c_ada9cfd0a8099b051306ff18cea19a165}{UART1\+\_\+\+Set\+Rx\+Interrupt\+Handler}} (void($\ast$interrupt\+Handler)(void))
+\item 
+uint8\+\_\+t \mbox{\hyperlink{uart1_8c_a4e34071aa3125eb037bd6ae844c7ffbb}{UART1\+\_\+\+Read}} (void)
+\item 
+void \mbox{\hyperlink{uart1_8c_a54b157af9fc7b884c3af0faa045b37ba}{UART1\+\_\+\+Write}} (uint8\+\_\+t byte)
+\item 
+bool \mbox{\hyperlink{uart1_8c_a35ebdf043c6e4995ff711ebc13954861}{UART1\+\_\+\+Is\+Rx\+Ready}} (void)
+\item 
+bool \mbox{\hyperlink{uart1_8c_ae2fc49fa99787bc951e12bd840b1248c}{UART1\+\_\+\+Is\+Tx\+Ready}} (void)
+\item 
+bool \mbox{\hyperlink{uart1_8c_a693f8124b5bec099c5141b65e47f2bb9}{UART1\+\_\+\+Is\+Tx\+Done}} (void)
+\item 
+unsigned int \mbox{\hyperlink{uart1_8c_ae5ba78607a8375e69d112ebeb07c211f}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}} ((deprecated))
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+void($\ast$ \mbox{\hyperlink{uart1_8c_ac05fd2e970a7c8da5ea79d54963514ce}{UART1\+\_\+\+Tx\+Default\+Interrupt\+Handler}} )(void)
+\item 
+void($\ast$ \mbox{\hyperlink{uart1_8c_adb1e097e46e2939d8c341298892a9333}{UART1\+\_\+\+Rx\+Default\+Interrupt\+Handler}} )(void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{uart1_8c_a4e8a53fe27933d14b278e49b13a5b5fd}\label{uart1_8c_a4e8a53fe27933d14b278e49b13a5b5fd}} 
+\index{uart1.c@{uart1.c}!UART1\_CONFIG\_RX\_BYTEQ\_LENGTH@{UART1\_CONFIG\_RX\_BYTEQ\_LENGTH}}
+\index{UART1\_CONFIG\_RX\_BYTEQ\_LENGTH@{UART1\_CONFIG\_RX\_BYTEQ\_LENGTH}!uart1.c@{uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART1\_CONFIG\_RX\_BYTEQ\_LENGTH}{UART1\_CONFIG\_RX\_BYTEQ\_LENGTH}}
+{\footnotesize\ttfamily \#define UART1\+\_\+\+CONFIG\+\_\+\+RX\+\_\+\+BYTEQ\+\_\+\+LENGTH~(8+1)}
+
+
+
+Definition at line 84 of file uart1.\+c.
+
+\mbox{\Hypertarget{uart1_8c_ab55cfc0120f06935cefce58c28c90663}\label{uart1_8c_ab55cfc0120f06935cefce58c28c90663}} 
+\index{uart1.c@{uart1.c}!UART1\_CONFIG\_TX\_BYTEQ\_LENGTH@{UART1\_CONFIG\_TX\_BYTEQ\_LENGTH}}
+\index{UART1\_CONFIG\_TX\_BYTEQ\_LENGTH@{UART1\_CONFIG\_TX\_BYTEQ\_LENGTH}!uart1.c@{uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART1\_CONFIG\_TX\_BYTEQ\_LENGTH}{UART1\_CONFIG\_TX\_BYTEQ\_LENGTH}}
+{\footnotesize\ttfamily \#define UART1\+\_\+\+CONFIG\+\_\+\+TX\+\_\+\+BYTEQ\+\_\+\+LENGTH~(8+1)}
+
+UART Driver Queue Length
+
+@\+Summary Defines the length of the Transmit and Receive Buffers 
+
+Definition at line 83 of file uart1.\+c.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{uart1_8c_ae5ba78607a8375e69d112ebeb07c211f}\label{uart1_8c_ae5ba78607a8375e69d112ebeb07c211f}} 
+\index{uart1.c@{uart1.c}!\_\_attribute\_\_@{\_\_attribute\_\_}}
+\index{\_\_attribute\_\_@{\_\_attribute\_\_}!uart1.c@{uart1.c}}
+\doxysubsubsection{\texorpdfstring{\_\_attribute\_\_()}{\_\_attribute\_\_()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily unsigned int \+\_\+\+\_\+attribute\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{(deprecated)}]{ }\end{DoxyParamCaption})}
+
+@\+Summary Returns the number of bytes written into the internal buffer
+
+@\+Description This API transfers the data from application buffer to internal buffer and returns the number of bytes added in that queue
+
+@\+Preconditions UART1\+\_\+\+Initialize function should have been called before calling this function
+
+@\+Example {\ttfamily  char my\+Buffer\mbox{[}MY\+\_\+\+BUFFER\+\_\+\+SIZE\mbox{]}; unsigned int num\+Bytes; UART1\+\_\+\+TRANSFER\+\_\+\+STATUS status ;}
+
+{\ttfamily Pre-\/initialize my\+Buffer with MY\+\_\+\+BUFFER\+\_\+\+SIZE bytes of valid data. \begin{DoxyVerb}numBytes = 0;
+while( numBytes < MY_BUFFER_SIZE);
+{
+    status = UART1_TransferStatusGet ( ) ;
+    if (status & UART1_TRANSFER_STATUS_TX_EMPTY)
+    {
+        numBytes += UART1_WriteBuffer ( myBuffer + numBytes, MY_BUFFER_SIZE - numBytes )  ;
+        if(numBytes < writebufferLen)
+        {
+            continue;
+        }
+        else
+        {
+            break;
+        }
+    }
+    else
+    {
+        continue;
+    }
+\end{DoxyVerb}
+ Do something else... \} }
+
+@\+Summary Returns the transmitter and receiver transfer status
+
+@\+Description This returns the transmitter and receiver transfer status.\+The returned status may contain a value with more than one of the bits specified in the UART1\+\_\+\+TRANSFER\+\_\+\+STATUS enumeration set. ~\newline
+ The caller should perform an \char`\"{}\+AND\char`\"{} with the bit of interest and verify if the result is non-\/zero (as shown in the example) to verify the desired status bit.
+
+@\+Preconditions UART1\+\_\+\+Initialize function should have been called before calling this function
+
+@\+Param None.
+
+@\+Returns A UART1\+\_\+\+TRANSFER\+\_\+\+STATUS value describing the current status of the transfer.
+
+@\+Example Refer to UART1\+\_\+\+Read\+Buffer and UART1\+\_\+\+Write\+Buffer for example
+
+@\+Summary Returns the character in the read sequence at the offset provided, without extracting it
+
+@\+Description This routine returns the character in the read sequence at the offset provided, without extracting it
+
+@\+Param None.
+
+@\+Example {\ttfamily  uint8\+\_\+t read\+Buffer\mbox{[}5\mbox{]}; unsigned int data, num\+Bytes = 0; unsigned int readbuffer\+Len = sizeof(read\+Buffer); \mbox{\hyperlink{uart1_8c_a10757505060dc7bf0fe148c5363eae08}{UART1\+\_\+\+Initialize()}};}
+
+{\ttfamily  while(num\+Bytes $<$ readbuffer\+Len) ~\newline
+ \{ ~\newline
+ UART1\+\_\+\+Tasks\+Receive ( ); Check for data at a particular place in the buffer data = UART1\+\_\+\+Peek(3); if(data == 5) \{ discard all other data if byte that is wanted is received. ~\newline
+ continue other operation num\+Bytes += UART1\+\_\+\+Read\+Buffer ( read\+Buffer + num\+Bytes , readbuffer\+Len ) ; \} else \{ break; \} \} }
+
+@\+Summary Returns the status of the receive buffer
+
+@\+Description This routine returns if the receive buffer is empty or not.
+
+@\+Param None.
+
+@\+Returns True if the receive buffer is empty False if the receive buffer is not empty
+
+@\+Example {\ttfamily  char my\+Buffer\mbox{[}MY\+\_\+\+BUFFER\+\_\+\+SIZE\mbox{]}; unsigned int num\+Bytes; UART1\+\_\+\+TRANSFER\+\_\+\+STATUS status ;}
+
+{\ttfamily Pre-\/initialize my\+Buffer with MY\+\_\+\+BUFFER\+\_\+\+SIZE bytes of valid data. \begin{DoxyVerb}numBytes = 0;
+while( numBytes < MY_BUFFER_SIZE);
+{
+    status = UART1_TransferStatusGet ( ) ;
+    if (!UART1_ReceiveBufferIsEmpty())
+    {
+        numBytes += UART1_ReadBuffer( myBuffer + numBytes, MY_BUFFER_SIZE - numBytes )  ;
+        if(numBytes < readbufferLen)
+        {
+            continue;
+        }
+        else
+        {
+            break;
+        }
+    }
+    else
+    {
+        continue;
+    }
+\end{DoxyVerb}
+ Do something else... \} }
+
+@\+Summary Returns the status of the transmit buffer
+
+@\+Description This routine returns if the transmit buffer is full or not.
+
+@\+Param None.
+
+@\+Returns True if the transmit buffer is full False if the transmit buffer is not full
+
+@\+Example Refer to \mbox{\hyperlink{uart1_8c_a10757505060dc7bf0fe148c5363eae08}{UART1\+\_\+\+Initialize()}} for example.
+
+@\+Summary Returns the transmitter and receiver status
+
+@\+Description This returns the transmitter and receiver status. The returned status may contain a value with more than one of the bits specified in the UART1\+\_\+\+STATUS enumeration set. ~\newline
+ The caller should perform an \char`\"{}\+AND\char`\"{} with the bit of interest and verify if the result is non-\/zero (as shown in the example) to verify the desired status bit.
+
+@\+Preconditions UART1\+\_\+\+Initialize function should have been called before calling this function
+
+@\+Param None.
+
+@\+Returns A UART1\+\_\+\+STATUS value describing the current status of the transfer.
+
+@\+Example {\ttfamily  while(!(UART1\+\_\+\+Status\+Get \& UART1\+\_\+\+TX\+\_\+\+COMPLETE )) \{ Wait for the tranmission to complete \} }
+
+@\+Summary Allows setting of a the enable bit for the UART1 mode
+
+@\+Description This routine is used to enable the UART1
+
+@\+Preconditions \mbox{\hyperlink{uart1_8c_a10757505060dc7bf0fe148c5363eae08}{UART1\+\_\+\+Initialize()}} function should have been called before calling this function.
+
+@\+Returns None
+
+@\+Param None
+
+@\+Example Refer to \mbox{\hyperlink{uart1_8c_a10757505060dc7bf0fe148c5363eae08}{UART1\+\_\+\+Initialize()}}; for an example
+
+@\+Summary Allows setting of a the disable bit for the UART1 mode
+
+@\+Description This routine is used to disable the UART1
+
+@\+Preconditions \mbox{\hyperlink{uart1_8c_a10757505060dc7bf0fe148c5363eae08}{UART1\+\_\+\+Initialize()}} function should have been called before calling this function.
+
+@\+Returns None
+
+@\+Param None
+
+@\+Example Refer to \mbox{\hyperlink{uart1_8c_a10757505060dc7bf0fe148c5363eae08}{UART1\+\_\+\+Initialize()}}; for an example
+
+@\+Summary Returns the number of bytes remaining in the receive buffer
+
+@\+Description This routine returns the number of bytes remaining in the receive buffer.
+
+@\+Param None.
+
+@\+Returns Remaining size of receive buffer.
+
+@\+Example {\ttfamily  uint8\+\_\+t read\+Buffer\mbox{[}MY\+\_\+\+BUFFER\+\_\+\+SIZE\mbox{]}; unsigned int size, num\+Bytes = 0; \mbox{\hyperlink{uart1_8c_a10757505060dc7bf0fe148c5363eae08}{UART1\+\_\+\+Initialize()}};}
+
+{\ttfamily Pre-\/initialize read\+Buffer with MY\+\_\+\+BUFFER\+\_\+\+SIZE bytes of valid data. \begin{DoxyVerb}while (size < MY_BUFFER_SIZE) {
+    size = UART1_ReceiveBufferSizeGet();
+}
+numBytes = UART1_ReadBuffer(readBuffer, MY_BUFFER_SIZE);
+</code>
+\end{DoxyVerb}
+}
+
+{\ttfamily  @\+Summary Returns the number of bytes remaining in the transmit buffer.}
+
+{\ttfamily  @\+Description This routine returns the number of bytes remaining in the transmit buffer.}
+
+{\ttfamily @\+Param None.}
+
+{\ttfamily @\+Returns Remaining size of transmit buffer.}
+
+{\ttfamily @\+Example Refer to \mbox{\hyperlink{uart1_8c_a10757505060dc7bf0fe148c5363eae08}{UART1\+\_\+\+Initialize()}}; for example.}
+
+{\ttfamily  @\+Summary Returns the number of bytes written into the internal buffer}
+
+{\ttfamily  @\+Description This API transfers the data from application buffer to internal buffer and returns the number of bytes added in that queue}
+
+{\ttfamily  @\+Preconditions UART2\+\_\+\+Initialize function should have been called before calling this function}
+
+{\ttfamily  @\+Example {\ttfamily  char my\+Buffer\mbox{[}MY\+\_\+\+BUFFER\+\_\+\+SIZE\mbox{]}; unsigned int num\+Bytes; UART2\+\_\+\+TRANSFER\+\_\+\+STATUS status ;}}
+
+{\ttfamily {\ttfamily Pre-\/initialize my\+Buffer with MY\+\_\+\+BUFFER\+\_\+\+SIZE bytes of valid data. \begin{DoxyVerb}numBytes = 0;
+while( numBytes < MY_BUFFER_SIZE);
+{
+    status = UART2_TransferStatusGet ( ) ;
+    if (status & UART2_TRANSFER_STATUS_TX_EMPTY)
+    {
+        numBytes += UART2_WriteBuffer ( myBuffer + numBytes, MY_BUFFER_SIZE - numBytes )  ;
+        if(numBytes < writebufferLen)
+        {
+            continue;
+        }
+        else
+        {
+            break;
+        }
+    }
+    else
+    {
+        continue;
+    }
+\end{DoxyVerb}
+ Do something else... \} }}
+
+{\ttfamily @\+Summary Returns the transmitter and receiver transfer status}
+
+{\ttfamily @\+Description This returns the transmitter and receiver transfer status.\+The returned status may contain a value with more than one of the bits specified in the UART2\+\_\+\+TRANSFER\+\_\+\+STATUS enumeration set. ~\newline
+ The caller should perform an \char`\"{}\+AND\char`\"{} with the bit of interest and verify if the result is non-\/zero (as shown in the example) to verify the desired status bit.}
+
+{\ttfamily @\+Preconditions UART2\+\_\+\+Initialize function should have been called before calling this function}
+
+{\ttfamily @\+Param None.}
+
+{\ttfamily @\+Returns A UART2\+\_\+\+TRANSFER\+\_\+\+STATUS value describing the current status of the transfer.}
+
+{\ttfamily @\+Example Refer to UART2\+\_\+\+Read\+Buffer and UART2\+\_\+\+Write\+Buffer for example}
+
+{\ttfamily  @\+Summary Returns the character in the read sequence at the offset provided, without extracting it}
+
+{\ttfamily  @\+Description This routine returns the character in the read sequence at the offset provided, without extracting it}
+
+{\ttfamily  @\+Param None.}
+
+{\ttfamily  @\+Example {\ttfamily  uint8\+\_\+t read\+Buffer\mbox{[}5\mbox{]}; unsigned int data, num\+Bytes = 0; unsigned int readbuffer\+Len = sizeof(read\+Buffer); \mbox{\hyperlink{uart2_8h_a1c7f32800f7e5955bc04306b2686a0d7}{UART2\+\_\+\+Initialize()}};}}
+
+{\ttfamily {\ttfamily  while(num\+Bytes $<$ readbuffer\+Len) ~\newline
+ \{ ~\newline
+ UART2\+\_\+\+Tasks\+Receive ( ); Check for data at a particular place in the buffer data = UART2\+\_\+\+Peek(3); if(data == 5) \{ discard all other data if byte that is wanted is received. ~\newline
+ continue other operation num\+Bytes += UART2\+\_\+\+Read\+Buffer ( read\+Buffer + num\+Bytes , readbuffer\+Len ) ; \} else \{ break; \} \} }}
+
+{\ttfamily  @\+Summary Returns the status of the receive buffer}
+
+{\ttfamily  @\+Description This routine returns if the receive buffer is empty or not.}
+
+{\ttfamily  @\+Param None.}
+
+{\ttfamily  @\+Returns True if the receive buffer is empty False if the receive buffer is not empty}
+
+{\ttfamily  @\+Example {\ttfamily  char my\+Buffer\mbox{[}MY\+\_\+\+BUFFER\+\_\+\+SIZE\mbox{]}; unsigned int num\+Bytes; UART2\+\_\+\+TRANSFER\+\_\+\+STATUS status ;}}
+
+{\ttfamily {\ttfamily Pre-\/initialize my\+Buffer with MY\+\_\+\+BUFFER\+\_\+\+SIZE bytes of valid data. \begin{DoxyVerb}numBytes = 0;
+while( numBytes < MY_BUFFER_SIZE);
+{
+    status = UART2_TransferStatusGet ( ) ;
+    if (!UART2_ReceiveBufferIsEmpty())
+    {
+        numBytes += UART2_ReadBuffer( myBuffer + numBytes, MY_BUFFER_SIZE - numBytes )  ;
+        if(numBytes < readbufferLen)
+        {
+            continue;
+        }
+        else
+        {
+            break;
+        }
+    }
+    else
+    {
+        continue;
+    }
+\end{DoxyVerb}
+ Do something else... \} }}
+
+{\ttfamily  @\+Summary Returns the status of the transmit buffer}
+
+{\ttfamily  @\+Description This routine returns if the transmit buffer is full or not.}
+
+{\ttfamily @\+Param None.}
+
+{\ttfamily @\+Returns True if the transmit buffer is full False if the transmit buffer is not full}
+
+{\ttfamily @\+Example Refer to \mbox{\hyperlink{uart2_8h_a1c7f32800f7e5955bc04306b2686a0d7}{UART2\+\_\+\+Initialize()}} for example.}
+
+{\ttfamily  @\+Summary Returns the transmitter and receiver status}
+
+{\ttfamily  @\+Description This returns the transmitter and receiver status. The returned status may contain a value with more than one of the bits specified in the UART2\+\_\+\+STATUS enumeration set. ~\newline
+ The caller should perform an \char`\"{}\+AND\char`\"{} with the bit of interest and verify if the result is non-\/zero (as shown in the example) to verify the desired status bit.}
+
+{\ttfamily  @\+Preconditions UART2\+\_\+\+Initialize function should have been called before calling this function}
+
+{\ttfamily  @\+Param None.}
+
+{\ttfamily  @\+Returns A UART2\+\_\+\+STATUS value describing the current status of the transfer.}
+
+{\ttfamily  @\+Example {\ttfamily  while(!(UART2\+\_\+\+Status\+Get \& UART2\+\_\+\+TX\+\_\+\+COMPLETE )) \{ Wait for the tranmission to complete \} }}
+
+{\ttfamily @\+Summary Allows setting of a the enable bit for the UART2 mode}
+
+{\ttfamily @\+Description This routine is used to enable the UART2}
+
+{\ttfamily @\+Preconditions \mbox{\hyperlink{uart2_8h_a1c7f32800f7e5955bc04306b2686a0d7}{UART2\+\_\+\+Initialize()}} function should have been called before calling this function.}
+
+{\ttfamily @\+Returns None}
+
+{\ttfamily @\+Param None}
+
+{\ttfamily @\+Example Refer to \mbox{\hyperlink{uart2_8h_a1c7f32800f7e5955bc04306b2686a0d7}{UART2\+\_\+\+Initialize()}}; for an example}
+
+{\ttfamily @\+Summary Allows setting of a the disable bit for the UART2 mode}
+
+{\ttfamily @\+Description This routine is used to disable the UART2}
+
+{\ttfamily @\+Preconditions \mbox{\hyperlink{uart2_8h_a1c7f32800f7e5955bc04306b2686a0d7}{UART2\+\_\+\+Initialize()}} function should have been called before calling this function.}
+
+{\ttfamily @\+Returns None}
+
+{\ttfamily @\+Param None}
+
+{\ttfamily @\+Example Refer to \mbox{\hyperlink{uart2_8h_a1c7f32800f7e5955bc04306b2686a0d7}{UART2\+\_\+\+Initialize()}}; for an example}
+
+{\ttfamily  @\+Summary Returns the number of bytes remaining in the receive buffer}
+
+{\ttfamily  @\+Description This routine returns the number of bytes remaining in the receive buffer.}
+
+{\ttfamily  @\+Param None.}
+
+{\ttfamily  @\+Returns Remaining size of receive buffer.}
+
+{\ttfamily  @\+Example {\ttfamily  uint8\+\_\+t read\+Buffer\mbox{[}MY\+\_\+\+BUFFER\+\_\+\+SIZE\mbox{]}; unsigned int size, num\+Bytes = 0; \mbox{\hyperlink{uart2_8h_a1c7f32800f7e5955bc04306b2686a0d7}{UART2\+\_\+\+Initialize()}};}}
+
+{\ttfamily {\ttfamily Pre-\/initialize read\+Buffer with MY\+\_\+\+BUFFER\+\_\+\+SIZE bytes of valid data. \begin{DoxyVerb}while (size < MY_BUFFER_SIZE) {
+    size = UART2_ReceiveBufferSizeGet();
+}
+numBytes = UART2_ReadBuffer(readBuffer, MY_BUFFER_SIZE);
+</code>
+\end{DoxyVerb}
+}}
+
+{\ttfamily {\ttfamily  @\+Summary Returns the number of bytes remaining in the transmit buffer.}}
+
+{\ttfamily {\ttfamily  @\+Description This routine returns the number of bytes remaining in the transmit buffer.}}
+
+{\ttfamily {\ttfamily @\+Param None.}}
+
+{\ttfamily {\ttfamily @\+Returns Remaining size of transmit buffer.}}
+
+{\ttfamily {\ttfamily @\+Example Refer to \mbox{\hyperlink{uart2_8h_a1c7f32800f7e5955bc04306b2686a0d7}{UART2\+\_\+\+Initialize()}}; for example. }}
+
+Definition at line 369 of file uart1.\+c.
+
+\mbox{\Hypertarget{uart1_8c_a226557d5e42f7e29ddaff30606138459}\label{uart1_8c_a226557d5e42f7e29ddaff30606138459}} 
+\index{uart1.c@{uart1.c}!\_\_attribute\_\_@{\_\_attribute\_\_}}
+\index{\_\_attribute\_\_@{\_\_attribute\_\_}!uart1.c@{uart1.c}}
+\doxysubsubsection{\texorpdfstring{\_\_attribute\_\_()}{\_\_attribute\_\_()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+attribute\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{(interrupt, no\+\_\+auto\+\_\+psv)}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 152 of file uart1.\+c.
+
+\mbox{\Hypertarget{uart1_8c_a201468129b483039afc5a619e2d31097}\label{uart1_8c_a201468129b483039afc5a619e2d31097}} 
+\index{uart1.c@{uart1.c}!\_\_attribute\_\_@{\_\_attribute\_\_}}
+\index{\_\_attribute\_\_@{\_\_attribute\_\_}!uart1.c@{uart1.c}}
+\doxysubsubsection{\texorpdfstring{\_\_attribute\_\_()}{\_\_attribute\_\_()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+attribute\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{(weak)}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 182 of file uart1.\+c.
+
+\mbox{\Hypertarget{uart1_8c_a10757505060dc7bf0fe148c5363eae08}\label{uart1_8c_a10757505060dc7bf0fe148c5363eae08}} 
+\index{uart1.c@{uart1.c}!UART1\_Initialize@{UART1\_Initialize}}
+\index{UART1\_Initialize@{UART1\_Initialize}!uart1.c@{uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART1\_Initialize()}{UART1\_Initialize()}}
+{\footnotesize\ttfamily void UART1\+\_\+\+Initialize (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Section\+: Driver Interface 
+
+Definition at line 103 of file uart1.\+c.
+
+\mbox{\Hypertarget{uart1_8c_a35ebdf043c6e4995ff711ebc13954861}\label{uart1_8c_a35ebdf043c6e4995ff711ebc13954861}} 
+\index{uart1.c@{uart1.c}!UART1\_IsRxReady@{UART1\_IsRxReady}}
+\index{UART1\_IsRxReady@{UART1\_IsRxReady}!uart1.c@{uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART1\_IsRxReady()}{UART1\_IsRxReady()}}
+{\footnotesize\ttfamily bool UART1\+\_\+\+Is\+Rx\+Ready (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+@\+Description Indicates of there is data available to read.
+
+@\+Returns true if byte can be read. false if byte can\textquotesingle{}t be read right now. 
+
+Definition at line 285 of file uart1.\+c.
+
+\mbox{\Hypertarget{uart1_8c_a693f8124b5bec099c5141b65e47f2bb9}\label{uart1_8c_a693f8124b5bec099c5141b65e47f2bb9}} 
+\index{uart1.c@{uart1.c}!UART1\_IsTxDone@{UART1\_IsTxDone}}
+\index{UART1\_IsTxDone@{UART1\_IsTxDone}!uart1.c@{uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART1\_IsTxDone()}{UART1\_IsTxDone()}}
+{\footnotesize\ttfamily bool UART1\+\_\+\+Is\+Tx\+Done (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+@\+Description Indicates if all bytes have been transferred.
+
+@\+Returns true if all bytes transfered. false if there is still data pending to transfer. 
+
+Definition at line 307 of file uart1.\+c.
+
+\mbox{\Hypertarget{uart1_8c_ae2fc49fa99787bc951e12bd840b1248c}\label{uart1_8c_ae2fc49fa99787bc951e12bd840b1248c}} 
+\index{uart1.c@{uart1.c}!UART1\_IsTxReady@{UART1\_IsTxReady}}
+\index{UART1\_IsTxReady@{UART1\_IsTxReady}!uart1.c@{uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART1\_IsTxReady()}{UART1\_IsTxReady()}}
+{\footnotesize\ttfamily bool UART1\+\_\+\+Is\+Tx\+Ready (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+@\+Description Indicates if a byte can be written.
+
+@\+Returns true if byte can be written. false if byte can\textquotesingle{}t be written right now. 
+
+Definition at line 290 of file uart1.\+c.
+
+\mbox{\Hypertarget{uart1_8c_a4e34071aa3125eb037bd6ae844c7ffbb}\label{uart1_8c_a4e34071aa3125eb037bd6ae844c7ffbb}} 
+\index{uart1.c@{uart1.c}!UART1\_Read@{UART1\_Read}}
+\index{UART1\_Read@{UART1\_Read}!uart1.c@{uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART1\_Read()}{UART1\_Read()}}
+{\footnotesize\ttfamily uint8\+\_\+t UART1\+\_\+\+Read (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Section\+: UART Driver Client Routines 
+
+Definition at line 248 of file uart1.\+c.
+
+\mbox{\Hypertarget{uart1_8c_ada9cfd0a8099b051306ff18cea19a165}\label{uart1_8c_ada9cfd0a8099b051306ff18cea19a165}} 
+\index{uart1.c@{uart1.c}!UART1\_SetRxInterruptHandler@{UART1\_SetRxInterruptHandler}}
+\index{UART1\_SetRxInterruptHandler@{UART1\_SetRxInterruptHandler}!uart1.c@{uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART1\_SetRxInterruptHandler()}{UART1\_SetRxInterruptHandler()}}
+{\footnotesize\ttfamily void UART1\+\_\+\+Set\+Rx\+Interrupt\+Handler (\begin{DoxyParamCaption}\item[{void($\ast$)(void)}]{interrupt\+Handler }\end{DoxyParamCaption})}
+
+@\+Summary Assigns a function pointer with a receive callback address.
+
+@\+Description This routine assigns a function pointer with a receive callback address.
+
+@\+Param Address of the callback routine.
+
+@\+Returns None
+
+@\+Example {\ttfamily  UART1\+\_\+\+Set\+Rx\+Interrupt\+Handler(\&\+UART1\+\_\+\+Receive\+\_\+\+Call\+Back); } 
+
+Definition at line 187 of file uart1.\+c.
+
+\mbox{\Hypertarget{uart1_8c_aae82bc4b606e9f317ced09e030c3ed2a}\label{uart1_8c_aae82bc4b606e9f317ced09e030c3ed2a}} 
+\index{uart1.c@{uart1.c}!UART1\_SetTxInterruptHandler@{UART1\_SetTxInterruptHandler}}
+\index{UART1\_SetTxInterruptHandler@{UART1\_SetTxInterruptHandler}!uart1.c@{uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART1\_SetTxInterruptHandler()}{UART1\_SetTxInterruptHandler()}}
+{\footnotesize\ttfamily void UART1\+\_\+\+Set\+Tx\+Interrupt\+Handler (\begin{DoxyParamCaption}\item[{void($\ast$)(void)}]{interrupt\+Handler }\end{DoxyParamCaption})}
+
+Maintains the driver\textquotesingle{}s transmitter state machine and implements its ISR 
+
+Definition at line 140 of file uart1.\+c.
+
+\mbox{\Hypertarget{uart1_8c_a54b157af9fc7b884c3af0faa045b37ba}\label{uart1_8c_a54b157af9fc7b884c3af0faa045b37ba}} 
+\index{uart1.c@{uart1.c}!UART1\_Write@{UART1\_Write}}
+\index{UART1\_Write@{UART1\_Write}!uart1.c@{uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART1\_Write()}{UART1\_Write()}}
+{\footnotesize\ttfamily void UART1\+\_\+\+Write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{byte }\end{DoxyParamCaption})}
+
+@\+Summary Writes a byte of data to the UART1
+
+@\+Description This routine writes a byte of data to the UART1.
+
+@\+Preconditions UART1\+\_\+\+Initialize function should have been called before calling this function. The transfer status should be checked to see if transmitter is not full before calling this function.
+
+@\+Param byte -\/ Data byte to write to the UART1
+
+@\+Returns None.
+
+@\+Example None. 
+
+Definition at line 267 of file uart1.\+c.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{uart1_8c_adb1e097e46e2939d8c341298892a9333}\label{uart1_8c_adb1e097e46e2939d8c341298892a9333}} 
+\index{uart1.c@{uart1.c}!UART1\_RxDefaultInterruptHandler@{UART1\_RxDefaultInterruptHandler}}
+\index{UART1\_RxDefaultInterruptHandler@{UART1\_RxDefaultInterruptHandler}!uart1.c@{uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART1\_RxDefaultInterruptHandler}{UART1\_RxDefaultInterruptHandler}}
+{\footnotesize\ttfamily void($\ast$ UART1\+\_\+\+Rx\+Default\+Interrupt\+Handler) (void) (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 97 of file uart1.\+c.
+
+\mbox{\Hypertarget{uart1_8c_ac05fd2e970a7c8da5ea79d54963514ce}\label{uart1_8c_ac05fd2e970a7c8da5ea79d54963514ce}} 
+\index{uart1.c@{uart1.c}!UART1\_TxDefaultInterruptHandler@{UART1\_TxDefaultInterruptHandler}}
+\index{UART1\_TxDefaultInterruptHandler@{UART1\_TxDefaultInterruptHandler}!uart1.c@{uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART1\_TxDefaultInterruptHandler}{UART1\_TxDefaultInterruptHandler}}
+{\footnotesize\ttfamily void($\ast$ UART1\+\_\+\+Tx\+Default\+Interrupt\+Handler) (void) (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 96 of file uart1.\+c.
+

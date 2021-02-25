@@ -1,0 +1,247 @@
+.TH "C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/tmr2.c" 3 "Wed Feb 24 2021" "Version 1.0" "Reflow Oven" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/tmr2.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include 'tmr2\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fB_TMR_OBJ_STRUCT\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fB_TMR_OBJ_STRUCT\fP \fBTMR_OBJ\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBTMR2_CallBack\fP (void)"
+.br
+.ti -1c
+.RI "void \fBTMR2_Initialize\fP (void)"
+.br
+.ti -1c
+.RI "void \fB__attribute__\fP ((interrupt, no_auto_psv))"
+.br
+.ti -1c
+.RI "void \fBTMR2_Period16BitSet\fP (uint16_t value)"
+.br
+.ti -1c
+.RI "uint16_t \fBTMR2_Period16BitGet\fP (void)"
+.br
+.ti -1c
+.RI "void \fBTMR2_Counter16BitSet\fP (uint16_t value)"
+.br
+.ti -1c
+.RI "uint16_t \fBTMR2_Counter16BitGet\fP (void)"
+.br
+.ti -1c
+.RI "void \fB__attribute__\fP ((weak))"
+.br
+.ti -1c
+.RI "void \fBTMR2_SetInterruptHandler\fP (void(*InterruptHandler)(void))"
+.br
+.ti -1c
+.RI "void \fBTMR2_Start\fP (void)"
+.br
+.ti -1c
+.RI "void \fBTMR2_Stop\fP (void)"
+.br
+.ti -1c
+.RI "bool \fBTMR2_GetElapsedThenClear\fP (void)"
+.br
+.ti -1c
+.RI "int \fBTMR2_SoftwareCounterGet\fP (void)"
+.br
+.ti -1c
+.RI "void \fBTMR2_SoftwareCounterClear\fP (void)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "void(* \fBTMR2_InterruptHandler\fP )(void) = NULL"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fB_TMR_OBJ_STRUCT\fP \fBTMR_OBJ\fP"
+Section: Data Type Definitions TMR Driver Hardware Instance Object
+.PP
+@Summary Defines the object required for the maintenance of the hardware instance\&.
+.PP
+@Description This defines the object required for the maintenance of the hardware instance\&. This object exists once per hardware instance of the peripheral\&.
+.PP
+Remarks: None\&. 
+.SH "Function Documentation"
+.PP 
+.SS "void __attribute__ ((interrupt, no_auto_psv))"
+
+.PP
+Definition at line 113 of file tmr2\&.c\&.
+.SS "void __attribute__ ((weak))"
+
+.PP
+Definition at line 160 of file tmr2\&.c\&.
+.SS "void TMR2_CallBack (void)"
+
+.SS "uint16_t TMR2_Counter16BitGet (void)"
+@Summary Provides 16-bit current counter value
+.PP
+@Description This routine provides 16-bit current counter value
+.PP
+@Param None\&.
+.PP
+@Returns 16-bit current counter value
+.PP
+@Example Refer to the example of \fBTMR2_Counter16BitSet()\fP; 
+.PP
+Definition at line 154 of file tmr2\&.c\&.
+.SS "void TMR2_Counter16BitSet (uint16_t value)"
+@Summary Updates the timer's 16-bit value
+.PP
+@Description This routine updates the timer's 16-bit value
+.PP
+@Param None\&.
+.PP
+@Returns None
+.PP
+@Example \fC uint16_t value=0xF0F0;\fP
+.PP
+\fC TMR2_Counter16BitSet(value));\fP
+.PP
+\fC while(1) { TMR2_Tasks(); if( (value == \fBTMR2_Counter16BitGet()\fP)) { \fBTMR2_Stop()\fP; } } \fP 
+.PP
+Definition at line 146 of file tmr2\&.c\&.
+.SS "bool TMR2_GetElapsedThenClear (void)"
+@Summary Returns the elapsed status of the timer and clears if flag is set\&.
+.PP
+@Description This routine returns the elapsed status of the timer and clears flag if its set\&.
+.PP
+@Param None\&.
+.PP
+@Returns True - Timer has elapsed\&. False - Timer has not elapsed\&.
+.PP
+@Example Refer to the example of \fBTMR2_Initialize()\fP; 
+.PP
+Definition at line 193 of file tmr2\&.c\&.
+.SS "void TMR2_Initialize (void)"
+Section: Driver Interface 
+.PP
+Definition at line 91 of file tmr2\&.c\&.
+.SS "uint16_t TMR2_Period16BitGet (void)"
+@Summary Provides the timer 16-bit period value
+.PP
+@Description This routine provides the timer 16-bit period value
+.PP
+@Param None\&.
+.PP
+@Returns Timer 16-bit period value
+.PP
+@Example Refer to the example of \fBTMR2_Initialize()\fP; 
+.PP
+Definition at line 141 of file tmr2\&.c\&.
+.SS "void TMR2_Period16BitSet (uint16_t value)"
+@Summary Updates 16-bit timer value
+.PP
+@Description This routine updates 16-bit timer value
+.PP
+@Param None\&.
+.PP
+@Returns None
+.PP
+@Example Refer to the example of \fBTMR2_Initialize()\fP; 
+.PP
+Definition at line 133 of file tmr2\&.c\&.
+.SS "void TMR2_SetInterruptHandler (void(*)(void) InterruptHandler)"
+@Summary Assigns a function pointer with a callback address\&.
+.PP
+@Description This routine assigns a function pointer with a callback address\&.
+.PP
+@Param Address of the callback routine\&.
+.PP
+@Returns None
+.PP
+@Example \fC TMR2_SetInterruptHandler(&TMR2_CallBack); \fP 
+.PP
+Definition at line 165 of file tmr2\&.c\&.
+.SS "void TMR2_SoftwareCounterClear (void)"
+@Summary Clears the software counter value\&.
+.PP
+@Description This routine clears the software counter value\&.
+.PP
+@Param None\&.
+.PP
+@Returns None
+.PP
+@Example Refer to the example of \fBTMR2_Initialize()\fP; 
+.PP
+Definition at line 211 of file tmr2\&.c\&.
+.SS "int TMR2_SoftwareCounterGet (void)"
+@Summary Returns the software counter value\&.
+.PP
+@Description This routine returns the software counter value\&.
+.PP
+@Param None\&.
+.PP
+@Returns Software counter value\&.
+.PP
+@Example Refer to the example of \fBTMR2_Initialize()\fP; 
+.PP
+Definition at line 206 of file tmr2\&.c\&.
+.SS "void TMR2_Start (void)"
+@Summary Starts the TMR
+.PP
+@Description This routine starts the TMR
+.PP
+@Param None\&.
+.PP
+@Returns None
+.PP
+@Example Refer to the example of \fBTMR2_Initialize()\fP; 
+.PP
+Definition at line 172 of file tmr2\&.c\&.
+.SS "void TMR2_Stop (void)"
+@Summary Stops the TMR
+.PP
+@Description This routine stops the TMR
+.PP
+@Param None\&.
+.PP
+@Returns None
+.PP
+@Example Refer to the example of \fBTMR2_Initialize()\fP; 
+.PP
+Definition at line 184 of file tmr2\&.c\&.
+.SH "Variable Documentation"
+.PP 
+.SS "void(* TMR2_InterruptHandler) (void) (void) = NULL"
+TMR2 Generated Driver API Source File
+.PP
+@Company Microchip Technology Inc\&.
+.PP
+@File Name \fBtmr2\&.c\fP
+.PP
+@Summary This is the generated source file for the TMR2 driver using PIC24 / dsPIC33 / PIC32MM MCUs
+.PP
+@Description This source file provides APIs for driver for TMR2\&. Generation Information : Product Revision : PIC24 / dsPIC33 / PIC32MM MCUs - 1\&.170\&.0 Device : PIC24FJ256GA702 The generated drivers are tested against the following: Compiler : XC16 v1\&.61 MPLAB : MPLAB X v5\&.45 Section: Included Files Section: File specific functions 
+.PP
+Definition at line 56 of file tmr2\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Reflow Oven from the source code\&.

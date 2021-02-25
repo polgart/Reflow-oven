@@ -1,0 +1,187 @@
+.TH "C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/spi1.h" 3 "Wed Feb 24 2021" "Version 1.0" "Reflow Oven" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/spi1.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <xc\&.h>\fP
+.br
+\fC#include <stdint\&.h>\fP
+.br
+\fC#include <stdbool\&.h>\fP
+.br
+\fC#include <stddef\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSPI1_DUMMY_DATA\fP   0x0"
+.br
+.ti -1c
+.RI "#define \fBSPI1_FIFO_FILL_LIMIT\fP   0x8"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBSPI1_STATUS\fP { \fBSPI1_SHIFT_REGISTER_EMPTY\fP = 1 << 7, \fBSPI1_RECEIVE_OVERFLOW\fP = 1 << 6, \fBSPI1_RECEIVE_FIFO_EMPTY\fP = 1 << 5, \fBSPI1_TRANSMIT_BUFFER_FULL\fP = 1 << 1, \fBSPI1_RECEIVE_BUFFER_FULL\fP = 1 << 0 }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBSPI1_Initialize\fP (void)"
+.br
+.ti -1c
+.RI "uint32_t \fBSPI1_Exchange32bit\fP (uint32_t data)"
+.br
+.ti -1c
+.RI "uint16_t \fBSPI1_Exchange32bitBuffer\fP (uint32_t *dataTransmitted, uint16_t byteCount, uint32_t *dataReceived)"
+.br
+.ti -1c
+.RI "\fBSPI1_STATUS\fP \fBSPI1_StatusGet\fP (void)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define SPI1_DUMMY_DATA   0x0"
+SPI1 Generated Driver API Header File
+.PP
+Company: Microchip Technology Inc\&.
+.PP
+File Name: \fBspi1\&.h\fP
+.PP
+@Summary This is the generated header file for the SPI1 driver using PIC24 / dsPIC33 / PIC32MM MCUs
+.PP
+@Description This header file provides APIs for driver for SPI1\&. Generation Information : Product Revision : PIC24 / dsPIC33 / PIC32MM MCUs - 1\&.170\&.0 Device : PIC24FJ256GA702 The generated drivers are tested against the following: Compiler : XC16 v1\&.61 MPLAB : MPLAB X v5\&.45 Section: Included Files Section: Data Type Definitions SPI1_DUMMY_DATA
+.PP
+@Summary Dummy data to be sent\&.
+.PP
+@Description Dummy data to be sent, when no input buffer is specified in the buffer APIs\&. 
+.PP
+Definition at line 77 of file spi1\&.h\&.
+.SS "#define SPI1_FIFO_FILL_LIMIT   0x8"
+SPI1_FIFO_FILL_LIMIT
+.PP
+@Summary FIFO fill limit for data transmission\&.
+.PP
+@Description The amount of data to be filled in the FIFO during transmission\&. The maximum limit allowed is 8\&. 
+.PP
+Definition at line 88 of file spi1\&.h\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBSPI1_STATUS\fP"
+SPI1 Status Enumeration
+.PP
+@Summary Defines the status enumeration for SPI1\&.
+.PP
+@Description This defines the status enumeration for SPI1\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISPI1_SHIFT_REGISTER_EMPTY \fP\fP
+.TP
+\fB\fISPI1_RECEIVE_OVERFLOW \fP\fP
+.TP
+\fB\fISPI1_RECEIVE_FIFO_EMPTY \fP\fP
+.TP
+\fB\fISPI1_TRANSMIT_BUFFER_FULL \fP\fP
+.TP
+\fB\fISPI1_RECEIVE_BUFFER_FULL \fP\fP
+.PP
+Definition at line 106 of file spi1\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "uint32_t SPI1_Exchange32bit (uint32_t data)"
+@Summary Exchanges two word of data from SPI1
+.PP
+@Description This routine exchanges two word of data from SPI1\&.
+.PP
+@Preconditions The SPI1_Initialize routine must have been called for the specified SPI1 driver instance\&. This is a blocking routine\&.
+.PP
+@Returns Data read from SPI1
+.PP
+@Param data - Data to be written onto SPI1\&.
+.PP
+@Example Refer to \fBSPI1_Initialize()\fP for an example 
+.br
+ 
+.PP
+Definition at line 209 of file spi1\&.c\&.
+.SS "uint16_t SPI1_Exchange32bitBuffer (uint32_t * dataTransmitted, uint16_t byteCount, uint32_t * dataReceived)"
+@Summary Exchanges data from a buffer of size two word from SPI1
+.PP
+@Description This routine exchanges data from a buffer of size two word from the SPI1\&. This is a blocking routine\&.
+.PP
+@Preconditions The SPI1_Initialize routine must have been called for the specified SPI1 driver instance\&.
+.PP
+@Returns Number of 32bit data written/read\&.
+.PP
+@Param dataTransmitted - Buffer of data to be written onto SPI1\&.
+.PP
+@Param byteCount - Number of bytes to be exchanged\&.
+.PP
+@Param dataTransmitted - Buffer of data to be read from SPI1\&.
+.PP
+@Example Refer to \fBSPI1_Initialize()\fP for an example 
+.br
+ 
+.PP
+Definition at line 219 of file spi1\&.c\&.
+.SS "void SPI1_Initialize (void)"
+Section: Interface Routines @Summary Initializes the SPI instance : 1
+.PP
+@Description This routine initializes the spi1 driver instance for : 1 index, making it ready for clients to open and use it\&.
+.PP
+This routine must be called before any other SPI1 routine is called\&. This routine should only be called once during system initialization\&.
+.PP
+@Preconditions None\&.
+.PP
+@Returns None\&.
+.PP
+@Param None\&.
+.PP
+@Example \fC uint16_t myWriteBuffer[MY_BUFFER_SIZE]; uint16_t myReadBuffer[MY_BUFFER_SIZE]; uint16_t writeData; uint16_t readData; SPI1_STATUS status; unsigned int total; SPI1_Initialize;\fP
+.PP
+\fC total = 0; numberOfBytesFactor = 2; do { total = SPI1_Exchange16bitBuffer( &myWriteBuffer[total], (MY_BUFFER_SIZE - total)*numberOfBytesFactor, &myReadBuffer[total]);\fP
+.PP
+\fCDo something else\&.\&.\&. 
+.PP
+.nf
+} while( total < MY_BUFFER_SIZE );
+
+readData = SPI1_Exchange16bit( writeData);
+
+status = SPI1_StatusGet();
+
+</code>
+
+.fi
+.PP
+ \fP
+.SS "\fBSPI1_STATUS\fP SPI1_StatusGet (void)"
+@Summary Returns the value of the status register of SPI instance : 1
+.PP
+@Description This routine returns the value of the status register of SPI1 driver instance : 1
+.PP
+@Preconditions None\&.
+.PP
+@Returns Returns the value of the status register\&.
+.PP
+@Param None\&.
+.PP
+@Example Refer to \fBSPI1_Initialize()\fP for an example 
+.br
+ 
+.PP
+Definition at line 236 of file spi1\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Reflow Oven from the source code\&.

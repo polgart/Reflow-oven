@@ -1,0 +1,218 @@
+\hypertarget{spi1_8h}{}\doxysection{C\+:/\+Users/\+EDU\+\_\+\+OBOS\+\_\+5057/\+Documents/\+Reflow oven/\+Design/\+SW/\+RO\+\_\+firmware\+\_\+v1.X/mcc\+\_\+generated\+\_\+files/spi1.h File Reference}
+\label{spi1_8h}\index{C:/Users/EDU\_OBOS\_5057/Documents/Reflow oven/Design/SW/RO\_firmware\_v1.X/mcc\_generated\_files/spi1.h@{C:/Users/EDU\_OBOS\_5057/Documents/Reflow oven/Design/SW/RO\_firmware\_v1.X/mcc\_generated\_files/spi1.h}}
+{\ttfamily \#include $<$xc.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+Include dependency graph for spi1.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{spi1_8h_a638c4d239fac723fbdffe4eeadda4ed1}{SPI1\+\_\+\+DUMMY\+\_\+\+DATA}}~0x0
+\item 
+\#define \mbox{\hyperlink{spi1_8h_a8553f77a27ba223be55e6ddcd220f3b9}{SPI1\+\_\+\+FIFO\+\_\+\+FILL\+\_\+\+LIMIT}}~0x8
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{spi1_8h_a023db59f6551e56ce57ee219df328012}{SPI1\+\_\+\+STATUS}} \{ \newline
+\mbox{\hyperlink{spi1_8h_a023db59f6551e56ce57ee219df328012a69e392271481ac8c49fb6f35a7bc7c53}{SPI1\+\_\+\+SHIFT\+\_\+\+REGISTER\+\_\+\+EMPTY}} = 1 $<$$<$ 7
+, \mbox{\hyperlink{spi1_8h_a023db59f6551e56ce57ee219df328012a877f4b63731f235b5fe552030d1388c5}{SPI1\+\_\+\+RECEIVE\+\_\+\+OVERFLOW}} = 1 $<$$<$ 6
+, \mbox{\hyperlink{spi1_8h_a023db59f6551e56ce57ee219df328012afc7ba2714535aa5d614b5759b1d40579}{SPI1\+\_\+\+RECEIVE\+\_\+\+FIFO\+\_\+\+EMPTY}} = 1 $<$$<$ 5
+, \mbox{\hyperlink{spi1_8h_a023db59f6551e56ce57ee219df328012a949c786b6788d844c479a2f299fdf7dc}{SPI1\+\_\+\+TRANSMIT\+\_\+\+BUFFER\+\_\+\+FULL}} = 1 $<$$<$ 1
+, \newline
+\mbox{\hyperlink{spi1_8h_a023db59f6551e56ce57ee219df328012aba7791551998b7c485e613812eaa6a84}{SPI1\+\_\+\+RECEIVE\+\_\+\+BUFFER\+\_\+\+FULL}} = 1 $<$$<$ 0
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{spi1_8h_a0607cad7a6b302950091fea719146a54}{SPI1\+\_\+\+Initialize}} (void)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{spi1_8h_a0a88e53d199caed4e1850db5b427fe3c}{SPI1\+\_\+\+Exchange32bit}} (uint32\+\_\+t data)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{spi1_8h_a7826666063c148e7642b83350ada21c0}{SPI1\+\_\+\+Exchange32bit\+Buffer}} (uint32\+\_\+t $\ast$data\+Transmitted, uint16\+\_\+t byte\+Count, uint32\+\_\+t $\ast$data\+Received)
+\item 
+\mbox{\hyperlink{spi1_8h_a023db59f6551e56ce57ee219df328012}{SPI1\+\_\+\+STATUS}} \mbox{\hyperlink{spi1_8h_a05acfdd41894527bd8833b8f549680ed}{SPI1\+\_\+\+Status\+Get}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{spi1_8h_a638c4d239fac723fbdffe4eeadda4ed1}\label{spi1_8h_a638c4d239fac723fbdffe4eeadda4ed1}} 
+\index{spi1.h@{spi1.h}!SPI1\_DUMMY\_DATA@{SPI1\_DUMMY\_DATA}}
+\index{SPI1\_DUMMY\_DATA@{SPI1\_DUMMY\_DATA}!spi1.h@{spi1.h}}
+\doxysubsubsection{\texorpdfstring{SPI1\_DUMMY\_DATA}{SPI1\_DUMMY\_DATA}}
+{\footnotesize\ttfamily \#define SPI1\+\_\+\+DUMMY\+\_\+\+DATA~0x0}
+
+SPI1 Generated Driver API Header File
+
+Company\+: Microchip Technology Inc.
+
+File Name\+: \mbox{\hyperlink{spi1_8h}{spi1.\+h}}
+
+@\+Summary This is the generated header file for the SPI1 driver using PIC24 / ds\+PIC33 / PIC32\+MM MCUs
+
+@\+Description This header file provides APIs for driver for SPI1. Generation Information \+: Product Revision \+: PIC24 / ds\+PIC33 / PIC32\+MM MCUs -\/ 1.\+170.\+0 Device \+: PIC24\+FJ256\+GA702 The generated drivers are tested against the following\+: Compiler \+: XC16 v1.\+61 MPLAB \+: MPLAB X v5.\+45 Section\+: Included Files Section\+: Data Type Definitions SPI1\+\_\+\+DUMMY\+\_\+\+DATA
+
+@\+Summary Dummy data to be sent.
+
+@\+Description Dummy data to be sent, when no input buffer is specified in the buffer APIs. 
+
+Definition at line 77 of file spi1.\+h.
+
+\mbox{\Hypertarget{spi1_8h_a8553f77a27ba223be55e6ddcd220f3b9}\label{spi1_8h_a8553f77a27ba223be55e6ddcd220f3b9}} 
+\index{spi1.h@{spi1.h}!SPI1\_FIFO\_FILL\_LIMIT@{SPI1\_FIFO\_FILL\_LIMIT}}
+\index{SPI1\_FIFO\_FILL\_LIMIT@{SPI1\_FIFO\_FILL\_LIMIT}!spi1.h@{spi1.h}}
+\doxysubsubsection{\texorpdfstring{SPI1\_FIFO\_FILL\_LIMIT}{SPI1\_FIFO\_FILL\_LIMIT}}
+{\footnotesize\ttfamily \#define SPI1\+\_\+\+FIFO\+\_\+\+FILL\+\_\+\+LIMIT~0x8}
+
+SPI1\+\_\+\+FIFO\+\_\+\+FILL\+\_\+\+LIMIT
+
+@\+Summary FIFO fill limit for data transmission.
+
+@\+Description The amount of data to be filled in the FIFO during transmission. The maximum limit allowed is 8. 
+
+Definition at line 88 of file spi1.\+h.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{spi1_8h_a023db59f6551e56ce57ee219df328012}\label{spi1_8h_a023db59f6551e56ce57ee219df328012}} 
+\index{spi1.h@{spi1.h}!SPI1\_STATUS@{SPI1\_STATUS}}
+\index{SPI1\_STATUS@{SPI1\_STATUS}!spi1.h@{spi1.h}}
+\doxysubsubsection{\texorpdfstring{SPI1\_STATUS}{SPI1\_STATUS}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{spi1_8h_a023db59f6551e56ce57ee219df328012}{SPI1\+\_\+\+STATUS}}}
+
+SPI1 Status Enumeration
+
+@\+Summary Defines the status enumeration for SPI1.
+
+@\+Description This defines the status enumeration for SPI1. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI1\_SHIFT\_REGISTER\_EMPTY@{SPI1\_SHIFT\_REGISTER\_EMPTY}!spi1.h@{spi1.h}}\index{spi1.h@{spi1.h}!SPI1\_SHIFT\_REGISTER\_EMPTY@{SPI1\_SHIFT\_REGISTER\_EMPTY}}}\mbox{\Hypertarget{spi1_8h_a023db59f6551e56ce57ee219df328012a69e392271481ac8c49fb6f35a7bc7c53}\label{spi1_8h_a023db59f6551e56ce57ee219df328012a69e392271481ac8c49fb6f35a7bc7c53}} 
+SPI1\+\_\+\+SHIFT\+\_\+\+REGISTER\+\_\+\+EMPTY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI1\_RECEIVE\_OVERFLOW@{SPI1\_RECEIVE\_OVERFLOW}!spi1.h@{spi1.h}}\index{spi1.h@{spi1.h}!SPI1\_RECEIVE\_OVERFLOW@{SPI1\_RECEIVE\_OVERFLOW}}}\mbox{\Hypertarget{spi1_8h_a023db59f6551e56ce57ee219df328012a877f4b63731f235b5fe552030d1388c5}\label{spi1_8h_a023db59f6551e56ce57ee219df328012a877f4b63731f235b5fe552030d1388c5}} 
+SPI1\+\_\+\+RECEIVE\+\_\+\+OVERFLOW&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI1\_RECEIVE\_FIFO\_EMPTY@{SPI1\_RECEIVE\_FIFO\_EMPTY}!spi1.h@{spi1.h}}\index{spi1.h@{spi1.h}!SPI1\_RECEIVE\_FIFO\_EMPTY@{SPI1\_RECEIVE\_FIFO\_EMPTY}}}\mbox{\Hypertarget{spi1_8h_a023db59f6551e56ce57ee219df328012afc7ba2714535aa5d614b5759b1d40579}\label{spi1_8h_a023db59f6551e56ce57ee219df328012afc7ba2714535aa5d614b5759b1d40579}} 
+SPI1\+\_\+\+RECEIVE\+\_\+\+FIFO\+\_\+\+EMPTY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI1\_TRANSMIT\_BUFFER\_FULL@{SPI1\_TRANSMIT\_BUFFER\_FULL}!spi1.h@{spi1.h}}\index{spi1.h@{spi1.h}!SPI1\_TRANSMIT\_BUFFER\_FULL@{SPI1\_TRANSMIT\_BUFFER\_FULL}}}\mbox{\Hypertarget{spi1_8h_a023db59f6551e56ce57ee219df328012a949c786b6788d844c479a2f299fdf7dc}\label{spi1_8h_a023db59f6551e56ce57ee219df328012a949c786b6788d844c479a2f299fdf7dc}} 
+SPI1\+\_\+\+TRANSMIT\+\_\+\+BUFFER\+\_\+\+FULL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI1\_RECEIVE\_BUFFER\_FULL@{SPI1\_RECEIVE\_BUFFER\_FULL}!spi1.h@{spi1.h}}\index{spi1.h@{spi1.h}!SPI1\_RECEIVE\_BUFFER\_FULL@{SPI1\_RECEIVE\_BUFFER\_FULL}}}\mbox{\Hypertarget{spi1_8h_a023db59f6551e56ce57ee219df328012aba7791551998b7c485e613812eaa6a84}\label{spi1_8h_a023db59f6551e56ce57ee219df328012aba7791551998b7c485e613812eaa6a84}} 
+SPI1\+\_\+\+RECEIVE\+\_\+\+BUFFER\+\_\+\+FULL&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 106 of file spi1.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{spi1_8h_a0a88e53d199caed4e1850db5b427fe3c}\label{spi1_8h_a0a88e53d199caed4e1850db5b427fe3c}} 
+\index{spi1.h@{spi1.h}!SPI1\_Exchange32bit@{SPI1\_Exchange32bit}}
+\index{SPI1\_Exchange32bit@{SPI1\_Exchange32bit}!spi1.h@{spi1.h}}
+\doxysubsubsection{\texorpdfstring{SPI1\_Exchange32bit()}{SPI1\_Exchange32bit()}}
+{\footnotesize\ttfamily uint32\+\_\+t SPI1\+\_\+\+Exchange32bit (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{data }\end{DoxyParamCaption})}
+
+@\+Summary Exchanges two word of data from SPI1
+
+@\+Description This routine exchanges two word of data from SPI1.
+
+@\+Preconditions The SPI1\+\_\+\+Initialize routine must have been called for the specified SPI1 driver instance. This is a blocking routine.
+
+@\+Returns Data read from SPI1
+
+@\+Param data -\/ Data to be written onto SPI1.
+
+@\+Example Refer to \mbox{\hyperlink{spi1_8h_a0607cad7a6b302950091fea719146a54}{SPI1\+\_\+\+Initialize()}} for an example ~\newline
+ 
+
+Definition at line 209 of file spi1.\+c.
+
+\mbox{\Hypertarget{spi1_8h_a7826666063c148e7642b83350ada21c0}\label{spi1_8h_a7826666063c148e7642b83350ada21c0}} 
+\index{spi1.h@{spi1.h}!SPI1\_Exchange32bitBuffer@{SPI1\_Exchange32bitBuffer}}
+\index{SPI1\_Exchange32bitBuffer@{SPI1\_Exchange32bitBuffer}!spi1.h@{spi1.h}}
+\doxysubsubsection{\texorpdfstring{SPI1\_Exchange32bitBuffer()}{SPI1\_Exchange32bitBuffer()}}
+{\footnotesize\ttfamily uint16\+\_\+t SPI1\+\_\+\+Exchange32bit\+Buffer (\begin{DoxyParamCaption}\item[{uint32\+\_\+t $\ast$}]{data\+Transmitted,  }\item[{uint16\+\_\+t}]{byte\+Count,  }\item[{uint32\+\_\+t $\ast$}]{data\+Received }\end{DoxyParamCaption})}
+
+@\+Summary Exchanges data from a buffer of size two word from SPI1
+
+@\+Description This routine exchanges data from a buffer of size two word from the SPI1. This is a blocking routine.
+
+@\+Preconditions The SPI1\+\_\+\+Initialize routine must have been called for the specified SPI1 driver instance.
+
+@\+Returns Number of 32bit data written/read.
+
+@\+Param data\+Transmitted -\/ Buffer of data to be written onto SPI1.
+
+@\+Param byte\+Count -\/ Number of bytes to be exchanged.
+
+@\+Param data\+Transmitted -\/ Buffer of data to be read from SPI1.
+
+@\+Example Refer to \mbox{\hyperlink{spi1_8h_a0607cad7a6b302950091fea719146a54}{SPI1\+\_\+\+Initialize()}} for an example ~\newline
+ 
+
+Definition at line 219 of file spi1.\+c.
+
+\mbox{\Hypertarget{spi1_8h_a0607cad7a6b302950091fea719146a54}\label{spi1_8h_a0607cad7a6b302950091fea719146a54}} 
+\index{spi1.h@{spi1.h}!SPI1\_Initialize@{SPI1\_Initialize}}
+\index{SPI1\_Initialize@{SPI1\_Initialize}!spi1.h@{spi1.h}}
+\doxysubsubsection{\texorpdfstring{SPI1\_Initialize()}{SPI1\_Initialize()}}
+{\footnotesize\ttfamily void SPI1\+\_\+\+Initialize (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Section\+: Interface Routines @\+Summary Initializes the SPI instance \+: 1
+
+@\+Description This routine initializes the spi1 driver instance for \+: 1 index, making it ready for clients to open and use it.
+
+This routine must be called before any other SPI1 routine is called. This routine should only be called once during system initialization.
+
+@\+Preconditions None.
+
+@\+Returns None.
+
+@\+Param None.
+
+@\+Example {\ttfamily  uint16\+\_\+t my\+Write\+Buffer\mbox{[}MY\+\_\+\+BUFFER\+\_\+\+SIZE\mbox{]}; uint16\+\_\+t my\+Read\+Buffer\mbox{[}MY\+\_\+\+BUFFER\+\_\+\+SIZE\mbox{]}; uint16\+\_\+t write\+Data; uint16\+\_\+t read\+Data; SPI1\+\_\+\+STATUS status; unsigned int total; SPI1\+\_\+\+Initialize;}
+
+{\ttfamily  total = 0; number\+Of\+Bytes\+Factor = 2; do \{ total = SPI1\+\_\+\+Exchange16bit\+Buffer( \&my\+Write\+Buffer\mbox{[}total\mbox{]}, (MY\+\_\+\+BUFFER\+\_\+\+SIZE -\/ total)$\ast$number\+Of\+Bytes\+Factor, \&my\+Read\+Buffer\mbox{[}total\mbox{]});}
+
+{\ttfamily Do something else... \begin{DoxyVerb}} while( total < MY_BUFFER_SIZE );
+
+readData = SPI1_Exchange16bit( writeData);
+
+status = SPI1_StatusGet();
+
+</code>
+\end{DoxyVerb}
+ }\mbox{\Hypertarget{spi1_8h_a05acfdd41894527bd8833b8f549680ed}\label{spi1_8h_a05acfdd41894527bd8833b8f549680ed}} 
+\index{spi1.h@{spi1.h}!SPI1\_StatusGet@{SPI1\_StatusGet}}
+\index{SPI1\_StatusGet@{SPI1\_StatusGet}!spi1.h@{spi1.h}}
+\doxysubsubsection{\texorpdfstring{SPI1\_StatusGet()}{SPI1\_StatusGet()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{spi1_8h_a023db59f6551e56ce57ee219df328012}{SPI1\+\_\+\+STATUS}} SPI1\+\_\+\+Status\+Get (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+@\+Summary Returns the value of the status register of SPI instance \+: 1
+
+@\+Description This routine returns the value of the status register of SPI1 driver instance \+: 1
+
+@\+Preconditions None.
+
+@\+Returns Returns the value of the status register.
+
+@\+Param None.
+
+@\+Example Refer to \mbox{\hyperlink{spi1_8h_a0607cad7a6b302950091fea719146a54}{SPI1\+\_\+\+Initialize()}} for an example ~\newline
+ 
+
+Definition at line 236 of file spi1.\+c.
+

@@ -1,0 +1,539 @@
+.TH "C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/uart1.c" 3 "Wed Feb 24 2021" "Version 1.0" "Reflow Oven" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/uart1.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdbool\&.h>\fP
+.br
+\fC#include <stdint\&.h>\fP
+.br
+\fC#include <stddef\&.h>\fP
+.br
+\fC#include 'xc\&.h'\fP
+.br
+\fC#include 'uart1\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBUART1_CONFIG_TX_BYTEQ_LENGTH\fP   (8+1)"
+.br
+.ti -1c
+.RI "#define \fBUART1_CONFIG_RX_BYTEQ_LENGTH\fP   (8+1)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBUART1_Initialize\fP (void)"
+.br
+.ti -1c
+.RI "void \fBUART1_SetTxInterruptHandler\fP (void(*interruptHandler)(void))"
+.br
+.ti -1c
+.RI "void \fB__attribute__\fP ((interrupt, no_auto_psv))"
+.br
+.ti -1c
+.RI "void \fB__attribute__\fP ((weak))"
+.br
+.ti -1c
+.RI "void \fBUART1_SetRxInterruptHandler\fP (void(*interruptHandler)(void))"
+.br
+.ti -1c
+.RI "uint8_t \fBUART1_Read\fP (void)"
+.br
+.ti -1c
+.RI "void \fBUART1_Write\fP (uint8_t byte)"
+.br
+.ti -1c
+.RI "bool \fBUART1_IsRxReady\fP (void)"
+.br
+.ti -1c
+.RI "bool \fBUART1_IsTxReady\fP (void)"
+.br
+.ti -1c
+.RI "bool \fBUART1_IsTxDone\fP (void)"
+.br
+.ti -1c
+.RI "unsigned int \fB__attribute__\fP ((deprecated))"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "void(* \fBUART1_TxDefaultInterruptHandler\fP )(void)"
+.br
+.ti -1c
+.RI "void(* \fBUART1_RxDefaultInterruptHandler\fP )(void)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define UART1_CONFIG_RX_BYTEQ_LENGTH   (8+1)"
+
+.PP
+Definition at line 84 of file uart1\&.c\&.
+.SS "#define UART1_CONFIG_TX_BYTEQ_LENGTH   (8+1)"
+UART Driver Queue Length
+.PP
+@Summary Defines the length of the Transmit and Receive Buffers 
+.PP
+Definition at line 83 of file uart1\&.c\&.
+.SH "Function Documentation"
+.PP 
+.SS "unsigned int __attribute__ ((deprecated))"
+@Summary Returns the number of bytes written into the internal buffer
+.PP
+@Description This API transfers the data from application buffer to internal buffer and returns the number of bytes added in that queue
+.PP
+@Preconditions UART1_Initialize function should have been called before calling this function
+.PP
+@Example \fC char myBuffer[MY_BUFFER_SIZE]; unsigned int numBytes; UART1_TRANSFER_STATUS status ;\fP
+.PP
+\fCPre-initialize myBuffer with MY_BUFFER_SIZE bytes of valid data\&. 
+.PP
+.nf
+numBytes = 0;
+while( numBytes < MY_BUFFER_SIZE);
+{
+    status = UART1_TransferStatusGet ( ) ;
+    if (status & UART1_TRANSFER_STATUS_TX_EMPTY)
+    {
+        numBytes += UART1_WriteBuffer ( myBuffer + numBytes, MY_BUFFER_SIZE - numBytes )  ;
+        if(numBytes < writebufferLen)
+        {
+            continue;
+        }
+        else
+        {
+            break;
+        }
+    }
+    else
+    {
+        continue;
+    }
+
+.fi
+.PP
+ Do something else\&.\&.\&. } \fP
+.PP
+@Summary Returns the transmitter and receiver transfer status
+.PP
+@Description This returns the transmitter and receiver transfer status\&.The returned status may contain a value with more than one of the bits specified in the UART1_TRANSFER_STATUS enumeration set\&. 
+.br
+ The caller should perform an 'AND' with the bit of interest and verify if the result is non-zero (as shown in the example) to verify the desired status bit\&.
+.PP
+@Preconditions UART1_Initialize function should have been called before calling this function
+.PP
+@Param None\&.
+.PP
+@Returns A UART1_TRANSFER_STATUS value describing the current status of the transfer\&.
+.PP
+@Example Refer to UART1_ReadBuffer and UART1_WriteBuffer for example
+.PP
+@Summary Returns the character in the read sequence at the offset provided, without extracting it
+.PP
+@Description This routine returns the character in the read sequence at the offset provided, without extracting it
+.PP
+@Param None\&.
+.PP
+@Example \fC uint8_t readBuffer[5]; unsigned int data, numBytes = 0; unsigned int readbufferLen = sizeof(readBuffer); \fBUART1_Initialize()\fP;\fP
+.PP
+\fC while(numBytes < readbufferLen) 
+.br
+ { 
+.br
+ UART1_TasksReceive ( ); Check for data at a particular place in the buffer data = UART1_Peek(3); if(data == 5) { discard all other data if byte that is wanted is received\&. 
+.br
+ continue other operation numBytes += UART1_ReadBuffer ( readBuffer + numBytes , readbufferLen ) ; } else { break; } } \fP
+.PP
+@Summary Returns the status of the receive buffer
+.PP
+@Description This routine returns if the receive buffer is empty or not\&.
+.PP
+@Param None\&.
+.PP
+@Returns True if the receive buffer is empty False if the receive buffer is not empty
+.PP
+@Example \fC char myBuffer[MY_BUFFER_SIZE]; unsigned int numBytes; UART1_TRANSFER_STATUS status ;\fP
+.PP
+\fCPre-initialize myBuffer with MY_BUFFER_SIZE bytes of valid data\&. 
+.PP
+.nf
+numBytes = 0;
+while( numBytes < MY_BUFFER_SIZE);
+{
+    status = UART1_TransferStatusGet ( ) ;
+    if (!UART1_ReceiveBufferIsEmpty())
+    {
+        numBytes += UART1_ReadBuffer( myBuffer + numBytes, MY_BUFFER_SIZE - numBytes )  ;
+        if(numBytes < readbufferLen)
+        {
+            continue;
+        }
+        else
+        {
+            break;
+        }
+    }
+    else
+    {
+        continue;
+    }
+
+.fi
+.PP
+ Do something else\&.\&.\&. } \fP
+.PP
+@Summary Returns the status of the transmit buffer
+.PP
+@Description This routine returns if the transmit buffer is full or not\&.
+.PP
+@Param None\&.
+.PP
+@Returns True if the transmit buffer is full False if the transmit buffer is not full
+.PP
+@Example Refer to \fBUART1_Initialize()\fP for example\&.
+.PP
+@Summary Returns the transmitter and receiver status
+.PP
+@Description This returns the transmitter and receiver status\&. The returned status may contain a value with more than one of the bits specified in the UART1_STATUS enumeration set\&. 
+.br
+ The caller should perform an 'AND' with the bit of interest and verify if the result is non-zero (as shown in the example) to verify the desired status bit\&.
+.PP
+@Preconditions UART1_Initialize function should have been called before calling this function
+.PP
+@Param None\&.
+.PP
+@Returns A UART1_STATUS value describing the current status of the transfer\&.
+.PP
+@Example \fC while(!(UART1_StatusGet & UART1_TX_COMPLETE )) { Wait for the tranmission to complete } \fP
+.PP
+@Summary Allows setting of a the enable bit for the UART1 mode
+.PP
+@Description This routine is used to enable the UART1
+.PP
+@Preconditions \fBUART1_Initialize()\fP function should have been called before calling this function\&.
+.PP
+@Returns None
+.PP
+@Param None
+.PP
+@Example Refer to \fBUART1_Initialize()\fP; for an example
+.PP
+@Summary Allows setting of a the disable bit for the UART1 mode
+.PP
+@Description This routine is used to disable the UART1
+.PP
+@Preconditions \fBUART1_Initialize()\fP function should have been called before calling this function\&.
+.PP
+@Returns None
+.PP
+@Param None
+.PP
+@Example Refer to \fBUART1_Initialize()\fP; for an example
+.PP
+@Summary Returns the number of bytes remaining in the receive buffer
+.PP
+@Description This routine returns the number of bytes remaining in the receive buffer\&.
+.PP
+@Param None\&.
+.PP
+@Returns Remaining size of receive buffer\&.
+.PP
+@Example \fC uint8_t readBuffer[MY_BUFFER_SIZE]; unsigned int size, numBytes = 0; \fBUART1_Initialize()\fP;\fP
+.PP
+\fCPre-initialize readBuffer with MY_BUFFER_SIZE bytes of valid data\&. 
+.PP
+.nf
+while (size < MY_BUFFER_SIZE) {
+    size = UART1_ReceiveBufferSizeGet();
+}
+numBytes = UART1_ReadBuffer(readBuffer, MY_BUFFER_SIZE);
+</code>
+
+.fi
+.PP
+\fP
+.PP
+\fC @Summary Returns the number of bytes remaining in the transmit buffer\&.\fP
+.PP
+\fC @Description This routine returns the number of bytes remaining in the transmit buffer\&.\fP
+.PP
+\fC@Param None\&.\fP
+.PP
+\fC@Returns Remaining size of transmit buffer\&.\fP
+.PP
+\fC@Example Refer to \fBUART1_Initialize()\fP; for example\&.\fP
+.PP
+\fC @Summary Returns the number of bytes written into the internal buffer\fP
+.PP
+\fC @Description This API transfers the data from application buffer to internal buffer and returns the number of bytes added in that queue\fP
+.PP
+\fC @Preconditions UART2_Initialize function should have been called before calling this function\fP
+.PP
+\fC @Example \fC char myBuffer[MY_BUFFER_SIZE]; unsigned int numBytes; UART2_TRANSFER_STATUS status ;\fP\fP
+.PP
+\fC\fCPre-initialize myBuffer with MY_BUFFER_SIZE bytes of valid data\&. 
+.PP
+.nf
+numBytes = 0;
+while( numBytes < MY_BUFFER_SIZE);
+{
+    status = UART2_TransferStatusGet ( ) ;
+    if (status & UART2_TRANSFER_STATUS_TX_EMPTY)
+    {
+        numBytes += UART2_WriteBuffer ( myBuffer + numBytes, MY_BUFFER_SIZE - numBytes )  ;
+        if(numBytes < writebufferLen)
+        {
+            continue;
+        }
+        else
+        {
+            break;
+        }
+    }
+    else
+    {
+        continue;
+    }
+
+.fi
+.PP
+ Do something else\&.\&.\&. } \fP\fP
+.PP
+\fC@Summary Returns the transmitter and receiver transfer status\fP
+.PP
+\fC@Description This returns the transmitter and receiver transfer status\&.The returned status may contain a value with more than one of the bits specified in the UART2_TRANSFER_STATUS enumeration set\&. 
+.br
+ The caller should perform an 'AND' with the bit of interest and verify if the result is non-zero (as shown in the example) to verify the desired status bit\&.\fP
+.PP
+\fC@Preconditions UART2_Initialize function should have been called before calling this function\fP
+.PP
+\fC@Param None\&.\fP
+.PP
+\fC@Returns A UART2_TRANSFER_STATUS value describing the current status of the transfer\&.\fP
+.PP
+\fC@Example Refer to UART2_ReadBuffer and UART2_WriteBuffer for example\fP
+.PP
+\fC @Summary Returns the character in the read sequence at the offset provided, without extracting it\fP
+.PP
+\fC @Description This routine returns the character in the read sequence at the offset provided, without extracting it\fP
+.PP
+\fC @Param None\&.\fP
+.PP
+\fC @Example \fC uint8_t readBuffer[5]; unsigned int data, numBytes = 0; unsigned int readbufferLen = sizeof(readBuffer); \fBUART2_Initialize()\fP;\fP\fP
+.PP
+\fC\fC while(numBytes < readbufferLen) 
+.br
+ { 
+.br
+ UART2_TasksReceive ( ); Check for data at a particular place in the buffer data = UART2_Peek(3); if(data == 5) { discard all other data if byte that is wanted is received\&. 
+.br
+ continue other operation numBytes += UART2_ReadBuffer ( readBuffer + numBytes , readbufferLen ) ; } else { break; } } \fP\fP
+.PP
+\fC @Summary Returns the status of the receive buffer\fP
+.PP
+\fC @Description This routine returns if the receive buffer is empty or not\&.\fP
+.PP
+\fC @Param None\&.\fP
+.PP
+\fC @Returns True if the receive buffer is empty False if the receive buffer is not empty\fP
+.PP
+\fC @Example \fC char myBuffer[MY_BUFFER_SIZE]; unsigned int numBytes; UART2_TRANSFER_STATUS status ;\fP\fP
+.PP
+\fC\fCPre-initialize myBuffer with MY_BUFFER_SIZE bytes of valid data\&. 
+.PP
+.nf
+numBytes = 0;
+while( numBytes < MY_BUFFER_SIZE);
+{
+    status = UART2_TransferStatusGet ( ) ;
+    if (!UART2_ReceiveBufferIsEmpty())
+    {
+        numBytes += UART2_ReadBuffer( myBuffer + numBytes, MY_BUFFER_SIZE - numBytes )  ;
+        if(numBytes < readbufferLen)
+        {
+            continue;
+        }
+        else
+        {
+            break;
+        }
+    }
+    else
+    {
+        continue;
+    }
+
+.fi
+.PP
+ Do something else\&.\&.\&. } \fP\fP
+.PP
+\fC @Summary Returns the status of the transmit buffer\fP
+.PP
+\fC @Description This routine returns if the transmit buffer is full or not\&.\fP
+.PP
+\fC@Param None\&.\fP
+.PP
+\fC@Returns True if the transmit buffer is full False if the transmit buffer is not full\fP
+.PP
+\fC@Example Refer to \fBUART2_Initialize()\fP for example\&.\fP
+.PP
+\fC @Summary Returns the transmitter and receiver status\fP
+.PP
+\fC @Description This returns the transmitter and receiver status\&. The returned status may contain a value with more than one of the bits specified in the UART2_STATUS enumeration set\&. 
+.br
+ The caller should perform an 'AND' with the bit of interest and verify if the result is non-zero (as shown in the example) to verify the desired status bit\&.\fP
+.PP
+\fC @Preconditions UART2_Initialize function should have been called before calling this function\fP
+.PP
+\fC @Param None\&.\fP
+.PP
+\fC @Returns A UART2_STATUS value describing the current status of the transfer\&.\fP
+.PP
+\fC @Example \fC while(!(UART2_StatusGet & UART2_TX_COMPLETE )) { Wait for the tranmission to complete } \fP\fP
+.PP
+\fC@Summary Allows setting of a the enable bit for the UART2 mode\fP
+.PP
+\fC@Description This routine is used to enable the UART2\fP
+.PP
+\fC@Preconditions \fBUART2_Initialize()\fP function should have been called before calling this function\&.\fP
+.PP
+\fC@Returns None\fP
+.PP
+\fC@Param None\fP
+.PP
+\fC@Example Refer to \fBUART2_Initialize()\fP; for an example\fP
+.PP
+\fC@Summary Allows setting of a the disable bit for the UART2 mode\fP
+.PP
+\fC@Description This routine is used to disable the UART2\fP
+.PP
+\fC@Preconditions \fBUART2_Initialize()\fP function should have been called before calling this function\&.\fP
+.PP
+\fC@Returns None\fP
+.PP
+\fC@Param None\fP
+.PP
+\fC@Example Refer to \fBUART2_Initialize()\fP; for an example\fP
+.PP
+\fC @Summary Returns the number of bytes remaining in the receive buffer\fP
+.PP
+\fC @Description This routine returns the number of bytes remaining in the receive buffer\&.\fP
+.PP
+\fC @Param None\&.\fP
+.PP
+\fC @Returns Remaining size of receive buffer\&.\fP
+.PP
+\fC @Example \fC uint8_t readBuffer[MY_BUFFER_SIZE]; unsigned int size, numBytes = 0; \fBUART2_Initialize()\fP;\fP\fP
+.PP
+\fC\fCPre-initialize readBuffer with MY_BUFFER_SIZE bytes of valid data\&. 
+.PP
+.nf
+while (size < MY_BUFFER_SIZE) {
+    size = UART2_ReceiveBufferSizeGet();
+}
+numBytes = UART2_ReadBuffer(readBuffer, MY_BUFFER_SIZE);
+</code>
+
+.fi
+.PP
+\fP\fP
+.PP
+\fC\fC @Summary Returns the number of bytes remaining in the transmit buffer\&.\fP\fP
+.PP
+\fC\fC @Description This routine returns the number of bytes remaining in the transmit buffer\&.\fP\fP
+.PP
+\fC\fC@Param None\&.\fP\fP
+.PP
+\fC\fC@Returns Remaining size of transmit buffer\&.\fP\fP
+.PP
+\fC\fC@Example Refer to \fBUART2_Initialize()\fP; for example\&. \fP\fP
+.PP
+Definition at line 369 of file uart1\&.c\&.
+.SS "void __attribute__ ((interrupt, no_auto_psv))"
+
+.PP
+Definition at line 152 of file uart1\&.c\&.
+.SS "void __attribute__ ((weak))"
+
+.PP
+Definition at line 182 of file uart1\&.c\&.
+.SS "void UART1_Initialize (void)"
+Section: Driver Interface 
+.PP
+Definition at line 103 of file uart1\&.c\&.
+.SS "bool UART1_IsRxReady (void)"
+@Description Indicates of there is data available to read\&.
+.PP
+@Returns true if byte can be read\&. false if byte can't be read right now\&. 
+.PP
+Definition at line 285 of file uart1\&.c\&.
+.SS "bool UART1_IsTxDone (void)"
+@Description Indicates if all bytes have been transferred\&.
+.PP
+@Returns true if all bytes transfered\&. false if there is still data pending to transfer\&. 
+.PP
+Definition at line 307 of file uart1\&.c\&.
+.SS "bool UART1_IsTxReady (void)"
+@Description Indicates if a byte can be written\&.
+.PP
+@Returns true if byte can be written\&. false if byte can't be written right now\&. 
+.PP
+Definition at line 290 of file uart1\&.c\&.
+.SS "uint8_t UART1_Read (void)"
+Section: UART Driver Client Routines 
+.PP
+Definition at line 248 of file uart1\&.c\&.
+.SS "void UART1_SetRxInterruptHandler (void(*)(void) interruptHandler)"
+@Summary Assigns a function pointer with a receive callback address\&.
+.PP
+@Description This routine assigns a function pointer with a receive callback address\&.
+.PP
+@Param Address of the callback routine\&.
+.PP
+@Returns None
+.PP
+@Example \fC UART1_SetRxInterruptHandler(&UART1_Receive_CallBack); \fP 
+.PP
+Definition at line 187 of file uart1\&.c\&.
+.SS "void UART1_SetTxInterruptHandler (void(*)(void) interruptHandler)"
+Maintains the driver's transmitter state machine and implements its ISR 
+.PP
+Definition at line 140 of file uart1\&.c\&.
+.SS "void UART1_Write (uint8_t byte)"
+@Summary Writes a byte of data to the UART1
+.PP
+@Description This routine writes a byte of data to the UART1\&.
+.PP
+@Preconditions UART1_Initialize function should have been called before calling this function\&. The transfer status should be checked to see if transmitter is not full before calling this function\&.
+.PP
+@Param byte - Data byte to write to the UART1
+.PP
+@Returns None\&.
+.PP
+@Example None\&. 
+.PP
+Definition at line 267 of file uart1\&.c\&.
+.SH "Variable Documentation"
+.PP 
+.SS "void(* UART1_RxDefaultInterruptHandler) (void) (void)"
+
+.PP
+Definition at line 97 of file uart1\&.c\&.
+.SS "void(* UART1_TxDefaultInterruptHandler) (void) (void)"
+
+.PP
+Definition at line 96 of file uart1\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Reflow Oven from the source code\&.

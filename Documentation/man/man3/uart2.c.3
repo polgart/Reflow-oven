@@ -1,0 +1,171 @@
+.TH "C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/uart2.c" 3 "Wed Feb 24 2021" "Version 1.0" "Reflow Oven" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/uart2.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdbool\&.h>\fP
+.br
+\fC#include <stdint\&.h>\fP
+.br
+\fC#include <stddef\&.h>\fP
+.br
+\fC#include 'xc\&.h'\fP
+.br
+\fC#include 'uart2\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBUART2_CONFIG_TX_BYTEQ_LENGTH\fP   (8+1)"
+.br
+.ti -1c
+.RI "#define \fBUART2_CONFIG_RX_BYTEQ_LENGTH\fP   (8+1)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBUART2_Initialize\fP (void)"
+.br
+.ti -1c
+.RI "void \fBUART2_SetTxInterruptHandler\fP (void(*interruptHandler)(void))"
+.br
+.ti -1c
+.RI "void \fB__attribute__\fP ((interrupt, no_auto_psv))"
+.br
+.ti -1c
+.RI "void \fB__attribute__\fP ((weak))"
+.br
+.ti -1c
+.RI "void \fBUART2_SetRxInterruptHandler\fP (void(*interruptHandler)(void))"
+.br
+.ti -1c
+.RI "uint8_t \fBUART2_Read\fP (void)"
+.br
+.ti -1c
+.RI "void \fBUART2_Write\fP (uint8_t byte)"
+.br
+.ti -1c
+.RI "bool \fBUART2_IsRxReady\fP (void)"
+.br
+.ti -1c
+.RI "bool \fBUART2_IsTxReady\fP (void)"
+.br
+.ti -1c
+.RI "bool \fBUART2_IsTxDone\fP (void)"
+.br
+.ti -1c
+.RI "unsigned int \fB__attribute__\fP ((deprecated))"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "void(* \fBUART2_TxDefaultInterruptHandler\fP )(void)"
+.br
+.ti -1c
+.RI "void(* \fBUART2_RxDefaultInterruptHandler\fP )(void)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define UART2_CONFIG_RX_BYTEQ_LENGTH   (8+1)"
+
+.PP
+Definition at line 84 of file uart2\&.c\&.
+.SS "#define UART2_CONFIG_TX_BYTEQ_LENGTH   (8+1)"
+UART Driver Queue Length
+.PP
+@Summary Defines the length of the Transmit and Receive Buffers 
+.PP
+Definition at line 83 of file uart2\&.c\&.
+.SH "Function Documentation"
+.PP 
+.SS "unsigned int __attribute__ ((deprecated))"
+
+.PP
+Definition at line 369 of file uart2\&.c\&.
+.SS "void __attribute__ ((interrupt, no_auto_psv))"
+
+.PP
+Definition at line 152 of file uart2\&.c\&.
+.SS "void __attribute__ ((weak))"
+
+.PP
+Definition at line 182 of file uart2\&.c\&.
+.SS "void UART2_Initialize (void)"
+Section: Driver Interface 
+.PP
+Definition at line 103 of file uart2\&.c\&.
+.SS "bool UART2_IsRxReady (void)"
+@Description Indicates of there is data available to read\&.
+.PP
+@Returns true if byte can be read\&. false if byte can't be read right now\&. 
+.PP
+Definition at line 285 of file uart2\&.c\&.
+.SS "bool UART2_IsTxDone (void)"
+@Description Indicates if all bytes have been transferred\&.
+.PP
+@Returns true if all bytes transfered\&. false if there is still data pending to transfer\&. 
+.PP
+Definition at line 307 of file uart2\&.c\&.
+.SS "bool UART2_IsTxReady (void)"
+@Description Indicates if a byte can be written\&.
+.PP
+@Returns true if byte can be written\&. false if byte can't be written right now\&. 
+.PP
+Definition at line 290 of file uart2\&.c\&.
+.SS "uint8_t UART2_Read (void)"
+Section: UART Driver Client Routines 
+.PP
+Definition at line 248 of file uart2\&.c\&.
+.SS "void UART2_SetRxInterruptHandler (void(*)(void) interruptHandler)"
+@Summary Assigns a function pointer with a receive callback address\&.
+.PP
+@Description This routine assigns a function pointer with a receive callback address\&.
+.PP
+@Param Address of the callback routine\&.
+.PP
+@Returns None
+.PP
+@Example \fC UART2_SetRxInterruptHandler(&UART2_Receive_CallBack); \fP 
+.PP
+Definition at line 187 of file uart2\&.c\&.
+.SS "void UART2_SetTxInterruptHandler (void(*)(void) interruptHandler)"
+Maintains the driver's transmitter state machine and implements its ISR 
+.PP
+Definition at line 140 of file uart2\&.c\&.
+.SS "void UART2_Write (uint8_t byte)"
+@Summary Writes a byte of data to the UART2
+.PP
+@Description This routine writes a byte of data to the UART2\&.
+.PP
+@Preconditions UART2_Initialize function should have been called before calling this function\&. The transfer status should be checked to see if transmitter is not full before calling this function\&.
+.PP
+@Param byte - Data byte to write to the UART2
+.PP
+@Returns None\&.
+.PP
+@Example None\&. 
+.PP
+Definition at line 267 of file uart2\&.c\&.
+.SH "Variable Documentation"
+.PP 
+.SS "void(* UART2_RxDefaultInterruptHandler) (void) (void)"
+
+.PP
+Definition at line 97 of file uart2\&.c\&.
+.SS "void(* UART2_TxDefaultInterruptHandler) (void) (void)"
+
+.PP
+Definition at line 96 of file uart2\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Reflow Oven from the source code\&.

@@ -1,0 +1,755 @@
+\hypertarget{base_s_w_8c}{}\doxysection{base\+SW.\+c File Reference}
+\label{base_s_w_8c}\index{baseSW.c@{baseSW.c}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}base\+SW.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}state\+Task\+Handler.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mcc\+\_\+generated\+\_\+files/tmr2.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mcc\+\_\+generated\+\_\+files/uart1.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mcc\+\_\+generated\+\_\+files/uart2.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mcc\+\_\+generated\+\_\+files/spi1.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mcc\+\_\+generated\+\_\+files/i2c1.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}EEPROM\+\_\+driver.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mcc\+\_\+generated\+\_\+files/pin\+\_\+manager.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r}{TEMPERATURE\+\_\+\+BUFFER}}
+\begin{DoxyCompactList}\small\item\em Reference temperature buffer. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e}{TEMPERATURE\+\_\+\+PROFILE}}
+\begin{DoxyCompactList}\small\item\em Reference temperature profile. \end{DoxyCompactList}\item 
+union \mbox{\hyperlink{union_i_c___m_a_x31855___d_a_t_a}{IC\+\_\+\+MAX31855\+\_\+\+DATA}}
+\item 
+struct \mbox{\hyperlink{struct_s_e_n_s_o_r___d_a_t_a}{SENSOR\+\_\+\+DATA}}
+\item 
+union \mbox{\hyperlink{union_b_s___d_a_t_a___o_b_j}{BS\+\_\+\+DATA\+\_\+\+OBJ}}
+\item 
+struct \mbox{\hyperlink{struct_t_r_a_n_s_c_i_e_v_e___o_b_j}{TRANSCIEVE\+\_\+\+OBJ}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{base_s_w_8c_a82ad24592415f1e7dd0fab9811e434ea}{HEAT\+\_\+\+PROFILE\+\_\+\+SIZE}}~1024
+\begin{DoxyCompactList}\small\item\em Heat profile buffer size. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{base_s_w_8c_ae8124ed52c1d38dcd771b78a89c1d226}{SENSOR\+\_\+\+DATA\+\_\+\+STORE\+\_\+\+LENGTH}}~10
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{base_s_w_8c_a58b2042d633892568e5fbcaf5e4ac423}{TEMPERATURE\+\_\+\+BUFFER\+\_\+\+STATUS}} \{ \mbox{\hyperlink{base_s_w_8c_a58b2042d633892568e5fbcaf5e4ac423a74e872d753fc7bbb042464e18c59c1ab}{TB\+\_\+\+RECEIVE\+\_\+\+FROM\+\_\+\+PC}}
+, \mbox{\hyperlink{base_s_w_8c_a58b2042d633892568e5fbcaf5e4ac423aab853014fafaf854f37dea63cae4e998}{TB\+\_\+\+SEND\+\_\+\+TO\+\_\+\+EEPROM}}
+, \mbox{\hyperlink{base_s_w_8c_a58b2042d633892568e5fbcaf5e4ac423abd30782fafe840f4d347c3c7b456c85e}{TB\+\_\+\+RECEIVE\+\_\+\+FROM\+\_\+\+EEPROM}}
+, \mbox{\hyperlink{base_s_w_8c_a58b2042d633892568e5fbcaf5e4ac423afd6a0e4343048b10646dd2976cc5ad18}{IDLE}}
+ \}
+\begin{DoxyCompactList}\small\item\em Reference temperature buffer status. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{base_s_w_8c_aa8f22ecbe143bb20aaab87a0887844c7}{FTDI\+\_\+\+STATUS}} \{ \newline
+\mbox{\hyperlink{base_s_w_8c_aa8f22ecbe143bb20aaab87a0887844c7a40a71b2d40ad7ef49b7e28e422ae351e}{NORMAL\+\_\+\+OPERATION}}
+, \mbox{\hyperlink{base_s_w_8c_aa8f22ecbe143bb20aaab87a0887844c7a1b57bbf7b1c2160058a0fbe5858cddb5}{RECEIVE\+\_\+\+HEAT\+\_\+\+PROFILE}}
+, \mbox{\hyperlink{base_s_w_8c_aa8f22ecbe143bb20aaab87a0887844c7ae2d0852810163567f323a00b303e7286}{SEND\+\_\+\+HEAT\+\_\+\+PROFILE\+\_\+\+TO\+\_\+\+EEPROM}}
+, \mbox{\hyperlink{base_s_w_8c_aa8f22ecbe143bb20aaab87a0887844c7ab3de1e25d10ae403e278841fec19a45f}{RECEIVE\+\_\+\+PROFILE\+\_\+\+FROM\+\_\+\+EEPROM}}
+, \newline
+\mbox{\hyperlink{base_s_w_8c_aa8f22ecbe143bb20aaab87a0887844c7a3a592e9811844c507e9e173f92083a16}{WRITE\+\_\+\+EEPROM\+\_\+\+COMMAND\+\_\+\+HIGH\+\_\+\+BYTE}}
+, \mbox{\hyperlink{base_s_w_8c_aa8f22ecbe143bb20aaab87a0887844c7ad8db6628bc8d9c05c64025d314a65419}{WRITE\+\_\+\+EEPROM\+\_\+\+COMMAND\+\_\+\+LOW\+\_\+\+BYTE}}
+ \}
+\item 
+enum \mbox{\hyperlink{base_s_w_8c_a074deb404aea4ae6dca1b9c44d66116a}{NEXTION\+\_\+\+STATUS}} \{ \mbox{\hyperlink{base_s_w_8c_a074deb404aea4ae6dca1b9c44d66116aa90762a477aa0f30aea8aa3cb976a5398}{NEXTION\+\_\+\+NORMAL\+\_\+\+OPERATION}}
+, \mbox{\hyperlink{base_s_w_8c_a074deb404aea4ae6dca1b9c44d66116aad9e1dbc9cdfe9d975f431ad11d5748da}{NEXTION\+\_\+\+WRITE\+\_\+\+EEPROM\+\_\+\+COMMAND\+\_\+\+HIGH\+\_\+\+BYTE}}
+, \mbox{\hyperlink{base_s_w_8c_a074deb404aea4ae6dca1b9c44d66116aaebec46a1f267d51cf56719b5ac4ab19d}{NEXTION\+\_\+\+WRITE\+\_\+\+EEPROM\+\_\+\+COMMAND\+\_\+\+LOW\+\_\+\+BYTE}}
+, \mbox{\hyperlink{base_s_w_8c_a074deb404aea4ae6dca1b9c44d66116aab849175f420bc7a346b2865c0d2c4a27}{NEXTION\+\_\+\+RECEIVE\+\_\+\+PROFILE\+\_\+\+FROM\+\_\+\+EEPROM}}
+ \}
+\item 
+enum \mbox{\hyperlink{base_s_w_8c_ae5d95f3971b48ffc0b84e3290ef41ed7}{TRANSCIEVE\+\_\+\+STATUS}} \{ \mbox{\hyperlink{base_s_w_8c_ae5d95f3971b48ffc0b84e3290ef41ed7a6d9519cd7bf055df890493eb4f6fa6b6}{TRANSCIEVE\+\_\+\+FULL\+\_\+\+HEAT\+\_\+\+PROFILE}}
+, \mbox{\hyperlink{base_s_w_8c_ae5d95f3971b48ffc0b84e3290ef41ed7a80edd9e2810683393aee79b2f5b9bdbc}{TRANSCIEVE\+\_\+\+CURRENT\+\_\+\+DATA}}
+, \mbox{\hyperlink{base_s_w_8c_ae5d95f3971b48ffc0b84e3290ef41ed7a138de0a3f25fd929967f47c72048b208}{TRANSCIEVE\+\_\+\+IDLE}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{base_s_w_8c_a2c86cf77e88db89f9983c1b05aac1d45}{enable\+Heat}} ()
+\item 
+void \mbox{\hyperlink{base_s_w_8c_a381d6c14a0d21de9943fdf12040729b3}{disable\+Heat}} ()
+\item 
+void \mbox{\hyperlink{base_s_w_8c_aa16cf163141a074b2ddb3a60497d8b99}{Idle\+State\+\_\+callback}} ()
+\item 
+void \mbox{\hyperlink{base_s_w_8c_ab2b78c4d809057c8fa3d4074d99a33e6}{load\+Buffer}} ()
+\item 
+bool \mbox{\hyperlink{base_s_w_8c_a83e759d4fde4c1f2290f01c8ba5e7e76}{check\+Start\+Conditions}} ()
+\item 
+void \mbox{\hyperlink{base_s_w_8c_a23b1f41f8c818f17b24b6da7d9af6cd6}{Read\+Temperature\+Data\+\_\+callback}} ()
+\item 
+void \mbox{\hyperlink{base_s_w_8c_a1d1ee0fb69c723856a3009c9dfb74309}{Receive\+Nextion\+Data\+\_\+callback}} ()
+\item 
+void \mbox{\hyperlink{base_s_w_8c_af341203893341c4fc0aca6617827cc78}{Receive\+FTDI\+\_\+callback}} ()
+\item 
+void \mbox{\hyperlink{base_s_w_8c_a27ccec4e551f47ff3fe3c4b6afc07597}{generic\+Tranciver\+Function}} ()
+\item 
+void \mbox{\hyperlink{base_s_w_8c_a3821cc2458a1a57bb47d074adab7041c}{Transcieve\+Nextion\+DATA\+\_\+callback}} ()
+\item 
+void \mbox{\hyperlink{base_s_w_8c_a5574a7efe563c4a0dcd5a6d14aa25c81}{Transcive\+FTDI\+\_\+callback}} ()
+\item 
+void \mbox{\hyperlink{base_s_w_8c_ae2abe0c4c78bc2075dad10c581eedbbe}{Read\+EEPROM\+\_\+callback}} ()
+\item 
+void \mbox{\hyperlink{base_s_w_8c_a4dd0edb41d6818c4b66830d7d5d5f8d4}{Write\+EEPROM\+\_\+callback}} ()
+\item 
+void \mbox{\hyperlink{base_s_w_8c_a73ac441321bc3bbf8179034ce1f61a0b}{base\+SW\+\_\+\+TMR2\+\_\+\+ISR}} (void)
+\item 
+void \mbox{\hyperlink{base_s_w_8c_a6d1cf63a62044d720224a87ec491428f}{base\+SW\+\_\+\+UART1\+\_\+tx\+\_\+\+ISR}} (void)
+\item 
+void \mbox{\hyperlink{base_s_w_8c_a15ed18da4c6b19d2eb4c49972003f601}{base\+SW\+\_\+\+UART2\+\_\+tx\+\_\+\+ISR}} (void)
+\item 
+void \mbox{\hyperlink{base_s_w_8c_ad7e00ee96d8ec199bb9b5b48fdecd138}{base\+SW\+\_\+\+UART1\+\_\+rx\+\_\+\+ISR}} (void)
+\item 
+void \mbox{\hyperlink{base_s_w_8c_a8027f524cdcb8a3a462b2a6addbab4a5}{base\+SW\+\_\+\+UART2\+\_\+rx\+\_\+\+ISR}} (void)
+\item 
+\mbox{\hyperlink{state_task_handler_8h_ac70d77726e89cd77b1604f36f0768724}{state\+Task\+List}} $\ast$ \mbox{\hyperlink{base_s_w_8c_a26152edbd9eb97c5e90eb637c8535600}{base\+SW\+\_\+\+Initialize}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const uint16\+\_\+t \mbox{\hyperlink{base_s_w_8c_a563dcdd951ca06a98e8526fc7fa2192f}{EEPROM\+\_\+\+ADDRESS}} = 0x00
+\item 
+const uint16\+\_\+t \mbox{\hyperlink{base_s_w_8c_a0ef8a1d4d3bc515d6b5f09d2ea92784d}{INTERNAL\+\_\+\+MAX\+\_\+\+TEMPERATURE}} = 0x0000
+\item 
+const uint16\+\_\+t \mbox{\hyperlink{base_s_w_8c_a0e65fe51cfde598b1359de52fe957f96}{THERMOCOUPLE\+\_\+\+MAX\+\_\+\+TEMPERATURE}} = 0x0000
+\item 
+\mbox{\hyperlink{state_task_handler_8h_ac70d77726e89cd77b1604f36f0768724}{state\+Task\+List}} $\ast$ \mbox{\hyperlink{base_s_w_8c_a8f175c7c18b1b26153b20e02c9ac85f2}{Idle\+State}} = NULL
+\begin{DoxyCompactList}\small\item\em Idle state. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{state_task_handler_8h_ac70d77726e89cd77b1604f36f0768724}{state\+Task\+List}} $\ast$ \mbox{\hyperlink{base_s_w_8c_ae988bdbcac15d558e5e41a614cc8aff6}{Read\+Temperature\+Data}} = NULL
+\begin{DoxyCompactList}\small\item\em Read data from MAX31855\+KASA+T state. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{state_task_handler_8h_ac70d77726e89cd77b1604f36f0768724}{state\+Task\+List}} $\ast$ \mbox{\hyperlink{base_s_w_8c_a2ce319c293d5ba72597e1f6ac24e781e}{Receive\+Nextion\+Data}} = NULL
+\begin{DoxyCompactList}\small\item\em Receive data from Nextion HMI state. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{state_task_handler_8h_ac70d77726e89cd77b1604f36f0768724}{state\+Task\+List}} $\ast$ \mbox{\hyperlink{base_s_w_8c_aa0d66d63cdd225ac5fbfad3da5fb2aa2}{Receive\+FTDI}} = NULL
+\begin{DoxyCompactList}\small\item\em Receive data from FTDI state. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{state_task_handler_8h_ac70d77726e89cd77b1604f36f0768724}{state\+Task\+List}} $\ast$ \mbox{\hyperlink{base_s_w_8c_a8510c904a0838a801df49a56fdf6b2eb}{Transcieve\+Nextion\+DATA}} = NULL
+\begin{DoxyCompactList}\small\item\em Broadcast temperature data to the Nextion HMI. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{state_task_handler_8h_ac70d77726e89cd77b1604f36f0768724}{state\+Task\+List}} $\ast$ \mbox{\hyperlink{base_s_w_8c_a94c64146512690d44f192b2bf3f1d67e}{Transcive\+FTDI}} = NULL
+\begin{DoxyCompactList}\small\item\em Broadcast temperature data to the PC. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{state_task_handler_8h_ac70d77726e89cd77b1604f36f0768724}{state\+Task\+List}} $\ast$ \mbox{\hyperlink{base_s_w_8c_af23b05db9a9807c4a6abce18a6d4d8f2}{Read\+EEPROM}} = NULL
+\begin{DoxyCompactList}\small\item\em Read heat profile from EEPROM. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{state_task_handler_8h_ac70d77726e89cd77b1604f36f0768724}{state\+Task\+List}} $\ast$ \mbox{\hyperlink{base_s_w_8c_a08c6431afb7c20104abce9c7e1ddfd80}{Write\+EEPROM}} = NULL
+\begin{DoxyCompactList}\small\item\em Write heat profile into EEPROM. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{base_s_w_8c_acc1fffcd67af20d39741d2f2654472bd}{heat\+Profile\+Current}} \mbox{[}\mbox{\hyperlink{base_s_w_8c_a82ad24592415f1e7dd0fab9811e434ea}{HEAT\+\_\+\+PROFILE\+\_\+\+SIZE}}\mbox{]}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{base_s_w_8c_a05687d20618c0736fd05307bf70d78c2}{heat\+Profile\+Buffer}} \mbox{[}\mbox{\hyperlink{base_s_w_8c_a82ad24592415f1e7dd0fab9811e434ea}{HEAT\+\_\+\+PROFILE\+\_\+\+SIZE}}\mbox{]}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{base_s_w_8c_a64a3817e3aecfb84759dbe16f0598b63}{heat\+Profile\+Defult}} \mbox{[}\mbox{\hyperlink{base_s_w_8c_a82ad24592415f1e7dd0fab9811e434ea}{HEAT\+\_\+\+PROFILE\+\_\+\+SIZE}}\mbox{]}
+\item 
+static \mbox{\hyperlink{struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e}{TEMPERATURE\+\_\+\+PROFILE}} \mbox{\hyperlink{base_s_w_8c_a95c3c5f6ac11b4bb577a8cec8d78ed83}{temperature\+Heat\+Profile}}
+\item 
+\mbox{\hyperlink{struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r}{TEMPERATURE\+\_\+\+BUFFER}} \mbox{\hyperlink{base_s_w_8c_a17f63b1acf2a4318319bf4ee1034dc32}{temperature\+Buffer\+Array}} \mbox{[}3\mbox{]}
+\item 
+static \mbox{\hyperlink{struct_s_e_n_s_o_r___d_a_t_a}{SENSOR\+\_\+\+DATA}} \mbox{\hyperlink{base_s_w_8c_a4c9c129df2ec47d40e423ec488b68003}{SENSOR\+\_\+\+DATA\+\_\+\+HANDLER}}
+\item 
+static \mbox{\hyperlink{union_i_c___m_a_x31855___d_a_t_a}{IC\+\_\+\+MAX31855\+\_\+\+DATA}} \mbox{\hyperlink{base_s_w_8c_ab67585954a0e34c0483e722e554d94a9}{SENSOR\+\_\+\+DATA\+\_\+\+ARRAYS}} \mbox{[}\mbox{\hyperlink{base_s_w_8c_ae8124ed52c1d38dcd771b78a89c1d226}{SENSOR\+\_\+\+DATA\+\_\+\+STORE\+\_\+\+LENGTH}}\mbox{]}
+\item 
+static \mbox{\hyperlink{base_s_w_8c_aa8f22ecbe143bb20aaab87a0887844c7}{FTDI\+\_\+\+STATUS}} \mbox{\hyperlink{base_s_w_8c_a7df19956937ec36d493dce374f6cd666}{ftdi\+Status}} = \mbox{\hyperlink{base_s_w_8c_aa8f22ecbe143bb20aaab87a0887844c7a40a71b2d40ad7ef49b7e28e422ae351e}{NORMAL\+\_\+\+OPERATION}}
+\item 
+static \mbox{\hyperlink{base_s_w_8c_a074deb404aea4ae6dca1b9c44d66116a}{NEXTION\+\_\+\+STATUS}} \mbox{\hyperlink{base_s_w_8c_ad2b5ee2fb756cad7b97b80bc28b92861}{nextion\+Status}} = \mbox{\hyperlink{base_s_w_8c_a074deb404aea4ae6dca1b9c44d66116aa90762a477aa0f30aea8aa3cb976a5398}{NEXTION\+\_\+\+NORMAL\+\_\+\+OPERATION}}
+\item 
+static uint8\+\_\+t \mbox{\hyperlink{base_s_w_8c_a719eb27927e046143f99cd1be625a495}{HEAT\+\_\+\+IN\+\_\+\+PROGRESS}} = false
+\item 
+static \mbox{\hyperlink{struct_t_r_a_n_s_c_i_e_v_e___o_b_j}{TRANSCIEVE\+\_\+\+OBJ}} \mbox{\hyperlink{base_s_w_8c_a13afc5148f79044f6a591b795e8edbe0}{transcive\+Obj}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{base_s_w_8c_a82ad24592415f1e7dd0fab9811e434ea}\label{base_s_w_8c_a82ad24592415f1e7dd0fab9811e434ea}} 
+\index{baseSW.c@{baseSW.c}!HEAT\_PROFILE\_SIZE@{HEAT\_PROFILE\_SIZE}}
+\index{HEAT\_PROFILE\_SIZE@{HEAT\_PROFILE\_SIZE}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{HEAT\_PROFILE\_SIZE}{HEAT\_PROFILE\_SIZE}}
+{\footnotesize\ttfamily \#define HEAT\+\_\+\+PROFILE\+\_\+\+SIZE~1024}
+
+
+
+Heat profile buffer size. 
+
+Each byte in the buffer represents a reference temeprature at a given time. The maximum reference temperature is 25+255=280 celsis degree, and the minimum reference temperature is 25 celsius degree. 
+
+Definition at line 38 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_ae8124ed52c1d38dcd771b78a89c1d226}\label{base_s_w_8c_ae8124ed52c1d38dcd771b78a89c1d226}} 
+\index{baseSW.c@{baseSW.c}!SENSOR\_DATA\_STORE\_LENGTH@{SENSOR\_DATA\_STORE\_LENGTH}}
+\index{SENSOR\_DATA\_STORE\_LENGTH@{SENSOR\_DATA\_STORE\_LENGTH}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{SENSOR\_DATA\_STORE\_LENGTH}{SENSOR\_DATA\_STORE\_LENGTH}}
+{\footnotesize\ttfamily \#define SENSOR\+\_\+\+DATA\+\_\+\+STORE\+\_\+\+LENGTH~10}
+
+
+
+Definition at line 168 of file base\+SW.\+c.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{base_s_w_8c_aa8f22ecbe143bb20aaab87a0887844c7}\label{base_s_w_8c_aa8f22ecbe143bb20aaab87a0887844c7}} 
+\index{baseSW.c@{baseSW.c}!FTDI\_STATUS@{FTDI\_STATUS}}
+\index{FTDI\_STATUS@{FTDI\_STATUS}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{FTDI\_STATUS}{FTDI\_STATUS}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{base_s_w_8c_aa8f22ecbe143bb20aaab87a0887844c7}{FTDI\+\_\+\+STATUS}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NORMAL\_OPERATION@{NORMAL\_OPERATION}!baseSW.c@{baseSW.c}}\index{baseSW.c@{baseSW.c}!NORMAL\_OPERATION@{NORMAL\_OPERATION}}}\mbox{\Hypertarget{base_s_w_8c_aa8f22ecbe143bb20aaab87a0887844c7a40a71b2d40ad7ef49b7e28e422ae351e}\label{base_s_w_8c_aa8f22ecbe143bb20aaab87a0887844c7a40a71b2d40ad7ef49b7e28e422ae351e}} 
+NORMAL\+\_\+\+OPERATION&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RECEIVE\_HEAT\_PROFILE@{RECEIVE\_HEAT\_PROFILE}!baseSW.c@{baseSW.c}}\index{baseSW.c@{baseSW.c}!RECEIVE\_HEAT\_PROFILE@{RECEIVE\_HEAT\_PROFILE}}}\mbox{\Hypertarget{base_s_w_8c_aa8f22ecbe143bb20aaab87a0887844c7a1b57bbf7b1c2160058a0fbe5858cddb5}\label{base_s_w_8c_aa8f22ecbe143bb20aaab87a0887844c7a1b57bbf7b1c2160058a0fbe5858cddb5}} 
+RECEIVE\+\_\+\+HEAT\+\_\+\+PROFILE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SEND\_HEAT\_PROFILE\_TO\_EEPROM@{SEND\_HEAT\_PROFILE\_TO\_EEPROM}!baseSW.c@{baseSW.c}}\index{baseSW.c@{baseSW.c}!SEND\_HEAT\_PROFILE\_TO\_EEPROM@{SEND\_HEAT\_PROFILE\_TO\_EEPROM}}}\mbox{\Hypertarget{base_s_w_8c_aa8f22ecbe143bb20aaab87a0887844c7ae2d0852810163567f323a00b303e7286}\label{base_s_w_8c_aa8f22ecbe143bb20aaab87a0887844c7ae2d0852810163567f323a00b303e7286}} 
+SEND\+\_\+\+HEAT\+\_\+\+PROFILE\+\_\+\+TO\+\_\+\+EEPROM&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RECEIVE\_PROFILE\_FROM\_EEPROM@{RECEIVE\_PROFILE\_FROM\_EEPROM}!baseSW.c@{baseSW.c}}\index{baseSW.c@{baseSW.c}!RECEIVE\_PROFILE\_FROM\_EEPROM@{RECEIVE\_PROFILE\_FROM\_EEPROM}}}\mbox{\Hypertarget{base_s_w_8c_aa8f22ecbe143bb20aaab87a0887844c7ab3de1e25d10ae403e278841fec19a45f}\label{base_s_w_8c_aa8f22ecbe143bb20aaab87a0887844c7ab3de1e25d10ae403e278841fec19a45f}} 
+RECEIVE\+\_\+\+PROFILE\+\_\+\+FROM\+\_\+\+EEPROM&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WRITE\_EEPROM\_COMMAND\_HIGH\_BYTE@{WRITE\_EEPROM\_COMMAND\_HIGH\_BYTE}!baseSW.c@{baseSW.c}}\index{baseSW.c@{baseSW.c}!WRITE\_EEPROM\_COMMAND\_HIGH\_BYTE@{WRITE\_EEPROM\_COMMAND\_HIGH\_BYTE}}}\mbox{\Hypertarget{base_s_w_8c_aa8f22ecbe143bb20aaab87a0887844c7a3a592e9811844c507e9e173f92083a16}\label{base_s_w_8c_aa8f22ecbe143bb20aaab87a0887844c7a3a592e9811844c507e9e173f92083a16}} 
+WRITE\+\_\+\+EEPROM\+\_\+\+COMMAND\+\_\+\+HIGH\+\_\+\+BYTE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WRITE\_EEPROM\_COMMAND\_LOW\_BYTE@{WRITE\_EEPROM\_COMMAND\_LOW\_BYTE}!baseSW.c@{baseSW.c}}\index{baseSW.c@{baseSW.c}!WRITE\_EEPROM\_COMMAND\_LOW\_BYTE@{WRITE\_EEPROM\_COMMAND\_LOW\_BYTE}}}\mbox{\Hypertarget{base_s_w_8c_aa8f22ecbe143bb20aaab87a0887844c7ad8db6628bc8d9c05c64025d314a65419}\label{base_s_w_8c_aa8f22ecbe143bb20aaab87a0887844c7ad8db6628bc8d9c05c64025d314a65419}} 
+WRITE\+\_\+\+EEPROM\+\_\+\+COMMAND\+\_\+\+LOW\+\_\+\+BYTE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 204 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_a074deb404aea4ae6dca1b9c44d66116a}\label{base_s_w_8c_a074deb404aea4ae6dca1b9c44d66116a}} 
+\index{baseSW.c@{baseSW.c}!NEXTION\_STATUS@{NEXTION\_STATUS}}
+\index{NEXTION\_STATUS@{NEXTION\_STATUS}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{NEXTION\_STATUS}{NEXTION\_STATUS}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{base_s_w_8c_a074deb404aea4ae6dca1b9c44d66116a}{NEXTION\+\_\+\+STATUS}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NEXTION\_NORMAL\_OPERATION@{NEXTION\_NORMAL\_OPERATION}!baseSW.c@{baseSW.c}}\index{baseSW.c@{baseSW.c}!NEXTION\_NORMAL\_OPERATION@{NEXTION\_NORMAL\_OPERATION}}}\mbox{\Hypertarget{base_s_w_8c_a074deb404aea4ae6dca1b9c44d66116aa90762a477aa0f30aea8aa3cb976a5398}\label{base_s_w_8c_a074deb404aea4ae6dca1b9c44d66116aa90762a477aa0f30aea8aa3cb976a5398}} 
+NEXTION\+\_\+\+NORMAL\+\_\+\+OPERATION&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NEXTION\_WRITE\_EEPROM\_COMMAND\_HIGH\_BYTE@{NEXTION\_WRITE\_EEPROM\_COMMAND\_HIGH\_BYTE}!baseSW.c@{baseSW.c}}\index{baseSW.c@{baseSW.c}!NEXTION\_WRITE\_EEPROM\_COMMAND\_HIGH\_BYTE@{NEXTION\_WRITE\_EEPROM\_COMMAND\_HIGH\_BYTE}}}\mbox{\Hypertarget{base_s_w_8c_a074deb404aea4ae6dca1b9c44d66116aad9e1dbc9cdfe9d975f431ad11d5748da}\label{base_s_w_8c_a074deb404aea4ae6dca1b9c44d66116aad9e1dbc9cdfe9d975f431ad11d5748da}} 
+NEXTION\+\_\+\+WRITE\+\_\+\+EEPROM\+\_\+\+COMMAND\+\_\+\+HIGH\+\_\+\+BYTE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NEXTION\_WRITE\_EEPROM\_COMMAND\_LOW\_BYTE@{NEXTION\_WRITE\_EEPROM\_COMMAND\_LOW\_BYTE}!baseSW.c@{baseSW.c}}\index{baseSW.c@{baseSW.c}!NEXTION\_WRITE\_EEPROM\_COMMAND\_LOW\_BYTE@{NEXTION\_WRITE\_EEPROM\_COMMAND\_LOW\_BYTE}}}\mbox{\Hypertarget{base_s_w_8c_a074deb404aea4ae6dca1b9c44d66116aaebec46a1f267d51cf56719b5ac4ab19d}\label{base_s_w_8c_a074deb404aea4ae6dca1b9c44d66116aaebec46a1f267d51cf56719b5ac4ab19d}} 
+NEXTION\+\_\+\+WRITE\+\_\+\+EEPROM\+\_\+\+COMMAND\+\_\+\+LOW\+\_\+\+BYTE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NEXTION\_RECEIVE\_PROFILE\_FROM\_EEPROM@{NEXTION\_RECEIVE\_PROFILE\_FROM\_EEPROM}!baseSW.c@{baseSW.c}}\index{baseSW.c@{baseSW.c}!NEXTION\_RECEIVE\_PROFILE\_FROM\_EEPROM@{NEXTION\_RECEIVE\_PROFILE\_FROM\_EEPROM}}}\mbox{\Hypertarget{base_s_w_8c_a074deb404aea4ae6dca1b9c44d66116aab849175f420bc7a346b2865c0d2c4a27}\label{base_s_w_8c_a074deb404aea4ae6dca1b9c44d66116aab849175f420bc7a346b2865c0d2c4a27}} 
+NEXTION\+\_\+\+RECEIVE\+\_\+\+PROFILE\+\_\+\+FROM\+\_\+\+EEPROM&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 222 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_a58b2042d633892568e5fbcaf5e4ac423}\label{base_s_w_8c_a58b2042d633892568e5fbcaf5e4ac423}} 
+\index{baseSW.c@{baseSW.c}!TEMPERATURE\_BUFFER\_STATUS@{TEMPERATURE\_BUFFER\_STATUS}}
+\index{TEMPERATURE\_BUFFER\_STATUS@{TEMPERATURE\_BUFFER\_STATUS}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{TEMPERATURE\_BUFFER\_STATUS}{TEMPERATURE\_BUFFER\_STATUS}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{base_s_w_8c_a58b2042d633892568e5fbcaf5e4ac423}{TEMPERATURE\+\_\+\+BUFFER\+\_\+\+STATUS}}}
+
+
+
+Reference temperature buffer status. 
+
+Actual status of the refernce temperature buffer is stored in this enum. The status. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TB\_RECEIVE\_FROM\_PC@{TB\_RECEIVE\_FROM\_PC}!baseSW.c@{baseSW.c}}\index{baseSW.c@{baseSW.c}!TB\_RECEIVE\_FROM\_PC@{TB\_RECEIVE\_FROM\_PC}}}\mbox{\Hypertarget{base_s_w_8c_a58b2042d633892568e5fbcaf5e4ac423a74e872d753fc7bbb042464e18c59c1ab}\label{base_s_w_8c_a58b2042d633892568e5fbcaf5e4ac423a74e872d753fc7bbb042464e18c59c1ab}} 
+TB\+\_\+\+RECEIVE\+\_\+\+FROM\+\_\+\+PC&Temperature buffer is receiving from PC is in progress \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TB\_SEND\_TO\_EEPROM@{TB\_SEND\_TO\_EEPROM}!baseSW.c@{baseSW.c}}\index{baseSW.c@{baseSW.c}!TB\_SEND\_TO\_EEPROM@{TB\_SEND\_TO\_EEPROM}}}\mbox{\Hypertarget{base_s_w_8c_a58b2042d633892568e5fbcaf5e4ac423aab853014fafaf854f37dea63cae4e998}\label{base_s_w_8c_a58b2042d633892568e5fbcaf5e4ac423aab853014fafaf854f37dea63cae4e998}} 
+TB\+\_\+\+SEND\+\_\+\+TO\+\_\+\+EEPROM&Temperature buffer is tranciving to EEPROM is in progress \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TB\_RECEIVE\_FROM\_EEPROM@{TB\_RECEIVE\_FROM\_EEPROM}!baseSW.c@{baseSW.c}}\index{baseSW.c@{baseSW.c}!TB\_RECEIVE\_FROM\_EEPROM@{TB\_RECEIVE\_FROM\_EEPROM}}}\mbox{\Hypertarget{base_s_w_8c_a58b2042d633892568e5fbcaf5e4ac423abd30782fafe840f4d347c3c7b456c85e}\label{base_s_w_8c_a58b2042d633892568e5fbcaf5e4ac423abd30782fafe840f4d347c3c7b456c85e}} 
+TB\+\_\+\+RECEIVE\+\_\+\+FROM\+\_\+\+EEPROM&Temperature buffer is receiving from EEPROM is in progress \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IDLE@{IDLE}!baseSW.c@{baseSW.c}}\index{baseSW.c@{baseSW.c}!IDLE@{IDLE}}}\mbox{\Hypertarget{base_s_w_8c_a58b2042d633892568e5fbcaf5e4ac423afd6a0e4343048b10646dd2976cc5ad18}\label{base_s_w_8c_a58b2042d633892568e5fbcaf5e4ac423afd6a0e4343048b10646dd2976cc5ad18}} 
+IDLE&Temperature buffer is in idle state and ready to be used \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 132 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_ae5d95f3971b48ffc0b84e3290ef41ed7}\label{base_s_w_8c_ae5d95f3971b48ffc0b84e3290ef41ed7}} 
+\index{baseSW.c@{baseSW.c}!TRANSCIEVE\_STATUS@{TRANSCIEVE\_STATUS}}
+\index{TRANSCIEVE\_STATUS@{TRANSCIEVE\_STATUS}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{TRANSCIEVE\_STATUS}{TRANSCIEVE\_STATUS}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{base_s_w_8c_ae5d95f3971b48ffc0b84e3290ef41ed7}{TRANSCIEVE\+\_\+\+STATUS}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TRANSCIEVE\_FULL\_HEAT\_PROFILE@{TRANSCIEVE\_FULL\_HEAT\_PROFILE}!baseSW.c@{baseSW.c}}\index{baseSW.c@{baseSW.c}!TRANSCIEVE\_FULL\_HEAT\_PROFILE@{TRANSCIEVE\_FULL\_HEAT\_PROFILE}}}\mbox{\Hypertarget{base_s_w_8c_ae5d95f3971b48ffc0b84e3290ef41ed7a6d9519cd7bf055df890493eb4f6fa6b6}\label{base_s_w_8c_ae5d95f3971b48ffc0b84e3290ef41ed7a6d9519cd7bf055df890493eb4f6fa6b6}} 
+TRANSCIEVE\+\_\+\+FULL\+\_\+\+HEAT\+\_\+\+PROFILE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TRANSCIEVE\_CURRENT\_DATA@{TRANSCIEVE\_CURRENT\_DATA}!baseSW.c@{baseSW.c}}\index{baseSW.c@{baseSW.c}!TRANSCIEVE\_CURRENT\_DATA@{TRANSCIEVE\_CURRENT\_DATA}}}\mbox{\Hypertarget{base_s_w_8c_ae5d95f3971b48ffc0b84e3290ef41ed7a80edd9e2810683393aee79b2f5b9bdbc}\label{base_s_w_8c_ae5d95f3971b48ffc0b84e3290ef41ed7a80edd9e2810683393aee79b2f5b9bdbc}} 
+TRANSCIEVE\+\_\+\+CURRENT\+\_\+\+DATA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TRANSCIEVE\_IDLE@{TRANSCIEVE\_IDLE}!baseSW.c@{baseSW.c}}\index{baseSW.c@{baseSW.c}!TRANSCIEVE\_IDLE@{TRANSCIEVE\_IDLE}}}\mbox{\Hypertarget{base_s_w_8c_ae5d95f3971b48ffc0b84e3290ef41ed7a138de0a3f25fd929967f47c72048b208}\label{base_s_w_8c_ae5d95f3971b48ffc0b84e3290ef41ed7a138de0a3f25fd929967f47c72048b208}} 
+TRANSCIEVE\+\_\+\+IDLE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 257 of file base\+SW.\+c.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{base_s_w_8c_a26152edbd9eb97c5e90eb637c8535600}\label{base_s_w_8c_a26152edbd9eb97c5e90eb637c8535600}} 
+\index{baseSW.c@{baseSW.c}!baseSW\_Initialize@{baseSW\_Initialize}}
+\index{baseSW\_Initialize@{baseSW\_Initialize}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{baseSW\_Initialize()}{baseSW\_Initialize()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{state_task_handler_8h_ac70d77726e89cd77b1604f36f0768724}{state\+Task\+List}}$\ast$ base\+SW\+\_\+\+Initialize (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 559 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_a73ac441321bc3bbf8179034ce1f61a0b}\label{base_s_w_8c_a73ac441321bc3bbf8179034ce1f61a0b}} 
+\index{baseSW.c@{baseSW.c}!baseSW\_TMR2\_ISR@{baseSW\_TMR2\_ISR}}
+\index{baseSW\_TMR2\_ISR@{baseSW\_TMR2\_ISR}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{baseSW\_TMR2\_ISR()}{baseSW\_TMR2\_ISR()}}
+{\footnotesize\ttfamily void base\+SW\+\_\+\+TMR2\+\_\+\+ISR (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 532 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_ad7e00ee96d8ec199bb9b5b48fdecd138}\label{base_s_w_8c_ad7e00ee96d8ec199bb9b5b48fdecd138}} 
+\index{baseSW.c@{baseSW.c}!baseSW\_UART1\_rx\_ISR@{baseSW\_UART1\_rx\_ISR}}
+\index{baseSW\_UART1\_rx\_ISR@{baseSW\_UART1\_rx\_ISR}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{baseSW\_UART1\_rx\_ISR()}{baseSW\_UART1\_rx\_ISR()}}
+{\footnotesize\ttfamily void base\+SW\+\_\+\+UART1\+\_\+rx\+\_\+\+ISR (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 551 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_a6d1cf63a62044d720224a87ec491428f}\label{base_s_w_8c_a6d1cf63a62044d720224a87ec491428f}} 
+\index{baseSW.c@{baseSW.c}!baseSW\_UART1\_tx\_ISR@{baseSW\_UART1\_tx\_ISR}}
+\index{baseSW\_UART1\_tx\_ISR@{baseSW\_UART1\_tx\_ISR}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{baseSW\_UART1\_tx\_ISR()}{baseSW\_UART1\_tx\_ISR()}}
+{\footnotesize\ttfamily void base\+SW\+\_\+\+UART1\+\_\+tx\+\_\+\+ISR (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 543 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_a8027f524cdcb8a3a462b2a6addbab4a5}\label{base_s_w_8c_a8027f524cdcb8a3a462b2a6addbab4a5}} 
+\index{baseSW.c@{baseSW.c}!baseSW\_UART2\_rx\_ISR@{baseSW\_UART2\_rx\_ISR}}
+\index{baseSW\_UART2\_rx\_ISR@{baseSW\_UART2\_rx\_ISR}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{baseSW\_UART2\_rx\_ISR()}{baseSW\_UART2\_rx\_ISR()}}
+{\footnotesize\ttfamily void base\+SW\+\_\+\+UART2\+\_\+rx\+\_\+\+ISR (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 555 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_a15ed18da4c6b19d2eb4c49972003f601}\label{base_s_w_8c_a15ed18da4c6b19d2eb4c49972003f601}} 
+\index{baseSW.c@{baseSW.c}!baseSW\_UART2\_tx\_ISR@{baseSW\_UART2\_tx\_ISR}}
+\index{baseSW\_UART2\_tx\_ISR@{baseSW\_UART2\_tx\_ISR}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{baseSW\_UART2\_tx\_ISR()}{baseSW\_UART2\_tx\_ISR()}}
+{\footnotesize\ttfamily void base\+SW\+\_\+\+UART2\+\_\+tx\+\_\+\+ISR (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 547 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_a83e759d4fde4c1f2290f01c8ba5e7e76}\label{base_s_w_8c_a83e759d4fde4c1f2290f01c8ba5e7e76}} 
+\index{baseSW.c@{baseSW.c}!checkStartConditions@{checkStartConditions}}
+\index{checkStartConditions@{checkStartConditions}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{checkStartConditions()}{checkStartConditions()}}
+{\footnotesize\ttfamily bool check\+Start\+Conditions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 317 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_a381d6c14a0d21de9943fdf12040729b3}\label{base_s_w_8c_a381d6c14a0d21de9943fdf12040729b3}} 
+\index{baseSW.c@{baseSW.c}!disableHeat@{disableHeat}}
+\index{disableHeat@{disableHeat}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{disableHeat()}{disableHeat()}}
+{\footnotesize\ttfamily void disable\+Heat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 282 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_a2c86cf77e88db89f9983c1b05aac1d45}\label{base_s_w_8c_a2c86cf77e88db89f9983c1b05aac1d45}} 
+\index{baseSW.c@{baseSW.c}!enableHeat@{enableHeat}}
+\index{enableHeat@{enableHeat}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{enableHeat()}{enableHeat()}}
+{\footnotesize\ttfamily void enable\+Heat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 278 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_a27ccec4e551f47ff3fe3c4b6afc07597}\label{base_s_w_8c_a27ccec4e551f47ff3fe3c4b6afc07597}} 
+\index{baseSW.c@{baseSW.c}!genericTranciverFunction@{genericTranciverFunction}}
+\index{genericTranciverFunction@{genericTranciverFunction}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{genericTranciverFunction()}{genericTranciverFunction()}}
+{\footnotesize\ttfamily void generic\+Tranciver\+Function (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 457 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_aa16cf163141a074b2ddb3a60497d8b99}\label{base_s_w_8c_aa16cf163141a074b2ddb3a60497d8b99}} 
+\index{baseSW.c@{baseSW.c}!IdleState\_callback@{IdleState\_callback}}
+\index{IdleState\_callback@{IdleState\_callback}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{IdleState\_callback()}{IdleState\_callback()}}
+{\footnotesize\ttfamily void Idle\+State\+\_\+callback (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 287 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_ab2b78c4d809057c8fa3d4074d99a33e6}\label{base_s_w_8c_ab2b78c4d809057c8fa3d4074d99a33e6}} 
+\index{baseSW.c@{baseSW.c}!loadBuffer@{loadBuffer}}
+\index{loadBuffer@{loadBuffer}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{loadBuffer()}{loadBuffer()}}
+{\footnotesize\ttfamily void load\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 312 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_ae2abe0c4c78bc2075dad10c581eedbbe}\label{base_s_w_8c_ae2abe0c4c78bc2075dad10c581eedbbe}} 
+\index{baseSW.c@{baseSW.c}!ReadEEPROM\_callback@{ReadEEPROM\_callback}}
+\index{ReadEEPROM\_callback@{ReadEEPROM\_callback}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{ReadEEPROM\_callback()}{ReadEEPROM\_callback()}}
+{\footnotesize\ttfamily void Read\+EEPROM\+\_\+callback (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 493 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_a23b1f41f8c818f17b24b6da7d9af6cd6}\label{base_s_w_8c_a23b1f41f8c818f17b24b6da7d9af6cd6}} 
+\index{baseSW.c@{baseSW.c}!ReadTemperatureData\_callback@{ReadTemperatureData\_callback}}
+\index{ReadTemperatureData\_callback@{ReadTemperatureData\_callback}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{ReadTemperatureData\_callback()}{ReadTemperatureData\_callback()}}
+{\footnotesize\ttfamily void Read\+Temperature\+Data\+\_\+callback (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 342 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_af341203893341c4fc0aca6617827cc78}\label{base_s_w_8c_af341203893341c4fc0aca6617827cc78}} 
+\index{baseSW.c@{baseSW.c}!ReceiveFTDI\_callback@{ReceiveFTDI\_callback}}
+\index{ReceiveFTDI\_callback@{ReceiveFTDI\_callback}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{ReceiveFTDI\_callback()}{ReceiveFTDI\_callback()}}
+{\footnotesize\ttfamily void Receive\+FTDI\+\_\+callback (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 395 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_a1d1ee0fb69c723856a3009c9dfb74309}\label{base_s_w_8c_a1d1ee0fb69c723856a3009c9dfb74309}} 
+\index{baseSW.c@{baseSW.c}!ReceiveNextionData\_callback@{ReceiveNextionData\_callback}}
+\index{ReceiveNextionData\_callback@{ReceiveNextionData\_callback}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{ReceiveNextionData\_callback()}{ReceiveNextionData\_callback()}}
+{\footnotesize\ttfamily void Receive\+Nextion\+Data\+\_\+callback (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 352 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_a3821cc2458a1a57bb47d074adab7041c}\label{base_s_w_8c_a3821cc2458a1a57bb47d074adab7041c}} 
+\index{baseSW.c@{baseSW.c}!TranscieveNextionDATA\_callback@{TranscieveNextionDATA\_callback}}
+\index{TranscieveNextionDATA\_callback@{TranscieveNextionDATA\_callback}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{TranscieveNextionDATA\_callback()}{TranscieveNextionDATA\_callback()}}
+{\footnotesize\ttfamily void Transcieve\+Nextion\+DATA\+\_\+callback (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 484 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_a5574a7efe563c4a0dcd5a6d14aa25c81}\label{base_s_w_8c_a5574a7efe563c4a0dcd5a6d14aa25c81}} 
+\index{baseSW.c@{baseSW.c}!TransciveFTDI\_callback@{TransciveFTDI\_callback}}
+\index{TransciveFTDI\_callback@{TransciveFTDI\_callback}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{TransciveFTDI\_callback()}{TransciveFTDI\_callback()}}
+{\footnotesize\ttfamily void Transcive\+FTDI\+\_\+callback (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 488 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_a4dd0edb41d6818c4b66830d7d5d5f8d4}\label{base_s_w_8c_a4dd0edb41d6818c4b66830d7d5d5f8d4}} 
+\index{baseSW.c@{baseSW.c}!WriteEEPROM\_callback@{WriteEEPROM\_callback}}
+\index{WriteEEPROM\_callback@{WriteEEPROM\_callback}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{WriteEEPROM\_callback()}{WriteEEPROM\_callback()}}
+{\footnotesize\ttfamily void Write\+EEPROM\+\_\+callback (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Write\+EEPROM\+\_\+callback
+
+@\+Summary Copy data from temperature buffer to EEPROM
+
+@\+Description This defines the object in the i2c queue. Each entry is a composed of a list of TRBs, the number of the TRBs and the status of the currently processed TRB. 
+
+Definition at line 510 of file base\+SW.\+c.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{base_s_w_8c_a563dcdd951ca06a98e8526fc7fa2192f}\label{base_s_w_8c_a563dcdd951ca06a98e8526fc7fa2192f}} 
+\index{baseSW.c@{baseSW.c}!EEPROM\_ADDRESS@{EEPROM\_ADDRESS}}
+\index{EEPROM\_ADDRESS@{EEPROM\_ADDRESS}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{EEPROM\_ADDRESS}{EEPROM\_ADDRESS}}
+{\footnotesize\ttfamily const uint16\+\_\+t EEPROM\+\_\+\+ADDRESS = 0x00}
+
+
+
+Definition at line 20 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_a7df19956937ec36d493dce374f6cd666}\label{base_s_w_8c_a7df19956937ec36d493dce374f6cd666}} 
+\index{baseSW.c@{baseSW.c}!ftdiStatus@{ftdiStatus}}
+\index{ftdiStatus@{ftdiStatus}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{ftdiStatus}{ftdiStatus}}
+{\footnotesize\ttfamily \mbox{\hyperlink{base_s_w_8c_aa8f22ecbe143bb20aaab87a0887844c7}{FTDI\+\_\+\+STATUS}} ftdi\+Status = \mbox{\hyperlink{base_s_w_8c_aa8f22ecbe143bb20aaab87a0887844c7a40a71b2d40ad7ef49b7e28e422ae351e}{NORMAL\+\_\+\+OPERATION}}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 214 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_a719eb27927e046143f99cd1be625a495}\label{base_s_w_8c_a719eb27927e046143f99cd1be625a495}} 
+\index{baseSW.c@{baseSW.c}!HEAT\_IN\_PROGRESS@{HEAT\_IN\_PROGRESS}}
+\index{HEAT\_IN\_PROGRESS@{HEAT\_IN\_PROGRESS}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{HEAT\_IN\_PROGRESS}{HEAT\_IN\_PROGRESS}}
+{\footnotesize\ttfamily uint8\+\_\+t HEAT\+\_\+\+IN\+\_\+\+PROGRESS = false\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 248 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_a05687d20618c0736fd05307bf70d78c2}\label{base_s_w_8c_a05687d20618c0736fd05307bf70d78c2}} 
+\index{baseSW.c@{baseSW.c}!heatProfileBuffer@{heatProfileBuffer}}
+\index{heatProfileBuffer@{heatProfileBuffer}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{heatProfileBuffer}{heatProfileBuffer}}
+{\footnotesize\ttfamily uint8\+\_\+t heat\+Profile\+Buffer\mbox{[}\mbox{\hyperlink{base_s_w_8c_a82ad24592415f1e7dd0fab9811e434ea}{HEAT\+\_\+\+PROFILE\+\_\+\+SIZE}}\mbox{]}}
+
+Heat profile buffer for memory operations. It can\textquotesingle{}t be used directily, it has to be loaded into heat\+Profile\+Current 
+
+Definition at line 109 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_acc1fffcd67af20d39741d2f2654472bd}\label{base_s_w_8c_acc1fffcd67af20d39741d2f2654472bd}} 
+\index{baseSW.c@{baseSW.c}!heatProfileCurrent@{heatProfileCurrent}}
+\index{heatProfileCurrent@{heatProfileCurrent}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{heatProfileCurrent}{heatProfileCurrent}}
+{\footnotesize\ttfamily uint8\+\_\+t heat\+Profile\+Current\mbox{[}\mbox{\hyperlink{base_s_w_8c_a82ad24592415f1e7dd0fab9811e434ea}{HEAT\+\_\+\+PROFILE\+\_\+\+SIZE}}\mbox{]}}
+
+Currently selected heat profile. 
+
+Definition at line 108 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_a64a3817e3aecfb84759dbe16f0598b63}\label{base_s_w_8c_a64a3817e3aecfb84759dbe16f0598b63}} 
+\index{baseSW.c@{baseSW.c}!heatProfileDefult@{heatProfileDefult}}
+\index{heatProfileDefult@{heatProfileDefult}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{heatProfileDefult}{heatProfileDefult}}
+{\footnotesize\ttfamily uint8\+\_\+t heat\+Profile\+Defult\mbox{[}\mbox{\hyperlink{base_s_w_8c_a82ad24592415f1e7dd0fab9811e434ea}{HEAT\+\_\+\+PROFILE\+\_\+\+SIZE}}\mbox{]}}
+
+Default heat profile, cannot be deleted 
+
+Definition at line 110 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_a8f175c7c18b1b26153b20e02c9ac85f2}\label{base_s_w_8c_a8f175c7c18b1b26153b20e02c9ac85f2}} 
+\index{baseSW.c@{baseSW.c}!IdleState@{IdleState}}
+\index{IdleState@{IdleState}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{IdleState}{IdleState}}
+{\footnotesize\ttfamily \mbox{\hyperlink{state_task_handler_8h_ac70d77726e89cd77b1604f36f0768724}{state\+Task\+List}}$\ast$ Idle\+State = NULL}
+
+
+
+Idle state. 
+
+The task connected to this state cannot be deleted from the task que. This task provides the toggling protection to the SSR, ensuring that the software is properly running. This task is also responsible for disableing the heating process if one of the limits is exceeded. 
+
+Definition at line 47 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_a0ef8a1d4d3bc515d6b5f09d2ea92784d}\label{base_s_w_8c_a0ef8a1d4d3bc515d6b5f09d2ea92784d}} 
+\index{baseSW.c@{baseSW.c}!INTERNAL\_MAX\_TEMPERATURE@{INTERNAL\_MAX\_TEMPERATURE}}
+\index{INTERNAL\_MAX\_TEMPERATURE@{INTERNAL\_MAX\_TEMPERATURE}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{INTERNAL\_MAX\_TEMPERATURE}{INTERNAL\_MAX\_TEMPERATURE}}
+{\footnotesize\ttfamily const uint16\+\_\+t INTERNAL\+\_\+\+MAX\+\_\+\+TEMPERATURE = 0x0000}
+
+
+
+Definition at line 21 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_ad2b5ee2fb756cad7b97b80bc28b92861}\label{base_s_w_8c_ad2b5ee2fb756cad7b97b80bc28b92861}} 
+\index{baseSW.c@{baseSW.c}!nextionStatus@{nextionStatus}}
+\index{nextionStatus@{nextionStatus}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{nextionStatus}{nextionStatus}}
+{\footnotesize\ttfamily \mbox{\hyperlink{base_s_w_8c_a074deb404aea4ae6dca1b9c44d66116a}{NEXTION\+\_\+\+STATUS}} nextion\+Status = \mbox{\hyperlink{base_s_w_8c_a074deb404aea4ae6dca1b9c44d66116aa90762a477aa0f30aea8aa3cb976a5398}{NEXTION\+\_\+\+NORMAL\+\_\+\+OPERATION}}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 230 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_af23b05db9a9807c4a6abce18a6d4d8f2}\label{base_s_w_8c_af23b05db9a9807c4a6abce18a6d4d8f2}} 
+\index{baseSW.c@{baseSW.c}!ReadEEPROM@{ReadEEPROM}}
+\index{ReadEEPROM@{ReadEEPROM}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{ReadEEPROM}{ReadEEPROM}}
+{\footnotesize\ttfamily \mbox{\hyperlink{state_task_handler_8h_ac70d77726e89cd77b1604f36f0768724}{state\+Task\+List}}$\ast$ Read\+EEPROM = NULL}
+
+
+
+Read heat profile from EEPROM. 
+
+Heat profile is read from the EEPROM via 400k\+Hz I2C communication interface. This task use sequential read implemented in \mbox{\hyperlink{_e_e_p_r_o_m__driver_8c}{EEPROM\+\_\+driver.\+c}} for the maximum transmission speed. \href{http://ww1.microchip.com/downloads/en/devicedoc/21189f.pdf}{\texttt{ 24LC64}} 
+
+Definition at line 98 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_ae988bdbcac15d558e5e41a614cc8aff6}\label{base_s_w_8c_ae988bdbcac15d558e5e41a614cc8aff6}} 
+\index{baseSW.c@{baseSW.c}!ReadTemperatureData@{ReadTemperatureData}}
+\index{ReadTemperatureData@{ReadTemperatureData}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{ReadTemperatureData}{ReadTemperatureData}}
+{\footnotesize\ttfamily \mbox{\hyperlink{state_task_handler_8h_ac70d77726e89cd77b1604f36f0768724}{state\+Task\+List}}$\ast$ Read\+Temperature\+Data = NULL}
+
+
+
+Read data from MAX31855\+KASA+T state. 
+
+The task connected to this state reads 4 bytes of data from MAX31855\+KASA+T. Hot junction temperature is stored in 14 bit format while the cold junction temperature is only 11 bits. Besides the measured temperatures, diagnostic data can also be read from the IC. \href{https://www.micro-semiconductor.com/datasheet/12-MAX31855TASA-T.pdf}{\texttt{ IC datasheet}} 
+
+Definition at line 57 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_aa0d66d63cdd225ac5fbfad3da5fb2aa2}\label{base_s_w_8c_aa0d66d63cdd225ac5fbfad3da5fb2aa2}} 
+\index{baseSW.c@{baseSW.c}!ReceiveFTDI@{ReceiveFTDI}}
+\index{ReceiveFTDI@{ReceiveFTDI}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{ReceiveFTDI}{ReceiveFTDI}}
+{\footnotesize\ttfamily \mbox{\hyperlink{state_task_handler_8h_ac70d77726e89cd77b1604f36f0768724}{state\+Task\+List}}$\ast$ Receive\+FTDI = NULL}
+
+
+
+Receive data from FTDI state. 
+
+In this task varios control commands are received from the PC via the FTDI UART USB bridge. Heating process can be enabled or disabled, new heat profile can be choosen, and it can be loaded from the EEPROM to the microcontroller. New heat profiles (generated on the PC) can be downloaded into the microcontroller and it can be saved into the EEPROM for further use. \href{http://www.farnell.com/datasheets/2007793.pdf}{\texttt{ FT232R}} 
+
+Definition at line 77 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_a2ce319c293d5ba72597e1f6ac24e781e}\label{base_s_w_8c_a2ce319c293d5ba72597e1f6ac24e781e}} 
+\index{baseSW.c@{baseSW.c}!ReceiveNextionData@{ReceiveNextionData}}
+\index{ReceiveNextionData@{ReceiveNextionData}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{ReceiveNextionData}{ReceiveNextionData}}
+{\footnotesize\ttfamily \mbox{\hyperlink{state_task_handler_8h_ac70d77726e89cd77b1604f36f0768724}{state\+Task\+List}}$\ast$ Receive\+Nextion\+Data = NULL}
+
+
+
+Receive data from Nextion HMI state. 
+
+In this task varios control commands are received from the Nextion touch screen HMI. Heating process can be enabled or disabled, new heat profile can be choosen, and it can be loaded from the EEPROM to the microcontroller. \href{https://nextion.tech/datasheets/nx4832t035/}{\texttt{ NX4832\+T035}} 
+
+Definition at line 66 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_ab67585954a0e34c0483e722e554d94a9}\label{base_s_w_8c_ab67585954a0e34c0483e722e554d94a9}} 
+\index{baseSW.c@{baseSW.c}!SENSOR\_DATA\_ARRAYS@{SENSOR\_DATA\_ARRAYS}}
+\index{SENSOR\_DATA\_ARRAYS@{SENSOR\_DATA\_ARRAYS}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{SENSOR\_DATA\_ARRAYS}{SENSOR\_DATA\_ARRAYS}}
+{\footnotesize\ttfamily \mbox{\hyperlink{union_i_c___m_a_x31855___d_a_t_a}{IC\+\_\+\+MAX31855\+\_\+\+DATA}} SENSOR\+\_\+\+DATA\+\_\+\+ARRAYS\mbox{[}\mbox{\hyperlink{base_s_w_8c_ae8124ed52c1d38dcd771b78a89c1d226}{SENSOR\+\_\+\+DATA\+\_\+\+STORE\+\_\+\+LENGTH}}\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 195 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_a4c9c129df2ec47d40e423ec488b68003}\label{base_s_w_8c_a4c9c129df2ec47d40e423ec488b68003}} 
+\index{baseSW.c@{baseSW.c}!SENSOR\_DATA\_HANDLER@{SENSOR\_DATA\_HANDLER}}
+\index{SENSOR\_DATA\_HANDLER@{SENSOR\_DATA\_HANDLER}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{SENSOR\_DATA\_HANDLER}{SENSOR\_DATA\_HANDLER}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_s_e_n_s_o_r___d_a_t_a}{SENSOR\+\_\+\+DATA}} SENSOR\+\_\+\+DATA\+\_\+\+HANDLER\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 194 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_a17f63b1acf2a4318319bf4ee1034dc32}\label{base_s_w_8c_a17f63b1acf2a4318319bf4ee1034dc32}} 
+\index{baseSW.c@{baseSW.c}!temperatureBufferArray@{temperatureBufferArray}}
+\index{temperatureBufferArray@{temperatureBufferArray}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{temperatureBufferArray}{temperatureBufferArray}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r}{TEMPERATURE\+\_\+\+BUFFER}} temperature\+Buffer\+Array\mbox{[}3\mbox{]}}
+
+
+
+Definition at line 158 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_a95c3c5f6ac11b4bb577a8cec8d78ed83}\label{base_s_w_8c_a95c3c5f6ac11b4bb577a8cec8d78ed83}} 
+\index{baseSW.c@{baseSW.c}!temperatureHeatProfile@{temperatureHeatProfile}}
+\index{temperatureHeatProfile@{temperatureHeatProfile}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{temperatureHeatProfile}{temperatureHeatProfile}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e}{TEMPERATURE\+\_\+\+PROFILE}} temperature\+Heat\+Profile\hspace{0.3cm}{\ttfamily [static]}}
+
+Global varible, it stores heat profile related data 
+
+Definition at line 157 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_a0e65fe51cfde598b1359de52fe957f96}\label{base_s_w_8c_a0e65fe51cfde598b1359de52fe957f96}} 
+\index{baseSW.c@{baseSW.c}!THERMOCOUPLE\_MAX\_TEMPERATURE@{THERMOCOUPLE\_MAX\_TEMPERATURE}}
+\index{THERMOCOUPLE\_MAX\_TEMPERATURE@{THERMOCOUPLE\_MAX\_TEMPERATURE}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{THERMOCOUPLE\_MAX\_TEMPERATURE}{THERMOCOUPLE\_MAX\_TEMPERATURE}}
+{\footnotesize\ttfamily const uint16\+\_\+t THERMOCOUPLE\+\_\+\+MAX\+\_\+\+TEMPERATURE = 0x0000}
+
+
+
+Definition at line 22 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_a8510c904a0838a801df49a56fdf6b2eb}\label{base_s_w_8c_a8510c904a0838a801df49a56fdf6b2eb}} 
+\index{baseSW.c@{baseSW.c}!TranscieveNextionDATA@{TranscieveNextionDATA}}
+\index{TranscieveNextionDATA@{TranscieveNextionDATA}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{TranscieveNextionDATA}{TranscieveNextionDATA}}
+{\footnotesize\ttfamily \mbox{\hyperlink{state_task_handler_8h_ac70d77726e89cd77b1604f36f0768724}{state\+Task\+List}}$\ast$ Transcieve\+Nextion\+DATA = NULL}
+
+
+
+Broadcast temperature data to the Nextion HMI. 
+
+Broadcast temperature data to the Nextion HMI. \href{https://nextion.tech/datasheets/nx4832t035/}{\texttt{ NX4832\+T035}} 
+
+Definition at line 84 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_a94c64146512690d44f192b2bf3f1d67e}\label{base_s_w_8c_a94c64146512690d44f192b2bf3f1d67e}} 
+\index{baseSW.c@{baseSW.c}!TransciveFTDI@{TransciveFTDI}}
+\index{TransciveFTDI@{TransciveFTDI}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{TransciveFTDI}{TransciveFTDI}}
+{\footnotesize\ttfamily \mbox{\hyperlink{state_task_handler_8h_ac70d77726e89cd77b1604f36f0768724}{state\+Task\+List}}$\ast$ Transcive\+FTDI = NULL}
+
+
+
+Broadcast temperature data to the PC. 
+
+Broadcast temperature data to the PC \href{http://www.farnell.com/datasheets/2007793.pdf}{\texttt{ FT232R}} 
+
+Definition at line 90 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_a13afc5148f79044f6a591b795e8edbe0}\label{base_s_w_8c_a13afc5148f79044f6a591b795e8edbe0}} 
+\index{baseSW.c@{baseSW.c}!transciveObj@{transciveObj}}
+\index{transciveObj@{transciveObj}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{transciveObj}{transciveObj}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_t_r_a_n_s_c_i_e_v_e___o_b_j}{TRANSCIEVE\+\_\+\+OBJ}} transcive\+Obj\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 269 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_a08c6431afb7c20104abce9c7e1ddfd80}\label{base_s_w_8c_a08c6431afb7c20104abce9c7e1ddfd80}} 
+\index{baseSW.c@{baseSW.c}!WriteEEPROM@{WriteEEPROM}}
+\index{WriteEEPROM@{WriteEEPROM}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{WriteEEPROM}{WriteEEPROM}}
+{\footnotesize\ttfamily \mbox{\hyperlink{state_task_handler_8h_ac70d77726e89cd77b1604f36f0768724}{state\+Task\+List}}$\ast$ Write\+EEPROM = NULL}
+
+
+
+Write heat profile into EEPROM. 
+
+Heat profile is written into the EEPROM via 400k\+Hz I2C communication interface. This task use page write implemented in \mbox{\hyperlink{_e_e_p_r_o_m__driver_8c}{EEPROM\+\_\+driver.\+c}} for the maximum transmission speed. \href{http://ww1.microchip.com/downloads/en/devicedoc/21189f.pdf}{\texttt{ 24LC64}} 
+
+Definition at line 106 of file base\+SW.\+c.
+

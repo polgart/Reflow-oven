@@ -1,0 +1,298 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_tmr2_8c" xml:lang="en-US">
+<title>C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/tmr2.c File Reference</title>
+<indexterm><primary>C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/tmr2.c</primary></indexterm>
+<programlisting>#include &lt;stdio.h&gt;
+#include &quot;tmr2.h&quot;
+</programlisting>Include dependency graph for tmr2.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="tmr2_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Data Structures    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_struct___t_m_r___o_b_j___s_t_r_u_c_t">_TMR_OBJ_STRUCT</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para>typedef struct <link linkend="_struct___t_m_r___o_b_j___s_t_r_u_c_t">_TMR_OBJ_STRUCT</link> <link linkend="_tmr2_8c_1a39ad12262a38227a21229f0960418394">TMR_OBJ</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_tmr2_8c_1a3636eea703b4350add3364d56101e4c1">TMR2_CallBack</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_tmr2_8c_1a46c13c9255379e99c10240229a145d37">TMR2_Initialize</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_tmr2_8c_1a226557d5e42f7e29ddaff30606138459">__attribute__</link> ((interrupt, no_auto_psv))</para>
+</listitem>
+            <listitem><para>void <link linkend="_tmr2_8c_1a029b45c0db9f00c1e569879790b617c9">TMR2_Period16BitSet</link> (uint16_t value)</para>
+</listitem>
+            <listitem><para>uint16_t <link linkend="_tmr2_8c_1ae0659f551ba74dfbbe77b676fe368103">TMR2_Period16BitGet</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_tmr2_8c_1aa7921f4935894ed5a4f643cc531c54a6">TMR2_Counter16BitSet</link> (uint16_t value)</para>
+</listitem>
+            <listitem><para>uint16_t <link linkend="_tmr2_8c_1aadc6b4b53f1bbde0bf8cadd351d7f8b5">TMR2_Counter16BitGet</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_tmr2_8c_1a201468129b483039afc5a619e2d31097">__attribute__</link> ((weak))</para>
+</listitem>
+            <listitem><para>void <link linkend="_tmr2_8c_1a96213f388ab9dc5b3cd3ff3b06732b59">TMR2_SetInterruptHandler</link> (void(*InterruptHandler)(void))</para>
+</listitem>
+            <listitem><para>void <link linkend="_tmr2_8c_1a7eccfd0fac278e0099d27631e116cfbf">TMR2_Start</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_tmr2_8c_1a90159f110263038f478f43a3ac9ab3ee">TMR2_Stop</link> (void)</para>
+</listitem>
+            <listitem><para>bool <link linkend="_tmr2_8c_1af78ac8c3a760ed1dc1768c090b3fe952">TMR2_GetElapsedThenClear</link> (void)</para>
+</listitem>
+            <listitem><para>int <link linkend="_tmr2_8c_1a241db09d6e4141c5ef4a8b6bea8b22ad">TMR2_SoftwareCounterGet</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_tmr2_8c_1a7f4921638056d85138f0a7a743b44ef9">TMR2_SoftwareCounterClear</link> (void)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>void(* <link linkend="_tmr2_8c_1a622a11f661317b0f3da80e5416e47c12">TMR2_InterruptHandler</link> )(void) = NULL</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Typedef Documentation</title>
+<anchor xml:id="_tmr2_8c_1a39ad12262a38227a21229f0960418394"/>    <section>
+    <title>TMR_OBJ</title>
+<indexterm><primary>TMR_OBJ</primary><secondary>tmr2.c</secondary></indexterm>
+<indexterm><primary>tmr2.c</primary><secondary>TMR_OBJ</secondary></indexterm>
+<para><computeroutput>typedef struct <link linkend="_struct___t_m_r___o_b_j___s_t_r_u_c_t">_TMR_OBJ_STRUCT</link> <link linkend="_tmr2_8c_1a39ad12262a38227a21229f0960418394">TMR_OBJ</link></computeroutput></para>
+<para>Section: Data Type Definitions TMR Driver Hardware Instance Object</para>
+
+<para>@Summary Defines the object required for the maintenance of the hardware instance.</para>
+
+<para>@Description This defines the object required for the maintenance of the hardware instance. This object exists once per hardware instance of the peripheral.</para>
+
+<para>Remarks: None. </para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_tmr2_8c_1a226557d5e42f7e29ddaff30606138459"/>    <section>
+    <title>__attribute__()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>__attribute__</primary><secondary>tmr2.c</secondary></indexterm>
+<indexterm><primary>tmr2.c</primary><secondary>__attribute__</secondary></indexterm>
+<para><computeroutput>void __attribute__ ((interrupt, no_auto_psv) )</computeroutput></para><para>
+Definition at line 113 of file tmr2.c.</para>
+    </section><anchor xml:id="_tmr2_8c_1a201468129b483039afc5a619e2d31097"/>    <section>
+    <title>__attribute__()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>__attribute__</primary><secondary>tmr2.c</secondary></indexterm>
+<indexterm><primary>tmr2.c</primary><secondary>__attribute__</secondary></indexterm>
+<para><computeroutput>void __attribute__ ((weak) )</computeroutput></para><para>
+Definition at line 160 of file tmr2.c.</para>
+    </section><anchor xml:id="_tmr2_8c_1a3636eea703b4350add3364d56101e4c1"/>    <section>
+    <title>TMR2_CallBack()</title>
+<indexterm><primary>TMR2_CallBack</primary><secondary>tmr2.c</secondary></indexterm>
+<indexterm><primary>tmr2.c</primary><secondary>TMR2_CallBack</secondary></indexterm>
+<para><computeroutput>void TMR2_CallBack (void )</computeroutput></para>    </section><anchor xml:id="_tmr2_8c_1aadc6b4b53f1bbde0bf8cadd351d7f8b5"/>    <section>
+    <title>TMR2_Counter16BitGet()</title>
+<indexterm><primary>TMR2_Counter16BitGet</primary><secondary>tmr2.c</secondary></indexterm>
+<indexterm><primary>tmr2.c</primary><secondary>TMR2_Counter16BitGet</secondary></indexterm>
+<para><computeroutput>uint16_t TMR2_Counter16BitGet (void )</computeroutput></para>
+<para>@Summary Provides 16-bit current counter value</para>
+
+<para>@Description This routine provides 16-bit current counter value</para>
+
+<para>@Param None.</para>
+
+<para>@Returns 16-bit current counter value</para>
+
+<para>@Example Refer to the example of <link linkend="_tmr2_8h_1aa7921f4935894ed5a4f643cc531c54a6">TMR2_Counter16BitSet()</link>; </para>
+<para>
+Definition at line 154 of file tmr2.c.</para>
+    </section><anchor xml:id="_tmr2_8c_1aa7921f4935894ed5a4f643cc531c54a6"/>    <section>
+    <title>TMR2_Counter16BitSet()</title>
+<indexterm><primary>TMR2_Counter16BitSet</primary><secondary>tmr2.c</secondary></indexterm>
+<indexterm><primary>tmr2.c</primary><secondary>TMR2_Counter16BitSet</secondary></indexterm>
+<para><computeroutput>void TMR2_Counter16BitSet (uint16_t value)</computeroutput></para>
+<para>@Summary Updates the timer&apos;s 16-bit value</para>
+
+<para>@Description This routine updates the timer&apos;s 16-bit value</para>
+
+<para>@Param None.</para>
+
+<para>@Returns None</para>
+
+<para>@Example <computeroutput> uint16_t value=0xF0F0;</computeroutput></para>
+
+<para><computeroutput> TMR2_Counter16BitSet(value));</computeroutput></para>
+
+<para><computeroutput> while(1) { TMR2_Tasks(); if( (value == <link linkend="_tmr2_8h_1aadc6b4b53f1bbde0bf8cadd351d7f8b5">TMR2_Counter16BitGet()</link>)) { <link linkend="_tmr2_8h_1a90159f110263038f478f43a3ac9ab3ee">TMR2_Stop()</link>; } } </computeroutput> </para>
+<para>
+Definition at line 146 of file tmr2.c.</para>
+    </section><anchor xml:id="_tmr2_8c_1af78ac8c3a760ed1dc1768c090b3fe952"/>    <section>
+    <title>TMR2_GetElapsedThenClear()</title>
+<indexterm><primary>TMR2_GetElapsedThenClear</primary><secondary>tmr2.c</secondary></indexterm>
+<indexterm><primary>tmr2.c</primary><secondary>TMR2_GetElapsedThenClear</secondary></indexterm>
+<para><computeroutput>bool TMR2_GetElapsedThenClear (void )</computeroutput></para>
+<para>@Summary Returns the elapsed status of the timer and clears if flag is set.</para>
+
+<para>@Description This routine returns the elapsed status of the timer and clears flag if its set.</para>
+
+<para>@Param None.</para>
+
+<para>@Returns True - Timer has elapsed. False - Timer has not elapsed.</para>
+
+<para>@Example Refer to the example of <link linkend="_tmr2_8h_1a46c13c9255379e99c10240229a145d37">TMR2_Initialize()</link>; </para>
+<para>
+Definition at line 193 of file tmr2.c.</para>
+    </section><anchor xml:id="_tmr2_8c_1a46c13c9255379e99c10240229a145d37"/>    <section>
+    <title>TMR2_Initialize()</title>
+<indexterm><primary>TMR2_Initialize</primary><secondary>tmr2.c</secondary></indexterm>
+<indexterm><primary>tmr2.c</primary><secondary>TMR2_Initialize</secondary></indexterm>
+<para><computeroutput>void TMR2_Initialize (void )</computeroutput></para>
+<para>Section: Driver Interface </para>
+<para>
+Definition at line 91 of file tmr2.c.</para>
+    </section><anchor xml:id="_tmr2_8c_1ae0659f551ba74dfbbe77b676fe368103"/>    <section>
+    <title>TMR2_Period16BitGet()</title>
+<indexterm><primary>TMR2_Period16BitGet</primary><secondary>tmr2.c</secondary></indexterm>
+<indexterm><primary>tmr2.c</primary><secondary>TMR2_Period16BitGet</secondary></indexterm>
+<para><computeroutput>uint16_t TMR2_Period16BitGet (void )</computeroutput></para>
+<para>@Summary Provides the timer 16-bit period value</para>
+
+<para>@Description This routine provides the timer 16-bit period value</para>
+
+<para>@Param None.</para>
+
+<para>@Returns Timer 16-bit period value</para>
+
+<para>@Example Refer to the example of <link linkend="_tmr2_8h_1a46c13c9255379e99c10240229a145d37">TMR2_Initialize()</link>; </para>
+<para>
+Definition at line 141 of file tmr2.c.</para>
+    </section><anchor xml:id="_tmr2_8c_1a029b45c0db9f00c1e569879790b617c9"/>    <section>
+    <title>TMR2_Period16BitSet()</title>
+<indexterm><primary>TMR2_Period16BitSet</primary><secondary>tmr2.c</secondary></indexterm>
+<indexterm><primary>tmr2.c</primary><secondary>TMR2_Period16BitSet</secondary></indexterm>
+<para><computeroutput>void TMR2_Period16BitSet (uint16_t value)</computeroutput></para>
+<para>@Summary Updates 16-bit timer value</para>
+
+<para>@Description This routine updates 16-bit timer value</para>
+
+<para>@Param None.</para>
+
+<para>@Returns None</para>
+
+<para>@Example Refer to the example of <link linkend="_tmr2_8h_1a46c13c9255379e99c10240229a145d37">TMR2_Initialize()</link>; </para>
+<para>
+Definition at line 133 of file tmr2.c.</para>
+    </section><anchor xml:id="_tmr2_8c_1a96213f388ab9dc5b3cd3ff3b06732b59"/>    <section>
+    <title>TMR2_SetInterruptHandler()</title>
+<indexterm><primary>TMR2_SetInterruptHandler</primary><secondary>tmr2.c</secondary></indexterm>
+<indexterm><primary>tmr2.c</primary><secondary>TMR2_SetInterruptHandler</secondary></indexterm>
+<para><computeroutput>void TMR2_SetInterruptHandler (void(*)(void) InterruptHandler)</computeroutput></para>
+<para>@Summary Assigns a function pointer with a callback address.</para>
+
+<para>@Description This routine assigns a function pointer with a callback address.</para>
+
+<para>@Param Address of the callback routine.</para>
+
+<para>@Returns None</para>
+
+<para>@Example <computeroutput> TMR2_SetInterruptHandler(&amp;TMR2_CallBack); </computeroutput> </para>
+<para>
+Definition at line 165 of file tmr2.c.</para>
+    </section><anchor xml:id="_tmr2_8c_1a7f4921638056d85138f0a7a743b44ef9"/>    <section>
+    <title>TMR2_SoftwareCounterClear()</title>
+<indexterm><primary>TMR2_SoftwareCounterClear</primary><secondary>tmr2.c</secondary></indexterm>
+<indexterm><primary>tmr2.c</primary><secondary>TMR2_SoftwareCounterClear</secondary></indexterm>
+<para><computeroutput>void TMR2_SoftwareCounterClear (void )</computeroutput></para>
+<para>@Summary Clears the software counter value.</para>
+
+<para>@Description This routine clears the software counter value.</para>
+
+<para>@Param None.</para>
+
+<para>@Returns None</para>
+
+<para>@Example Refer to the example of <link linkend="_tmr2_8h_1a46c13c9255379e99c10240229a145d37">TMR2_Initialize()</link>; </para>
+<para>
+Definition at line 211 of file tmr2.c.</para>
+    </section><anchor xml:id="_tmr2_8c_1a241db09d6e4141c5ef4a8b6bea8b22ad"/>    <section>
+    <title>TMR2_SoftwareCounterGet()</title>
+<indexterm><primary>TMR2_SoftwareCounterGet</primary><secondary>tmr2.c</secondary></indexterm>
+<indexterm><primary>tmr2.c</primary><secondary>TMR2_SoftwareCounterGet</secondary></indexterm>
+<para><computeroutput>int TMR2_SoftwareCounterGet (void )</computeroutput></para>
+<para>@Summary Returns the software counter value.</para>
+
+<para>@Description This routine returns the software counter value.</para>
+
+<para>@Param None.</para>
+
+<para>@Returns Software counter value.</para>
+
+<para>@Example Refer to the example of <link linkend="_tmr2_8h_1a46c13c9255379e99c10240229a145d37">TMR2_Initialize()</link>; </para>
+<para>
+Definition at line 206 of file tmr2.c.</para>
+    </section><anchor xml:id="_tmr2_8c_1a7eccfd0fac278e0099d27631e116cfbf"/>    <section>
+    <title>TMR2_Start()</title>
+<indexterm><primary>TMR2_Start</primary><secondary>tmr2.c</secondary></indexterm>
+<indexterm><primary>tmr2.c</primary><secondary>TMR2_Start</secondary></indexterm>
+<para><computeroutput>void TMR2_Start (void )</computeroutput></para>
+<para>@Summary Starts the TMR</para>
+
+<para>@Description This routine starts the TMR</para>
+
+<para>@Param None.</para>
+
+<para>@Returns None</para>
+
+<para>@Example Refer to the example of <link linkend="_tmr2_8h_1a46c13c9255379e99c10240229a145d37">TMR2_Initialize()</link>; </para>
+<para>
+Definition at line 172 of file tmr2.c.</para>
+    </section><anchor xml:id="_tmr2_8c_1a90159f110263038f478f43a3ac9ab3ee"/>    <section>
+    <title>TMR2_Stop()</title>
+<indexterm><primary>TMR2_Stop</primary><secondary>tmr2.c</secondary></indexterm>
+<indexterm><primary>tmr2.c</primary><secondary>TMR2_Stop</secondary></indexterm>
+<para><computeroutput>void TMR2_Stop (void )</computeroutput></para>
+<para>@Summary Stops the TMR</para>
+
+<para>@Description This routine stops the TMR</para>
+
+<para>@Param None.</para>
+
+<para>@Returns None</para>
+
+<para>@Example Refer to the example of <link linkend="_tmr2_8h_1a46c13c9255379e99c10240229a145d37">TMR2_Initialize()</link>; </para>
+<para>
+Definition at line 184 of file tmr2.c.</para>
+</section>
+</section>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_tmr2_8c_1a622a11f661317b0f3da80e5416e47c12"/>    <section>
+    <title>TMR2_InterruptHandler</title>
+<indexterm><primary>TMR2_InterruptHandler</primary><secondary>tmr2.c</secondary></indexterm>
+<indexterm><primary>tmr2.c</primary><secondary>TMR2_InterruptHandler</secondary></indexterm>
+<para><computeroutput>void(* TMR2_InterruptHandler) (void) (void ) = NULL</computeroutput></para>
+<para>TMR2 Generated Driver API Source File</para>
+
+<para>@Company Microchip Technology Inc.</para>
+
+<para>@File Name <link linkend="_tmr2_8c">tmr2.c</link></para>
+
+<para>@Summary This is the generated source file for the TMR2 driver using PIC24 / dsPIC33 / PIC32MM MCUs</para>
+
+<para>@Description This source file provides APIs for driver for TMR2. Generation Information : Product Revision : PIC24 / dsPIC33 / PIC32MM MCUs - 1.170.0 Device : PIC24FJ256GA702 The generated drivers are tested against the following: Compiler : XC16 v1.61 MPLAB : MPLAB X v5.45 Section: Included Files Section: File specific functions </para>
+<para>
+Definition at line 56 of file tmr2.c.</para>
+</section>
+</section>
+</section>

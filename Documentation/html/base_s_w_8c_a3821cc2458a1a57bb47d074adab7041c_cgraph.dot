@@ -1,0 +1,10 @@
+digraph "TranscieveNextionDATA_callback"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="TranscieveNextionDATA\l_callback",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="genericTranciverFunction",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$base_s_w_8c.html#a27ccec4e551f47ff3fe3c4b6afc07597",tooltip=" "];
+}

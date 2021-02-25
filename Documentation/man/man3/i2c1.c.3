@@ -1,0 +1,531 @@
+.TH "C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/i2c1.c" 3 "Wed Feb 24 2021" "Version 1.0" "Reflow Oven" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/i2c1.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'i2c1\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "union \fBI2C_TR_QUEUE_STATUS\fP"
+.br
+.ti -1c
+.RI "struct \fBI2C_TR_QUEUE_ENTRY\fP"
+.br
+.ti -1c
+.RI "struct \fBI2C_OBJECT\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBI2C1_CONFIG_TR_QUEUE_LENGTH\fP   1"
+.br
+.ti -1c
+.RI "#define \fBI2C1_TRANSMIT_REG\fP   I2C1TRN"
+.br
+.ti -1c
+.RI "#define \fBI2C1_RECEIVE_REG\fP   I2C1RCV"
+.br
+.ti -1c
+.RI "#define \fBI2C1_WRITE_COLLISION_STATUS_BIT\fP   I2C1STATbits\&.IWCOL"
+.br
+.ti -1c
+.RI "#define \fBI2C1_ACKNOWLEDGE_STATUS_BIT\fP   I2C1STATbits\&.ACKSTAT"
+.br
+.ti -1c
+.RI "#define \fBI2C1_START_CONDITION_ENABLE_BIT\fP   I2C1CONLbits\&.SEN"
+.br
+.ti -1c
+.RI "#define \fBI2C1_REPEAT_START_CONDITION_ENABLE_BIT\fP   I2C1CONLbits\&.RSEN"
+.br
+.ti -1c
+.RI "#define \fBI2C1_RECEIVE_ENABLE_BIT\fP   I2C1CONLbits\&.RCEN"
+.br
+.ti -1c
+.RI "#define \fBI2C1_STOP_CONDITION_ENABLE_BIT\fP   I2C1CONLbits\&.PEN"
+.br
+.ti -1c
+.RI "#define \fBI2C1_ACKNOWLEDGE_ENABLE_BIT\fP   I2C1CONLbits\&.ACKEN"
+.br
+.ti -1c
+.RI "#define \fBI2C1_ACKNOWLEDGE_DATA_BIT\fP   I2C1CONLbits\&.ACKDT"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBI2C_MASTER_STATES\fP { \fBS_MASTER_IDLE\fP, \fBS_MASTER_RESTART\fP, \fBS_MASTER_SEND_ADDR\fP, \fBS_MASTER_SEND_DATA\fP, \fBS_MASTER_SEND_STOP\fP, \fBS_MASTER_ACK_ADDR\fP, \fBS_MASTER_RCV_DATA\fP, \fBS_MASTER_RCV_STOP\fP, \fBS_MASTER_ACK_RCV_DATA\fP, \fBS_MASTER_NOACK_STOP\fP, \fBS_MASTER_SEND_ADDR_10BIT_LSB\fP, \fBS_MASTER_10BIT_RESTART\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBI2C1_Initialize\fP (void)"
+.br
+.ti -1c
+.RI "uint8_t \fBI2C1_ErrorCountGet\fP (void)"
+.br
+.ti -1c
+.RI "void \fB__attribute__\fP ((interrupt, no_auto_psv))"
+.br
+.ti -1c
+.RI "void \fBI2C1_MasterWrite\fP (uint8_t *pdata, uint8_t length, uint16_t address, \fBI2C1_MESSAGE_STATUS\fP *pstatus)"
+.br
+.ti -1c
+.RI "void \fBI2C1_MasterRead\fP (uint8_t *pdata, uint8_t length, uint16_t address, \fBI2C1_MESSAGE_STATUS\fP *pstatus)"
+.br
+.ti -1c
+.RI "void \fBI2C1_MasterTRBInsert\fP (uint8_t count, \fBI2C1_TRANSACTION_REQUEST_BLOCK\fP *ptrb_list, \fBI2C1_MESSAGE_STATUS\fP *pflag)"
+.br
+.ti -1c
+.RI "void \fBI2C1_MasterReadTRBBuild\fP (\fBI2C1_TRANSACTION_REQUEST_BLOCK\fP *ptrb, uint8_t *pdata, uint8_t length, uint16_t address)"
+.br
+.ti -1c
+.RI "void \fBI2C1_MasterWriteTRBBuild\fP (\fBI2C1_TRANSACTION_REQUEST_BLOCK\fP *ptrb, uint8_t *pdata, uint8_t length, uint16_t address)"
+.br
+.ti -1c
+.RI "bool \fBI2C1_MasterQueueIsEmpty\fP (void)"
+.br
+.ti -1c
+.RI "bool \fBI2C1_MasterQueueIsFull\fP (void)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define I2C1_ACKNOWLEDGE_DATA_BIT   I2C1CONLbits\&.ACKDT"
+
+.PP
+Definition at line 170 of file i2c1\&.c\&.
+.SS "#define I2C1_ACKNOWLEDGE_ENABLE_BIT   I2C1CONLbits\&.ACKEN"
+
+.PP
+Definition at line 169 of file i2c1\&.c\&.
+.SS "#define I2C1_ACKNOWLEDGE_STATUS_BIT   I2C1STATbits\&.ACKSTAT"
+
+.PP
+Definition at line 163 of file i2c1\&.c\&.
+.SS "#define I2C1_CONFIG_TR_QUEUE_LENGTH   1"
+Section: Macro Definitions 
+.PP
+Definition at line 154 of file i2c1\&.c\&.
+.SS "#define I2C1_RECEIVE_ENABLE_BIT   I2C1CONLbits\&.RCEN"
+
+.PP
+Definition at line 167 of file i2c1\&.c\&.
+.SS "#define I2C1_RECEIVE_REG   I2C1RCV"
+
+.PP
+Definition at line 158 of file i2c1\&.c\&.
+.SS "#define I2C1_REPEAT_START_CONDITION_ENABLE_BIT   I2C1CONLbits\&.RSEN"
+
+.PP
+Definition at line 166 of file i2c1\&.c\&.
+.SS "#define I2C1_START_CONDITION_ENABLE_BIT   I2C1CONLbits\&.SEN"
+
+.PP
+Definition at line 165 of file i2c1\&.c\&.
+.SS "#define I2C1_STOP_CONDITION_ENABLE_BIT   I2C1CONLbits\&.PEN"
+
+.PP
+Definition at line 168 of file i2c1\&.c\&.
+.SS "#define I2C1_TRANSMIT_REG   I2C1TRN"
+
+.PP
+Definition at line 157 of file i2c1\&.c\&.
+.SS "#define I2C1_WRITE_COLLISION_STATUS_BIT   I2C1STATbits\&.IWCOL"
+
+.PP
+Definition at line 162 of file i2c1\&.c\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBI2C_MASTER_STATES\fP"
+I2C Master Driver State Enumeration
+.PP
+@Summary Defines the different states of the i2c master\&.
+.PP
+@Description This defines the different states that the i2c master used to process transactions on the i2c bus\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIS_MASTER_IDLE \fP\fP
+.TP
+\fB\fIS_MASTER_RESTART \fP\fP
+.TP
+\fB\fIS_MASTER_SEND_ADDR \fP\fP
+.TP
+\fB\fIS_MASTER_SEND_DATA \fP\fP
+.TP
+\fB\fIS_MASTER_SEND_STOP \fP\fP
+.TP
+\fB\fIS_MASTER_ACK_ADDR \fP\fP
+.TP
+\fB\fIS_MASTER_RCV_DATA \fP\fP
+.TP
+\fB\fIS_MASTER_RCV_STOP \fP\fP
+.TP
+\fB\fIS_MASTER_ACK_RCV_DATA \fP\fP
+.TP
+\fB\fIS_MASTER_NOACK_STOP \fP\fP
+.TP
+\fB\fIS_MASTER_SEND_ADDR_10BIT_LSB \fP\fP
+.TP
+\fB\fIS_MASTER_10BIT_RESTART \fP\fP
+.PP
+Definition at line 129 of file i2c1\&.c\&.
+.SH "Function Documentation"
+.PP 
+.SS "void __attribute__ ((interrupt, no_auto_psv))"
+
+.PP
+Definition at line 231 of file i2c1\&.c\&.
+.SS "uint8_t I2C1_ErrorCountGet (void)"
+
+.PP
+Definition at line 223 of file i2c1\&.c\&.
+.SS "void I2C1_Initialize (void)"
+Section: Driver Interface 
+.PP
+Definition at line 196 of file i2c1\&.c\&.
+.SS "bool I2C1_MasterQueueIsEmpty (void)"
+
+.PP
+.nf
+@Summary
+    This function returns the empty status of the Master
+    queue.
+
+@Description
+    This function returns the empty status of the Master
+    queue. Use this function to check if the queue is empty.
+    This can verify if the Master is currently idle.
+
+@Preconditions
+    None
+
+@Param
+    None
+
+@Returns
+    True if the queue is empty and false if the queue is not empty.
+
+@Example
+    <code>
+        #define MCHP24AA512_ADDRESS    0x50 // slave device address
+
+.fi
+.PP
+ check until queue is empty while(\fBI2C1_MasterQueueIsEmpty()\fP == false);
+.PP
+now send more data (assume readBuffer is initialized) I2C1_MasterRead( readBuffer, 3, MCHP24AA512_ADDRESS, &status); 
+.br
+
+.PP
+Definition at line 707 of file i2c1\&.c\&.
+.SS "bool I2C1_MasterQueueIsFull (void)"
+
+.PP
+.nf
+@Summary
+    This function returns the full status of the Master
+    queue.
+
+@Description
+    This function returns the full status of the Master
+    queue. Use this function to check if the queue is full.
+    This can verify if the Master will not be able to accept
+    addition transactions.
+
+@Preconditions
+    None
+
+@Param
+    None
+
+@Returns
+    True if the queue is full and false if the queue is not full.
+
+@Example
+    <code>
+        #define MCHP24AA512_ADDRESS    0x50 // slave device address
+
+.fi
+.PP
+ check until queue has space while(\fBI2C1_MasterQueueIsFull()\fP == true);
+.PP
+now send more data (assume readBuffer is initialized) I2C1_MasterRead( readBuffer, 3, MCHP24AA512_ADDRESS, &status);  
+.PP
+Definition at line 712 of file i2c1\&.c\&.
+.SS "void I2C1_MasterRead (uint8_t * pdata, uint8_t length, uint16_t address, \fBI2C1_MESSAGE_STATUS\fP * pstatus)"
+
+.PP
+.nf
+@Summary
+    Handles one i2c master read transaction with the
+    supplied parameters.
+
+@Description
+    This function prepares a TRB, then inserts it on the i2c queue.
+    Finally, it waits for the transaction to complete and returns
+    the result.
+
+@Preconditions
+    None
+
+@Param
+    address - The address of the i2c peripheral to be accessed
+
+@Param
+    length - The length of the data block to be sent
+
+@Param
+     pdata - A pointer to the memory location where received data will
+             be stored
+
+@Param
+     pstatus - A pointer to the status variable that the i2c driver
+        updates during the execution of the message.
+
+@Returns
+    I2C1_MESSAGE_STATUS
+
+@Example
+    <code>
+
+        #define MCHP24AA512_RETRY_MAX       100  // define the retry count
+        #define MCHP24AA512_ADDRESS         0x50 // slave device address
+        #define MCHP24AA512_DEVICE_TIMEOUT  50   // define slave timeout 
+
+
+        uint8_t MCHP24AA512_Read(
+                                        uint16_t address,
+                                        uint8_t *pData,
+                                        uint16_t nCount)
+        {
+            I2C1_MESSAGE_STATUS status;
+            uint8_t     writeBuffer[3];
+            uint16_t    retryTimeOut, slaveTimeOut;
+            uint16_t    counter;
+            uint8_t     *pD;
+
+            pD = pData;
+
+            for (counter = 0; counter < nCount; counter++)
+            {
+
+.fi
+.PP
+ build the write buffer first starting address of the EEPROM memory writeBuffer[0] = (address >> 8); // high address writeBuffer[1] = (uint8_t)(address); // low low address
+.PP
+Now it is possible that the slave device will be slow\&. As a work around on these slaves, the application can retry sending the transaction retryTimeOut = 0; slaveTimeOut = 0;
+.PP
+while(status != I2C1_MESSAGE_FAIL) { write one byte to EEPROM (2 is the count of bytes to write) I2C1_MasterWrite( writeBuffer, 2, MCHP24AA512_ADDRESS, &status);
+.PP
+wait for the message to be sent or status has changed\&. while(status == I2C1_MESSAGE_PENDING) { add some delay here
+.PP
+timeout checking check for max retry and skip this byte if (slaveTimeOut == MCHP24AA512_DEVICE_TIMEOUT) return (0); else slaveTimeOut++; }
+.PP
+if (status == I2C1_MESSAGE_COMPLETE) break;
+.PP
+if status is I2C1_MESSAGE_ADDRESS_NO_ACK, or I2C1_DATA_NO_ACK, The device may be busy and needs more time for the last write so we can retry writing the data, this is why we use a while loop here
+.PP
+check for max retry and skip this byte if (retryTimeOut == MCHP24AA512_RETRY_MAX) break; else retryTimeOut++; }
+.PP
+if (status == I2C1_MESSAGE_COMPLETE) {
+.PP
+this portion will read the byte from the memory location\&. retryTimeOut = 0; slaveTimeOut = 0;
+.PP
+while(status != I2C1_MESSAGE_FAIL) { write one byte to EEPROM (2 is the count of bytes to write) I2C1_MasterRead( pD, 1, MCHP24AA512_ADDRESS, &status);
+.PP
+wait for the message to be sent or status has changed\&. while(status == I2C1_MESSAGE_PENDING) { add some delay here
+.PP
+timeout checking check for max retry and skip this byte if (slaveTimeOut == MCHP24AA512_DEVICE_TIMEOUT) return (0); else slaveTimeOut++; }
+.PP
+if (status == I2C1_MESSAGE_COMPLETE) break;
+.PP
+if status is I2C1_MESSAGE_ADDRESS_NO_ACK, or I2C1_DATA_NO_ACK, The device may be busy and needs more time for the last write so we can retry writing the data, this is why we use a while loop here
+.PP
+check for max retry and skip this byte if (retryTimeOut == MCHP24AA512_RETRY_MAX) break; else retryTimeOut++; } }
+.PP
+exit if the last transaction failed if (status == I2C1_MESSAGE_FAIL) { return(0); break; }
+.PP
+pD++; address++;
+.PP
+} return(1);
+.PP
+}
+.PP
+.PP
+.nf
+ </code>
+.fi
+.PP
+ 
+.PP
+Definition at line 611 of file i2c1\&.c\&.
+.SS "void I2C1_MasterReadTRBBuild (\fBI2C1_TRANSACTION_REQUEST_BLOCK\fP * ptrb, uint8_t * pdata, uint8_t length, uint16_t address)"
+@Summary This function populates a trb supplied by the calling function with the parameters supplied by the calling function\&.
+.PP
+@Description All i2c requests are in the form of TRB's\&. This helper function takes standard parameters and correctly formats the TRB\&. The R/W bit is set to ensure that the resulting TRB describes an i2c read operation\&.
+.PP
+This function does not send the transaction\&. To send the transaction, the TRB insert function (\fBI2C1_MasterTRBInsert()\fP) must be called\&.
+.PP
+@Preconditions None
+.PP
+@Param ptrb - A pointer to a caller supplied TRB\&.
+.PP
+@Param pdata - A pointer to the block of data to be received
+.PP
+@Param length - The length of the data block to be received
+.PP
+@Param address - The address of the i2c peripheral to be accessed
+.PP
+@Returns None
+.PP
+@Example \fC Refer to \fBI2C1_MasterTRBInsert()\fP for an example 
+.br
+ \fP 
+.PP
+Definition at line 683 of file i2c1\&.c\&.
+.SS "void I2C1_MasterTRBInsert (uint8_t count, \fBI2C1_TRANSACTION_REQUEST_BLOCK\fP * ptrb_list, \fBI2C1_MESSAGE_STATUS\fP * pflag)"
+
+.PP
+.nf
+@Summary
+    Inserts a list of i2c transaction requests into the i2c
+    transaction queue.
+
+@Description
+    The i2c processes lists of transaction requests.  Each transaction
+    list is handled as a string of i2c restarts.  When the list of
+    transactions is complete, an i2c stop is produced, the flag is set
+    with the correct condition code and the next list is processed
+    from the queue.
+
+    This function inserts lists of requests prepared by the user
+    application into the queue along with a pointer to the completion
+    flag.
+
+    The transaction is inserted into the list only if there is space
+    in the list. If there is no space, the function exits with the
+    flag set to I2C1_MESSAGE_FAIL.
+
+@Preconditions
+    None
+
+@Param
+    count - The numer of transaction requests in the trb_list.
+
+@Param
+     ptrb_list - A pointer to an array of transaction requests (TRB).
+        See I2C1_TRANSACTION_REQUEST_BLOCK definition for details.
+
+@Param
+     pflag - A pointer to a completion flag.
+
+@Returns
+    None
+
+@Example
+    <code>
+
+
+        uint8_t EMULATED_EEPROM_Read(
+                                       uint16_t slaveDeviceAddress,
+                                       uint16_t dataAddress,
+                                       uint8_t *pData,
+                                       uint16_t nCount)
+        {
+            I2C1_MESSAGE_STATUS status;
+            I2C1_TRANSACTION_REQUEST_BLOCK readTRB[2];
+            uint8_t     writeBuffer[3];
+            uint16_t    timeOut, slaveTimeOut;
+
+.fi
+.PP
+ this initial value is important status = I2C1_MESSAGE_PENDING;
+.PP
+build the write buffer first starting address of the EEPROM memory writeBuffer[0] = (dataAddress >> 8); // high address writeBuffer[1] = (uint8_t)(dataAddress); // low low address
+.PP
+we need to create the TRBs for a random read sequence to the EEPROM Build TRB for sending address I2C1_MasterWriteTRBBuild( &readTRB[0], writeBuffer, 2, slaveDeviceAddress); Build TRB for receiving data I2C1_MasterReadTRBBuild( &readTRB[1], pData, nCount, slaveDeviceAddress);
+.PP
+timeOut = 0; slaveTimeOut = 0;
+.PP
+while(status != I2C1_MESSAGE_FAIL) { now send the transactions I2C1_MasterTRBInsert(2, readTRB, &status);
+.PP
+wait for the message to be sent or status has changed\&. while(status == I2C1_MESSAGE_PENDING) { add some delay here
+.PP
+timeout checking check for max retry and skip this byte if (slaveTimeOut == SLAVE_I2C_GENERIC_SLAVE_TIMEOUT) return (0); else slaveTimeOut++; }
+.PP
+if (status == I2C1_MESSAGE_COMPLETE) break;
+.PP
+if status is I2C1_MESSAGE_ADDRESS_NO_ACK, or I2C1_DATA_NO_ACK, The device may be busy and needs more time for the last write so we can retry writing the data, this is why we use a while loop here
+.PP
+check for max retry and skip this byte if (timeOut == SLAVE_I2C_GENERIC_RETRY_MAX) return (0); else timeOut++;
+.PP
+} return (1);
+.PP
+} 
+.br
+
+.PP
+Definition at line 633 of file i2c1\&.c\&.
+.SS "void I2C1_MasterWrite (uint8_t * pdata, uint8_t length, uint16_t address, \fBI2C1_MESSAGE_STATUS\fP * pstatus)"
+@Summary Handles one i2c master write transaction with the supplied parameters\&.
+.PP
+@Description This function prepares a TRB, then inserts it on the i2c queue\&. Finally, it waits for the transaction to complete and returns the result\&.
+.PP
+@Preconditions None
+.PP
+@Param address - The address of the i2c peripheral to be accessed
+.PP
+@Param length - The length of the data block to be sent
+.PP
+@Param pdata - A pointer to the block of data to be sent
+.PP
+@Param pstatus - A pointer to the status variable that the i2c driver updates during the execution of the message\&.
+.PP
+@Returns I2C1_MESSAGE_STATUS
+.PP
+@Example \fC Refer to \fBI2C1_Initialize()\fP and \fBI2C1_MasterRead()\fP for an examples 
+.br
+ \fP 
+.PP
+Definition at line 590 of file i2c1\&.c\&.
+.SS "void I2C1_MasterWriteTRBBuild (\fBI2C1_TRANSACTION_REQUEST_BLOCK\fP * ptrb, uint8_t * pdata, uint8_t length, uint16_t address)"
+@Summary This function populates a trb supplied by the calling function with the parameters supplied by the calling function\&.
+.PP
+@Description All i2c requests are in the form of TRB's\&. This helper function takes standard parameters and correctly formats the TRB\&. The R/W bit is cleared to ensure that the resulting TRB describes an i2c write operation\&.
+.PP
+This function does not send the transaction\&. To send the transaction, the TRB insert function (\fBI2C1_MasterTRBInsert()\fP) must be called\&.
+.PP
+@Preconditions None
+.PP
+@Param ptrb - A pointer to a caller supplied TRB\&.
+.PP
+@Param pdata - A pointer to the block of data to be sent
+.PP
+@Param length - The length of the data block to be sent
+.PP
+@Param address - The address of the i2c peripheral to be accessed
+.PP
+@Returns None
+.PP
+@Example \fC Refer to \fBI2C1_MasterTRBInsert()\fP for an example 
+.br
+ \fP 
+.PP
+Definition at line 696 of file i2c1\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Reflow Oven from the source code\&.

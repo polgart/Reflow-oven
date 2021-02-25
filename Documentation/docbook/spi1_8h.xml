@@ -1,0 +1,231 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_spi1_8h" xml:lang="en-US">
+<title>C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/spi1.h File Reference</title>
+<indexterm><primary>C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/spi1.h</primary></indexterm>
+<programlisting>#include &lt;xc.h&gt;
+#include &lt;stdint.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+</programlisting>Include dependency graph for spi1.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="spi1_8h__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="spi1_8h__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_spi1_8h_1a638c4d239fac723fbdffe4eeadda4ed1">SPI1_DUMMY_DATA</link>   0x0</para>
+</listitem>
+            <listitem><para>#define <link linkend="_spi1_8h_1a8553f77a27ba223be55e6ddcd220f3b9">SPI1_FIFO_FILL_LIMIT</link>   0x8</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_spi1_8h_1a023db59f6551e56ce57ee219df328012">SPI1_STATUS</link> { 
+<link linkend="_spi1_8h_1a023db59f6551e56ce57ee219df328012a69e392271481ac8c49fb6f35a7bc7c53">SPI1_SHIFT_REGISTER_EMPTY</link> = 1 &lt;&lt; 7
+, <link linkend="_spi1_8h_1a023db59f6551e56ce57ee219df328012a877f4b63731f235b5fe552030d1388c5">SPI1_RECEIVE_OVERFLOW</link> = 1 &lt;&lt; 6
+, <link linkend="_spi1_8h_1a023db59f6551e56ce57ee219df328012afc7ba2714535aa5d614b5759b1d40579">SPI1_RECEIVE_FIFO_EMPTY</link> = 1 &lt;&lt; 5
+, <link linkend="_spi1_8h_1a023db59f6551e56ce57ee219df328012a949c786b6788d844c479a2f299fdf7dc">SPI1_TRANSMIT_BUFFER_FULL</link> = 1 &lt;&lt; 1
+, 
+<link linkend="_spi1_8h_1a023db59f6551e56ce57ee219df328012aba7791551998b7c485e613812eaa6a84">SPI1_RECEIVE_BUFFER_FULL</link> = 1 &lt;&lt; 0
+ }</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_spi1_8h_1a0607cad7a6b302950091fea719146a54">SPI1_Initialize</link> (void)</para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_spi1_8h_1a0a88e53d199caed4e1850db5b427fe3c">SPI1_Exchange32bit</link> (uint32_t data)</para>
+</listitem>
+            <listitem><para>uint16_t <link linkend="_spi1_8h_1a7826666063c148e7642b83350ada21c0">SPI1_Exchange32bitBuffer</link> (uint32_t *dataTransmitted, uint16_t byteCount, uint32_t *dataReceived)</para>
+</listitem>
+            <listitem><para><link linkend="_spi1_8h_1a023db59f6551e56ce57ee219df328012">SPI1_STATUS</link> <link linkend="_spi1_8h_1a05acfdd41894527bd8833b8f549680ed">SPI1_StatusGet</link> (void)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_spi1_8h_1a638c4d239fac723fbdffe4eeadda4ed1"/>    <section>
+    <title>SPI1_DUMMY_DATA</title>
+<indexterm><primary>SPI1_DUMMY_DATA</primary><secondary>spi1.h</secondary></indexterm>
+<indexterm><primary>spi1.h</primary><secondary>SPI1_DUMMY_DATA</secondary></indexterm>
+<para><computeroutput>#define SPI1_DUMMY_DATA   0x0</computeroutput></para>
+<para>SPI1 Generated Driver API Header File</para>
+
+<para>Company: Microchip Technology Inc.</para>
+
+<para>File Name: <link linkend="_spi1_8h">spi1.h</link></para>
+
+<para>@Summary This is the generated header file for the SPI1 driver using PIC24 / dsPIC33 / PIC32MM MCUs</para>
+
+<para>@Description This header file provides APIs for driver for SPI1. Generation Information : Product Revision : PIC24 / dsPIC33 / PIC32MM MCUs - 1.170.0 Device : PIC24FJ256GA702 The generated drivers are tested against the following: Compiler : XC16 v1.61 MPLAB : MPLAB X v5.45 Section: Included Files Section: Data Type Definitions SPI1_DUMMY_DATA</para>
+
+<para>@Summary Dummy data to be sent.</para>
+
+<para>@Description Dummy data to be sent, when no input buffer is specified in the buffer APIs. </para>
+<para>
+Definition at line 77 of file spi1.h.</para>
+    </section><anchor xml:id="_spi1_8h_1a8553f77a27ba223be55e6ddcd220f3b9"/>    <section>
+    <title>SPI1_FIFO_FILL_LIMIT</title>
+<indexterm><primary>SPI1_FIFO_FILL_LIMIT</primary><secondary>spi1.h</secondary></indexterm>
+<indexterm><primary>spi1.h</primary><secondary>SPI1_FIFO_FILL_LIMIT</secondary></indexterm>
+<para><computeroutput>#define SPI1_FIFO_FILL_LIMIT   0x8</computeroutput></para>
+<para>SPI1_FIFO_FILL_LIMIT</para>
+
+<para>@Summary FIFO fill limit for data transmission.</para>
+
+<para>@Description The amount of data to be filled in the FIFO during transmission. The maximum limit allowed is 8. </para>
+<para>
+Definition at line 88 of file spi1.h.</para>
+</section>
+</section>
+<section>
+<title>Enumeration Type Documentation</title>
+<anchor xml:id="_spi1_8h_1a023db59f6551e56ce57ee219df328012"/>    <section>
+    <title>SPI1_STATUS</title>
+<indexterm><primary>SPI1_STATUS</primary><secondary>spi1.h</secondary></indexterm>
+<indexterm><primary>spi1.h</primary><secondary>SPI1_STATUS</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_spi1_8h_1a023db59f6551e56ce57ee219df328012">SPI1_STATUS</link></computeroutput></para>
+<para>SPI1 Status Enumeration</para>
+
+<para>@Summary Defines the status enumeration for SPI1.</para>
+
+<para>@Description This defines the status enumeration for SPI1. </para>
+<informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>SPI1_SHIFT_REGISTER_EMPTY</primary><secondary>spi1.h</secondary></indexterm>
+<indexterm><primary>spi1.h</primary><secondary>SPI1_SHIFT_REGISTER_EMPTY</secondary></indexterm>
+<anchor xml:id="_spi1_8h_1a023db59f6551e56ce57ee219df328012a69e392271481ac8c49fb6f35a7bc7c53"/>SPI1_SHIFT_REGISTER_EMPTY</entry><entry></entry></row><row><entry><indexterm><primary>SPI1_RECEIVE_OVERFLOW</primary><secondary>spi1.h</secondary></indexterm>
+<indexterm><primary>spi1.h</primary><secondary>SPI1_RECEIVE_OVERFLOW</secondary></indexterm>
+<anchor xml:id="_spi1_8h_1a023db59f6551e56ce57ee219df328012a877f4b63731f235b5fe552030d1388c5"/>SPI1_RECEIVE_OVERFLOW</entry><entry></entry></row><row><entry><indexterm><primary>SPI1_RECEIVE_FIFO_EMPTY</primary><secondary>spi1.h</secondary></indexterm>
+<indexterm><primary>spi1.h</primary><secondary>SPI1_RECEIVE_FIFO_EMPTY</secondary></indexterm>
+<anchor xml:id="_spi1_8h_1a023db59f6551e56ce57ee219df328012afc7ba2714535aa5d614b5759b1d40579"/>SPI1_RECEIVE_FIFO_EMPTY</entry><entry></entry></row><row><entry><indexterm><primary>SPI1_TRANSMIT_BUFFER_FULL</primary><secondary>spi1.h</secondary></indexterm>
+<indexterm><primary>spi1.h</primary><secondary>SPI1_TRANSMIT_BUFFER_FULL</secondary></indexterm>
+<anchor xml:id="_spi1_8h_1a023db59f6551e56ce57ee219df328012a949c786b6788d844c479a2f299fdf7dc"/>SPI1_TRANSMIT_BUFFER_FULL</entry><entry></entry></row><row><entry><indexterm><primary>SPI1_RECEIVE_BUFFER_FULL</primary><secondary>spi1.h</secondary></indexterm>
+<indexterm><primary>spi1.h</primary><secondary>SPI1_RECEIVE_BUFFER_FULL</secondary></indexterm>
+<anchor xml:id="_spi1_8h_1a023db59f6551e56ce57ee219df328012aba7791551998b7c485e613812eaa6a84"/>SPI1_RECEIVE_BUFFER_FULL</entry><entry></entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line 106 of file spi1.h.</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_spi1_8h_1a0a88e53d199caed4e1850db5b427fe3c"/>    <section>
+    <title>SPI1_Exchange32bit()</title>
+<indexterm><primary>SPI1_Exchange32bit</primary><secondary>spi1.h</secondary></indexterm>
+<indexterm><primary>spi1.h</primary><secondary>SPI1_Exchange32bit</secondary></indexterm>
+<para><computeroutput>uint32_t SPI1_Exchange32bit (uint32_t data)</computeroutput></para>
+<para>@Summary Exchanges two word of data from SPI1</para>
+
+<para>@Description This routine exchanges two word of data from SPI1.</para>
+
+<para>@Preconditions The SPI1_Initialize routine must have been called for the specified SPI1 driver instance. This is a blocking routine.</para>
+
+<para>@Returns Data read from SPI1</para>
+
+<para>@Param data - Data to be written onto SPI1.</para>
+
+<para>@Example Refer to <link linkend="_spi1_8h_1a0607cad7a6b302950091fea719146a54">SPI1_Initialize()</link> for an example 
+<literallayout>&#160;&#xa;</literallayout>
+ </para>
+<para>
+Definition at line 209 of file spi1.c.</para>
+    </section><anchor xml:id="_spi1_8h_1a7826666063c148e7642b83350ada21c0"/>    <section>
+    <title>SPI1_Exchange32bitBuffer()</title>
+<indexterm><primary>SPI1_Exchange32bitBuffer</primary><secondary>spi1.h</secondary></indexterm>
+<indexterm><primary>spi1.h</primary><secondary>SPI1_Exchange32bitBuffer</secondary></indexterm>
+<para><computeroutput>uint16_t SPI1_Exchange32bitBuffer (uint32_t * dataTransmitted, uint16_t byteCount, uint32_t * dataReceived)</computeroutput></para>
+<para>@Summary Exchanges data from a buffer of size two word from SPI1</para>
+
+<para>@Description This routine exchanges data from a buffer of size two word from the SPI1. This is a blocking routine.</para>
+
+<para>@Preconditions The SPI1_Initialize routine must have been called for the specified SPI1 driver instance.</para>
+
+<para>@Returns Number of 32bit data written/read.</para>
+
+<para>@Param dataTransmitted - Buffer of data to be written onto SPI1.</para>
+
+<para>@Param byteCount - Number of bytes to be exchanged.</para>
+
+<para>@Param dataTransmitted - Buffer of data to be read from SPI1.</para>
+
+<para>@Example Refer to <link linkend="_spi1_8h_1a0607cad7a6b302950091fea719146a54">SPI1_Initialize()</link> for an example 
+<literallayout>&#160;&#xa;</literallayout>
+ </para>
+<para>
+Definition at line 219 of file spi1.c.</para>
+    </section><anchor xml:id="_spi1_8h_1a0607cad7a6b302950091fea719146a54"/>    <section>
+    <title>SPI1_Initialize()</title>
+<indexterm><primary>SPI1_Initialize</primary><secondary>spi1.h</secondary></indexterm>
+<indexterm><primary>spi1.h</primary><secondary>SPI1_Initialize</secondary></indexterm>
+<para><computeroutput>void SPI1_Initialize (void )</computeroutput></para>
+<para>Section: Interface Routines @Summary Initializes the SPI instance : 1</para>
+
+<para>@Description This routine initializes the spi1 driver instance for : 1 index, making it ready for clients to open and use it.</para>
+
+<para>This routine must be called before any other SPI1 routine is called. This routine should only be called once during system initialization.</para>
+
+<para>@Preconditions None.</para>
+
+<para>@Returns None.</para>
+
+<para>@Param None.</para>
+
+<para>@Example <computeroutput> uint16_t myWriteBuffer[MY_BUFFER_SIZE]; uint16_t myReadBuffer[MY_BUFFER_SIZE]; uint16_t writeData; uint16_t readData; SPI1_STATUS status; unsigned int total; SPI1_Initialize;</computeroutput></para>
+
+<para><computeroutput> total = 0; numberOfBytesFactor = 2; do { total = SPI1_Exchange16bitBuffer( &amp;myWriteBuffer[total], (MY_BUFFER_SIZE - total)*numberOfBytesFactor, &amp;myReadBuffer[total]);</computeroutput></para>
+
+<para><computeroutput>Do something else... <literallayout><computeroutput>} while( total &lt; MY_BUFFER_SIZE );
+
+readData = SPI1_Exchange16bit( writeData);
+
+status = SPI1_StatusGet();
+
+&lt;/code&gt;
+</computeroutput></literallayout> </computeroutput></para>
+    </section><anchor xml:id="_spi1_8h_1a05acfdd41894527bd8833b8f549680ed"/>    <section>
+    <title>SPI1_StatusGet()</title>
+<indexterm><primary>SPI1_StatusGet</primary><secondary>spi1.h</secondary></indexterm>
+<indexterm><primary>spi1.h</primary><secondary>SPI1_StatusGet</secondary></indexterm>
+<para><computeroutput><link linkend="_spi1_8h_1a023db59f6551e56ce57ee219df328012">SPI1_STATUS</link> SPI1_StatusGet (void )</computeroutput></para>
+<para>@Summary Returns the value of the status register of SPI instance : 1</para>
+
+<para>@Description This routine returns the value of the status register of SPI1 driver instance : 1</para>
+
+<para>@Preconditions None.</para>
+
+<para>@Returns Returns the value of the status register.</para>
+
+<para>@Param None.</para>
+
+<para>@Example Refer to <link linkend="_spi1_8h_1a0607cad7a6b302950091fea719146a54">SPI1_Initialize()</link> for an example 
+<literallayout>&#160;&#xa;</literallayout>
+ </para>
+<para>
+Definition at line 236 of file spi1.c.</para>
+</section>
+</section>
+</section>

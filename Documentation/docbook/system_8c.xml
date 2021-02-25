@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_system_8c" xml:lang="en-US">
+<title>C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/system.c File Reference</title>
+<indexterm><primary>C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/system.c</primary></indexterm>
+<programlisting>#include &quot;pin_manager.h&quot;
+#include &quot;clock.h&quot;
+#include &quot;system.h&quot;
+#include &quot;i2c1.h&quot;
+#include &quot;interrupt_manager.h&quot;
+#include &quot;traps.h&quot;
+#include &quot;uart1.h&quot;
+#include &quot;uart2.h&quot;
+#include &quot;tmr2.h&quot;
+#include &quot;spi1.h&quot;
+</programlisting>Include dependency graph for system.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="system_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_system_8c_1a5e8391114a0cf91ac20002be25e3d352">SYSTEM_Initialize</link> (void)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_system_8c_1a5e8391114a0cf91ac20002be25e3d352"/>    <section>
+    <title>SYSTEM_Initialize()</title>
+<indexterm><primary>SYSTEM_Initialize</primary><secondary>system.c</secondary></indexterm>
+<indexterm><primary>system.c</primary><secondary>SYSTEM_Initialize</secondary></indexterm>
+<para><computeroutput>void SYSTEM_Initialize (void )</computeroutput></para>
+<para>@Generated PIC24 / dsPIC33 / PIC32MM MCUs Source File</para>
+
+<para>@Company: Microchip Technology Inc.</para>
+
+<para>@File Name: <link linkend="_system_8h">system.h</link></para>
+
+<para>@Summary: This is the sysetm.h file generated using PIC24 / dsPIC33 / PIC32MM MCUs</para>
+
+<para>@Description: This header file provides implementations for driver APIs for all modules selected in the GUI. Generation Information : Product Revision : PIC24 / dsPIC33 / PIC32MM MCUs - 1.170.0 Device : PIC24FJ256GA702 The generated drivers are tested against the following: Compiler : XC16 v1.61 MPLAB : MPLAB X v5.45 </para>
+<para>
+Definition at line 108 of file system.c.</para>
+</section>
+</section>
+</section>

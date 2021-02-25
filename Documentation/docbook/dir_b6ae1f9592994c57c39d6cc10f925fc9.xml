@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_b6ae1f9592994c57c39d6cc10f925fc9" xml:lang="en-US">
+<title>C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/build/default/production Directory Reference</title>
+<indexterm><primary>C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/build/default/production Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_c6eaefd91afacefe0e6f8590d2169a3f">mcc_generated_files</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="_production_2base_s_w_8o_8d">baseSW.o.d</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__e_e_p_r_o_m__driver_8o_8d">EEPROM_driver.o.d</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_production_2main_8o_8d">main.o.d</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_production_2state_task_handler_8o_8d">stateTaskHandler.o.d</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

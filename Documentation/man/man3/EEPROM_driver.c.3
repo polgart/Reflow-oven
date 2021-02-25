@@ -1,0 +1,47 @@
+.TH "EEPROM_driver.c" 3 "Thu Feb 25 2021" "Version 1.0" "Reflow Oven firmware" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+EEPROM_driver.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <xc\&.h>\fP
+.br
+\fC#include 'EEPROM_driver\&.h'\fP
+.br
+\fC#include 'mcc_generated_files/i2c1\&.h'\fP
+.br
+\fC#include 'piclib30_wrapper\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "I2C1_MESSAGE_STATUS \fBEEPROM_Read\fP (uint16_t slaveDeviceAddress, uint16_t dataAddress, uint8_t *pData, uint16_t nCount)"
+.br
+.ti -1c
+.RI "I2C1_MESSAGE_STATUS \fBEEPROM_Write\fP (uint16_t slaveDeviceAddress, uint16_t dataAddress, uint8_t *pData, uint16_t nCount)"
+.br
+.ti -1c
+.RI "I2C1_MESSAGE_STATUS \fBEEPROM_WritePage\fP (uint16_t slaveDeviceAddress, uint16_t dataAddress, uint8_t *pData)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "I2C1_MESSAGE_STATUS EEPROM_Read (uint16_t slaveDeviceAddress, uint16_t dataAddress, uint8_t * pData, uint16_t nCount)"
+
+.PP
+Definition at line 6 of file EEPROM_driver\&.c\&.
+.SS "I2C1_MESSAGE_STATUS EEPROM_Write (uint16_t slaveDeviceAddress, uint16_t dataAddress, uint8_t * pData, uint16_t nCount)"
+
+.PP
+Definition at line 78 of file EEPROM_driver\&.c\&.
+.SS "I2C1_MESSAGE_STATUS EEPROM_WritePage (uint16_t slaveDeviceAddress, uint16_t dataAddress, uint8_t * pData)"
+
+.PP
+Definition at line 153 of file EEPROM_driver\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Reflow Oven firmware from the source code\&.

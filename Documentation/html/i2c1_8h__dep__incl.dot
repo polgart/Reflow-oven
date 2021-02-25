@@ -1,0 +1,23 @@
+digraph "C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/i2c1.h"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="C:/Users/EDU_OBOS_5057\l/Documents/Reflow oven\l/Design/SW/RO_firmware\l_v1.X/mcc_generated_files/i2c1.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="C:/Users/EDU_OBOS_5057\l/Documents/Reflow oven\l/Design/SW/RO_firmware\l_v1.X/baseSW.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$base_s_w_8c.html",tooltip=" "];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="C:/Users/EDU_OBOS_5057\l/Documents/Reflow oven\l/Design/SW/RO_firmware\l_v1.X/EEPROM_driver.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_e_e_p_r_o_m__driver_8c.html",tooltip=" "];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="C:/Users/EDU_OBOS_5057\l/Documents/Reflow oven\l/Design/SW/RO_firmware\l_v1.X/EEPROM_driver.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_e_e_p_r_o_m__driver_8h.html",tooltip=" "];
+  Node4 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="C:/Users/EDU_OBOS_5057\l/Documents/Reflow oven\l/Design/SW/RO_firmware\l_v1.X/main.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8c.html",tooltip=" "];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="C:/Users/EDU_OBOS_5057\l/Documents/Reflow oven\l/Design/SW/RO_firmware\l_v1.X/mcc_generated_files/i2c1.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$i2c1_8c.html",tooltip=" "];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="C:/Users/EDU_OBOS_5057\l/Documents/Reflow oven\l/Design/SW/RO_firmware\l_v1.X/mcc_generated_files/mcc.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$mcc_8h.html",tooltip=" "];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="C:/Users/EDU_OBOS_5057\l/Documents/Reflow oven\l/Design/SW/RO_firmware\l_v1.X/mcc_generated_files\l/system.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$system_8c.html",tooltip=" "];
+}

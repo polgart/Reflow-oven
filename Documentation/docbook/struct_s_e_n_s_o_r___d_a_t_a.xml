@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_s_e_n_s_o_r___d_a_t_a" xml:lang="en-US">
+<title>SENSOR_DATA Struct Reference</title>
+<indexterm><primary>SENSOR_DATA</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_union_i_c___m_a_x31855___d_a_t_a">IC_MAX31855_DATA</link> * <link linkend="_struct_s_e_n_s_o_r___d_a_t_a_1a0c398591dfb733d6d74a0880d8bd85df">dataArrayQue</link></para>
+</listitem>
+            <listitem><para>struct {</para>
+        <itemizedlist>
+            <listitem><para>   uint8_t <link linkend="_struct_s_e_n_s_o_r___d_a_t_a_1abf3d76a6f05a05d5d24fade97356b591">isUploaded</link>:1</para>
+</listitem>
+            <listitem><para>   uint8_t <link linkend="_struct_s_e_n_s_o_r___d_a_t_a_1aca76923b7ec0f81726a2a4ec66abfc43">currentData</link>:7</para>
+</listitem>
+        </itemizedlist>
+</listitem>
+            <listitem><para>} <link linkend="_struct_s_e_n_s_o_r___d_a_t_a_1a53558d1af344eab6addc931b1e3a32af">dataArrayStatus</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 186 of file baseSW.c.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_struct_s_e_n_s_o_r___d_a_t_a_1aca76923b7ec0f81726a2a4ec66abfc43"/>    <section>
+    <title>currentData</title>
+<indexterm><primary>currentData</primary><secondary>SENSOR_DATA</secondary></indexterm>
+<indexterm><primary>SENSOR_DATA</primary><secondary>currentData</secondary></indexterm>
+<para><computeroutput>uint8_t currentData</computeroutput></para><para>
+Definition at line 190 of file baseSW.c.</para>
+    </section><anchor xml:id="_struct_s_e_n_s_o_r___d_a_t_a_1a0c398591dfb733d6d74a0880d8bd85df"/>    <section>
+    <title>dataArrayQue</title>
+<indexterm><primary>dataArrayQue</primary><secondary>SENSOR_DATA</secondary></indexterm>
+<indexterm><primary>SENSOR_DATA</primary><secondary>dataArrayQue</secondary></indexterm>
+<para><computeroutput><link linkend="_union_i_c___m_a_x31855___d_a_t_a">IC_MAX31855_DATA</link>* dataArrayQue</computeroutput></para><para>
+Definition at line 187 of file baseSW.c.</para>
+    </section><anchor xml:id="_struct_s_e_n_s_o_r___d_a_t_a_1a53558d1af344eab6addc931b1e3a32af"/>    <section>
+    <title></title>
+<indexterm><primary>dataArrayStatus</primary><secondary>SENSOR_DATA</secondary></indexterm>
+<indexterm><primary>SENSOR_DATA</primary><secondary>dataArrayStatus</secondary></indexterm>
+<para><computeroutput>struct { ... }  dataArrayStatus</computeroutput></para>    </section><anchor xml:id="_struct_s_e_n_s_o_r___d_a_t_a_1abf3d76a6f05a05d5d24fade97356b591"/>    <section>
+    <title>isUploaded</title>
+<indexterm><primary>isUploaded</primary><secondary>SENSOR_DATA</secondary></indexterm>
+<indexterm><primary>SENSOR_DATA</primary><secondary>isUploaded</secondary></indexterm>
+<para><computeroutput>uint8_t isUploaded</computeroutput></para><para>
+Definition at line 189 of file baseSW.c.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+<link linkend="_base_s_w_8c">baseSW.c</link></section>
+</section>

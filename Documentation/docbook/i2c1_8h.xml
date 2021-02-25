@@ -1,0 +1,517 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_i2c1_8h" xml:lang="en-US">
+<title>C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/i2c1.h File Reference</title>
+<indexterm><primary>C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/i2c1.h</primary></indexterm>
+<programlisting>#include &lt;stdint.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;xc.h&gt;
+</programlisting>Include dependency graph for i2c1.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="i2c1_8h__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="i2c1_8h__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Data Structures    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_struct_i2_c1___t_r_a_n_s_a_c_t_i_o_n___r_e_q_u_e_s_t___b_l_o_c_k">I2C1_TRANSACTION_REQUEST_BLOCK</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_i2c1_8h_1a3aa7471e380d7a4957f9a0eb726c6582">I2C1_MESSAGE_STATUS</link> { 
+<link linkend="_i2c1_8h_1a3aa7471e380d7a4957f9a0eb726c6582a59ca3c181df953e21b33790315a81cb3">I2C1_MESSAGE_FAIL</link>
+, <link linkend="_i2c1_8h_1a3aa7471e380d7a4957f9a0eb726c6582a2fe442fd94e8303f3e766861256ad046">I2C1_MESSAGE_PENDING</link>
+, <link linkend="_i2c1_8h_1a3aa7471e380d7a4957f9a0eb726c6582a4cae0cd4182ead73a74af82864de08bf">I2C1_MESSAGE_COMPLETE</link>
+, <link linkend="_i2c1_8h_1a3aa7471e380d7a4957f9a0eb726c6582a4e33d83279027e36db53031533678bbf">I2C1_STUCK_START</link>
+, 
+<link linkend="_i2c1_8h_1a3aa7471e380d7a4957f9a0eb726c6582a6a0eb4274a65f90ebd90828451a5af98">I2C1_MESSAGE_ADDRESS_NO_ACK</link>
+, <link linkend="_i2c1_8h_1a3aa7471e380d7a4957f9a0eb726c6582af95297b81b88ff5a338f136c01bd090e">I2C1_DATA_NO_ACK</link>
+, <link linkend="_i2c1_8h_1a3aa7471e380d7a4957f9a0eb726c6582ab7d7cb09234ce24bb1233fdbf7ce26ef">I2C1_LOST_STATE</link>
+ }</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_i2c1_8h_1a0d2688c99f12f3c79e9867b3f48a4b70">I2C1_Initialize</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_i2c1_8h_1ac1c5623a0a38d361ec389aba34921822">I2C1_MasterWrite</link> (uint8_t *pdata, uint8_t length, uint16_t address, <link linkend="_i2c1_8h_1a3aa7471e380d7a4957f9a0eb726c6582">I2C1_MESSAGE_STATUS</link> *pstatus)</para>
+</listitem>
+            <listitem><para>void <link linkend="_i2c1_8h_1a80893177a8cb40f7c30c9932bc5e8006">I2C1_MasterRead</link> (uint8_t *pdata, uint8_t length, uint16_t address, <link linkend="_i2c1_8h_1a3aa7471e380d7a4957f9a0eb726c6582">I2C1_MESSAGE_STATUS</link> *pstatus)</para>
+</listitem>
+            <listitem><para>void <link linkend="_i2c1_8h_1a860d0c61c4bfa0434f345692cd277328">I2C1_MasterTRBInsert</link> (uint8_t count, <link linkend="_struct_i2_c1___t_r_a_n_s_a_c_t_i_o_n___r_e_q_u_e_s_t___b_l_o_c_k">I2C1_TRANSACTION_REQUEST_BLOCK</link> *ptrb_list, <link linkend="_i2c1_8h_1a3aa7471e380d7a4957f9a0eb726c6582">I2C1_MESSAGE_STATUS</link> *pflag)</para>
+</listitem>
+            <listitem><para>void <link linkend="_i2c1_8h_1a92070148034b505be5339108b9f449d0">I2C1_MasterReadTRBBuild</link> (<link linkend="_struct_i2_c1___t_r_a_n_s_a_c_t_i_o_n___r_e_q_u_e_s_t___b_l_o_c_k">I2C1_TRANSACTION_REQUEST_BLOCK</link> *ptrb, uint8_t *pdata, uint8_t length, uint16_t address)</para>
+</listitem>
+            <listitem><para>void <link linkend="_i2c1_8h_1a0ec0129336e0fcb629eeb55210707c2d">I2C1_MasterWriteTRBBuild</link> (<link linkend="_struct_i2_c1___t_r_a_n_s_a_c_t_i_o_n___r_e_q_u_e_s_t___b_l_o_c_k">I2C1_TRANSACTION_REQUEST_BLOCK</link> *ptrb, uint8_t *pdata, uint8_t length, uint16_t address)</para>
+</listitem>
+            <listitem><para>bool <link linkend="_i2c1_8h_1a707a253166a254c3ddd39f3f6c111728">I2C1_MasterQueueIsEmpty</link> (void)</para>
+</listitem>
+            <listitem><para>bool <link linkend="_i2c1_8h_1a0dead192d1f64473cc539c69695612a1">I2C1_MasterQueueIsFull</link> (void)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Enumeration Type Documentation</title>
+<anchor xml:id="_i2c1_8h_1a3aa7471e380d7a4957f9a0eb726c6582"/>    <section>
+    <title>I2C1_MESSAGE_STATUS</title>
+<indexterm><primary>I2C1_MESSAGE_STATUS</primary><secondary>i2c1.h</secondary></indexterm>
+<indexterm><primary>i2c1.h</primary><secondary>I2C1_MESSAGE_STATUS</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_i2c1_8h_1a3aa7471e380d7a4957f9a0eb726c6582">I2C1_MESSAGE_STATUS</link></computeroutput></para>
+<para>I2C1 Generated Driver API Header File</para>
+
+<para>@Company Microchip Technology Inc.</para>
+
+<para>@File Name <link linkend="_i2c1_8h">i2c1.h</link></para>
+
+<para>@Summary This is the generated header file for the I2C1 driver using PIC24 / dsPIC33 / PIC32MM MCUs</para>
+
+<para>@Description This header file provides APIs for driver for I2C1. Generation Information : Product Revision : PIC24 / dsPIC33 / PIC32MM MCUs - 1.170.0 Device : PIC24FJ256GA702</para>
+
+<para>The generated drivers are tested against the following: Compiler : XC16 v1.61 MPLAB : MPLAB X v5.45 Section: Included Files Section: Data Type Definitions I2C Driver Message Status Type Enumeration</para>
+
+<para>@Summary Defines the different message status when processing TRBs.</para>
+
+<para>@Description This type enumeration specifies the different types of status that an i2c request will have. For every submission of an i2c transaction, the status of that transaction is available. Based on the status, new transactions can be requested to the driver or a recovery can be performed to resend the transaction. </para>
+<informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>I2C1_MESSAGE_FAIL</primary><secondary>i2c1.h</secondary></indexterm>
+<indexterm><primary>i2c1.h</primary><secondary>I2C1_MESSAGE_FAIL</secondary></indexterm>
+<anchor xml:id="_i2c1_8h_1a3aa7471e380d7a4957f9a0eb726c6582a59ca3c181df953e21b33790315a81cb3"/>I2C1_MESSAGE_FAIL</entry><entry></entry></row><row><entry><indexterm><primary>I2C1_MESSAGE_PENDING</primary><secondary>i2c1.h</secondary></indexterm>
+<indexterm><primary>i2c1.h</primary><secondary>I2C1_MESSAGE_PENDING</secondary></indexterm>
+<anchor xml:id="_i2c1_8h_1a3aa7471e380d7a4957f9a0eb726c6582a2fe442fd94e8303f3e766861256ad046"/>I2C1_MESSAGE_PENDING</entry><entry></entry></row><row><entry><indexterm><primary>I2C1_MESSAGE_COMPLETE</primary><secondary>i2c1.h</secondary></indexterm>
+<indexterm><primary>i2c1.h</primary><secondary>I2C1_MESSAGE_COMPLETE</secondary></indexterm>
+<anchor xml:id="_i2c1_8h_1a3aa7471e380d7a4957f9a0eb726c6582a4cae0cd4182ead73a74af82864de08bf"/>I2C1_MESSAGE_COMPLETE</entry><entry></entry></row><row><entry><indexterm><primary>I2C1_STUCK_START</primary><secondary>i2c1.h</secondary></indexterm>
+<indexterm><primary>i2c1.h</primary><secondary>I2C1_STUCK_START</secondary></indexterm>
+<anchor xml:id="_i2c1_8h_1a3aa7471e380d7a4957f9a0eb726c6582a4e33d83279027e36db53031533678bbf"/>I2C1_STUCK_START</entry><entry></entry></row><row><entry><indexterm><primary>I2C1_MESSAGE_ADDRESS_NO_ACK</primary><secondary>i2c1.h</secondary></indexterm>
+<indexterm><primary>i2c1.h</primary><secondary>I2C1_MESSAGE_ADDRESS_NO_ACK</secondary></indexterm>
+<anchor xml:id="_i2c1_8h_1a3aa7471e380d7a4957f9a0eb726c6582a6a0eb4274a65f90ebd90828451a5af98"/>I2C1_MESSAGE_ADDRESS_NO_ACK</entry><entry></entry></row><row><entry><indexterm><primary>I2C1_DATA_NO_ACK</primary><secondary>i2c1.h</secondary></indexterm>
+<indexterm><primary>i2c1.h</primary><secondary>I2C1_DATA_NO_ACK</secondary></indexterm>
+<anchor xml:id="_i2c1_8h_1a3aa7471e380d7a4957f9a0eb726c6582af95297b81b88ff5a338f136c01bd090e"/>I2C1_DATA_NO_ACK</entry><entry></entry></row><row><entry><indexterm><primary>I2C1_LOST_STATE</primary><secondary>i2c1.h</secondary></indexterm>
+<indexterm><primary>i2c1.h</primary><secondary>I2C1_LOST_STATE</secondary></indexterm>
+<anchor xml:id="_i2c1_8h_1a3aa7471e380d7a4957f9a0eb726c6582ab7d7cb09234ce24bb1233fdbf7ce26ef"/>I2C1_LOST_STATE</entry><entry></entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line 84 of file i2c1.h.</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_i2c1_8h_1a0d2688c99f12f3c79e9867b3f48a4b70"/>    <section>
+    <title>I2C1_Initialize()</title>
+<indexterm><primary>I2C1_Initialize</primary><secondary>i2c1.h</secondary></indexterm>
+<indexterm><primary>i2c1.h</primary><secondary>I2C1_Initialize</secondary></indexterm>
+<para><computeroutput>void I2C1_Initialize (void )</computeroutput></para>
+<para>Section: Interface Routines @Summary Initializes the I2C instance : 1</para>
+
+<para>@Description This routine initializes the i2c1 driver instance for : 1 index, making it ready for clients to open and use it. This routine must be called before any other I2C1 routine is called. This routine should only be called once during system initialization.</para>
+
+<para>@Preconditions None.</para>
+
+<para>@Param None.</para>
+
+<para>@Returns None.</para>
+
+<para>@Example <computeroutput> #define SLAVE_I2C_GENERIC_RETRY_MAX 100 #define SLAVE_I2C_GENERIC_DEVICE_TIMEOUT 50 // define slave timeout</computeroutput></para>
+
+<para><computeroutput>initialize the module <link linkend="_i2c1_8c_1a0d2688c99f12f3c79e9867b3f48a4b70">I2C1_Initialize()</link>;</computeroutput></para>
+
+<para><computeroutput>write to an EEPROM Device <literallayout><computeroutput>    uint16_t        dataAddress;
+    uint8_t         sourceData[16] = {  0xA0, 0xA1, 0xA2, 0xA3, 
+                                        0xA4, 0xA5, 0xA6, 0xA7, 
+                                        0xA8, 0xA9, 0xAA, 0xAB, 
+                                        0xAC, 0xAD, 0xAE, 0xAF }; 
+    uint8_t         *pData;
+    uint16_t        nCount;
+
+    uint8_t         writeBuffer[3];
+    uint8_t         *pD;
+    uint16_t        counter, timeOut, slaveTimeOut;
+
+    I2C1_MESSAGE_STATUS status = I2C1_MESSAGE_PENDING;
+
+    dataAddress = 0x10;             // starting EEPROM address 
+    pD = sourceData;                // initialize the source of the data
+    nCount = 16;                    // number of bytes to write
+
+    for (counter = 0; counter &lt; nCount; counter++)
+    {
+</computeroutput></literallayout> build the write buffer first starting address of the EEPROM memory writeBuffer[0] = (dataAddress &gt;&gt; 8); // high address writeBuffer[1] = (uint8_t)(dataAddress); // low low address</computeroutput></para>
+
+<para><computeroutput>data to be written writeBuffer[2] = *pD++;</computeroutput></para>
+
+<para><computeroutput>Now it is possible that the slave device will be slow. As a work around on these slaves, the application can retry sending the transaction timeOut = 0; slaveTimeOut = 0;</computeroutput></para>
+
+<para><computeroutput> while(status != I2C1_MESSAGE_FAIL) { write one byte to EEPROM (3 is the number of bytes to write) I2C1_MasterWrite( writeBuffer, 3, slaveDeviceAddress, &amp;status);</computeroutput></para>
+
+<para><computeroutput>wait for the message to be sent or status has changed. while(status == I2C1_MESSAGE_PENDING) { add some delay here</computeroutput></para>
+
+<para><computeroutput>timeout checking check for max retry and skip this byte if (slaveTimeOut == SLAVE_I2C_GENERIC_DEVICE_TIMEOUT) break; else slaveTimeOut++; } if ((slaveTimeOut == SLAVE_I2C_GENERIC_DEVICE_TIMEOUT) || (status == I2C1_MESSAGE_COMPLETE)) break;</computeroutput></para>
+
+<para><computeroutput>if status is I2C1_MESSAGE_ADDRESS_NO_ACK, or I2C1_DATA_NO_ACK, The device may be busy and needs more time for the last write so we can retry writing the data, this is why we use a while loop here</computeroutput></para>
+
+<para><computeroutput>check for max retry and skip this byte if (timeOut == SLAVE_I2C_GENERIC_RETRY_MAX) break; else timeOut++; }</computeroutput></para>
+
+<para><computeroutput> if (status == I2C1_MESSAGE_FAIL) { break; } dataAddress++;</computeroutput></para>
+
+<para><computeroutput> }</computeroutput></para>
+
+<para><computeroutput> </computeroutput></para>
+
+<para>Section: Driver Interface </para>
+<para>
+Definition at line 196 of file i2c1.c.</para>
+    </section><anchor xml:id="_i2c1_8h_1a707a253166a254c3ddd39f3f6c111728"/>    <section>
+    <title>I2C1_MasterQueueIsEmpty()</title>
+<indexterm><primary>I2C1_MasterQueueIsEmpty</primary><secondary>i2c1.h</secondary></indexterm>
+<indexterm><primary>i2c1.h</primary><secondary>I2C1_MasterQueueIsEmpty</secondary></indexterm>
+<para><computeroutput>bool I2C1_MasterQueueIsEmpty (void )</computeroutput></para>
+<para><literallayout><computeroutput>@Summary
+    This function returns the empty status of the Master
+    queue.
+
+@Description
+    This function returns the empty status of the Master
+    queue. Use this function to check if the queue is empty.
+    This can verify if the Master is currently idle.
+
+@Preconditions
+    None
+
+@Param
+    None
+
+@Returns
+    True if the queue is empty and false if the queue is not empty.
+
+@Example
+    &lt;code&gt;
+        #define MCHP24AA512_ADDRESS    0x50 // slave device address
+</computeroutput></literallayout> check until queue is empty while(<link linkend="_i2c1_8h_1a707a253166a254c3ddd39f3f6c111728">I2C1_MasterQueueIsEmpty()</link> == false);</para>
+
+<para>now send more data (assume readBuffer is initialized) I2C1_MasterRead( readBuffer, 3, MCHP24AA512_ADDRESS, &amp;status); 
+<literallayout>&#160;&#xa;</literallayout>
+</para>
+<para>
+Definition at line 707 of file i2c1.c.</para>
+    </section><anchor xml:id="_i2c1_8h_1a0dead192d1f64473cc539c69695612a1"/>    <section>
+    <title>I2C1_MasterQueueIsFull()</title>
+<indexterm><primary>I2C1_MasterQueueIsFull</primary><secondary>i2c1.h</secondary></indexterm>
+<indexterm><primary>i2c1.h</primary><secondary>I2C1_MasterQueueIsFull</secondary></indexterm>
+<para><computeroutput>bool I2C1_MasterQueueIsFull (void )</computeroutput></para>
+<para><literallayout><computeroutput>@Summary
+    This function returns the full status of the Master
+    queue.
+
+@Description
+    This function returns the full status of the Master
+    queue. Use this function to check if the queue is full.
+    This can verify if the Master will not be able to accept
+    addition transactions.
+
+@Preconditions
+    None
+
+@Param
+    None
+
+@Returns
+    True if the queue is full and false if the queue is not full.
+
+@Example
+    &lt;code&gt;
+        #define MCHP24AA512_ADDRESS    0x50 // slave device address
+</computeroutput></literallayout> check until queue has space while(<link linkend="_i2c1_8h_1a0dead192d1f64473cc539c69695612a1">I2C1_MasterQueueIsFull()</link> == true);</para>
+
+<para>now send more data (assume readBuffer is initialized) I2C1_MasterRead( readBuffer, 3, MCHP24AA512_ADDRESS, &amp;status);  </para>
+<para>
+Definition at line 712 of file i2c1.c.</para>
+    </section><anchor xml:id="_i2c1_8h_1a80893177a8cb40f7c30c9932bc5e8006"/>    <section>
+    <title>I2C1_MasterRead()</title>
+<indexterm><primary>I2C1_MasterRead</primary><secondary>i2c1.h</secondary></indexterm>
+<indexterm><primary>i2c1.h</primary><secondary>I2C1_MasterRead</secondary></indexterm>
+<para><computeroutput>void I2C1_MasterRead (uint8_t * pdata, uint8_t length, uint16_t address, <link linkend="_i2c1_8h_1a3aa7471e380d7a4957f9a0eb726c6582">I2C1_MESSAGE_STATUS</link> * pstatus)</computeroutput></para>
+<para><literallayout><computeroutput>@Summary
+    Handles one i2c master read transaction with the
+    supplied parameters.
+
+@Description
+    This function prepares a TRB, then inserts it on the i2c queue.
+    Finally, it waits for the transaction to complete and returns
+    the result.
+
+@Preconditions
+    None
+
+@Param
+    address - The address of the i2c peripheral to be accessed
+
+@Param
+    length - The length of the data block to be sent
+
+@Param
+     pdata - A pointer to the memory location where received data will
+             be stored
+
+@Param
+     pstatus - A pointer to the status variable that the i2c driver
+        updates during the execution of the message.
+
+@Returns
+    I2C1_MESSAGE_STATUS
+
+@Example
+    &lt;code&gt;
+
+        #define MCHP24AA512_RETRY_MAX       100  // define the retry count
+        #define MCHP24AA512_ADDRESS         0x50 // slave device address
+        #define MCHP24AA512_DEVICE_TIMEOUT  50   // define slave timeout 
+
+
+        uint8_t MCHP24AA512_Read(
+                                        uint16_t address,
+                                        uint8_t *pData,
+                                        uint16_t nCount)
+        {
+            I2C1_MESSAGE_STATUS status;
+            uint8_t     writeBuffer[3];
+            uint16_t    retryTimeOut, slaveTimeOut;
+            uint16_t    counter;
+            uint8_t     *pD;
+
+            pD = pData;
+
+            for (counter = 0; counter &lt; nCount; counter++)
+            {
+</computeroutput></literallayout> build the write buffer first starting address of the EEPROM memory writeBuffer[0] = (address &gt;&gt; 8); // high address writeBuffer[1] = (uint8_t)(address); // low low address</para>
+
+<para>Now it is possible that the slave device will be slow. As a work around on these slaves, the application can retry sending the transaction retryTimeOut = 0; slaveTimeOut = 0;</para>
+
+<para>while(status != I2C1_MESSAGE_FAIL) { write one byte to EEPROM (2 is the count of bytes to write) I2C1_MasterWrite( writeBuffer, 2, MCHP24AA512_ADDRESS, &amp;status);</para>
+
+<para>wait for the message to be sent or status has changed. while(status == I2C1_MESSAGE_PENDING) { add some delay here</para>
+
+<para>timeout checking check for max retry and skip this byte if (slaveTimeOut == MCHP24AA512_DEVICE_TIMEOUT) return (0); else slaveTimeOut++; }</para>
+
+<para>if (status == I2C1_MESSAGE_COMPLETE) break;</para>
+
+<para>if status is I2C1_MESSAGE_ADDRESS_NO_ACK, or I2C1_DATA_NO_ACK, The device may be busy and needs more time for the last write so we can retry writing the data, this is why we use a while loop here</para>
+
+<para>check for max retry and skip this byte if (retryTimeOut == MCHP24AA512_RETRY_MAX) break; else retryTimeOut++; }</para>
+
+<para>if (status == I2C1_MESSAGE_COMPLETE) {</para>
+
+<para>this portion will read the byte from the memory location. retryTimeOut = 0; slaveTimeOut = 0;</para>
+
+<para>while(status != I2C1_MESSAGE_FAIL) { write one byte to EEPROM (2 is the count of bytes to write) I2C1_MasterRead( pD, 1, MCHP24AA512_ADDRESS, &amp;status);</para>
+
+<para>wait for the message to be sent or status has changed. while(status == I2C1_MESSAGE_PENDING) { add some delay here</para>
+
+<para>timeout checking check for max retry and skip this byte if (slaveTimeOut == MCHP24AA512_DEVICE_TIMEOUT) return (0); else slaveTimeOut++; }</para>
+
+<para>if (status == I2C1_MESSAGE_COMPLETE) break;</para>
+
+<para>if status is I2C1_MESSAGE_ADDRESS_NO_ACK, or I2C1_DATA_NO_ACK, The device may be busy and needs more time for the last write so we can retry writing the data, this is why we use a while loop here</para>
+
+<para>check for max retry and skip this byte if (retryTimeOut == MCHP24AA512_RETRY_MAX) break; else retryTimeOut++; } }</para>
+
+<para>exit if the last transaction failed if (status == I2C1_MESSAGE_FAIL) { return(0); break; }</para>
+
+<para>pD++; address++;</para>
+
+<para>} return(1);</para>
+
+<para>}</para>
+
+<para><literallayout><computeroutput> &lt;/code&gt;
+</computeroutput></literallayout> </para>
+<para>
+Definition at line 611 of file i2c1.c.</para>
+    </section><anchor xml:id="_i2c1_8h_1a92070148034b505be5339108b9f449d0"/>    <section>
+    <title>I2C1_MasterReadTRBBuild()</title>
+<indexterm><primary>I2C1_MasterReadTRBBuild</primary><secondary>i2c1.h</secondary></indexterm>
+<indexterm><primary>i2c1.h</primary><secondary>I2C1_MasterReadTRBBuild</secondary></indexterm>
+<para><computeroutput>void I2C1_MasterReadTRBBuild (<link linkend="_struct_i2_c1___t_r_a_n_s_a_c_t_i_o_n___r_e_q_u_e_s_t___b_l_o_c_k">I2C1_TRANSACTION_REQUEST_BLOCK</link> * ptrb, uint8_t * pdata, uint8_t length, uint16_t address)</computeroutput></para>
+<para>@Summary This function populates a trb supplied by the calling function with the parameters supplied by the calling function.</para>
+
+<para>@Description All i2c requests are in the form of TRB&apos;s. This helper function takes standard parameters and correctly formats the TRB. The R/W bit is set to ensure that the resulting TRB describes an i2c read operation.</para>
+
+<para>This function does not send the transaction. To send the transaction, the TRB insert function (<link linkend="_i2c1_8h_1a860d0c61c4bfa0434f345692cd277328">I2C1_MasterTRBInsert()</link>) must be called.</para>
+
+<para>@Preconditions None</para>
+
+<para>@Param ptrb - A pointer to a caller supplied TRB.</para>
+
+<para>@Param pdata - A pointer to the block of data to be received</para>
+
+<para>@Param length - The length of the data block to be received</para>
+
+<para>@Param address - The address of the i2c peripheral to be accessed</para>
+
+<para>@Returns None</para>
+
+<para>@Example <computeroutput> Refer to <link linkend="_i2c1_8h_1a860d0c61c4bfa0434f345692cd277328">I2C1_MasterTRBInsert()</link> for an example 
+<literallayout>&#160;&#xa;</literallayout>
+ </computeroutput> </para>
+<para>
+Definition at line 683 of file i2c1.c.</para>
+    </section><anchor xml:id="_i2c1_8h_1a860d0c61c4bfa0434f345692cd277328"/>    <section>
+    <title>I2C1_MasterTRBInsert()</title>
+<indexterm><primary>I2C1_MasterTRBInsert</primary><secondary>i2c1.h</secondary></indexterm>
+<indexterm><primary>i2c1.h</primary><secondary>I2C1_MasterTRBInsert</secondary></indexterm>
+<para><computeroutput>void I2C1_MasterTRBInsert (uint8_t count, <link linkend="_struct_i2_c1___t_r_a_n_s_a_c_t_i_o_n___r_e_q_u_e_s_t___b_l_o_c_k">I2C1_TRANSACTION_REQUEST_BLOCK</link> * ptrb_list, <link linkend="_i2c1_8h_1a3aa7471e380d7a4957f9a0eb726c6582">I2C1_MESSAGE_STATUS</link> * pflag)</computeroutput></para>
+<para><literallayout><computeroutput>@Summary
+    Inserts a list of i2c transaction requests into the i2c
+    transaction queue.
+
+@Description
+    The i2c processes lists of transaction requests.  Each transaction
+    list is handled as a string of i2c restarts.  When the list of
+    transactions is complete, an i2c stop is produced, the flag is set
+    with the correct condition code and the next list is processed
+    from the queue.
+
+    This function inserts lists of requests prepared by the user
+    application into the queue along with a pointer to the completion
+    flag.
+
+    The transaction is inserted into the list only if there is space
+    in the list. If there is no space, the function exits with the
+    flag set to I2C1_MESSAGE_FAIL.
+
+@Preconditions
+    None
+
+@Param
+    count - The numer of transaction requests in the trb_list.
+
+@Param
+     ptrb_list - A pointer to an array of transaction requests (TRB).
+        See I2C1_TRANSACTION_REQUEST_BLOCK definition for details.
+
+@Param
+     pflag - A pointer to a completion flag.
+
+@Returns
+    None
+
+@Example
+    &lt;code&gt;
+
+
+        uint8_t EMULATED_EEPROM_Read(
+                                       uint16_t slaveDeviceAddress,
+                                       uint16_t dataAddress,
+                                       uint8_t *pData,
+                                       uint16_t nCount)
+        {
+            I2C1_MESSAGE_STATUS status;
+            I2C1_TRANSACTION_REQUEST_BLOCK readTRB[2];
+            uint8_t     writeBuffer[3];
+            uint16_t    timeOut, slaveTimeOut;
+</computeroutput></literallayout> this initial value is important status = I2C1_MESSAGE_PENDING;</para>
+
+<para>build the write buffer first starting address of the EEPROM memory writeBuffer[0] = (dataAddress &gt;&gt; 8); // high address writeBuffer[1] = (uint8_t)(dataAddress); // low low address</para>
+
+<para>we need to create the TRBs for a random read sequence to the EEPROM Build TRB for sending address I2C1_MasterWriteTRBBuild( &amp;readTRB[0], writeBuffer, 2, slaveDeviceAddress); Build TRB for receiving data I2C1_MasterReadTRBBuild( &amp;readTRB[1], pData, nCount, slaveDeviceAddress);</para>
+
+<para>timeOut = 0; slaveTimeOut = 0;</para>
+
+<para>while(status != I2C1_MESSAGE_FAIL) { now send the transactions I2C1_MasterTRBInsert(2, readTRB, &amp;status);</para>
+
+<para>wait for the message to be sent or status has changed. while(status == I2C1_MESSAGE_PENDING) { add some delay here</para>
+
+<para>timeout checking check for max retry and skip this byte if (slaveTimeOut == SLAVE_I2C_GENERIC_SLAVE_TIMEOUT) return (0); else slaveTimeOut++; }</para>
+
+<para>if (status == I2C1_MESSAGE_COMPLETE) break;</para>
+
+<para>if status is I2C1_MESSAGE_ADDRESS_NO_ACK, or I2C1_DATA_NO_ACK, The device may be busy and needs more time for the last write so we can retry writing the data, this is why we use a while loop here</para>
+
+<para>check for max retry and skip this byte if (timeOut == SLAVE_I2C_GENERIC_RETRY_MAX) return (0); else timeOut++;</para>
+
+<para>} return (1);</para>
+
+<para>} 
+<literallayout>&#160;&#xa;</literallayout>
+</para>
+<para>
+Definition at line 633 of file i2c1.c.</para>
+    </section><anchor xml:id="_i2c1_8h_1ac1c5623a0a38d361ec389aba34921822"/>    <section>
+    <title>I2C1_MasterWrite()</title>
+<indexterm><primary>I2C1_MasterWrite</primary><secondary>i2c1.h</secondary></indexterm>
+<indexterm><primary>i2c1.h</primary><secondary>I2C1_MasterWrite</secondary></indexterm>
+<para><computeroutput>void I2C1_MasterWrite (uint8_t * pdata, uint8_t length, uint16_t address, <link linkend="_i2c1_8h_1a3aa7471e380d7a4957f9a0eb726c6582">I2C1_MESSAGE_STATUS</link> * pstatus)</computeroutput></para>
+<para>@Summary Handles one i2c master write transaction with the supplied parameters.</para>
+
+<para>@Description This function prepares a TRB, then inserts it on the i2c queue. Finally, it waits for the transaction to complete and returns the result.</para>
+
+<para>@Preconditions None</para>
+
+<para>@Param address - The address of the i2c peripheral to be accessed</para>
+
+<para>@Param length - The length of the data block to be sent</para>
+
+<para>@Param pdata - A pointer to the block of data to be sent</para>
+
+<para>@Param pstatus - A pointer to the status variable that the i2c driver updates during the execution of the message.</para>
+
+<para>@Returns I2C1_MESSAGE_STATUS</para>
+
+<para>@Example <computeroutput> Refer to <link linkend="_i2c1_8h_1a0d2688c99f12f3c79e9867b3f48a4b70">I2C1_Initialize()</link> and <link linkend="_i2c1_8h_1a80893177a8cb40f7c30c9932bc5e8006">I2C1_MasterRead()</link> for an examples 
+<literallayout>&#160;&#xa;</literallayout>
+ </computeroutput> </para>
+<para>
+Definition at line 590 of file i2c1.c.</para>
+    </section><anchor xml:id="_i2c1_8h_1a0ec0129336e0fcb629eeb55210707c2d"/>    <section>
+    <title>I2C1_MasterWriteTRBBuild()</title>
+<indexterm><primary>I2C1_MasterWriteTRBBuild</primary><secondary>i2c1.h</secondary></indexterm>
+<indexterm><primary>i2c1.h</primary><secondary>I2C1_MasterWriteTRBBuild</secondary></indexterm>
+<para><computeroutput>void I2C1_MasterWriteTRBBuild (<link linkend="_struct_i2_c1___t_r_a_n_s_a_c_t_i_o_n___r_e_q_u_e_s_t___b_l_o_c_k">I2C1_TRANSACTION_REQUEST_BLOCK</link> * ptrb, uint8_t * pdata, uint8_t length, uint16_t address)</computeroutput></para>
+<para>@Summary This function populates a trb supplied by the calling function with the parameters supplied by the calling function.</para>
+
+<para>@Description All i2c requests are in the form of TRB&apos;s. This helper function takes standard parameters and correctly formats the TRB. The R/W bit is cleared to ensure that the resulting TRB describes an i2c write operation.</para>
+
+<para>This function does not send the transaction. To send the transaction, the TRB insert function (<link linkend="_i2c1_8h_1a860d0c61c4bfa0434f345692cd277328">I2C1_MasterTRBInsert()</link>) must be called.</para>
+
+<para>@Preconditions None</para>
+
+<para>@Param ptrb - A pointer to a caller supplied TRB.</para>
+
+<para>@Param pdata - A pointer to the block of data to be sent</para>
+
+<para>@Param length - The length of the data block to be sent</para>
+
+<para>@Param address - The address of the i2c peripheral to be accessed</para>
+
+<para>@Returns None</para>
+
+<para>@Example <computeroutput> Refer to <link linkend="_i2c1_8h_1a860d0c61c4bfa0434f345692cd277328">I2C1_MasterTRBInsert()</link> for an example 
+<literallayout>&#160;&#xa;</literallayout>
+ </computeroutput> </para>
+<para>
+Definition at line 696 of file i2c1.c.</para>
+</section>
+</section>
+</section>

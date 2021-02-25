@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_clock_8c" xml:lang="en-US">
+<title>C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/clock.c File Reference</title>
+<indexterm><primary>C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/clock.c</primary></indexterm>
+<programlisting>#include &lt;stdint.h&gt;
+#include &quot;xc.h&quot;
+#include &quot;clock.h&quot;
+</programlisting>Include dependency graph for clock.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="clock_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_clock_8c_1a98390d19c7087c52765eab23eb8ded96">CLOCK_Initialize</link> (void)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_clock_8c_1a98390d19c7087c52765eab23eb8ded96"/>    <section>
+    <title>CLOCK_Initialize()</title>
+<indexterm><primary>CLOCK_Initialize</primary><secondary>clock.c</secondary></indexterm>
+<indexterm><primary>clock.c</primary><secondary>CLOCK_Initialize</secondary></indexterm>
+<para><computeroutput>void CLOCK_Initialize (void )</computeroutput></para>
+<para>@Generated PIC24 / dsPIC33 / PIC32MM MCUs Source File</para>
+
+<para>@Company: Microchip Technology Inc.</para>
+
+<para>@File Name: <link linkend="_clock_8c">clock.c</link></para>
+
+<para>@Summary: This is the <link linkend="_clock_8c">clock.c</link> file generated using PIC24 / dsPIC33 / PIC32MM MCUs</para>
+
+<para>@Description: This header file provides implementations for driver APIs for all modules selected in the GUI. Generation Information : Product Revision : PIC24 / dsPIC33 / PIC32MM MCUs - 1.170.0 Device : PIC24FJ256GA702 The generated drivers are tested against the following: Compiler : XC16 v1.61 MPLAB : MPLAB X v5.45 </para>
+<para>
+Definition at line 49 of file clock.c.</para>
+</section>
+</section>
+</section>

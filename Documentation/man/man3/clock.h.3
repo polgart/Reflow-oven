@@ -1,0 +1,79 @@
+.TH "C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/clock.h" 3 "Wed Feb 24 2021" "Version 1.0" "Reflow Oven" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/clock.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdbool\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fB_XTAL_FREQ\fP   8000000UL"
+.br
+.ti -1c
+.RI "#define \fBCLOCK_SystemFrequencyGet\fP()   (8000000UL)"
+.br
+.ti -1c
+.RI "#define \fBCLOCK_PeripheralFrequencyGet\fP()   (\fBCLOCK_SystemFrequencyGet\fP() / 2)"
+.br
+.ti -1c
+.RI "#define \fBCLOCK_InstructionFrequencyGet\fP()   (\fBCLOCK_SystemFrequencyGet\fP() / 2)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBCLOCK_Initialize\fP (void)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define _XTAL_FREQ   8000000UL"
+@Generated PIC24 / dsPIC33 / PIC32MM MCUs Source File
+.PP
+@Company: Microchip Technology Inc\&.
+.PP
+@File Name: \fBclock\&.h\fP
+.PP
+@Summary: This is the \fBclock\&.h\fP file generated using PIC24 / dsPIC33 / PIC32MM MCUs
+.PP
+@Description: This header file provides implementations for driver APIs for all modules selected in the GUI\&. Generation Information : Product Revision : PIC24 / dsPIC33 / PIC32MM MCUs - 1\&.170\&.0 Device : PIC24FJ256GA702 The generated drivers are tested against the following: Compiler : XC16 v1\&.61 MPLAB : MPLAB X v5\&.45 Section: Included Files 
+.PP
+Definition at line 55 of file clock\&.h\&.
+.SS "#define CLOCK_InstructionFrequencyGet()   (\fBCLOCK_SystemFrequencyGet\fP() / 2)"
+
+.PP
+Definition at line 62 of file clock\&.h\&.
+.SS "#define CLOCK_PeripheralFrequencyGet()   (\fBCLOCK_SystemFrequencyGet\fP() / 2)"
+
+.PP
+Definition at line 60 of file clock\&.h\&.
+.SS "#define CLOCK_SystemFrequencyGet()   (8000000UL)"
+
+.PP
+Definition at line 58 of file clock\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "void CLOCK_Initialize (void)"
+@Param none @Returns none @Description Initializes the oscillator to the default states configured in the MCC GUI @Example \fBCLOCK_Initialize(void)\fP;
+.PP
+@Generated PIC24 / dsPIC33 / PIC32MM MCUs Source File
+.PP
+@Company: Microchip Technology Inc\&.
+.PP
+@File Name: \fBclock\&.c\fP
+.PP
+@Summary: This is the \fBclock\&.c\fP file generated using PIC24 / dsPIC33 / PIC32MM MCUs
+.PP
+@Description: This header file provides implementations for driver APIs for all modules selected in the GUI\&. Generation Information : Product Revision : PIC24 / dsPIC33 / PIC32MM MCUs - 1\&.170\&.0 Device : PIC24FJ256GA702 The generated drivers are tested against the following: Compiler : XC16 v1\&.61 MPLAB : MPLAB X v5\&.45 
+.PP
+Definition at line 49 of file clock\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Reflow Oven from the source code\&.

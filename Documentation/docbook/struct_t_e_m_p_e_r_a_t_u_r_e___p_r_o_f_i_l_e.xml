@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e" xml:lang="en-US">
+<title>TEMPERATURE_PROFILE Struct Reference</title>
+<indexterm><primary>TEMPERATURE_PROFILE</primary></indexterm>
+<para>
+
+<para>Reference temperature profile. </para>
+ 
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r">TEMPERATURE_BUFFER</link> <link linkend="_struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e_1af228ed60e7369ee471ed83ab1f548611">currentProfile</link></para>
+</listitem>
+            <listitem><para><link linkend="_struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r">TEMPERATURE_BUFFER</link> <link linkend="_struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e_1a4d4062687324e07d113969d8723ee3c7">bufferProfile</link></para>
+</listitem>
+            <listitem><para><link linkend="_struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r">TEMPERATURE_BUFFER</link> <link linkend="_struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e_1a46d2498e25cc6065bdc3616986c29ae7">defaultProfile</link></para>
+</listitem>
+            <listitem><para><link linkend="_base_s_w_8c_1a58b2042d633892568e5fbcaf5e4ac423">TEMPERATURE_BUFFER_STATUS</link> <link linkend="_struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e_1a0c19c52a51baabc478468967db9e5ecf">profileStatus</link></para>
+</listitem>
+            <listitem><para>uint16_t <link linkend="_struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e_1af4d285cb5293a0902a9f669b6499cfe3">addressBuffer</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Reference temperature profile. </para>
+
+
+
+<para>Reference temperature profile three <link linkend="_struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r">TEMPERATURE_BUFFER</link>, a TEMPERATURE_BUFFER_STATUS and an addressBuffer. The addressBuffer is used to store the EEPROM address. Only bufferProfile can be used for memory operations, and currentProfile only can be used for heating processes. </para>
+<para>
+Definition at line 147 of file baseSW.c.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e_1af4d285cb5293a0902a9f669b6499cfe3"/>    <section>
+    <title>addressBuffer</title>
+<indexterm><primary>addressBuffer</primary><secondary>TEMPERATURE_PROFILE</secondary></indexterm>
+<indexterm><primary>TEMPERATURE_PROFILE</primary><secondary>addressBuffer</secondary></indexterm>
+<para><computeroutput>uint16_t addressBuffer</computeroutput></para>
+<para>This buffers stores the EEPROM address </para>
+<para>
+Definition at line 154 of file baseSW.c.</para>
+    </section><anchor xml:id="_struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e_1a4d4062687324e07d113969d8723ee3c7"/>    <section>
+    <title>bufferProfile</title>
+<indexterm><primary>bufferProfile</primary><secondary>TEMPERATURE_PROFILE</secondary></indexterm>
+<indexterm><primary>TEMPERATURE_PROFILE</primary><secondary>bufferProfile</secondary></indexterm>
+<para><computeroutput><link linkend="_struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r">TEMPERATURE_BUFFER</link> bufferProfile</computeroutput></para>
+<para>Buffer profile array pointer </para>
+<para>
+Definition at line 151 of file baseSW.c.</para>
+    </section><anchor xml:id="_struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e_1af228ed60e7369ee471ed83ab1f548611"/>    <section>
+    <title>currentProfile</title>
+<indexterm><primary>currentProfile</primary><secondary>TEMPERATURE_PROFILE</secondary></indexterm>
+<indexterm><primary>TEMPERATURE_PROFILE</primary><secondary>currentProfile</secondary></indexterm>
+<para><computeroutput><link linkend="_struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r">TEMPERATURE_BUFFER</link> currentProfile</computeroutput></para>
+<para>Current profile array pointer </para>
+<para>
+Definition at line 150 of file baseSW.c.</para>
+    </section><anchor xml:id="_struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e_1a46d2498e25cc6065bdc3616986c29ae7"/>    <section>
+    <title>defaultProfile</title>
+<indexterm><primary>defaultProfile</primary><secondary>TEMPERATURE_PROFILE</secondary></indexterm>
+<indexterm><primary>TEMPERATURE_PROFILE</primary><secondary>defaultProfile</secondary></indexterm>
+<para><computeroutput><link linkend="_struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r">TEMPERATURE_BUFFER</link> defaultProfile</computeroutput></para>
+<para>Default profile buffer array pointer </para>
+<para>
+Definition at line 152 of file baseSW.c.</para>
+    </section><anchor xml:id="_struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e_1a0c19c52a51baabc478468967db9e5ecf"/>    <section>
+    <title>profileStatus</title>
+<indexterm><primary>profileStatus</primary><secondary>TEMPERATURE_PROFILE</secondary></indexterm>
+<indexterm><primary>TEMPERATURE_PROFILE</primary><secondary>profileStatus</secondary></indexterm>
+<para><computeroutput><link linkend="_base_s_w_8c_1a58b2042d633892568e5fbcaf5e4ac423">TEMPERATURE_BUFFER_STATUS</link> profileStatus</computeroutput></para>
+<para>Temperature profile status </para>
+<para>
+Definition at line 153 of file baseSW.c.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+<link linkend="_base_s_w_8c">baseSW.c</link></section>
+</section>

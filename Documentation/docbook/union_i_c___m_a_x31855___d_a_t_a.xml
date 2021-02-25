@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_union_i_c___m_a_x31855___d_a_t_a" xml:lang="en-US">
+<title>IC_MAX31855_DATA Union Reference</title>
+<indexterm><primary>IC_MAX31855_DATA</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>struct {</para>
+        <itemizedlist>
+            <listitem><para>   uint16_t <link linkend="_union_i_c___m_a_x31855___d_a_t_a_1a4b19d6ddd5c1aab9ec16b14dd5cb5d4f">thermocouple_temperature_data</link>:14</para>
+</listitem>
+            <listitem><para>   uint8_t <link linkend="_union_i_c___m_a_x31855___d_a_t_a_1a2a2556147677ece60b8aadf4a0d608ed">reserved1</link>:1</para>
+</listitem>
+            <listitem><para>   uint8_t <link linkend="_union_i_c___m_a_x31855___d_a_t_a_1ae42ac844e604d8db99c2a321a5ffe61e">fault</link>:1</para>
+</listitem>
+            <listitem><para>   uint16_t <link linkend="_union_i_c___m_a_x31855___d_a_t_a_1accaf31d7c41103817ed7bf8a58f61493">internal_temperature_data</link>:12</para>
+</listitem>
+            <listitem><para>   uint8_t <link linkend="_union_i_c___m_a_x31855___d_a_t_a_1a646df3514a24749a0f54731bf41c6c67">reserved2</link>:1</para>
+</listitem>
+            <listitem><para>   uint8_t <link linkend="_union_i_c___m_a_x31855___d_a_t_a_1a8e3792bb05bfa5f22b1fefff6b4aeb1f">scv</link>:1</para>
+</listitem>
+            <listitem><para>   uint8_t <link linkend="_union_i_c___m_a_x31855___d_a_t_a_1ab908cdbcd61e7caf25e68ab3bc3ee2d5">scg</link>:1</para>
+</listitem>
+            <listitem><para>   uint8_t <link linkend="_union_i_c___m_a_x31855___d_a_t_a_1ac104ca59c6a573817727340aac18d9f6">oc</link>:1</para>
+</listitem>
+        </itemizedlist>
+</listitem>
+            <listitem><para>} <link linkend="_union_i_c___m_a_x31855___d_a_t_a_1aa5b2e1fef503465357f17eb89ec1db9e">s</link></para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_union_i_c___m_a_x31855___d_a_t_a_1a582fa2ca99b13c0df79f2fd2445ac31e">rawData</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 170 of file baseSW.c.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_union_i_c___m_a_x31855___d_a_t_a_1ae42ac844e604d8db99c2a321a5ffe61e"/>    <section>
+    <title>fault</title>
+<indexterm><primary>fault</primary><secondary>IC_MAX31855_DATA</secondary></indexterm>
+<indexterm><primary>IC_MAX31855_DATA</primary><secondary>fault</secondary></indexterm>
+<para><computeroutput>uint8_t fault</computeroutput></para><para>
+Definition at line 176 of file baseSW.c.</para>
+    </section><anchor xml:id="_union_i_c___m_a_x31855___d_a_t_a_1accaf31d7c41103817ed7bf8a58f61493"/>    <section>
+    <title>internal_temperature_data</title>
+<indexterm><primary>internal_temperature_data</primary><secondary>IC_MAX31855_DATA</secondary></indexterm>
+<indexterm><primary>IC_MAX31855_DATA</primary><secondary>internal_temperature_data</secondary></indexterm>
+<para><computeroutput>uint16_t internal_temperature_data</computeroutput></para><para>
+Definition at line 177 of file baseSW.c.</para>
+    </section><anchor xml:id="_union_i_c___m_a_x31855___d_a_t_a_1ac104ca59c6a573817727340aac18d9f6"/>    <section>
+    <title>oc</title>
+<indexterm><primary>oc</primary><secondary>IC_MAX31855_DATA</secondary></indexterm>
+<indexterm><primary>IC_MAX31855_DATA</primary><secondary>oc</secondary></indexterm>
+<para><computeroutput>uint8_t oc</computeroutput></para><para>
+Definition at line 181 of file baseSW.c.</para>
+    </section><anchor xml:id="_union_i_c___m_a_x31855___d_a_t_a_1a582fa2ca99b13c0df79f2fd2445ac31e"/>    <section>
+    <title>rawData</title>
+<indexterm><primary>rawData</primary><secondary>IC_MAX31855_DATA</secondary></indexterm>
+<indexterm><primary>IC_MAX31855_DATA</primary><secondary>rawData</secondary></indexterm>
+<para><computeroutput>uint32_t rawData</computeroutput></para><para>
+Definition at line 183 of file baseSW.c.</para>
+    </section><anchor xml:id="_union_i_c___m_a_x31855___d_a_t_a_1a2a2556147677ece60b8aadf4a0d608ed"/>    <section>
+    <title>reserved1</title>
+<indexterm><primary>reserved1</primary><secondary>IC_MAX31855_DATA</secondary></indexterm>
+<indexterm><primary>IC_MAX31855_DATA</primary><secondary>reserved1</secondary></indexterm>
+<para><computeroutput>uint8_t reserved1</computeroutput></para><para>
+Definition at line 175 of file baseSW.c.</para>
+    </section><anchor xml:id="_union_i_c___m_a_x31855___d_a_t_a_1a646df3514a24749a0f54731bf41c6c67"/>    <section>
+    <title>reserved2</title>
+<indexterm><primary>reserved2</primary><secondary>IC_MAX31855_DATA</secondary></indexterm>
+<indexterm><primary>IC_MAX31855_DATA</primary><secondary>reserved2</secondary></indexterm>
+<para><computeroutput>uint8_t reserved2</computeroutput></para><para>
+Definition at line 178 of file baseSW.c.</para>
+    </section><anchor xml:id="_union_i_c___m_a_x31855___d_a_t_a_1aa5b2e1fef503465357f17eb89ec1db9e"/>    <section>
+    <title></title>
+<indexterm><primary>s</primary><secondary>IC_MAX31855_DATA</secondary></indexterm>
+<indexterm><primary>IC_MAX31855_DATA</primary><secondary>s</secondary></indexterm>
+<para><computeroutput>struct { ... }  s</computeroutput></para>    </section><anchor xml:id="_union_i_c___m_a_x31855___d_a_t_a_1ab908cdbcd61e7caf25e68ab3bc3ee2d5"/>    <section>
+    <title>scg</title>
+<indexterm><primary>scg</primary><secondary>IC_MAX31855_DATA</secondary></indexterm>
+<indexterm><primary>IC_MAX31855_DATA</primary><secondary>scg</secondary></indexterm>
+<para><computeroutput>uint8_t scg</computeroutput></para><para>
+Definition at line 180 of file baseSW.c.</para>
+    </section><anchor xml:id="_union_i_c___m_a_x31855___d_a_t_a_1a8e3792bb05bfa5f22b1fefff6b4aeb1f"/>    <section>
+    <title>scv</title>
+<indexterm><primary>scv</primary><secondary>IC_MAX31855_DATA</secondary></indexterm>
+<indexterm><primary>IC_MAX31855_DATA</primary><secondary>scv</secondary></indexterm>
+<para><computeroutput>uint8_t scv</computeroutput></para><para>
+Definition at line 179 of file baseSW.c.</para>
+    </section><anchor xml:id="_union_i_c___m_a_x31855___d_a_t_a_1a4b19d6ddd5c1aab9ec16b14dd5cb5d4f"/>    <section>
+    <title>thermocouple_temperature_data</title>
+<indexterm><primary>thermocouple_temperature_data</primary><secondary>IC_MAX31855_DATA</secondary></indexterm>
+<indexterm><primary>IC_MAX31855_DATA</primary><secondary>thermocouple_temperature_data</secondary></indexterm>
+<para><computeroutput>uint16_t thermocouple_temperature_data</computeroutput></para><para>
+Definition at line 174 of file baseSW.c.</para>
+</section>
+<para>
+The documentation for this union was generated from the following file:</para>
+<link linkend="_base_s_w_8c">baseSW.c</link></section>
+</section>

@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_state_task_handler_8c" xml:lang="en-US">
+<title>stateTaskHandler.c File Reference</title>
+<indexterm><primary>stateTaskHandler.c</primary></indexterm>
+<programlisting>#include &quot;stateTaskHandler.h&quot;
+#include &lt;stdlib.h&gt;
+</programlisting><simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_state_task_handler_8c_1a9bd504f8607c59cfa51aa82a2fddec5f">stateTaskHandler</link> (<link linkend="_state_task_handler_8h_1ac70d77726e89cd77b1604f36f0768724">stateTaskList</link> *task)</para>
+</listitem>
+            <listitem><para>void <link linkend="_state_task_handler_8c_1a98a2fc80782b345201abe6dfbb757c13">initilaizeTaskHandler</link> (<link linkend="_state_task_handler_8h_1ac70d77726e89cd77b1604f36f0768724">stateTaskList</link> *idleTask)</para>
+</listitem>
+            <listitem><para><link linkend="_state_task_handler_8h_1ac70d77726e89cd77b1604f36f0768724">stateTaskList</link> * <link linkend="_state_task_handler_8c_1aa13c6985471c7d75306316805c317981">createTask</link> (void(*function)(void))</para>
+</listitem>
+            <listitem><para>void <link linkend="_state_task_handler_8c_1a0e389e9bc8beed2ef6025c91227d010b">addTask</link> (<link linkend="_state_task_handler_8h_1ac70d77726e89cd77b1604f36f0768724">stateTaskList</link> *idleTask, <link linkend="_state_task_handler_8h_1ac70d77726e89cd77b1604f36f0768724">stateTaskList</link> *newTask)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_state_task_handler_8c_1a0e389e9bc8beed2ef6025c91227d010b"/>    <section>
+    <title>addTask()</title>
+<indexterm><primary>addTask</primary><secondary>stateTaskHandler.c</secondary></indexterm>
+<indexterm><primary>stateTaskHandler.c</primary><secondary>addTask</secondary></indexterm>
+<para><computeroutput>void addTask (<link linkend="_state_task_handler_8h_1ac70d77726e89cd77b1604f36f0768724">stateTaskList</link> * idleTask, <link linkend="_state_task_handler_8h_1ac70d77726e89cd77b1604f36f0768724">stateTaskList</link> * newTask)</computeroutput></para>
+<para>stateTaskList</para>
+
+<para>@Summary</para>
+
+<para>@Description </para>
+<para>
+Definition at line 77 of file stateTaskHandler.c.</para>
+    </section><anchor xml:id="_state_task_handler_8c_1aa13c6985471c7d75306316805c317981"/>    <section>
+    <title>createTask()</title>
+<indexterm><primary>createTask</primary><secondary>stateTaskHandler.c</secondary></indexterm>
+<indexterm><primary>stateTaskHandler.c</primary><secondary>createTask</secondary></indexterm>
+<para><computeroutput><link linkend="_state_task_handler_8h_1ac70d77726e89cd77b1604f36f0768724">stateTaskList</link>* createTask (void(*)(void) function)</computeroutput></para>
+<para>stateTaskList</para>
+
+<para>@Summary</para>
+
+<para>@Description </para>
+<para>
+Definition at line 59 of file stateTaskHandler.c.</para>
+    </section><anchor xml:id="_state_task_handler_8c_1a98a2fc80782b345201abe6dfbb757c13"/>    <section>
+    <title>initilaizeTaskHandler()</title>
+<indexterm><primary>initilaizeTaskHandler</primary><secondary>stateTaskHandler.c</secondary></indexterm>
+<indexterm><primary>stateTaskHandler.c</primary><secondary>initilaizeTaskHandler</secondary></indexterm>
+<para><computeroutput>void initilaizeTaskHandler (<link linkend="_state_task_handler_8h_1ac70d77726e89cd77b1604f36f0768724">stateTaskList</link> * idleTask)</computeroutput></para>
+<para>stateTaskList</para>
+
+<para>@Summary</para>
+
+<para>@Description </para>
+<para>
+Definition at line 44 of file stateTaskHandler.c.</para>
+    </section><anchor xml:id="_state_task_handler_8c_1a9bd504f8607c59cfa51aa82a2fddec5f"/>    <section>
+    <title>stateTaskHandler()</title>
+<indexterm><primary>stateTaskHandler</primary><secondary>stateTaskHandler.c</secondary></indexterm>
+<indexterm><primary>stateTaskHandler.c</primary><secondary>stateTaskHandler</secondary></indexterm>
+<para><computeroutput>void stateTaskHandler (<link linkend="_state_task_handler_8h_1ac70d77726e89cd77b1604f36f0768724">stateTaskList</link> * task)</computeroutput></para>
+<para>stateTaskList</para>
+
+<para>@Summary</para>
+
+<para>@Description stateTaskList</para>
+
+<para>@Summary</para>
+
+<para>@Description </para>
+<para>
+Definition at line 25 of file stateTaskHandler.c.</para>
+</section>
+</section>
+</section>

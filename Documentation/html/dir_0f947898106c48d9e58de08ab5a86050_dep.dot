@@ -1,0 +1,13 @@
+digraph "C:/Users/EDU_OBOS_5057" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_d522931ffa1371640980b621734a4381 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="Users" fontname="Helvetica", fontsize="10", URL="dir_d522931ffa1371640980b621734a4381.html"]
+  subgraph clusterdir_0f947898106c48d9e58de08ab5a86050 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_0f947898106c48d9e58de08ab5a86050.html"];
+    dir_0f947898106c48d9e58de08ab5a86050 [shape=plaintext label="EDU_OBOS_5057"];
+  dir_2b4b7038549cfaf5b533adb1a9e76356 [shape=box label="Documents" fillcolor="white" style="filled" color="red" URL="dir_2b4b7038549cfaf5b533adb1a9e76356.html"];
+  }
+  }
+}

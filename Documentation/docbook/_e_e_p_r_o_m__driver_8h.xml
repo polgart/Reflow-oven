@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__e_e_p_r_o_m__driver_8h" xml:lang="en-US">
+<title>EEPROM_driver.h File Reference</title>
+<indexterm><primary>EEPROM_driver.h</primary></indexterm>
+<programlisting>#include &quot;mcc_generated_files/i2c1.h&quot;
+</programlisting><simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="__e_e_p_r_o_m__driver_8h_1a9cc051403ec4a8e46ad9803031217142">DEVICE_RETRY_MAX</link>   100</para>
+</listitem>
+            <listitem><para>#define <link linkend="__e_e_p_r_o_m__driver_8h_1a457be1c5e5fee67ed7d01f5887c2d656">DEVICE_ADDRESS</link>   0x50</para>
+</listitem>
+            <listitem><para>#define <link linkend="__e_e_p_r_o_m__driver_8h_1a87a752ea5416747656e59831318ba29c">DEVICE_TIMEOUT</link>   50</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>I2C1_MESSAGE_STATUS <link linkend="__e_e_p_r_o_m__driver_8h_1a4a7ac4599f03f90076d31e960e3b5d7f">EEPROM_Read</link> (uint16_t slaveDeviceAddress, uint16_t dataAddress, uint8_t *pData, uint16_t nCount)</para>
+</listitem>
+            <listitem><para>I2C1_MESSAGE_STATUS <link linkend="__e_e_p_r_o_m__driver_8h_1a444b797a27772eb3c2cda0dd76b55b28">EEPROM_Write</link> (uint16_t slaveDeviceAddress, uint16_t dataAddress, uint8_t *pData, uint16_t nCount)</para>
+</listitem>
+            <listitem><para>I2C1_MESSAGE_STATUS <link linkend="__e_e_p_r_o_m__driver_8h_1ac65f0c4ca17c5717dc8bf08999f7ff60">EEPROM_WritePage</link> (uint16_t slaveDeviceAddress, uint16_t dataAddress, uint8_t *pData)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="__e_e_p_r_o_m__driver_8h_1a457be1c5e5fee67ed7d01f5887c2d656"/>    <section>
+    <title>DEVICE_ADDRESS</title>
+<indexterm><primary>DEVICE_ADDRESS</primary><secondary>EEPROM_driver.h</secondary></indexterm>
+<indexterm><primary>EEPROM_driver.h</primary><secondary>DEVICE_ADDRESS</secondary></indexterm>
+<para><computeroutput>#define DEVICE_ADDRESS   0x50</computeroutput></para><para>
+Definition at line 12 of file EEPROM_driver.h.</para>
+    </section><anchor xml:id="__e_e_p_r_o_m__driver_8h_1a9cc051403ec4a8e46ad9803031217142"/>    <section>
+    <title>DEVICE_RETRY_MAX</title>
+<indexterm><primary>DEVICE_RETRY_MAX</primary><secondary>EEPROM_driver.h</secondary></indexterm>
+<indexterm><primary>EEPROM_driver.h</primary><secondary>DEVICE_RETRY_MAX</secondary></indexterm>
+<para><computeroutput>#define DEVICE_RETRY_MAX   100</computeroutput></para><para>
+Definition at line 11 of file EEPROM_driver.h.</para>
+    </section><anchor xml:id="__e_e_p_r_o_m__driver_8h_1a87a752ea5416747656e59831318ba29c"/>    <section>
+    <title>DEVICE_TIMEOUT</title>
+<indexterm><primary>DEVICE_TIMEOUT</primary><secondary>EEPROM_driver.h</secondary></indexterm>
+<indexterm><primary>EEPROM_driver.h</primary><secondary>DEVICE_TIMEOUT</secondary></indexterm>
+<para><computeroutput>#define DEVICE_TIMEOUT   50</computeroutput></para><para>
+Definition at line 13 of file EEPROM_driver.h.</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="__e_e_p_r_o_m__driver_8h_1a4a7ac4599f03f90076d31e960e3b5d7f"/>    <section>
+    <title>EEPROM_Read()</title>
+<indexterm><primary>EEPROM_Read</primary><secondary>EEPROM_driver.h</secondary></indexterm>
+<indexterm><primary>EEPROM_driver.h</primary><secondary>EEPROM_Read</secondary></indexterm>
+<para><computeroutput>I2C1_MESSAGE_STATUS EEPROM_Read (uint16_t slaveDeviceAddress, uint16_t dataAddress, uint8_t * pData, uint16_t nCount)</computeroutput></para><para>
+Definition at line 6 of file EEPROM_driver.c.</para>
+    </section><anchor xml:id="__e_e_p_r_o_m__driver_8h_1a444b797a27772eb3c2cda0dd76b55b28"/>    <section>
+    <title>EEPROM_Write()</title>
+<indexterm><primary>EEPROM_Write</primary><secondary>EEPROM_driver.h</secondary></indexterm>
+<indexterm><primary>EEPROM_driver.h</primary><secondary>EEPROM_Write</secondary></indexterm>
+<para><computeroutput>I2C1_MESSAGE_STATUS EEPROM_Write (uint16_t slaveDeviceAddress, uint16_t dataAddress, uint8_t * pData, uint16_t nCount)</computeroutput></para><para>
+Definition at line 78 of file EEPROM_driver.c.</para>
+    </section><anchor xml:id="__e_e_p_r_o_m__driver_8h_1ac65f0c4ca17c5717dc8bf08999f7ff60"/>    <section>
+    <title>EEPROM_WritePage()</title>
+<indexterm><primary>EEPROM_WritePage</primary><secondary>EEPROM_driver.h</secondary></indexterm>
+<indexterm><primary>EEPROM_driver.h</primary><secondary>EEPROM_WritePage</secondary></indexterm>
+<para><computeroutput>I2C1_MESSAGE_STATUS EEPROM_WritePage (uint16_t slaveDeviceAddress, uint16_t dataAddress, uint8_t * pData)</computeroutput></para><para>
+Definition at line 153 of file EEPROM_driver.c.</para>
+</section>
+</section>
+</section>

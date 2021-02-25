@@ -1,0 +1,87 @@
+\hypertarget{struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e}{}\doxysection{TEMPERATURE\+\_\+\+PROFILE Struct Reference}
+\label{struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e}\index{TEMPERATURE\_PROFILE@{TEMPERATURE\_PROFILE}}
+
+
+Reference temperature profile.  
+
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r}{TEMPERATURE\+\_\+\+BUFFER}} \mbox{\hyperlink{struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e_af228ed60e7369ee471ed83ab1f548611}{current\+Profile}}
+\item 
+\mbox{\hyperlink{struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r}{TEMPERATURE\+\_\+\+BUFFER}} \mbox{\hyperlink{struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e_a4d4062687324e07d113969d8723ee3c7}{buffer\+Profile}}
+\item 
+\mbox{\hyperlink{struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r}{TEMPERATURE\+\_\+\+BUFFER}} \mbox{\hyperlink{struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e_a46d2498e25cc6065bdc3616986c29ae7}{default\+Profile}}
+\item 
+\mbox{\hyperlink{base_s_w_8c_a58b2042d633892568e5fbcaf5e4ac423}{TEMPERATURE\+\_\+\+BUFFER\+\_\+\+STATUS}} \mbox{\hyperlink{struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e_a0c19c52a51baabc478468967db9e5ecf}{profile\+Status}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e_af4d285cb5293a0902a9f669b6499cfe3}{address\+Buffer}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Reference temperature profile. 
+
+Reference temperature profile three \mbox{\hyperlink{struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r}{TEMPERATURE\+\_\+\+BUFFER}}, a TEMPERATURE\+\_\+\+BUFFER\+\_\+\+STATUS and an address\+Buffer. The address\+Buffer is used to store the EEPROM address. Only buffer\+Profile can be used for memory operations, and current\+Profile only can be used for heating processes. 
+
+Definition at line 147 of file base\+SW.\+c.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e_af4d285cb5293a0902a9f669b6499cfe3}\label{struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e_af4d285cb5293a0902a9f669b6499cfe3}} 
+\index{TEMPERATURE\_PROFILE@{TEMPERATURE\_PROFILE}!addressBuffer@{addressBuffer}}
+\index{addressBuffer@{addressBuffer}!TEMPERATURE\_PROFILE@{TEMPERATURE\_PROFILE}}
+\doxysubsubsection{\texorpdfstring{addressBuffer}{addressBuffer}}
+{\footnotesize\ttfamily uint16\+\_\+t address\+Buffer}
+
+This buffers stores the EEPROM address 
+
+Definition at line 154 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e_a4d4062687324e07d113969d8723ee3c7}\label{struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e_a4d4062687324e07d113969d8723ee3c7}} 
+\index{TEMPERATURE\_PROFILE@{TEMPERATURE\_PROFILE}!bufferProfile@{bufferProfile}}
+\index{bufferProfile@{bufferProfile}!TEMPERATURE\_PROFILE@{TEMPERATURE\_PROFILE}}
+\doxysubsubsection{\texorpdfstring{bufferProfile}{bufferProfile}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r}{TEMPERATURE\+\_\+\+BUFFER}} buffer\+Profile}
+
+Buffer profile array pointer 
+
+Definition at line 151 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e_af228ed60e7369ee471ed83ab1f548611}\label{struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e_af228ed60e7369ee471ed83ab1f548611}} 
+\index{TEMPERATURE\_PROFILE@{TEMPERATURE\_PROFILE}!currentProfile@{currentProfile}}
+\index{currentProfile@{currentProfile}!TEMPERATURE\_PROFILE@{TEMPERATURE\_PROFILE}}
+\doxysubsubsection{\texorpdfstring{currentProfile}{currentProfile}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r}{TEMPERATURE\+\_\+\+BUFFER}} current\+Profile}
+
+Current profile array pointer 
+
+Definition at line 150 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e_a46d2498e25cc6065bdc3616986c29ae7}\label{struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e_a46d2498e25cc6065bdc3616986c29ae7}} 
+\index{TEMPERATURE\_PROFILE@{TEMPERATURE\_PROFILE}!defaultProfile@{defaultProfile}}
+\index{defaultProfile@{defaultProfile}!TEMPERATURE\_PROFILE@{TEMPERATURE\_PROFILE}}
+\doxysubsubsection{\texorpdfstring{defaultProfile}{defaultProfile}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r}{TEMPERATURE\+\_\+\+BUFFER}} default\+Profile}
+
+Default profile buffer array pointer 
+
+Definition at line 152 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e_a0c19c52a51baabc478468967db9e5ecf}\label{struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e_a0c19c52a51baabc478468967db9e5ecf}} 
+\index{TEMPERATURE\_PROFILE@{TEMPERATURE\_PROFILE}!profileStatus@{profileStatus}}
+\index{profileStatus@{profileStatus}!TEMPERATURE\_PROFILE@{TEMPERATURE\_PROFILE}}
+\doxysubsubsection{\texorpdfstring{profileStatus}{profileStatus}}
+{\footnotesize\ttfamily \mbox{\hyperlink{base_s_w_8c_a58b2042d633892568e5fbcaf5e4ac423}{TEMPERATURE\+\_\+\+BUFFER\+\_\+\+STATUS}} profile\+Status}
+
+Temperature profile status 
+
+Definition at line 153 of file base\+SW.\+c.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{base_s_w_8c}{base\+SW.\+c}}\end{DoxyCompactItemize}

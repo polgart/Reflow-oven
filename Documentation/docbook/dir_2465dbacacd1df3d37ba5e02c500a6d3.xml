@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_2465dbacacd1df3d37ba5e02c500a6d3" xml:lang="en-US">
+<title>C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/build/default/debug Directory Reference</title>
+<indexterm><primary>C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/build/default/debug Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_beb8648b74cfc7ce02369c0e8d17b013">mcc_generated_files</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="_debug_2base_s_w_8o_8d">baseSW.o.d</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_debug_2main_8o_8d">main.o.d</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_debug_2state_task_handler_8o_8d">stateTaskHandler.o.d</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

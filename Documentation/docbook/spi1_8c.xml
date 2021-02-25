@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_spi1_8c" xml:lang="en-US">
+<title>C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/spi1.c File Reference</title>
+<indexterm><primary>C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/spi1.c</primary></indexterm>
+<programlisting>#include &quot;spi1.h&quot;
+</programlisting>Include dependency graph for spi1.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="spi1_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_spi1_8c_1a46876d5bc7fb1c46f19f110b9f9b6c51">SPI1_TRANSFER_MODE</link> { <link linkend="_spi1_8c_1a46876d5bc7fb1c46f19f110b9f9b6c51a7f6235cb2af719a0dca2707740837a88">SPI1_TRANSFER_MODE_32BIT</link> = 2
+, <link linkend="_spi1_8c_1a46876d5bc7fb1c46f19f110b9f9b6c51ac9c8a31671b02b5fe4178d11b51dc6b2">SPI1_TRANSFER_MODE_16BIT</link> = 1
+, <link linkend="_spi1_8c_1a46876d5bc7fb1c46f19f110b9f9b6c51a8e244f595ead59f818c17dfef3335efb">SPI1_TRANSFER_MODE_8BIT</link> = 0
+ }</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_spi1_8c_1a4d1cdb4320aad66e1397f2cd7a0c0eac">__attribute__</link> ((__always_inline__))</para>
+</listitem>
+            <listitem><para>void <link linkend="_spi1_8c_1ae318f05ebb6973a6620b67e61833c12b">SPI1_Exchange</link> (uint8_t *pTransmitData, uint8_t *pReceiveData)</para>
+</listitem>
+            <listitem><para>uint16_t <link linkend="_spi1_8c_1a25723d28d814934bf890e1e984a4c8d0">SPI1_ExchangeBuffer</link> (uint8_t *pTransmitData, uint16_t byteCount, uint8_t *pReceiveData)</para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_spi1_8c_1a0a88e53d199caed4e1850db5b427fe3c">SPI1_Exchange32bit</link> (uint32_t data)</para>
+</listitem>
+            <listitem><para>uint16_t <link linkend="_spi1_8c_1a7826666063c148e7642b83350ada21c0">SPI1_Exchange32bitBuffer</link> (uint32_t *dataTransmitted, uint16_t byteCount, uint32_t *dataReceived)</para>
+</listitem>
+            <listitem><para><link linkend="_spi1_8h_1a023db59f6551e56ce57ee219df328012">SPI1_STATUS</link> <link linkend="_spi1_8c_1a1d36b64e4ff144bd5abb792fea3353bc">SPI1_StatusGet</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Enumeration Type Documentation</title>
+<anchor xml:id="_spi1_8c_1a46876d5bc7fb1c46f19f110b9f9b6c51"/>    <section>
+    <title>SPI1_TRANSFER_MODE</title>
+<indexterm><primary>SPI1_TRANSFER_MODE</primary><secondary>spi1.c</secondary></indexterm>
+<indexterm><primary>spi1.c</primary><secondary>SPI1_TRANSFER_MODE</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_spi1_8c_1a46876d5bc7fb1c46f19f110b9f9b6c51">SPI1_TRANSFER_MODE</link></computeroutput></para>
+<para>SPI1 Generated Driver API Source File</para>
+
+<para>Company: Microchip Technology Inc.</para>
+
+<para>File Name: <link linkend="_spi1_8c">spi1.c</link></para>
+
+<para>@Summary This is the generated source file for the SPI1 driver using PIC24 / dsPIC33 / PIC32MM MCUs</para>
+
+<para>@Description This source file provides APIs for driver for SPI1. Generation Information : Product Revision : PIC24 / dsPIC33 / PIC32MM MCUs - 1.170.0 Device : PIC24FJ256GA702 The generated drivers are tested against the following: Compiler : XC16 v1.61 MPLAB : MPLAB X v5.45 Section: Included Files Section: File specific functions SPI1 Transfer Mode Enumeration</para>
+
+<para>@Summary Defines the Transfer Mode enumeration for SPI1.</para>
+
+<para>@Description This defines the Transfer Mode enumeration for SPI1. </para>
+<informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>SPI1_TRANSFER_MODE_32BIT</primary><secondary>spi1.c</secondary></indexterm>
+<indexterm><primary>spi1.c</primary><secondary>SPI1_TRANSFER_MODE_32BIT</secondary></indexterm>
+<anchor xml:id="_spi1_8c_1a46876d5bc7fb1c46f19f110b9f9b6c51a7f6235cb2af719a0dca2707740837a88"/>SPI1_TRANSFER_MODE_32BIT</entry><entry></entry></row><row><entry><indexterm><primary>SPI1_TRANSFER_MODE_16BIT</primary><secondary>spi1.c</secondary></indexterm>
+<indexterm><primary>spi1.c</primary><secondary>SPI1_TRANSFER_MODE_16BIT</secondary></indexterm>
+<anchor xml:id="_spi1_8c_1a46876d5bc7fb1c46f19f110b9f9b6c51ac9c8a31671b02b5fe4178d11b51dc6b2"/>SPI1_TRANSFER_MODE_16BIT</entry><entry></entry></row><row><entry><indexterm><primary>SPI1_TRANSFER_MODE_8BIT</primary><secondary>spi1.c</secondary></indexterm>
+<indexterm><primary>spi1.c</primary><secondary>SPI1_TRANSFER_MODE_8BIT</secondary></indexterm>
+<anchor xml:id="_spi1_8c_1a46876d5bc7fb1c46f19f110b9f9b6c51a8e244f595ead59f818c17dfef3335efb"/>SPI1_TRANSFER_MODE_8BIT</entry><entry></entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line 65 of file spi1.c.</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_spi1_8c_1a4d1cdb4320aad66e1397f2cd7a0c0eac"/>    <section>
+    <title>__attribute__()</title>
+<indexterm><primary>__attribute__</primary><secondary>spi1.c</secondary></indexterm>
+<indexterm><primary>spi1.c</primary><secondary>__attribute__</secondary></indexterm>
+<para><computeroutput>__attribute__ ((__always_inline__) )<computeroutput>[inline]</computeroutput></computeroutput></para>
+<para>Section: Driver Interface Function Definitions </para>
+<para>
+Definition at line 71 of file spi1.c.</para>
+    </section><anchor xml:id="_spi1_8c_1ae318f05ebb6973a6620b67e61833c12b"/>    <section>
+    <title>SPI1_Exchange()</title>
+<indexterm><primary>SPI1_Exchange</primary><secondary>spi1.c</secondary></indexterm>
+<indexterm><primary>spi1.c</primary><secondary>SPI1_Exchange</secondary></indexterm>
+<para><computeroutput>void SPI1_Exchange (uint8_t * pTransmitData, uint8_t * pReceiveData)</computeroutput></para><para>
+Definition at line 103 of file spi1.c.</para>
+    </section><anchor xml:id="_spi1_8c_1a0a88e53d199caed4e1850db5b427fe3c"/>    <section>
+    <title>SPI1_Exchange32bit()</title>
+<indexterm><primary>SPI1_Exchange32bit</primary><secondary>spi1.c</secondary></indexterm>
+<indexterm><primary>spi1.c</primary><secondary>SPI1_Exchange32bit</secondary></indexterm>
+<para><computeroutput>uint32_t SPI1_Exchange32bit (uint32_t data)</computeroutput></para>
+<para>@Summary Exchanges two word of data from SPI1</para>
+
+<para>@Description This routine exchanges two word of data from SPI1.</para>
+
+<para>@Preconditions The SPI1_Initialize routine must have been called for the specified SPI1 driver instance. This is a blocking routine.</para>
+
+<para>@Returns Data read from SPI1</para>
+
+<para>@Param data - Data to be written onto SPI1.</para>
+
+<para>@Example Refer to <link linkend="_spi1_8h_1a0607cad7a6b302950091fea719146a54">SPI1_Initialize()</link> for an example 
+<literallayout>&#160;&#xa;</literallayout>
+ </para>
+<para>
+Definition at line 209 of file spi1.c.</para>
+    </section><anchor xml:id="_spi1_8c_1a7826666063c148e7642b83350ada21c0"/>    <section>
+    <title>SPI1_Exchange32bitBuffer()</title>
+<indexterm><primary>SPI1_Exchange32bitBuffer</primary><secondary>spi1.c</secondary></indexterm>
+<indexterm><primary>spi1.c</primary><secondary>SPI1_Exchange32bitBuffer</secondary></indexterm>
+<para><computeroutput>uint16_t SPI1_Exchange32bitBuffer (uint32_t * dataTransmitted, uint16_t byteCount, uint32_t * dataReceived)</computeroutput></para>
+<para>@Summary Exchanges data from a buffer of size two word from SPI1</para>
+
+<para>@Description This routine exchanges data from a buffer of size two word from the SPI1. This is a blocking routine.</para>
+
+<para>@Preconditions The SPI1_Initialize routine must have been called for the specified SPI1 driver instance.</para>
+
+<para>@Returns Number of 32bit data written/read.</para>
+
+<para>@Param dataTransmitted - Buffer of data to be written onto SPI1.</para>
+
+<para>@Param byteCount - Number of bytes to be exchanged.</para>
+
+<para>@Param dataTransmitted - Buffer of data to be read from SPI1.</para>
+
+<para>@Example Refer to <link linkend="_spi1_8h_1a0607cad7a6b302950091fea719146a54">SPI1_Initialize()</link> for an example 
+<literallayout>&#160;&#xa;</literallayout>
+ </para>
+<para>
+Definition at line 219 of file spi1.c.</para>
+    </section><anchor xml:id="_spi1_8c_1a25723d28d814934bf890e1e984a4c8d0"/>    <section>
+    <title>SPI1_ExchangeBuffer()</title>
+<indexterm><primary>SPI1_ExchangeBuffer</primary><secondary>spi1.c</secondary></indexterm>
+<indexterm><primary>spi1.c</primary><secondary>SPI1_ExchangeBuffer</secondary></indexterm>
+<para><computeroutput>uint16_t SPI1_ExchangeBuffer (uint8_t * pTransmitData, uint16_t byteCount, uint8_t * pReceiveData)</computeroutput></para><para>
+Definition at line 124 of file spi1.c.</para>
+    </section><anchor xml:id="_spi1_8c_1a1d36b64e4ff144bd5abb792fea3353bc"/>    <section>
+    <title>SPI1_StatusGet()</title>
+<indexterm><primary>SPI1_StatusGet</primary><secondary>spi1.c</secondary></indexterm>
+<indexterm><primary>spi1.c</primary><secondary>SPI1_StatusGet</secondary></indexterm>
+<para><computeroutput><link linkend="_spi1_8h_1a023db59f6551e56ce57ee219df328012">SPI1_STATUS</link> SPI1_StatusGet (void )</computeroutput></para>
+<para>@Summary Returns the value of the status register of SPI instance : 1</para>
+
+<para>@Description This routine returns the value of the status register of SPI1 driver instance : 1</para>
+
+<para>@Preconditions None.</para>
+
+<para>@Returns Returns the value of the status register.</para>
+
+<para>@Param None.</para>
+
+<para>@Example Refer to <link linkend="_spi1_8h_1a0607cad7a6b302950091fea719146a54">SPI1_Initialize()</link> for an example 
+<literallayout>&#160;&#xa;</literallayout>
+ </para>
+<para>
+Definition at line 236 of file spi1.c.</para>
+</section>
+</section>
+</section>

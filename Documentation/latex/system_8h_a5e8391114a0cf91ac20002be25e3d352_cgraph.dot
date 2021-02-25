@@ -1,0 +1,28 @@
+digraph "SYSTEM_Initialize"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="SYSTEM_Initialize",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="CLOCK_Initialize",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$clock_8c.html#a98390d19c7087c52765eab23eb8ded96",tooltip=" "];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="I2C1_Initialize",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$i2c1_8c.html#a0d2688c99f12f3c79e9867b3f48a4b70",tooltip=" "];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="INTERRUPT_Initialize",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$interrupt__manager_8c.html#a5c526129ee879458dff6755f5768a6e3",tooltip=" "];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="PIN_MANAGER_Initialize",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$pin__manager_8c.html#a50357774183a136d9490f64ad0d5c6cb",tooltip=" "];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="SPI1_Initialize",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$spi1_8h.html#a0607cad7a6b302950091fea719146a54",tooltip=" "];
+  Node1 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="TMR2_Initialize",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$tmr2_8c.html#a46c13c9255379e99c10240229a145d37",tooltip=" "];
+  Node7 -> Node8 [color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="TMR2_CallBack",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$tmr2_8c.html#a3636eea703b4350add3364d56101e4c1",tooltip=" "];
+  Node7 -> Node9 [color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="TMR2_SetInterruptHandler",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$tmr2_8c.html#a96213f388ab9dc5b3cd3ff3b06732b59",tooltip=" "];
+  Node1 -> Node10 [color="midnightblue",fontsize="10",style="solid"];
+  Node10 [label="UART1_Initialize",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$uart1_8c.html#a10757505060dc7bf0fe148c5363eae08",tooltip=" "];
+  Node1 -> Node11 [color="midnightblue",fontsize="10",style="solid"];
+  Node11 [label="UART2_Initialize",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$uart2_8c.html#a1c7f32800f7e5955bc04306b2686a0d7",tooltip=" "];
+}

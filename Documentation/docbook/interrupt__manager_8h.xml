@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interrupt__manager_8h" xml:lang="en-US">
+<title>C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/interrupt_manager.h File Reference</title>
+<indexterm><primary>C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/interrupt_manager.h</primary></indexterm>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interrupt__manager_8h__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_interrupt__manager_8h_1a5c526129ee879458dff6755f5768a6e3">INTERRUPT_Initialize</link> (void)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_interrupt__manager_8h_1a5c526129ee879458dff6755f5768a6e3"/>    <section>
+    <title>INTERRUPT_Initialize()</title>
+<indexterm><primary>INTERRUPT_Initialize</primary><secondary>interrupt_manager.h</secondary></indexterm>
+<indexterm><primary>interrupt_manager.h</primary><secondary>INTERRUPT_Initialize</secondary></indexterm>
+<para><computeroutput>void INTERRUPT_Initialize (void )</computeroutput></para>
+<para>System Interrupts Generated Driver File</para>
+
+<para>@Company: Microchip Technology Inc.</para>
+
+<para>@File Name: <link linkend="_interrupt__manager_8h">interrupt_manager.h</link></para>
+
+<para>@Summary: This is the generated driver implementation file for setting up the interrupts using PIC24 / dsPIC33 / PIC32MM MCUs</para>
+
+<para>@Description: This source file provides implementations for PIC24 / dsPIC33 / PIC32MM MCUs interrupts. Generation Information : Product Revision : PIC24 / dsPIC33 / PIC32MM MCUs - 1.170.0 Device : PIC24FJ256GA702 The generated drivers are tested against the following: Compiler : XC16 v1.61 MPLAB : MPLAB X v5.45 @Summary Initializes the interrupt priorities of the PIC24FJ256GA702</para>
+
+<para>@Description This routine sets the interrupt priorities of the modules that have been configured for the PIC24FJ256GA702</para>
+
+<para>@Preconditions None.</para>
+
+<para>@Returns None.</para>
+
+<para>@Param None.</para>
+
+<para>@Example <computeroutput> void <link linkend="_system_8h_1a5e8391114a0cf91ac20002be25e3d352">SYSTEM_Initialize(void)</link> { Other initializers are called from this function INTERRUPT_Initialize (); } </computeroutput></para>
+
+<para>System Interrupts Generated Driver File</para>
+
+<para>@Company: Microchip Technology Inc.</para>
+
+<para>@File Name: <link linkend="_interrupt__manager_8h">interrupt_manager.h</link></para>
+
+<para>@Summary: This is the generated driver implementation file for setting up the interrupts using PIC24 / dsPIC33 / PIC32MM MCUs</para>
+
+<para>@Description: This source file provides implementations for PIC24 / dsPIC33 / PIC32MM MCUs interrupts. Generation Information : Product Revision : PIC24 / dsPIC33 / PIC32MM MCUs - 1.170.0 Device : PIC24FJ256GA702 The generated drivers are tested against the following: Compiler : XC16 v1.61 MPLAB : MPLAB X v5.45 Section: Includes void INTERRUPT_Initialize (void) </para>
+<para>
+Definition at line 53 of file interrupt_manager.c.</para>
+</section>
+</section>
+</section>

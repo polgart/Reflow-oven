@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_mcc_8h" xml:lang="en-US">
+<title>C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/mcc.h File Reference</title>
+<indexterm><primary>C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/mcc.h</primary></indexterm>
+<programlisting>#include &lt;xc.h&gt;
+#include &quot;system.h&quot;
+#include &quot;clock.h&quot;
+#include &quot;pin_manager.h&quot;
+#include &lt;stdint.h&gt;
+#include &lt;stdbool.h&gt;
+#include &quot;i2c1.h&quot;
+#include &quot;interrupt_manager.h&quot;
+#include &quot;traps.h&quot;
+#include &quot;uart1.h&quot;
+#include &quot;uart2.h&quot;
+#include &quot;tmr2.h&quot;
+#include &quot;spi1.h&quot;
+</programlisting>Include dependency graph for mcc.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="mcc_8h__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>

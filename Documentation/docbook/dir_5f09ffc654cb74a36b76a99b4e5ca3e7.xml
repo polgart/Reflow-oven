@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_5f09ffc654cb74a36b76a99b4e5ca3e7" xml:lang="en-US">
+<title>Design Directory Reference</title>
+<indexterm><primary>Design Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_b35860c835ebf4efaf371ebd7d0fb965">SW</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

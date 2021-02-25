@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_uart2_8c" xml:lang="en-US">
+<title>C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/uart2.c File Reference</title>
+<indexterm><primary>C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/uart2.c</primary></indexterm>
+<programlisting>#include &lt;stdbool.h&gt;
+#include &lt;stdint.h&gt;
+#include &lt;stddef.h&gt;
+#include &quot;xc.h&quot;
+#include &quot;uart2.h&quot;
+</programlisting>Include dependency graph for uart2.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="uart2_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_uart2_8c_1ad8a2a140cf18d6c2d0048f8ed45ef052">UART2_CONFIG_TX_BYTEQ_LENGTH</link>   (8+1)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_uart2_8c_1a16d2e91a322aa54a7f9d08fd8f8eaeb7">UART2_CONFIG_RX_BYTEQ_LENGTH</link>   (8+1)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_uart2_8c_1a1c7f32800f7e5955bc04306b2686a0d7">UART2_Initialize</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_uart2_8c_1a741b3f9d648836d5c6be99408a85c625">UART2_SetTxInterruptHandler</link> (void(*interruptHandler)(void))</para>
+</listitem>
+            <listitem><para>void <link linkend="_uart2_8c_1a226557d5e42f7e29ddaff30606138459">__attribute__</link> ((interrupt, no_auto_psv))</para>
+</listitem>
+            <listitem><para>void <link linkend="_uart2_8c_1a201468129b483039afc5a619e2d31097">__attribute__</link> ((weak))</para>
+</listitem>
+            <listitem><para>void <link linkend="_uart2_8c_1a1668b0cf18a2d12b03a004fc398442b7">UART2_SetRxInterruptHandler</link> (void(*interruptHandler)(void))</para>
+</listitem>
+            <listitem><para>uint8_t <link linkend="_uart2_8c_1ab56d5afa62daf8dd586d6b8ebf33160d">UART2_Read</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_uart2_8c_1aa1bdaee21f13989dbac96458da3edb94">UART2_Write</link> (uint8_t byte)</para>
+</listitem>
+            <listitem><para>bool <link linkend="_uart2_8c_1aab535f85407eaec157b6aafe34c5d3f9">UART2_IsRxReady</link> (void)</para>
+</listitem>
+            <listitem><para>bool <link linkend="_uart2_8c_1a1fceb28e9345bc0eb683e7b05f263b52">UART2_IsTxReady</link> (void)</para>
+</listitem>
+            <listitem><para>bool <link linkend="_uart2_8c_1a66bc4f6654ba88d62508d05fe3f6c260">UART2_IsTxDone</link> (void)</para>
+</listitem>
+            <listitem><para>unsigned int <link linkend="_uart2_8c_1ae5ba78607a8375e69d112ebeb07c211f">__attribute__</link> ((deprecated))</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>void(* <link linkend="_uart2_8c_1a68a410ec3af1a00f670b364772138738">UART2_TxDefaultInterruptHandler</link> )(void)</para>
+</listitem>
+            <listitem><para>void(* <link linkend="_uart2_8c_1a8c2d11929101019fc5873453f854fd34">UART2_RxDefaultInterruptHandler</link> )(void)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_uart2_8c_1a16d2e91a322aa54a7f9d08fd8f8eaeb7"/>    <section>
+    <title>UART2_CONFIG_RX_BYTEQ_LENGTH</title>
+<indexterm><primary>UART2_CONFIG_RX_BYTEQ_LENGTH</primary><secondary>uart2.c</secondary></indexterm>
+<indexterm><primary>uart2.c</primary><secondary>UART2_CONFIG_RX_BYTEQ_LENGTH</secondary></indexterm>
+<para><computeroutput>#define UART2_CONFIG_RX_BYTEQ_LENGTH   (8+1)</computeroutput></para><para>
+Definition at line 84 of file uart2.c.</para>
+    </section><anchor xml:id="_uart2_8c_1ad8a2a140cf18d6c2d0048f8ed45ef052"/>    <section>
+    <title>UART2_CONFIG_TX_BYTEQ_LENGTH</title>
+<indexterm><primary>UART2_CONFIG_TX_BYTEQ_LENGTH</primary><secondary>uart2.c</secondary></indexterm>
+<indexterm><primary>uart2.c</primary><secondary>UART2_CONFIG_TX_BYTEQ_LENGTH</secondary></indexterm>
+<para><computeroutput>#define UART2_CONFIG_TX_BYTEQ_LENGTH   (8+1)</computeroutput></para>
+<para>UART Driver Queue Length</para>
+
+<para>@Summary Defines the length of the Transmit and Receive Buffers </para>
+<para>
+Definition at line 83 of file uart2.c.</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_uart2_8c_1ae5ba78607a8375e69d112ebeb07c211f"/>    <section>
+    <title>__attribute__()<computeroutput>[1/3]</computeroutput></title>
+<indexterm><primary>__attribute__</primary><secondary>uart2.c</secondary></indexterm>
+<indexterm><primary>uart2.c</primary><secondary>__attribute__</secondary></indexterm>
+<para><computeroutput>unsigned int __attribute__ ((deprecated) )</computeroutput></para><para>
+Definition at line 369 of file uart2.c.</para>
+    </section><anchor xml:id="_uart2_8c_1a226557d5e42f7e29ddaff30606138459"/>    <section>
+    <title>__attribute__()<computeroutput>[2/3]</computeroutput></title>
+<indexterm><primary>__attribute__</primary><secondary>uart2.c</secondary></indexterm>
+<indexterm><primary>uart2.c</primary><secondary>__attribute__</secondary></indexterm>
+<para><computeroutput>void __attribute__ ((interrupt, no_auto_psv) )</computeroutput></para><para>
+Definition at line 152 of file uart2.c.</para>
+    </section><anchor xml:id="_uart2_8c_1a201468129b483039afc5a619e2d31097"/>    <section>
+    <title>__attribute__()<computeroutput>[3/3]</computeroutput></title>
+<indexterm><primary>__attribute__</primary><secondary>uart2.c</secondary></indexterm>
+<indexterm><primary>uart2.c</primary><secondary>__attribute__</secondary></indexterm>
+<para><computeroutput>void __attribute__ ((weak) )</computeroutput></para><para>
+Definition at line 182 of file uart2.c.</para>
+    </section><anchor xml:id="_uart2_8c_1a1c7f32800f7e5955bc04306b2686a0d7"/>    <section>
+    <title>UART2_Initialize()</title>
+<indexterm><primary>UART2_Initialize</primary><secondary>uart2.c</secondary></indexterm>
+<indexterm><primary>uart2.c</primary><secondary>UART2_Initialize</secondary></indexterm>
+<para><computeroutput>void UART2_Initialize (void )</computeroutput></para>
+<para>Section: Driver Interface </para>
+<para>
+Definition at line 103 of file uart2.c.</para>
+    </section><anchor xml:id="_uart2_8c_1aab535f85407eaec157b6aafe34c5d3f9"/>    <section>
+    <title>UART2_IsRxReady()</title>
+<indexterm><primary>UART2_IsRxReady</primary><secondary>uart2.c</secondary></indexterm>
+<indexterm><primary>uart2.c</primary><secondary>UART2_IsRxReady</secondary></indexterm>
+<para><computeroutput>bool UART2_IsRxReady (void )</computeroutput></para>
+<para>@Description Indicates of there is data available to read.</para>
+
+<para>@Returns true if byte can be read. false if byte can&apos;t be read right now. </para>
+<para>
+Definition at line 285 of file uart2.c.</para>
+    </section><anchor xml:id="_uart2_8c_1a66bc4f6654ba88d62508d05fe3f6c260"/>    <section>
+    <title>UART2_IsTxDone()</title>
+<indexterm><primary>UART2_IsTxDone</primary><secondary>uart2.c</secondary></indexterm>
+<indexterm><primary>uart2.c</primary><secondary>UART2_IsTxDone</secondary></indexterm>
+<para><computeroutput>bool UART2_IsTxDone (void )</computeroutput></para>
+<para>@Description Indicates if all bytes have been transferred.</para>
+
+<para>@Returns true if all bytes transfered. false if there is still data pending to transfer. </para>
+<para>
+Definition at line 307 of file uart2.c.</para>
+    </section><anchor xml:id="_uart2_8c_1a1fceb28e9345bc0eb683e7b05f263b52"/>    <section>
+    <title>UART2_IsTxReady()</title>
+<indexterm><primary>UART2_IsTxReady</primary><secondary>uart2.c</secondary></indexterm>
+<indexterm><primary>uart2.c</primary><secondary>UART2_IsTxReady</secondary></indexterm>
+<para><computeroutput>bool UART2_IsTxReady (void )</computeroutput></para>
+<para>@Description Indicates if a byte can be written.</para>
+
+<para>@Returns true if byte can be written. false if byte can&apos;t be written right now. </para>
+<para>
+Definition at line 290 of file uart2.c.</para>
+    </section><anchor xml:id="_uart2_8c_1ab56d5afa62daf8dd586d6b8ebf33160d"/>    <section>
+    <title>UART2_Read()</title>
+<indexterm><primary>UART2_Read</primary><secondary>uart2.c</secondary></indexterm>
+<indexterm><primary>uart2.c</primary><secondary>UART2_Read</secondary></indexterm>
+<para><computeroutput>uint8_t UART2_Read (void )</computeroutput></para>
+<para>Section: UART Driver Client Routines </para>
+<para>
+Definition at line 248 of file uart2.c.</para>
+    </section><anchor xml:id="_uart2_8c_1a1668b0cf18a2d12b03a004fc398442b7"/>    <section>
+    <title>UART2_SetRxInterruptHandler()</title>
+<indexterm><primary>UART2_SetRxInterruptHandler</primary><secondary>uart2.c</secondary></indexterm>
+<indexterm><primary>uart2.c</primary><secondary>UART2_SetRxInterruptHandler</secondary></indexterm>
+<para><computeroutput>void UART2_SetRxInterruptHandler (void(*)(void) interruptHandler)</computeroutput></para>
+<para>@Summary Assigns a function pointer with a receive callback address.</para>
+
+<para>@Description This routine assigns a function pointer with a receive callback address.</para>
+
+<para>@Param Address of the callback routine.</para>
+
+<para>@Returns None</para>
+
+<para>@Example <computeroutput> UART2_SetRxInterruptHandler(&amp;UART2_Receive_CallBack); </computeroutput> </para>
+<para>
+Definition at line 187 of file uart2.c.</para>
+    </section><anchor xml:id="_uart2_8c_1a741b3f9d648836d5c6be99408a85c625"/>    <section>
+    <title>UART2_SetTxInterruptHandler()</title>
+<indexterm><primary>UART2_SetTxInterruptHandler</primary><secondary>uart2.c</secondary></indexterm>
+<indexterm><primary>uart2.c</primary><secondary>UART2_SetTxInterruptHandler</secondary></indexterm>
+<para><computeroutput>void UART2_SetTxInterruptHandler (void(*)(void) interruptHandler)</computeroutput></para>
+<para>Maintains the driver&apos;s transmitter state machine and implements its ISR </para>
+<para>
+Definition at line 140 of file uart2.c.</para>
+    </section><anchor xml:id="_uart2_8c_1aa1bdaee21f13989dbac96458da3edb94"/>    <section>
+    <title>UART2_Write()</title>
+<indexterm><primary>UART2_Write</primary><secondary>uart2.c</secondary></indexterm>
+<indexterm><primary>uart2.c</primary><secondary>UART2_Write</secondary></indexterm>
+<para><computeroutput>void UART2_Write (uint8_t byte)</computeroutput></para>
+<para>@Summary Writes a byte of data to the UART2</para>
+
+<para>@Description This routine writes a byte of data to the UART2.</para>
+
+<para>@Preconditions UART2_Initialize function should have been called before calling this function. The transfer status should be checked to see if transmitter is not full before calling this function.</para>
+
+<para>@Param byte - Data byte to write to the UART2</para>
+
+<para>@Returns None.</para>
+
+<para>@Example None. </para>
+<para>
+Definition at line 267 of file uart2.c.</para>
+</section>
+</section>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_uart2_8c_1a8c2d11929101019fc5873453f854fd34"/>    <section>
+    <title>UART2_RxDefaultInterruptHandler</title>
+<indexterm><primary>UART2_RxDefaultInterruptHandler</primary><secondary>uart2.c</secondary></indexterm>
+<indexterm><primary>uart2.c</primary><secondary>UART2_RxDefaultInterruptHandler</secondary></indexterm>
+<para><computeroutput>void(* UART2_RxDefaultInterruptHandler) (void) (void )</computeroutput></para><para>
+Definition at line 97 of file uart2.c.</para>
+    </section><anchor xml:id="_uart2_8c_1a68a410ec3af1a00f670b364772138738"/>    <section>
+    <title>UART2_TxDefaultInterruptHandler</title>
+<indexterm><primary>UART2_TxDefaultInterruptHandler</primary><secondary>uart2.c</secondary></indexterm>
+<indexterm><primary>uart2.c</primary><secondary>UART2_TxDefaultInterruptHandler</secondary></indexterm>
+<para><computeroutput>void(* UART2_TxDefaultInterruptHandler) (void) (void )</computeroutput></para><para>
+Definition at line 96 of file uart2.c.</para>
+</section>
+</section>
+</section>

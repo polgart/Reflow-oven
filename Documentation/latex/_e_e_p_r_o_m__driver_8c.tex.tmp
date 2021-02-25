@@ -1,0 +1,58 @@
+\hypertarget{_e_e_p_r_o_m__driver_8c}{}\doxysection{C\+:/\+Users/\+EDU\+\_\+\+OBOS\+\_\+5057/\+Documents/\+Reflow oven/\+Design/\+SW/\+RO\+\_\+firmware\+\_\+v1.X/\+EEPROM\+\_\+driver.c File Reference}
+\label{_e_e_p_r_o_m__driver_8c}\index{C:/Users/EDU\_OBOS\_5057/Documents/Reflow oven/Design/SW/RO\_firmware\_v1.X/EEPROM\_driver.c@{C:/Users/EDU\_OBOS\_5057/Documents/Reflow oven/Design/SW/RO\_firmware\_v1.X/EEPROM\_driver.c}}
+{\ttfamily \#include $<$xc.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}EEPROM\+\_\+driver.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mcc\+\_\+generated\+\_\+files/i2c1.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}piclib30\+\_\+wrapper.\+h\char`\"{}}\newline
+Include dependency graph for EEPROM\+\_\+driver.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{i2c1_8h_a3aa7471e380d7a4957f9a0eb726c6582}{I2\+C1\+\_\+\+MESSAGE\+\_\+\+STATUS}} \mbox{\hyperlink{_e_e_p_r_o_m__driver_8c_a4a7ac4599f03f90076d31e960e3b5d7f}{EEPROM\+\_\+\+Read}} (uint16\+\_\+t slave\+Device\+Address, uint16\+\_\+t data\+Address, uint8\+\_\+t $\ast$p\+Data, uint16\+\_\+t n\+Count)
+\item 
+\mbox{\hyperlink{i2c1_8h_a3aa7471e380d7a4957f9a0eb726c6582}{I2\+C1\+\_\+\+MESSAGE\+\_\+\+STATUS}} \mbox{\hyperlink{_e_e_p_r_o_m__driver_8c_a444b797a27772eb3c2cda0dd76b55b28}{EEPROM\+\_\+\+Write}} (uint16\+\_\+t slave\+Device\+Address, uint16\+\_\+t data\+Address, uint8\+\_\+t $\ast$p\+Data, uint16\+\_\+t n\+Count)
+\item 
+\mbox{\hyperlink{i2c1_8h_a3aa7471e380d7a4957f9a0eb726c6582}{I2\+C1\+\_\+\+MESSAGE\+\_\+\+STATUS}} \mbox{\hyperlink{_e_e_p_r_o_m__driver_8c_ac65f0c4ca17c5717dc8bf08999f7ff60}{EEPROM\+\_\+\+Write\+Page}} (uint16\+\_\+t slave\+Device\+Address, uint16\+\_\+t data\+Address, uint8\+\_\+t $\ast$p\+Data)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_e_e_p_r_o_m__driver_8c_a4a7ac4599f03f90076d31e960e3b5d7f}\label{_e_e_p_r_o_m__driver_8c_a4a7ac4599f03f90076d31e960e3b5d7f}} 
+\index{EEPROM\_driver.c@{EEPROM\_driver.c}!EEPROM\_Read@{EEPROM\_Read}}
+\index{EEPROM\_Read@{EEPROM\_Read}!EEPROM\_driver.c@{EEPROM\_driver.c}}
+\doxysubsubsection{\texorpdfstring{EEPROM\_Read()}{EEPROM\_Read()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{i2c1_8h_a3aa7471e380d7a4957f9a0eb726c6582}{I2\+C1\+\_\+\+MESSAGE\+\_\+\+STATUS}} EEPROM\+\_\+\+Read (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{slave\+Device\+Address,  }\item[{uint16\+\_\+t}]{data\+Address,  }\item[{uint8\+\_\+t $\ast$}]{p\+Data,  }\item[{uint16\+\_\+t}]{n\+Count }\end{DoxyParamCaption})}
+
+
+
+Definition at line 6 of file EEPROM\+\_\+driver.\+c.
+
+Here is the call graph for this function\+:
+% FIG 1
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{_e_e_p_r_o_m__driver_8c_a444b797a27772eb3c2cda0dd76b55b28}\label{_e_e_p_r_o_m__driver_8c_a444b797a27772eb3c2cda0dd76b55b28}} 
+\index{EEPROM\_driver.c@{EEPROM\_driver.c}!EEPROM\_Write@{EEPROM\_Write}}
+\index{EEPROM\_Write@{EEPROM\_Write}!EEPROM\_driver.c@{EEPROM\_driver.c}}
+\doxysubsubsection{\texorpdfstring{EEPROM\_Write()}{EEPROM\_Write()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{i2c1_8h_a3aa7471e380d7a4957f9a0eb726c6582}{I2\+C1\+\_\+\+MESSAGE\+\_\+\+STATUS}} EEPROM\+\_\+\+Write (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{slave\+Device\+Address,  }\item[{uint16\+\_\+t}]{data\+Address,  }\item[{uint8\+\_\+t $\ast$}]{p\+Data,  }\item[{uint16\+\_\+t}]{n\+Count }\end{DoxyParamCaption})}
+
+
+
+Definition at line 78 of file EEPROM\+\_\+driver.\+c.
+
+Here is the call graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{_e_e_p_r_o_m__driver_8c_ac65f0c4ca17c5717dc8bf08999f7ff60}\label{_e_e_p_r_o_m__driver_8c_ac65f0c4ca17c5717dc8bf08999f7ff60}} 
+\index{EEPROM\_driver.c@{EEPROM\_driver.c}!EEPROM\_WritePage@{EEPROM\_WritePage}}
+\index{EEPROM\_WritePage@{EEPROM\_WritePage}!EEPROM\_driver.c@{EEPROM\_driver.c}}
+\doxysubsubsection{\texorpdfstring{EEPROM\_WritePage()}{EEPROM\_WritePage()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{i2c1_8h_a3aa7471e380d7a4957f9a0eb726c6582}{I2\+C1\+\_\+\+MESSAGE\+\_\+\+STATUS}} EEPROM\+\_\+\+Write\+Page (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{slave\+Device\+Address,  }\item[{uint16\+\_\+t}]{data\+Address,  }\item[{uint8\+\_\+t $\ast$}]{p\+Data }\end{DoxyParamCaption})}
+
+
+
+Definition at line 153 of file EEPROM\+\_\+driver.\+c.
+
+Here is the call graph for this function\+:
+% FIG 4
