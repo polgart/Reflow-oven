@@ -30,7 +30,7 @@ ReportSuppressedErrorsInMessages=0
 FSMCodingStyle=eFMSDropDownList_OneProcess
 FSMEncodingStyle=eFMSDropDownList_OneHot
 IsProjectConflictPreventionWarningsEnabled=1
-OutputPath=Project Outputs for Reflow Oven
+OutputPath=
 LogFolderPath=
 ManagedProjectGUID=B03548C1-941F-4017-A123-75DDB4111207
 VaultGUID=D36208B7-3127-4EE9-82DE-FEF7E276E80E
@@ -432,7 +432,7 @@ SCH_HasExpandLogicalToPhysicalSheets=-1
 SaveSettingsToOutJob=-1
 
 [Generic_EDE]
-OutputDir=Project Outputs for Reflow Oven
+OutputDir=
 
 [OutputGroup1]
 Name=Netlist Outputs

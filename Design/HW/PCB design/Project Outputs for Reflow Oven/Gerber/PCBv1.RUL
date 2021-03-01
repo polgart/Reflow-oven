@@ -1,4 +1,6 @@
 DRC Rules Export File for PCB: C:\Users\EDU_OBOS_5057\Documents\Reflow oven\Design\HW\PCB design\PCBv1.PcbDoc
+RuleKind=ShortCircuit|RuleName=DC-DC-sc|Scope=Board|Allowed=1
+RuleKind=Clearance|RuleName=DC-DC|Scope=Board|Minimum=4.00
 RuleKind=MinimumAnnularRing|RuleName=MinimumAnnularRing|Scope=Board|Minimum=3.00
 RuleKind=ShortCircuit|RuleName=ShortCircuit|Scope=Board|Allowed=0
 RuleKind=SolderMaskExpansion|RuleName=SolderMaskExpansion|Scope=Board|Minimum=2.95
