@@ -30,7 +30,7 @@ ReportSuppressedErrorsInMessages=0
 FSMCodingStyle=eFMSDropDownList_OneProcess
 FSMEncodingStyle=eFMSDropDownList_OneHot
 IsProjectConflictPreventionWarningsEnabled=1
-OutputPath=
+OutputPath=Project Outputs for Reflow Oven
 LogFolderPath=
 ManagedProjectGUID=B03548C1-941F-4017-A123-75DDB4111207
 VaultGUID=D36208B7-3127-4EE9-82DE-FEF7E276E80E
@@ -314,66 +314,70 @@ GenerateClassCluster=0
 DocumentUniqueId=RRXDHWFJ
 
 [GeneratedDocument1]
-DocumentPath=Project Outputs for Reflow Oven\NC Drill\PCBv1-RoundHoles.TXT
+DocumentPath=Project Outputs for Reflow Oven\Design Rule Check - PCBv1.html
 DItemRevisionGUID=
 
 [GeneratedDocument2]
-DocumentPath=Project Outputs for Reflow Oven\NC Drill\PCBv1-SlotHoles.TXT
+DocumentPath=Project Outputs for Reflow Oven\NC Drill\PCBv1-RoundHoles.TXT
 DItemRevisionGUID=
 
 [GeneratedDocument3]
-DocumentPath=Project Outputs for Reflow Oven\NC Drill\PCBv1.DRR
+DocumentPath=Project Outputs for Reflow Oven\NC Drill\PCBv1-SlotHoles.TXT
 DItemRevisionGUID=
 
 [GeneratedDocument4]
-DocumentPath=Project Outputs for Reflow Oven\Gerber\PCBv1.EXTREP
+DocumentPath=Project Outputs for Reflow Oven\NC Drill\PCBv1.DRR
 DItemRevisionGUID=
 
 [GeneratedDocument5]
-DocumentPath=Project Outputs for Reflow Oven\Gerber\PCBv1.G1
+DocumentPath=Project Outputs for Reflow Oven\Gerber\PCBv1.EXTREP
 DItemRevisionGUID=
 
 [GeneratedDocument6]
-DocumentPath=Project Outputs for Reflow Oven\Gerber\PCBv1.G2
+DocumentPath=Project Outputs for Reflow Oven\Gerber\PCBv1.G1
 DItemRevisionGUID=
 
 [GeneratedDocument7]
-DocumentPath=Project Outputs for Reflow Oven\Gerber\PCBv1.GBL
+DocumentPath=Project Outputs for Reflow Oven\Gerber\PCBv1.G2
 DItemRevisionGUID=
 
 [GeneratedDocument8]
-DocumentPath=Project Outputs for Reflow Oven\Gerber\PCBv1.GBO
+DocumentPath=Project Outputs for Reflow Oven\Gerber\PCBv1.GBL
 DItemRevisionGUID=
 
 [GeneratedDocument9]
-DocumentPath=Project Outputs for Reflow Oven\Gerber\PCBv1.GBS
+DocumentPath=Project Outputs for Reflow Oven\Gerber\PCBv1.GBO
 DItemRevisionGUID=
 
 [GeneratedDocument10]
-DocumentPath=Project Outputs for Reflow Oven\Gerber\PCBv1.GM7
+DocumentPath=Project Outputs for Reflow Oven\Gerber\PCBv1.GBS
 DItemRevisionGUID=
 
 [GeneratedDocument11]
-DocumentPath=Project Outputs for Reflow Oven\Gerber\PCBv1.GTL
+DocumentPath=Project Outputs for Reflow Oven\Gerber\PCBv1.GM7
 DItemRevisionGUID=
 
 [GeneratedDocument12]
-DocumentPath=Project Outputs for Reflow Oven\Gerber\PCBv1.GTO
+DocumentPath=Project Outputs for Reflow Oven\Gerber\PCBv1.GTL
 DItemRevisionGUID=
 
 [GeneratedDocument13]
-DocumentPath=Project Outputs for Reflow Oven\Gerber\PCBv1.GTS
+DocumentPath=Project Outputs for Reflow Oven\Gerber\PCBv1.GTO
 DItemRevisionGUID=
 
 [GeneratedDocument14]
-DocumentPath=Project Outputs for Reflow Oven\NC Drill\PCBv1.LDP
+DocumentPath=Project Outputs for Reflow Oven\Gerber\PCBv1.GTS
 DItemRevisionGUID=
 
 [GeneratedDocument15]
-DocumentPath=Project Outputs for Reflow Oven\Gerber\PCBv1.REP
+DocumentPath=Project Outputs for Reflow Oven\NC Drill\PCBv1.LDP
 DItemRevisionGUID=
 
 [GeneratedDocument16]
+DocumentPath=Project Outputs for Reflow Oven\Gerber\PCBv1.REP
+DItemRevisionGUID=
+
+[GeneratedDocument17]
 DocumentPath=Project Outputs for Reflow Oven\Gerber\PCBv1.RUL
 DItemRevisionGUID=
 
@@ -432,7 +436,7 @@ SCH_HasExpandLogicalToPhysicalSheets=-1
 SaveSettingsToOutJob=-1
 
 [Generic_EDE]
-OutputDir=
+OutputDir=Project Outputs for Reflow Oven
 
 [OutputGroup1]
 Name=Netlist Outputs
