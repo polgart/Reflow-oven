@@ -1,0 +1,3 @@
+Layer Pairs Export File for PCB: C:\Users\EDU_OBOS_5057\Documents\Reflow oven\Design\HW\PCB design\PCBv1.PcbDoc
+LayersSetName=Top_Bot_Thru_Holes|DrillFile=pcbv1-roundholes.txt|DrillLayers=gtl,g1,g2,gbl
+LayersSetName=Top_Bot_Slot_Holes|DrillFile=pcbv1-slotholes.txt|DrillLayers=gtl,g1,g2,gbl
