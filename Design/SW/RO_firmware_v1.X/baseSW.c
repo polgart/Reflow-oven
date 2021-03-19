@@ -576,6 +576,9 @@ stateTaskList* baseSW_Initialize(void) {
     UART1_SetRxInterruptHandler(baseSW_UART1_rx_ISR); // UART1 -> NEXTION
     UART2_SetRxInterruptHandler(baseSW_UART2_rx_ISR); // UART2 -> FTDI
     
+    // Swicth on timer 2
+    TMR2_Start();
+    
     
     // Initialize heat profile handler
     
@@ -603,7 +606,7 @@ stateTaskList* baseSW_Initialize(void) {
     //Transcieve object
     transciveObj.FTDITransmissionInProgress=false;
     transciveObj.NextionTransmissionInProgress=false;
-    transciveObj.status = TRANSCIEVE_IDLE;
+    transciveObj.status = TRANSCIEVE_CURRENT_DATA;
     
     
     
