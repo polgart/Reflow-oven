@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane fx:id="rootPane" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.about_controller">
+   <children>
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+         <center>
+            <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="145.0" fitWidth="237.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/BUDAPEST.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="TOP_RIGHT" text="Reflow oven controller" textAlignment="CENTER">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="36.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="50.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Version 1.0" />
+                  <Label text="Latest update: 2021. 03. 21." />
+                  <Label text="Designed by: Tamás Polgár" />
+               </children>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</Pane>
