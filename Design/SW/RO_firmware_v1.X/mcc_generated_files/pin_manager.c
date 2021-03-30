@@ -62,7 +62,7 @@ void PIN_MANAGER_Initialize (void)
      * Setting the Output Latch SFR(s)
      ***************************************************************************/
     LATA = 0x0000;
-    LATB = 0x0000;
+    LATB = 0x9400;
 
     /****************************************************************************
      * Setting the GPIO Direction SFR(s)
@@ -95,15 +95,16 @@ void PIN_MANAGER_Initialize (void)
      ***************************************************************************/
     __builtin_write_OSCCONL(OSCCON & 0xbf); // unlock PPS
 
-    RPINR19bits.U2RXR = 0x000E;    //RB14->UART2:U2RX
-    RPOR5bits.RP10R = 0x0009;    //RB10->SPI1:SS1OUT
-    RPOR7bits.RP15R = 0x0005;    //RB15->UART2:U2TX
-    RPOR6bits.RP13R = 0x0006;    //RB13->UART2:U2RTS
-    RPOR4bits.RP8R = 0x0008;    //RB8->SPI1:SCK1OUT
-    RPINR19bits.U2CTSR = 0x0002;    //RB2->UART2:U2CTS
     RPINR18bits.U1RXR = 0x000B;    //RB11->UART1:U1RX
-    RPOR6bits.RP12R = 0x0003;    //RB12->UART1:U1TX
     RPINR20bits.SDI1R = 0x0009;    //RB9->SPI1:SDI1
+    RPOR6bits.RP13R = 0x0006;    //RB13->UART2:U2RTS
+    RPOR6bits.RP12R = 0x0003;    //RB12->UART1:U1TX
+    RPOR4bits.RP8R = 0x0008;    //RB8->SPI1:SCK1OUT
+    RPOR1bits.RP3R = 0x0007;    //RB3->SPI1:SDO1
+    RPINR19bits.U2RXR = 0x000E;    //RB14->UART2:U2RX
+    RPINR19bits.U2CTSR = 0x0002;    //RB2->UART2:U2CTS
+    RPOR7bits.RP15R = 0x0005;    //RB15->UART2:U2TX
+    RPOR5bits.RP10R = 0x0009;    //RB10->SPI1:SS1OUT
 
     __builtin_write_OSCCONL(OSCCON | 0x40); // lock PPS
 }

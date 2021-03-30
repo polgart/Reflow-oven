@@ -3,12 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/EDU_OBOS_5057/Documents/Reflow%20oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/uart2.c</file>
-            <file>file:/C:/Users/EDU_OBOS_5057/Documents/Reflow%20oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/uart1.c</file>
+            <file>file:/C:/Users/EDU_OBOS_5057/Documents/Reflow%20oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/spi1.c</file>
             <file>file:/C:/Users/EDU_OBOS_5057/Documents/Reflow%20oven/Design/SW/RO_firmware_v1.X/stateTaskHandler.c</file>
-            <file>file:/C:/Users/EDU_OBOS_5057/Documents/Reflow%20oven/Design/SW/RO_firmware_v1.X/main.c</file>
             <file>file:/C:/Users/EDU_OBOS_5057/Documents/Reflow%20oven/Design/SW/RO_firmware_v1.X/baseSW.c</file>
-            <file>file:/C:/Users/EDU_OBOS_5057/Documents/Reflow%20oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/tmr2.c</file>
         </group>
     </open-files>
 </project-private>

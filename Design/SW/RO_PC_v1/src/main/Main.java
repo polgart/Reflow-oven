@@ -21,26 +21,33 @@ public class Main extends Application {
         FXMLLoader settingsLoader = new FXMLLoader(getClass().getResource("settings_page.fxml"));
         Parent settings = settingsLoader.load();
 
+        FXMLLoader remoteLoader = new FXMLLoader(getClass().getResource("remote_page.fxml"));
+        Parent remote = remoteLoader.load();
+
 
         /* Get controllers */
         window_frame_controller mainController = mainLoader.getController();
         about_controller aboutController = aboutLoader.getController();
         settings_controller settingsController = settingsLoader.getController();
+        remote_controller remoteController = remoteLoader.getController();
 
 
         /* Create scenes */
         Scene mainScene = new Scene(root);
         Scene aboutScene = new Scene(about);
         Scene settingsScene = new Scene(settings);
+        Scene remoteScene = new Scene(remote);
 
 
         /* Initialize controllers */
         mainController.setAboutPage(aboutScene);
         mainController.setSettingsPage(settingsScene);
+        mainController.setRemotePage(remoteScene);
 
         /* Bind to frame width*/
         settingsController.bindRootPane(mainController.getMainPane());
         aboutController.bindRootPane(mainController.getMainPane());
+        remoteController.bindRootPane(mainController.getMainPane());
 
         /* Show stage */
         primaryStage.setTitle("Reflow oven controller");

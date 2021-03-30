@@ -27,6 +27,9 @@ public class window_frame_controller {
         loadPage(aboutPage);
     }
 
+    @FXML
+    private void loadRemotePage() { loadPage(remotePage); }
+
     Scene bufferedScene;
 
     private void loadPage(Scene page) {
@@ -45,6 +48,7 @@ public class window_frame_controller {
 
     private Scene aboutPage;
     private Scene settingsPage;
+    private Scene remotePage;
 
 
     /* Initial page */
@@ -57,6 +61,7 @@ public class window_frame_controller {
     public void setSettingsPage(Scene page) {
         settingsPage = page;
     }
+    public void setRemotePage(Scene page) {remotePage = page; }
 
     /* Getters */
     public Pane getMainPane() {

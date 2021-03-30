@@ -171,14 +171,14 @@ typedef union
 {
     struct
     {
-            uint16_t thermocouple_temperature_data:14;
-            uint8_t reserved1:1;
-            uint8_t fault:1;
-            uint16_t internal_temperature_data:12;
-            uint8_t reserved2:1;
-            uint8_t scv:1;
+            int8_t oc:1;
             uint8_t scg:1;
-            uint8_t oc:1;
+            uint8_t scv:1;
+            uint8_t reserved2:1;
+            uint16_t internal_temperature_data:12;
+            uint8_t fault:1;
+            uint8_t reserved1:1;
+            uint16_t thermocouple_temperature_data:14;
     } s;
     uint32_t rawData;
 } IC_MAX31855_DATA;
@@ -303,7 +303,8 @@ void IdleState_callback() {
         
         SSR_OUTPUT_SetHigh();
     }
-    
+            
+            
     //Toggling signal protection - critical feature
     T_PROTECTION_Toggle();
 }
@@ -340,10 +341,10 @@ bool checkStartConditions() {
 
 
 void ReadTemperatureData_callback() {
-    uint32_t sensorData = SPI1_Exchange32bit((uint32_t)0x0);
+    uint32_t sensorData = SPI1_Exchange32bit((uint32_t)0xF0F0F0F0);
     SENSOR_DATA_HANDLER.dataArrayQue[SENSOR_DATA_HANDLER.dataArrayStatus.currentData].rawData = sensorData;
     (SENSOR_DATA_HANDLER.dataArrayStatus.currentData)++;
-    if (SENSOR_DATA_HANDLER.dataArrayStatus.currentData == SENSOR_DATA_STORE_LENGTH) {
+    if (SENSOR_DATA_HANDLER.dataArrayStatus.currentData > SENSOR_DATA_STORE_LENGTH) {
         SENSOR_DATA_HANDLER.dataArrayStatus.currentData = 0;
         SENSOR_DATA_HANDLER.dataArrayStatus.isUploaded = 0x1;
     }
@@ -456,10 +457,25 @@ void ReceiveFTDI_callback() {
 
 void genericTranciverFunction() {
     
-        uint8_t temp_lo = SENSOR_DATA_HANDLER.dataArrayQue[SENSOR_DATA_HANDLER.dataArrayStatus.currentData].s.thermocouple_temperature_data;
-        uint8_t temp_hi = SENSOR_DATA_HANDLER.dataArrayQue[SENSOR_DATA_HANDLER.dataArrayStatus.currentData].s.thermocouple_temperature_data >> 8;   
-        uint8_t int_temp_lo = SENSOR_DATA_HANDLER.dataArrayQue[SENSOR_DATA_HANDLER.dataArrayStatus.currentData].s.internal_temperature_data;
-        uint8_t int_temp_hi = SENSOR_DATA_HANDLER.dataArrayQue[SENSOR_DATA_HANDLER.dataArrayStatus.currentData].s.internal_temperature_data >> 8;
+        uint8_t data_index = SENSOR_DATA_HANDLER.dataArrayStatus.currentData;
+        if (data_index==0) {
+            data_index=SENSOR_DATA_STORE_LENGTH;
+        } else {
+            data_index--;
+        }
+        
+        uint8_t temp_lo = SENSOR_DATA_HANDLER.dataArrayQue[data_index].s.thermocouple_temperature_data;
+        uint8_t temp_hi = SENSOR_DATA_HANDLER.dataArrayQue[data_index].s.thermocouple_temperature_data >> 8;   
+        uint8_t int_temp_lo = SENSOR_DATA_HANDLER.dataArrayQue[data_index].s.internal_temperature_data;
+        uint8_t int_temp_hi = SENSOR_DATA_HANDLER.dataArrayQue[data_index].s.internal_temperature_data >> 8;
+        
+        int a=43;
+        if (temp_lo==0) {
+            a=data_index;
+            a+=34;
+            a-=34;
+        }
+        
         switch(transciveObj.status) {
         case TRANSCIEVE_IDLE:
             break;
@@ -472,10 +488,13 @@ void genericTranciverFunction() {
             UART1_Write(temp_hi);
             UART1_Write(int_temp_lo);
             UART1_Write(int_temp_hi);
-            UART2_Write(temp_lo);
-            UART2_Write(temp_hi);
-            UART2_Write(int_temp_lo);
-            UART2_Write(int_temp_hi);
+
+//            UART2_Write(temp_lo);
+//            UART2_Write(temp_hi);
+//            UART2_Write(int_temp_lo);
+//            UART2_Write(int_temp_hi);
+//            UART2_Write(0x00);
+
             break;
     }
 }
@@ -535,7 +554,7 @@ void baseSW_TMR2_ISR(void) {
         addTask(IdleState,TranscieveNextionDATA);
         flag=1;
     } else {
-        addTask(IdleState,TransciveFTDI);
+        addTask(IdleState,ReadTemperatureData);
         flag=0;
     }
 }
@@ -578,6 +597,13 @@ stateTaskList* baseSW_Initialize(void) {
     
     // Swicth on timer 2
     TMR2_Start();
+    
+    // Enable UARTs
+    UART1_Enable();
+    UART2_Enable();
+    
+    // Enable SPI
+    
     
     
     // Initialize heat profile handler

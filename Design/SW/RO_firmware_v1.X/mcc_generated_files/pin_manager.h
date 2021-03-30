@@ -1095,11 +1095,11 @@
   @Example
     <code>
     // Set RB3 high (1)
-    GPIO4_SetHigh();
+    SDO1_SetHigh();
     </code>
 
 */
-#define GPIO4_SetHigh()          (_LATB3 = 1)
+#define SDO1_SetHigh()          (_LATB3 = 1)
 /**
   @Summary
     Sets the GPIO pin, RB3, low using LATB3.
@@ -1119,11 +1119,11 @@
   @Example
     <code>
     // Set RB3 low (0)
-    GPIO4_SetLow();
+    SDO1_SetLow();
     </code>
 
 */
-#define GPIO4_SetLow()           (_LATB3 = 0)
+#define SDO1_SetLow()           (_LATB3 = 0)
 /**
   @Summary
     Toggles the GPIO pin, RB3, using LATB3.
@@ -1143,11 +1143,11 @@
   @Example
     <code>
     // Toggle RB3
-    GPIO4_Toggle();
+    SDO1_Toggle();
     </code>
 
 */
-#define GPIO4_Toggle()           (_LATB3 ^= 1)
+#define SDO1_Toggle()           (_LATB3 ^= 1)
 /**
   @Summary
     Reads the value of the GPIO pin, RB3.
@@ -1169,11 +1169,11 @@
     uint16_t portValue;
 
     // Read RB3
-    postValue = GPIO4_GetValue();
+    postValue = SDO1_GetValue();
     </code>
 
 */
-#define GPIO4_GetValue()         _RB3
+#define SDO1_GetValue()         _RB3
 /**
   @Summary
     Configures the GPIO pin, RB3, as an input.
@@ -1193,11 +1193,11 @@
   @Example
     <code>
     // Sets the RB3 as an input
-    GPIO4_SetDigitalInput();
+    SDO1_SetDigitalInput();
     </code>
 
 */
-#define GPIO4_SetDigitalInput()  (_TRISB3 = 1)
+#define SDO1_SetDigitalInput()  (_TRISB3 = 1)
 /**
   @Summary
     Configures the GPIO pin, RB3, as an output.
@@ -1217,11 +1217,11 @@
   @Example
     <code>
     // Sets the RB3 as an output
-    GPIO4_SetDigitalOutput();
+    SDO1_SetDigitalOutput();
     </code>
 
 */
-#define GPIO4_SetDigitalOutput() (_TRISB3 = 0)
+#define SDO1_SetDigitalOutput() (_TRISB3 = 0)
 /**
   @Summary
     Sets the GPIO pin, RB4, high using LATB4.
