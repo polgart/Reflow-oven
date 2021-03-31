@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.beans.Observable;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
@@ -30,9 +31,9 @@ public class remote_controller extends page_controller {
     @FXML
     private TextField yData;
 
+
     @FXML
     private Label fileNameLabel;
-
     @FXML
     private Label numberOfRecordsLabel;
 
@@ -54,7 +55,7 @@ public class remote_controller extends page_controller {
                     Double yVal = Double.parseDouble(values[1]);
                     csv_series.getData().add(new XYChart.Data(xVal,yVal));
                 }
-                Integer numberOfLines = (csv_series.getData().size() / 2);
+                Integer numberOfLines = (csv_series.getData().size());
                 numberOfRecordsLabel.setText(numberOfLines.toString());
             } catch (IOException ex) {
                 numberOfRecordsLabel.setText(ex.toString());
@@ -69,11 +70,11 @@ public class remote_controller extends page_controller {
         masterRootPane = rootPane;
         series = new XYChart.Series();
         csv_series = new XYChart.Series();
-        csv_series.setName("CSV series");
+        csv_series.setName("Heat profile");
         series.setName("Desired temperature");
         remoteChart.getData().add(series);
         remoteChart.getData().add(csv_series);
-        remoteChart.setCreateSymbols(true); // Set false for disable markers
+        remoteChart.setCreateSymbols(false); // Set false for disable markers
     }
 
     @FXML

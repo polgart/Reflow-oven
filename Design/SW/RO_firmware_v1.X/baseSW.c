@@ -489,11 +489,10 @@ void genericTranciverFunction() {
             UART1_Write(int_temp_lo);
             UART1_Write(int_temp_hi);
 
-//            UART2_Write(temp_lo);
-//            UART2_Write(temp_hi);
-//            UART2_Write(int_temp_lo);
-//            UART2_Write(int_temp_hi);
-//            UART2_Write(0x00);
+            UART2_Write(temp_lo);
+            UART2_Write(temp_hi);
+            UART2_Write(int_temp_lo);
+            UART2_Write(int_temp_hi);
 
             break;
     }

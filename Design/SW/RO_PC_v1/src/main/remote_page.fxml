@@ -157,7 +157,7 @@
          <center>
             <LineChart fx:id="remoteChart" title="Heat profile" BorderPane.alignment="CENTER">
               <xAxis>
-                <NumberAxis autoRanging="false" label="Time [sec]" side="BOTTOM" tickLength="10.0" tickUnit="30.0" upperBound="300.0" />
+                <NumberAxis autoRanging="false" label="Time [sec]" side="BOTTOM" tickLength="10.0" tickUnit="30.0" upperBound="380.0" />
               </xAxis>
               <yAxis>
                 <NumberAxis autoRanging="false" forceZeroInRange="false" label="Temperature [°C]" lowerBound="25.0" side="LEFT" tickLength="10.0" tickUnit="30.0" upperBound="300.0" />

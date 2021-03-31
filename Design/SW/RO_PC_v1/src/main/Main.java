@@ -1,12 +1,15 @@
 package main;
-
+import serialPort.serialPortHandler;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+
 public class Main extends Application {
+
+    static private serialPortHandler thread;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -60,6 +63,16 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+
+        /* Test serial port handler */
+        thread = new serialPortHandler();
+        thread.start();
+
+        /* Launch main program */
         launch(args);
+    }
+
+    public static serialPortHandler getSerialPortHandler() {
+        return thread;
     }
 }
