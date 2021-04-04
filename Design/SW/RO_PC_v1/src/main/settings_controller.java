@@ -2,6 +2,7 @@ package main;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import serialPort.serialData;
 
 public class settings_controller extends page_controller {
     @FXML
@@ -10,6 +11,12 @@ public class settings_controller extends page_controller {
     private Label moduleStatus;
 
     private buttonStatus disableButtonStatus;
+
+    @Override
+    public void update(serialData data) {
+
+    }
+
     public enum buttonStatus {
         state1,
         state2

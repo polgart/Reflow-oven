@@ -1,14 +1,11 @@
 package serialPort;
+
+import main.page_controller;
 import java.io.*;
 import java.net.*;
+import java.util.Arrays;
 
-/**
- * This program demonstrates a simple TCP/IP socket server that echoes every
- * message from the client in reversed form.
- * This server is single-threaded.
- *
- * @author www.codejava.net
- */
+
 public class serialPortHandler extends Thread {
 
     public boolean isDisableConnection() {
@@ -19,62 +16,141 @@ public class serialPortHandler extends Thread {
         this.disableConnection = disableConnection;
     }
 
-    public int getSocketPortNumber() {
-        return socketPortNumber;
+    public int getReceiveSocketPortNumber() {
+        return receiveSocketPortNumber;
     }
 
-    public void setSocketPortNumber(int socketPortNumber) {
-        this.socketPortNumber = socketPortNumber;
+    public void setReceiveSocketPortNumber(int receiveSocketPortNumber) {
+        this.receiveSocketPortNumber = receiveSocketPortNumber;
     }
 
     private boolean disableConnection;
-    private int socketPortNumber;
-
-
-
+    private int receiveSocketPortNumber,sendSocketPortNumber;
+    public page_controller getObserver() {
+        return observer;
+    }
+    public void setObserver(page_controller observer) {
+        this.observer = observer;
+    }
+    private page_controller observer;
     public serialPortHandler() {
+
+
+        dataPacket = new serialData();
         disableConnection = false;
-        socketPortNumber = 27015;
+        receiveSocketPortNumber = 27015;
+        sendSocketPortNumber = 27016;
+
+        try {
+            ReceiveSocket = new DatagramSocket(receiveSocketPortNumber);
+        } catch (SocketException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Server is listening on port " + receiveSocketPortNumber);
+
+        try {
+            SendSocket = new DatagramSocket(sendSocketPortNumber);
+        } catch (SocketException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Server is sending data from " + sendSocketPortNumber);
+
+        // Send socket details
+        send_address = null;
+        send_port = 0;
+
+        //Establish connection with sending socket
+        System.out.println("Waiting for establishing connection with the communication module...");
+        DatagramPacket packet = new DatagramPacket(buf, buf.length);
+        try {
+            SendSocket.receive(packet);
+            String received = new String(packet.getData());
+            System.out.println(received);
+            send_address = packet.getAddress();
+            send_port = packet.getPort();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Connection established");
+
+
+    }
+    serialData dataPacket;
+    private DatagramSocket ReceiveSocket,SendSocket;
+    private boolean running;
+    private byte[] buf = new byte[256];
+    private enum stateMachine {
+        IDLE,
+        BOARD,
+        CHAMBER,
+        HEAT_PROFILE
+    }
+    private InetAddress send_address;
+    private int send_port;
+
+    public void writeSocket(byte[] byte_array) {
+        //System.out.println("Write operation started.");
+        DatagramPacket out_packet = new DatagramPacket(byte_array, byte_array.length, send_address, send_port);
+
+        try {
+            SendSocket.send(out_packet);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //System.out.println("Write operation completed.");
     }
 
-
     public void run() {
+        stateMachine rxStateMachine = stateMachine.IDLE;
+        running = true;
 
-        int port = socketPortNumber;
+        while (running) {
 
-        try (ServerSocket serverSocket = new ServerSocket(port)) {
+            DatagramPacket packet = new DatagramPacket(buf, buf.length);
 
-            System.out.println("Server is listening on port " + port);
+            try {
+                ReceiveSocket.receive(packet);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            //InetAddress address = packet.getAddress();
+            //int port = packet.getPort();
+            packet = new DatagramPacket(buf, buf.length, send_address, send_port);
+
+            String received = new String(packet.getData());
+            //System.out.println(received);
+
+            switch (rxStateMachine) {
+                case IDLE:
+                    if (buf[0]==98)
+                        rxStateMachine=stateMachine.BOARD;
+                    else if (buf[0]==99)
+                        rxStateMachine=stateMachine.CHAMBER;
+                    break;
+                case BOARD:
+                    dataPacket.setBoardTemp(Double.parseDouble(received));
+                    rxStateMachine = stateMachine.IDLE;
+                    break;
+                case CHAMBER:
+                    dataPacket.setChamberTemp(Double.parseDouble(received));
+                    rxStateMachine = stateMachine.IDLE;
+                    break;
+                case HEAT_PROFILE:
+                    rxStateMachine = stateMachine.IDLE;
+                    break;
+
+            }
+
+            if (observer!=null)
+                observer.update(dataPacket);
 
 
-                Socket socket = serverSocket.accept();
-                System.out.println("New client connected");
-
-                InputStream input = socket.getInputStream();
-                BufferedReader reader = new BufferedReader(new InputStreamReader(input));
-
-                OutputStream output = socket.getOutputStream();
-                PrintWriter writer = new PrintWriter(output, true);
+            Arrays.fill(buf,(byte)0);
 
 
-                String text;
 
-                do {
-                    text = reader.readLine();
-                    if (text != null) {
-                        System.out.println(text);
-                        String reverseText = new StringBuilder(text).reverse().toString();
-                        writer.println("Server: " + reverseText + "end .. \0");
-                    }
-                } while (!disableConnection);
-                System.out.println("Socket closed");
-                socket.close();
-
-
-        } catch (IOException ex) {
-            System.out.println("Exception");
-            System.out.println("Server exception: " + ex.getMessage());
-            ex.printStackTrace();
         }
+        ReceiveSocket.close();
     }
 }

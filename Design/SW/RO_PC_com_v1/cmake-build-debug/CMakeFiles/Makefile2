@@ -78,12 +78,12 @@ clean: CMakeFiles\RO_PC_com_v1.dir\clean
 CMakeFiles\RO_PC_com_v1.dir\all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\RO_PC_com_v1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\RO_PC_com_v1.dir\depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\RO_PC_com_v1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\RO_PC_com_v1.dir\build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\EDU_OBOS_5057\Documents\Reflow oven\Design\SW\RO_PC_com_v1\cmake-build-debug\CMakeFiles" --progress-num=1,2 "Built target RO_PC_com_v1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\EDU_OBOS_5057\Documents\Reflow oven\Design\SW\RO_PC_com_v1\cmake-build-debug\CMakeFiles" --progress-num=1,2,3,4,5,6 "Built target RO_PC_com_v1"
 .PHONY : CMakeFiles\RO_PC_com_v1.dir\all
 
 # Build rule for subdir invocation for target.
 CMakeFiles\RO_PC_com_v1.dir\rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\EDU_OBOS_5057\Documents\Reflow oven\Design\SW\RO_PC_com_v1\cmake-build-debug\CMakeFiles" 2
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\EDU_OBOS_5057\Documents\Reflow oven\Design\SW\RO_PC_com_v1\cmake-build-debug\CMakeFiles" 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) CMakeFiles\RO_PC_com_v1.dir\all
 	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\EDU_OBOS_5057\Documents\Reflow oven\Design\SW\RO_PC_com_v1\cmake-build-debug\CMakeFiles" 0
 .PHONY : CMakeFiles\RO_PC_com_v1.dir\rule

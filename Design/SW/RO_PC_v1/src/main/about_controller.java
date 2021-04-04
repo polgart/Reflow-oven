@@ -2,6 +2,7 @@ package main;
 
 import javafx.fxml.FXML;
 import javafx.scene.layout.Pane;
+import serialPort.serialData;
 
 public class about_controller extends page_controller{
     @FXML
@@ -10,5 +11,10 @@ public class about_controller extends page_controller{
     @FXML
     public void initialize() {
         masterRootPane = rootPane;
+    }
+
+    @Override
+    public void update(serialData data) {
+
     }
 }

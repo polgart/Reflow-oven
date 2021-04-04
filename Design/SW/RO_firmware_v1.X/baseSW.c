@@ -42,7 +42,7 @@ const uint16_t THERMOCOUPLE_MAX_TEMPERATURE = 0x0000;
  *  The task connected to this state cannot be deleted from the task que.
  *  This task provides the toggling protection to the SSR, ensuring that
  *  the software is properly running. This task is also responsible for
- *  disableing the heating process if one of the limits is exceeded.
+ *  disabling the heating process if one of the limits is exceeded.
  */
 stateTaskList* IdleState = NULL;
 
@@ -394,22 +394,28 @@ void ReceiveNextionData_callback() {
 
 
 void ReceiveFTDI_callback() {
-    uint8_t msg = UART2_Read();
+    uint8_t msg = 0x0;
+    if (UART2_RX_DATA_AVAILABLE)
+        msg = UART2_Read();
     switch(ftdiStatus) {
         case NORMAL_OPERATION:
             switch(msg) {
-                case 0:
-                    msg = UART2_Read();
-                    if (msg & 0x01) {
+                case 10:
+                    if (UART2_RX_DATA_AVAILABLE)
+                        msg = UART2_Read();
+                    else
+                        msg=0x0;
+                    
+                    if (msg == 0x01) {
                         // Start heating - critical feature
                         if (checkStartConditions()) {
                             enableHeat();
                         }
                     }
-                    if (msg & 0x02) {
+                    if (msg == 0x02) {
                         disableHeat();
                     }
-                    if (msg & 0x04) {
+                    if (msg == 0x04) {
                         loadBuffer();
                     }
                     break;
@@ -442,7 +448,7 @@ void ReceiveFTDI_callback() {
             ftdiStatus = WRITE_EEPROM_COMMAND_LOW_BYTE;
             break;
         case WRITE_EEPROM_COMMAND_LOW_BYTE:
-            temperatureHeatProfile.addressBuffer = msg;
+            temperatureHeatProfile.addressBuffer |= msg;
             ftdiStatus = NORMAL_OPERATION;
             break;
         case SEND_HEAT_PROFILE_TO_EEPROM:
@@ -469,13 +475,6 @@ void genericTranciverFunction() {
         uint8_t int_temp_lo = SENSOR_DATA_HANDLER.dataArrayQue[data_index].s.internal_temperature_data;
         uint8_t int_temp_hi = SENSOR_DATA_HANDLER.dataArrayQue[data_index].s.internal_temperature_data >> 8;
         
-        int a=43;
-        if (temp_lo==0) {
-            a=data_index;
-            a+=34;
-            a-=34;
-        }
-        
         switch(transciveObj.status) {
         case TRANSCIEVE_IDLE:
             break;
@@ -484,11 +483,15 @@ void genericTranciverFunction() {
             UART2_WriteBuffer(temperatureHeatProfile.currentProfile.data , HEAT_PROFILE_SIZE );
             break;
         case TRANSCIEVE_CURRENT_DATA:
-            UART1_Write(temp_lo);
-            UART1_Write(temp_hi);
-            UART1_Write(int_temp_lo);
-            UART1_Write(int_temp_hi);
+            //UART1_Write(0xFF);
+            //UART1_Write(0xFF);
+            //UART1_Write(temp_lo);
+            //UART1_Write(temp_hi);
+            //UART1_Write(int_temp_lo);
+            //UART1_Write(int_temp_hi);
 
+            UART2_Write(0xFF);
+            UART2_Write(0xFF);
             UART2_Write(temp_lo);
             UART2_Write(temp_hi);
             UART2_Write(int_temp_lo);

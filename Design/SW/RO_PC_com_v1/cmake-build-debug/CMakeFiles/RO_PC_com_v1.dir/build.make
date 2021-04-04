@@ -80,17 +80,101 @@ CMakeFiles\RO_PC_com_v1.dir\main.cpp.s: cmake_force
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\RO_PC_com_v1.dir\main.cpp.s /c "C:\Users\EDU_OBOS_5057\Documents\Reflow oven\Design\SW\RO_PC_com_v1\main.cpp"
 <<
 
+CMakeFiles\RO_PC_com_v1.dir\SerialPort.cpp.obj: CMakeFiles\RO_PC_com_v1.dir\flags.make
+CMakeFiles\RO_PC_com_v1.dir\SerialPort.cpp.obj: ..\SerialPort.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\EDU_OBOS_5057\Documents\Reflow oven\Design\SW\RO_PC_com_v1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/RO_PC_com_v1.dir/SerialPort.cpp.obj"
+	C:\PROGRA~2\MICROS~3\2019\BUILDT~1\VC\Tools\MSVC\1427~1.291\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\RO_PC_com_v1.dir\SerialPort.cpp.obj /FdCMakeFiles\RO_PC_com_v1.dir\ /FS -c "C:\Users\EDU_OBOS_5057\Documents\Reflow oven\Design\SW\RO_PC_com_v1\SerialPort.cpp"
+<<
+
+CMakeFiles\RO_PC_com_v1.dir\SerialPort.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RO_PC_com_v1.dir/SerialPort.cpp.i"
+	C:\PROGRA~2\MICROS~3\2019\BUILDT~1\VC\Tools\MSVC\1427~1.291\bin\Hostx86\x86\cl.exe > CMakeFiles\RO_PC_com_v1.dir\SerialPort.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\EDU_OBOS_5057\Documents\Reflow oven\Design\SW\RO_PC_com_v1\SerialPort.cpp"
+<<
+
+CMakeFiles\RO_PC_com_v1.dir\SerialPort.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RO_PC_com_v1.dir/SerialPort.cpp.s"
+	C:\PROGRA~2\MICROS~3\2019\BUILDT~1\VC\Tools\MSVC\1427~1.291\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\RO_PC_com_v1.dir\SerialPort.cpp.s /c "C:\Users\EDU_OBOS_5057\Documents\Reflow oven\Design\SW\RO_PC_com_v1\SerialPort.cpp"
+<<
+
+CMakeFiles\RO_PC_com_v1.dir\dataParser.cpp.obj: CMakeFiles\RO_PC_com_v1.dir\flags.make
+CMakeFiles\RO_PC_com_v1.dir\dataParser.cpp.obj: ..\dataParser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\EDU_OBOS_5057\Documents\Reflow oven\Design\SW\RO_PC_com_v1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/RO_PC_com_v1.dir/dataParser.cpp.obj"
+	C:\PROGRA~2\MICROS~3\2019\BUILDT~1\VC\Tools\MSVC\1427~1.291\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\RO_PC_com_v1.dir\dataParser.cpp.obj /FdCMakeFiles\RO_PC_com_v1.dir\ /FS -c "C:\Users\EDU_OBOS_5057\Documents\Reflow oven\Design\SW\RO_PC_com_v1\dataParser.cpp"
+<<
+
+CMakeFiles\RO_PC_com_v1.dir\dataParser.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RO_PC_com_v1.dir/dataParser.cpp.i"
+	C:\PROGRA~2\MICROS~3\2019\BUILDT~1\VC\Tools\MSVC\1427~1.291\bin\Hostx86\x86\cl.exe > CMakeFiles\RO_PC_com_v1.dir\dataParser.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\EDU_OBOS_5057\Documents\Reflow oven\Design\SW\RO_PC_com_v1\dataParser.cpp"
+<<
+
+CMakeFiles\RO_PC_com_v1.dir\dataParser.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RO_PC_com_v1.dir/dataParser.cpp.s"
+	C:\PROGRA~2\MICROS~3\2019\BUILDT~1\VC\Tools\MSVC\1427~1.291\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\RO_PC_com_v1.dir\dataParser.cpp.s /c "C:\Users\EDU_OBOS_5057\Documents\Reflow oven\Design\SW\RO_PC_com_v1\dataParser.cpp"
+<<
+
+CMakeFiles\RO_PC_com_v1.dir\stateMachine.cpp.obj: CMakeFiles\RO_PC_com_v1.dir\flags.make
+CMakeFiles\RO_PC_com_v1.dir\stateMachine.cpp.obj: ..\stateMachine.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\EDU_OBOS_5057\Documents\Reflow oven\Design\SW\RO_PC_com_v1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/RO_PC_com_v1.dir/stateMachine.cpp.obj"
+	C:\PROGRA~2\MICROS~3\2019\BUILDT~1\VC\Tools\MSVC\1427~1.291\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\RO_PC_com_v1.dir\stateMachine.cpp.obj /FdCMakeFiles\RO_PC_com_v1.dir\ /FS -c "C:\Users\EDU_OBOS_5057\Documents\Reflow oven\Design\SW\RO_PC_com_v1\stateMachine.cpp"
+<<
+
+CMakeFiles\RO_PC_com_v1.dir\stateMachine.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RO_PC_com_v1.dir/stateMachine.cpp.i"
+	C:\PROGRA~2\MICROS~3\2019\BUILDT~1\VC\Tools\MSVC\1427~1.291\bin\Hostx86\x86\cl.exe > CMakeFiles\RO_PC_com_v1.dir\stateMachine.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\EDU_OBOS_5057\Documents\Reflow oven\Design\SW\RO_PC_com_v1\stateMachine.cpp"
+<<
+
+CMakeFiles\RO_PC_com_v1.dir\stateMachine.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RO_PC_com_v1.dir/stateMachine.cpp.s"
+	C:\PROGRA~2\MICROS~3\2019\BUILDT~1\VC\Tools\MSVC\1427~1.291\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\RO_PC_com_v1.dir\stateMachine.cpp.s /c "C:\Users\EDU_OBOS_5057\Documents\Reflow oven\Design\SW\RO_PC_com_v1\stateMachine.cpp"
+<<
+
+CMakeFiles\RO_PC_com_v1.dir\socketHandler.cpp.obj: CMakeFiles\RO_PC_com_v1.dir\flags.make
+CMakeFiles\RO_PC_com_v1.dir\socketHandler.cpp.obj: ..\socketHandler.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\EDU_OBOS_5057\Documents\Reflow oven\Design\SW\RO_PC_com_v1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/RO_PC_com_v1.dir/socketHandler.cpp.obj"
+	C:\PROGRA~2\MICROS~3\2019\BUILDT~1\VC\Tools\MSVC\1427~1.291\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\RO_PC_com_v1.dir\socketHandler.cpp.obj /FdCMakeFiles\RO_PC_com_v1.dir\ /FS -c "C:\Users\EDU_OBOS_5057\Documents\Reflow oven\Design\SW\RO_PC_com_v1\socketHandler.cpp"
+<<
+
+CMakeFiles\RO_PC_com_v1.dir\socketHandler.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RO_PC_com_v1.dir/socketHandler.cpp.i"
+	C:\PROGRA~2\MICROS~3\2019\BUILDT~1\VC\Tools\MSVC\1427~1.291\bin\Hostx86\x86\cl.exe > CMakeFiles\RO_PC_com_v1.dir\socketHandler.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\EDU_OBOS_5057\Documents\Reflow oven\Design\SW\RO_PC_com_v1\socketHandler.cpp"
+<<
+
+CMakeFiles\RO_PC_com_v1.dir\socketHandler.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RO_PC_com_v1.dir/socketHandler.cpp.s"
+	C:\PROGRA~2\MICROS~3\2019\BUILDT~1\VC\Tools\MSVC\1427~1.291\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\RO_PC_com_v1.dir\socketHandler.cpp.s /c "C:\Users\EDU_OBOS_5057\Documents\Reflow oven\Design\SW\RO_PC_com_v1\socketHandler.cpp"
+<<
+
 # Object files for target RO_PC_com_v1
 RO_PC_com_v1_OBJECTS = \
-"CMakeFiles\RO_PC_com_v1.dir\main.cpp.obj"
+"CMakeFiles\RO_PC_com_v1.dir\main.cpp.obj" \
+"CMakeFiles\RO_PC_com_v1.dir\SerialPort.cpp.obj" \
+"CMakeFiles\RO_PC_com_v1.dir\dataParser.cpp.obj" \
+"CMakeFiles\RO_PC_com_v1.dir\stateMachine.cpp.obj" \
+"CMakeFiles\RO_PC_com_v1.dir\socketHandler.cpp.obj"
 
 # External object files for target RO_PC_com_v1
 RO_PC_com_v1_EXTERNAL_OBJECTS =
 
 RO_PC_com_v1.exe: CMakeFiles\RO_PC_com_v1.dir\main.cpp.obj
+RO_PC_com_v1.exe: CMakeFiles\RO_PC_com_v1.dir\SerialPort.cpp.obj
+RO_PC_com_v1.exe: CMakeFiles\RO_PC_com_v1.dir\dataParser.cpp.obj
+RO_PC_com_v1.exe: CMakeFiles\RO_PC_com_v1.dir\stateMachine.cpp.obj
+RO_PC_com_v1.exe: CMakeFiles\RO_PC_com_v1.dir\socketHandler.cpp.obj
 RO_PC_com_v1.exe: CMakeFiles\RO_PC_com_v1.dir\build.make
 RO_PC_com_v1.exe: CMakeFiles\RO_PC_com_v1.dir\objects1.rsp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\EDU_OBOS_5057\Documents\Reflow oven\Design\SW\RO_PC_com_v1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable RO_PC_com_v1.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\EDU_OBOS_5057\Documents\Reflow oven\Design\SW\RO_PC_com_v1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable RO_PC_com_v1.exe"
 	"C:\Program Files\JetBrains\CLion 2020.3.3\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\RO_PC_com_v1.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x86\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x86\mt.exe --manifests  -- C:\PROGRA~2\MICROS~3\2019\BUILDT~1\VC\Tools\MSVC\1427~1.291\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\RO_PC_com_v1.dir\objects1.rsp @<<
  /out:RO_PC_com_v1.exe /implib:RO_PC_com_v1.lib /pdb:"C:\Users\EDU_OBOS_5057\Documents\Reflow oven\Design\SW\RO_PC_com_v1\cmake-build-debug\RO_PC_com_v1.pdb" /version:0.0  /machine:X86 /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib 
 <<

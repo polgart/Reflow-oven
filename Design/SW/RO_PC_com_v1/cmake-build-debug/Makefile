@@ -127,6 +127,60 @@ RO_PC_com_v1\fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\RO_PC_com_v1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\RO_PC_com_v1.dir\build
 .PHONY : RO_PC_com_v1\fast
 
+SerialPort.obj: SerialPort.cpp.obj
+
+.PHONY : SerialPort.obj
+
+# target to build an object file
+SerialPort.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\RO_PC_com_v1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\RO_PC_com_v1.dir\SerialPort.cpp.obj
+.PHONY : SerialPort.cpp.obj
+
+SerialPort.i: SerialPort.cpp.i
+
+.PHONY : SerialPort.i
+
+# target to preprocess a source file
+SerialPort.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\RO_PC_com_v1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\RO_PC_com_v1.dir\SerialPort.cpp.i
+.PHONY : SerialPort.cpp.i
+
+SerialPort.s: SerialPort.cpp.s
+
+.PHONY : SerialPort.s
+
+# target to generate assembly for a file
+SerialPort.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\RO_PC_com_v1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\RO_PC_com_v1.dir\SerialPort.cpp.s
+.PHONY : SerialPort.cpp.s
+
+dataParser.obj: dataParser.cpp.obj
+
+.PHONY : dataParser.obj
+
+# target to build an object file
+dataParser.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\RO_PC_com_v1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\RO_PC_com_v1.dir\dataParser.cpp.obj
+.PHONY : dataParser.cpp.obj
+
+dataParser.i: dataParser.cpp.i
+
+.PHONY : dataParser.i
+
+# target to preprocess a source file
+dataParser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\RO_PC_com_v1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\RO_PC_com_v1.dir\dataParser.cpp.i
+.PHONY : dataParser.cpp.i
+
+dataParser.s: dataParser.cpp.s
+
+.PHONY : dataParser.s
+
+# target to generate assembly for a file
+dataParser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\RO_PC_com_v1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\RO_PC_com_v1.dir\dataParser.cpp.s
+.PHONY : dataParser.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -154,6 +208,60 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\RO_PC_com_v1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\RO_PC_com_v1.dir\main.cpp.s
 .PHONY : main.cpp.s
 
+socketHandler.obj: socketHandler.cpp.obj
+
+.PHONY : socketHandler.obj
+
+# target to build an object file
+socketHandler.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\RO_PC_com_v1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\RO_PC_com_v1.dir\socketHandler.cpp.obj
+.PHONY : socketHandler.cpp.obj
+
+socketHandler.i: socketHandler.cpp.i
+
+.PHONY : socketHandler.i
+
+# target to preprocess a source file
+socketHandler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\RO_PC_com_v1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\RO_PC_com_v1.dir\socketHandler.cpp.i
+.PHONY : socketHandler.cpp.i
+
+socketHandler.s: socketHandler.cpp.s
+
+.PHONY : socketHandler.s
+
+# target to generate assembly for a file
+socketHandler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\RO_PC_com_v1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\RO_PC_com_v1.dir\socketHandler.cpp.s
+.PHONY : socketHandler.cpp.s
+
+stateMachine.obj: stateMachine.cpp.obj
+
+.PHONY : stateMachine.obj
+
+# target to build an object file
+stateMachine.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\RO_PC_com_v1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\RO_PC_com_v1.dir\stateMachine.cpp.obj
+.PHONY : stateMachine.cpp.obj
+
+stateMachine.i: stateMachine.cpp.i
+
+.PHONY : stateMachine.i
+
+# target to preprocess a source file
+stateMachine.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\RO_PC_com_v1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\RO_PC_com_v1.dir\stateMachine.cpp.i
+.PHONY : stateMachine.cpp.i
+
+stateMachine.s: stateMachine.cpp.s
+
+.PHONY : stateMachine.s
+
+# target to generate assembly for a file
+stateMachine.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\RO_PC_com_v1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\RO_PC_com_v1.dir\stateMachine.cpp.s
+.PHONY : stateMachine.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -163,9 +271,21 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... RO_PC_com_v1
+	@echo ... SerialPort.obj
+	@echo ... SerialPort.i
+	@echo ... SerialPort.s
+	@echo ... dataParser.obj
+	@echo ... dataParser.i
+	@echo ... dataParser.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... socketHandler.obj
+	@echo ... socketHandler.i
+	@echo ... socketHandler.s
+	@echo ... stateMachine.obj
+	@echo ... stateMachine.i
+	@echo ... stateMachine.s
 .PHONY : help
 
 

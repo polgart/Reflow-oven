@@ -6,15 +6,13 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_PC_com_v1/main.cpp
+C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_PC_com_v1/SerialPort.cpp
+SerialPort.h
+C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_PC_com_v1/SerialPort.h
+
+C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_PC_com_v1/SerialPort.h
 windows.h
 -
-winsock2.h
--
-ws2tcpip.h
--
-stdlib.h
--
-stdio.h
+iostream
 -
 

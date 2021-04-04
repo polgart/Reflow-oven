@@ -1,9 +1,7 @@
 package serialPort;
 
-import java.util.Observable;
+public class serialData {
 
-public class serialData extends Observable {
-    double chamberTemp;
 
     public double getChamberTemp() {
         return chamberTemp;
@@ -29,6 +27,33 @@ public class serialData extends Observable {
         return oc;
     }
 
+    public void setChamberTemp(double chamberTemp) {
+        this.chamberTemp = chamberTemp;
+    }
+
+    public void setBoardTemp(double boardTemp) {
+        this.boardTemp = boardTemp;
+    }
+
+    public void setTimestamp(Integer timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public void setScv(boolean scv) {
+        this.scv = scv;
+    }
+
+    public void setScg(boolean scg) {
+        this.scg = scg;
+    }
+
+    public void setOc(boolean oc) {
+        this.oc = oc;
+    }
+
+
+
+    double chamberTemp;
     double boardTemp;
     Integer timestamp;
     boolean scv;

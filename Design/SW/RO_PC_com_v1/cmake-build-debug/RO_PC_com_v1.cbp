@@ -80,7 +80,31 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_PC_com_v1/SerialPort.cpp">
+			<Option target="RO_PC_com_v1"/>
+		</Unit>
+		<Unit filename="C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_PC_com_v1/SerialPort.h">
+			<Option target="RO_PC_com_v1"/>
+		</Unit>
+		<Unit filename="C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_PC_com_v1/dataParser.cpp">
+			<Option target="RO_PC_com_v1"/>
+		</Unit>
+		<Unit filename="C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_PC_com_v1/dataParser.h">
+			<Option target="RO_PC_com_v1"/>
+		</Unit>
 		<Unit filename="C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_PC_com_v1/main.cpp">
+			<Option target="RO_PC_com_v1"/>
+		</Unit>
+		<Unit filename="C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_PC_com_v1/socketHandler.cpp">
+			<Option target="RO_PC_com_v1"/>
+		</Unit>
+		<Unit filename="C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_PC_com_v1/socketHandler.h">
+			<Option target="RO_PC_com_v1"/>
+		</Unit>
+		<Unit filename="C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_PC_com_v1/stateMachine.cpp">
+			<Option target="RO_PC_com_v1"/>
+		</Unit>
+		<Unit filename="C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_PC_com_v1/stateMachine.h">
 			<Option target="RO_PC_com_v1"/>
 		</Unit>
 		<Unit filename="C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_PC_com_v1/CMakeLists.txt">

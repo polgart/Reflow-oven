@@ -3,7 +3,9 @@ package main;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.lang.Runnable;
 
+import javafx.application.Platform;
 import javafx.beans.Observable;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -13,6 +15,7 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
+import serialPort.serialData;
 
 public class remote_controller extends page_controller {
 
@@ -30,6 +33,12 @@ public class remote_controller extends page_controller {
 
     @FXML
     private TextField yData;
+
+    @FXML
+    private Label tChamber;
+
+    @FXML
+    private Label tBoard;
 
 
     @FXML
@@ -87,5 +96,31 @@ public class remote_controller extends page_controller {
         Double yVal = Double.parseDouble(yData.getCharacters().toString());
         series.getData().add(new XYChart.Data(xVal,yVal));
 
+    }
+
+    @FXML
+    private void startBtnCallback() {
+        byte[] dataOut = {10, 1, 0};
+        Main.getSerialPortHandler().writeSocket(dataOut);
+    }
+
+    @FXML
+    private void stopBtnCallback() {
+        byte[] dataOut = {10, 2, 0};
+        Main.getSerialPortHandler().writeSocket(dataOut);
+    }
+
+    public remote_controller() {
+        Main.getSerialPortHandler().setObserver(this);
+    }
+
+    @Override
+    public void update(serialData data) {
+        Platform.runLater(() -> {
+            String boardTemp = String.valueOf(data.getBoardTemp());
+            String chamberTemp = String.valueOf(data.getChamberTemp());
+            tBoard.setText(boardTemp);
+            tChamber.setText(chamberTemp);
+        });
     }
 }
