@@ -16,7 +16,7 @@
 <section>
 <title>Detailed Description</title>
 <para>
-Definition at line 263 of file baseSW.c.</para>
+Definition at line 316 of file baseSW.c.</para>
 </section>
 <section>
 <title>Field Documentation</title>
@@ -25,19 +25,19 @@ Definition at line 263 of file baseSW.c.</para>
 <indexterm><primary>FTDITransmissionInProgress</primary><secondary>TRANSCIEVE_OBJ</secondary></indexterm>
 <indexterm><primary>TRANSCIEVE_OBJ</primary><secondary>FTDITransmissionInProgress</secondary></indexterm>
 <para><computeroutput>bool FTDITransmissionInProgress</computeroutput></para><para>
-Definition at line 266 of file baseSW.c.</para>
+Definition at line 319 of file baseSW.c.</para>
     </section><anchor xml:id="_struct_t_r_a_n_s_c_i_e_v_e___o_b_j_1a0a7c95d5a8cebce68ac723dc9e184415"/>    <section>
     <title>NextionTransmissionInProgress</title>
 <indexterm><primary>NextionTransmissionInProgress</primary><secondary>TRANSCIEVE_OBJ</secondary></indexterm>
 <indexterm><primary>TRANSCIEVE_OBJ</primary><secondary>NextionTransmissionInProgress</secondary></indexterm>
 <para><computeroutput>bool NextionTransmissionInProgress</computeroutput></para><para>
-Definition at line 265 of file baseSW.c.</para>
+Definition at line 318 of file baseSW.c.</para>
     </section><anchor xml:id="_struct_t_r_a_n_s_c_i_e_v_e___o_b_j_1a03fc11bd01803474c725c95416ad0b9d"/>    <section>
     <title>status</title>
 <indexterm><primary>status</primary><secondary>TRANSCIEVE_OBJ</secondary></indexterm>
 <indexterm><primary>TRANSCIEVE_OBJ</primary><secondary>status</secondary></indexterm>
 <para><computeroutput><link linkend="_base_s_w_8c_1ae5d95f3971b48ffc0b84e3290ef41ed7">TRANSCIEVE_STATUS</link> status</computeroutput></para><para>
-Definition at line 264 of file baseSW.c.</para>
+Definition at line 317 of file baseSW.c.</para>
 </section>
 <para>
 The documentation for this struct was generated from the following file:</para>

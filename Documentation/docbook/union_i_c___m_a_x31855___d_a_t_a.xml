@@ -2,26 +2,31 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_union_i_c___m_a_x31855___d_a_t_a" xml:lang="en-US">
 <title>IC_MAX31855_DATA Union Reference</title>
 <indexterm><primary>IC_MAX31855_DATA</primary></indexterm>
+<para>
+
+<para>Temperature sensor data mapping. </para>
+ 
+</para>
 <simplesect>
     <title>Data Fields    </title>
         <itemizedlist>
             <listitem><para>struct {</para>
         <itemizedlist>
-            <listitem><para>   uint16_t <link linkend="_union_i_c___m_a_x31855___d_a_t_a_1a4b19d6ddd5c1aab9ec16b14dd5cb5d4f">thermocouple_temperature_data</link>:14</para>
-</listitem>
-            <listitem><para>   uint8_t <link linkend="_union_i_c___m_a_x31855___d_a_t_a_1a2a2556147677ece60b8aadf4a0d608ed">reserved1</link>:1</para>
-</listitem>
-            <listitem><para>   uint8_t <link linkend="_union_i_c___m_a_x31855___d_a_t_a_1ae42ac844e604d8db99c2a321a5ffe61e">fault</link>:1</para>
-</listitem>
-            <listitem><para>   uint16_t <link linkend="_union_i_c___m_a_x31855___d_a_t_a_1accaf31d7c41103817ed7bf8a58f61493">internal_temperature_data</link>:12</para>
-</listitem>
-            <listitem><para>   uint8_t <link linkend="_union_i_c___m_a_x31855___d_a_t_a_1a646df3514a24749a0f54731bf41c6c67">reserved2</link>:1</para>
-</listitem>
-            <listitem><para>   uint8_t <link linkend="_union_i_c___m_a_x31855___d_a_t_a_1a8e3792bb05bfa5f22b1fefff6b4aeb1f">scv</link>:1</para>
+            <listitem><para>   int8_t <link linkend="_union_i_c___m_a_x31855___d_a_t_a_1a1a441263688efb7e080789d739e890c3">oc</link>:1</para>
 </listitem>
             <listitem><para>   uint8_t <link linkend="_union_i_c___m_a_x31855___d_a_t_a_1ab908cdbcd61e7caf25e68ab3bc3ee2d5">scg</link>:1</para>
 </listitem>
-            <listitem><para>   uint8_t <link linkend="_union_i_c___m_a_x31855___d_a_t_a_1ac104ca59c6a573817727340aac18d9f6">oc</link>:1</para>
+            <listitem><para>   uint8_t <link linkend="_union_i_c___m_a_x31855___d_a_t_a_1a8e3792bb05bfa5f22b1fefff6b4aeb1f">scv</link>:1</para>
+</listitem>
+            <listitem><para>   uint8_t <link linkend="_union_i_c___m_a_x31855___d_a_t_a_1a646df3514a24749a0f54731bf41c6c67">reserved2</link>:1</para>
+</listitem>
+            <listitem><para>   uint16_t <link linkend="_union_i_c___m_a_x31855___d_a_t_a_1accaf31d7c41103817ed7bf8a58f61493">internal_temperature_data</link>:12</para>
+</listitem>
+            <listitem><para>   uint8_t <link linkend="_union_i_c___m_a_x31855___d_a_t_a_1ae42ac844e604d8db99c2a321a5ffe61e">fault</link>:1</para>
+</listitem>
+            <listitem><para>   uint8_t <link linkend="_union_i_c___m_a_x31855___d_a_t_a_1a2a2556147677ece60b8aadf4a0d608ed">reserved1</link>:1</para>
+</listitem>
+            <listitem><para>   uint16_t <link linkend="_union_i_c___m_a_x31855___d_a_t_a_1a4b19d6ddd5c1aab9ec16b14dd5cb5d4f">thermocouple_temperature_data</link>:14</para>
 </listitem>
         </itemizedlist>
 </listitem>
@@ -33,8 +38,14 @@
 </simplesect>
 <section>
 <title>Detailed Description</title>
+
+<para>Temperature sensor data mapping. </para>
+
+
+
+<para>This structure is used to store the read from the temperature sensor. Most important fileds are thermocouple_temperature_data and fault. Maximum board temperature is 127C, minimum is -55 with 0.0625C resolution. Maximum board temperature is 1600C, minimum is -250 with 0.25C resolution. For more information check out the MAX31855 datasheet. </para>
 <para>
-Definition at line 170 of file baseSW.c.</para>
+Definition at line 186 of file baseSW.c.</para>
 </section>
 <section>
 <title>Field Documentation</title>
@@ -42,38 +53,48 @@ Definition at line 170 of file baseSW.c.</para>
     <title>fault</title>
 <indexterm><primary>fault</primary><secondary>IC_MAX31855_DATA</secondary></indexterm>
 <indexterm><primary>IC_MAX31855_DATA</primary><secondary>fault</secondary></indexterm>
-<para><computeroutput>uint8_t fault</computeroutput></para><para>
-Definition at line 176 of file baseSW.c.</para>
+<para><computeroutput>uint8_t fault</computeroutput></para>
+<para>Fault detected </para>
+<para>
+Definition at line 195 of file baseSW.c.</para>
     </section><anchor xml:id="_union_i_c___m_a_x31855___d_a_t_a_1accaf31d7c41103817ed7bf8a58f61493"/>    <section>
     <title>internal_temperature_data</title>
 <indexterm><primary>internal_temperature_data</primary><secondary>IC_MAX31855_DATA</secondary></indexterm>
 <indexterm><primary>IC_MAX31855_DATA</primary><secondary>internal_temperature_data</secondary></indexterm>
-<para><computeroutput>uint16_t internal_temperature_data</computeroutput></para><para>
-Definition at line 177 of file baseSW.c.</para>
-    </section><anchor xml:id="_union_i_c___m_a_x31855___d_a_t_a_1ac104ca59c6a573817727340aac18d9f6"/>    <section>
+<para><computeroutput>uint16_t internal_temperature_data</computeroutput></para>
+<para>Board temperature </para>
+<para>
+Definition at line 194 of file baseSW.c.</para>
+    </section><anchor xml:id="_union_i_c___m_a_x31855___d_a_t_a_1a1a441263688efb7e080789d739e890c3"/>    <section>
     <title>oc</title>
 <indexterm><primary>oc</primary><secondary>IC_MAX31855_DATA</secondary></indexterm>
 <indexterm><primary>IC_MAX31855_DATA</primary><secondary>oc</secondary></indexterm>
-<para><computeroutput>uint8_t oc</computeroutput></para><para>
-Definition at line 181 of file baseSW.c.</para>
+<para><computeroutput>int8_t oc</computeroutput></para>
+<para>Open circuit detected </para>
+<para>
+Definition at line 190 of file baseSW.c.</para>
     </section><anchor xml:id="_union_i_c___m_a_x31855___d_a_t_a_1a582fa2ca99b13c0df79f2fd2445ac31e"/>    <section>
     <title>rawData</title>
 <indexterm><primary>rawData</primary><secondary>IC_MAX31855_DATA</secondary></indexterm>
 <indexterm><primary>IC_MAX31855_DATA</primary><secondary>rawData</secondary></indexterm>
 <para><computeroutput>uint32_t rawData</computeroutput></para><para>
-Definition at line 183 of file baseSW.c.</para>
+Definition at line 199 of file baseSW.c.</para>
     </section><anchor xml:id="_union_i_c___m_a_x31855___d_a_t_a_1a2a2556147677ece60b8aadf4a0d608ed"/>    <section>
     <title>reserved1</title>
 <indexterm><primary>reserved1</primary><secondary>IC_MAX31855_DATA</secondary></indexterm>
 <indexterm><primary>IC_MAX31855_DATA</primary><secondary>reserved1</secondary></indexterm>
-<para><computeroutput>uint8_t reserved1</computeroutput></para><para>
-Definition at line 175 of file baseSW.c.</para>
+<para><computeroutput>uint8_t reserved1</computeroutput></para>
+<para>Reserved by the vendor </para>
+<para>
+Definition at line 196 of file baseSW.c.</para>
     </section><anchor xml:id="_union_i_c___m_a_x31855___d_a_t_a_1a646df3514a24749a0f54731bf41c6c67"/>    <section>
     <title>reserved2</title>
 <indexterm><primary>reserved2</primary><secondary>IC_MAX31855_DATA</secondary></indexterm>
 <indexterm><primary>IC_MAX31855_DATA</primary><secondary>reserved2</secondary></indexterm>
-<para><computeroutput>uint8_t reserved2</computeroutput></para><para>
-Definition at line 178 of file baseSW.c.</para>
+<para><computeroutput>uint8_t reserved2</computeroutput></para>
+<para>Reserved by the vendor </para>
+<para>
+Definition at line 193 of file baseSW.c.</para>
     </section><anchor xml:id="_union_i_c___m_a_x31855___d_a_t_a_1aa5b2e1fef503465357f17eb89ec1db9e"/>    <section>
     <title></title>
 <indexterm><primary>s</primary><secondary>IC_MAX31855_DATA</secondary></indexterm>
@@ -82,20 +103,26 @@ Definition at line 178 of file baseSW.c.</para>
     <title>scg</title>
 <indexterm><primary>scg</primary><secondary>IC_MAX31855_DATA</secondary></indexterm>
 <indexterm><primary>IC_MAX31855_DATA</primary><secondary>scg</secondary></indexterm>
-<para><computeroutput>uint8_t scg</computeroutput></para><para>
-Definition at line 180 of file baseSW.c.</para>
+<para><computeroutput>uint8_t scg</computeroutput></para>
+<para>Short circuit to ground detected </para>
+<para>
+Definition at line 191 of file baseSW.c.</para>
     </section><anchor xml:id="_union_i_c___m_a_x31855___d_a_t_a_1a8e3792bb05bfa5f22b1fefff6b4aeb1f"/>    <section>
     <title>scv</title>
 <indexterm><primary>scv</primary><secondary>IC_MAX31855_DATA</secondary></indexterm>
 <indexterm><primary>IC_MAX31855_DATA</primary><secondary>scv</secondary></indexterm>
-<para><computeroutput>uint8_t scv</computeroutput></para><para>
-Definition at line 179 of file baseSW.c.</para>
+<para><computeroutput>uint8_t scv</computeroutput></para>
+<para>Short circuit to Vcc detected </para>
+<para>
+Definition at line 192 of file baseSW.c.</para>
     </section><anchor xml:id="_union_i_c___m_a_x31855___d_a_t_a_1a4b19d6ddd5c1aab9ec16b14dd5cb5d4f"/>    <section>
     <title>thermocouple_temperature_data</title>
 <indexterm><primary>thermocouple_temperature_data</primary><secondary>IC_MAX31855_DATA</secondary></indexterm>
 <indexterm><primary>IC_MAX31855_DATA</primary><secondary>thermocouple_temperature_data</secondary></indexterm>
-<para><computeroutput>uint16_t thermocouple_temperature_data</computeroutput></para><para>
-Definition at line 174 of file baseSW.c.</para>
+<para><computeroutput>uint16_t thermocouple_temperature_data</computeroutput></para>
+<para>Chamber temperature </para>
+<para>
+Definition at line 197 of file baseSW.c.</para>
 </section>
 <para>
 The documentation for this union was generated from the following file:</para>

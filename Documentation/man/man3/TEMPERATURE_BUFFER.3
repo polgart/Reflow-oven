@@ -1,4 +1,4 @@
-.TH "TEMPERATURE_BUFFER" 3 "Thu Feb 25 2021" "Version 1.0" "Reflow Oven firmware" \" -*- nroff -*-
+.TH "TEMPERATURE_BUFFER" 3 "Mon Apr 5 2021" "Version 1.0" "Reflow Oven firmware" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -11,10 +11,19 @@ TEMPERATURE_BUFFER \- Reference temperature buffer\&.
 
 .in +1c
 .ti -1c
-.RI "uint8_t * \fBdata\fP"
+.RI "uint16_t * \fBdata\fP"
+.br
+.ti -1c
+.RI "uint16_t * \fBtime\fP"
 .br
 .ti -1c
 .RI "uint16_t \fBoffset\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBsize\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBvalid\fP"
 .br
 .in -1c
 .SH "Detailed Description"
@@ -23,17 +32,29 @@ Reference temperature buffer\&.
 
 This temperature buffer structure conatins a 8 bit unsigned integer pointer, and an offset value\&. The offset used during memory operations or denotes the actual temperature reference (based on time) in the array depending on the context\&. 
 .PP
-Definition at line 120 of file baseSW\&.c\&.
+Definition at line 124 of file baseSW\&.c\&.
 .SH "Field Documentation"
 .PP 
-.SS "uint8_t* data"
-Buffer array pointer 
+.SS "uint16_t* data"
+Buffer array pointer, temperature = data*4 
 .PP
-Definition at line 122 of file baseSW\&.c\&.
+Definition at line 126 of file baseSW\&.c\&.
 .SS "uint16_t offset"
 Buffer offset value 
 .PP
-Definition at line 123 of file baseSW\&.c\&.
+Definition at line 128 of file baseSW\&.c\&.
+.SS "uint16_t size"
+Number of records in the temperature buffer 
+.PP
+Definition at line 129 of file baseSW\&.c\&.
+.SS "uint16_t* time"
+Data time * 100[ms] 
+.PP
+Definition at line 127 of file baseSW\&.c\&.
+.SS "uint8_t valid"
+\fBTEMPERATURE_BUFFER\fP is valid is valid=0x1, invalid else 
+.PP
+Definition at line 130 of file baseSW\&.c\&.
 
 .SH "Author"
 .PP 

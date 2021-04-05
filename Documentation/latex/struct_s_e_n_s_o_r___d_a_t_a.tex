@@ -1,5 +1,10 @@
 \hypertarget{struct_s_e_n_s_o_r___d_a_t_a}{}\doxysection{SENSOR\+\_\+\+DATA Struct Reference}
 \label{struct_s_e_n_s_o_r___d_a_t_a}\index{SENSOR\_DATA@{SENSOR\_DATA}}
+
+
+Measuremnt data array structure.  
+
+
 \doxysubsection*{Data Fields}
 \begin{DoxyCompactItemize}
 \item 
@@ -16,9 +21,11 @@ struct \{\\
 
 
 \doxysubsection{Detailed Description}
+Measuremnt data array structure. 
 
+This structure holds a maximum of SENSOR\+\_\+\+DATA\+\_\+\+STORE\+\_\+\+LENGTH measurements read from the temperature sensor. current\+Data data denotes the array index which will be overwritten is new data arrives from the sensor. This structure implements a ring buffer, so current\+Data only can be between 0 and SENSOR\+\_\+\+DATA\+\_\+\+STORE\+\_\+\+LENGTH -\/ 1. 
 
-Definition at line 186 of file base\+SW.\+c.
+Definition at line 211 of file base\+SW.\+c.
 
 
 
@@ -29,9 +36,9 @@ Definition at line 186 of file base\+SW.\+c.
 \doxysubsubsection{\texorpdfstring{currentData}{currentData}}
 {\footnotesize\ttfamily uint8\+\_\+t current\+Data}
 
+Ring buffer pointer 
 
-
-Definition at line 190 of file base\+SW.\+c.
+Definition at line 215 of file base\+SW.\+c.
 
 \mbox{\Hypertarget{struct_s_e_n_s_o_r___d_a_t_a_a0c398591dfb733d6d74a0880d8bd85df}\label{struct_s_e_n_s_o_r___d_a_t_a_a0c398591dfb733d6d74a0880d8bd85df}} 
 \index{SENSOR\_DATA@{SENSOR\_DATA}!dataArrayQue@{dataArrayQue}}
@@ -39,9 +46,9 @@ Definition at line 190 of file base\+SW.\+c.
 \doxysubsubsection{\texorpdfstring{dataArrayQue}{dataArrayQue}}
 {\footnotesize\ttfamily \mbox{\hyperlink{union_i_c___m_a_x31855___d_a_t_a}{IC\+\_\+\+MAX31855\+\_\+\+DATA}}$\ast$ data\+Array\+Que}
 
+Pointer to measurement data 
 
-
-Definition at line 187 of file base\+SW.\+c.
+Definition at line 212 of file base\+SW.\+c.
 
 \mbox{\Hypertarget{struct_s_e_n_s_o_r___d_a_t_a_a53558d1af344eab6addc931b1e3a32af}\label{struct_s_e_n_s_o_r___d_a_t_a_a53558d1af344eab6addc931b1e3a32af}} 
 \index{SENSOR\_DATA@{SENSOR\_DATA}!dataArrayStatus@{dataArrayStatus}}
@@ -49,15 +56,16 @@ Definition at line 187 of file base\+SW.\+c.
 \doxysubsubsection{\texorpdfstring{}{}}
 {\footnotesize\ttfamily struct \{ ... \}  data\+Array\+Status}
 
-\mbox{\Hypertarget{struct_s_e_n_s_o_r___d_a_t_a_abf3d76a6f05a05d5d24fade97356b591}\label{struct_s_e_n_s_o_r___d_a_t_a_abf3d76a6f05a05d5d24fade97356b591}} 
+Measurement data status desriptor \mbox{\Hypertarget{struct_s_e_n_s_o_r___d_a_t_a_abf3d76a6f05a05d5d24fade97356b591}\label{struct_s_e_n_s_o_r___d_a_t_a_abf3d76a6f05a05d5d24fade97356b591}} 
 \index{SENSOR\_DATA@{SENSOR\_DATA}!isUploaded@{isUploaded}}
 \index{isUploaded@{isUploaded}!SENSOR\_DATA@{SENSOR\_DATA}}
 \doxysubsubsection{\texorpdfstring{isUploaded}{isUploaded}}
 {\footnotesize\ttfamily uint8\+\_\+t is\+Uploaded}
 
+1 is all records are filled with measurement data in the ring buffer, otherwise 0. ~\newline
+ 
 
-
-Definition at line 189 of file base\+SW.\+c.
+Definition at line 214 of file base\+SW.\+c.
 
 
 

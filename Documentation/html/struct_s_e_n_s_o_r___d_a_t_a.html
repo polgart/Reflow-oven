@@ -69,6 +69,9 @@ $(function() {
 <div class="title">SENSOR_DATA Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Measuremnt data array structure.  
+ <a href="struct_s_e_n_s_o_r___d_a_t_a.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
@@ -83,8 +86,10 @@ Data Fields</h2></td></tr>
 <tr class="separator:a53558d1af344eab6addc931b1e3a32af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00186">186</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<div class="textblock"><p>Measuremnt data array structure. </p>
+<p>This structure holds a maximum of SENSOR_DATA_STORE_LENGTH measurements read from the temperature sensor. currentData data denotes the array index which will be overwritten is new data arrives from the sensor. This structure implements a ring buffer, so currentData only can be between 0 and SENSOR_DATA_STORE_LENGTH - 1. </p>
+
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00211">211</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 </div><h2 class="groupheader">Field Documentation</h2>
 <a id="aca76923b7ec0f81726a2a4ec66abfc43"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aca76923b7ec0f81726a2a4ec66abfc43">&#9670;&nbsp;</a></span>currentData</h2>
@@ -97,8 +102,9 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Ring buffer pointer </p>
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00190">190</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00215">215</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>
@@ -113,8 +119,9 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Pointer to measurement data </p>
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00187">187</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00212">212</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>
@@ -129,6 +136,7 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Measurement data status desriptor </p>
 
 </div>
 </div>
@@ -143,8 +151,10 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>1 is all records are filled with measurement data in the ring buffer, otherwise 0. <br  />
+ </p>
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00189">189</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00214">214</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>

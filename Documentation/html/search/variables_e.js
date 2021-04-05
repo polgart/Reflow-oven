@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['writeeeprom_223',['WriteEEPROM',['../base_s_w_8c.html#a08c6431afb7c20104abce9c7e1ddfd80',1,'baseSW.c']]]
+  ['valid_248',['valid',['../struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r.html#a75adb1881fa5da948723d7b8807b78cd',1,'TEMPERATURE_BUFFER']]]
 ];

@@ -9,6 +9,7 @@ import javafx.application.Platform;
 import javafx.beans.Observable;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Background;
 import javafx.stage.FileChooser;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
@@ -45,6 +46,8 @@ public class remote_controller extends page_controller {
     private Label fileNameLabel;
     @FXML
     private Label numberOfRecordsLabel;
+    @FXML
+    private Label statusLabel;
 
     @FXML
     private void loadCSV() {
@@ -104,16 +107,38 @@ public class remote_controller extends page_controller {
     }
 
     @FXML
+    private void addDataToRemoteChart(Double xVal,Double yVal) {
+        csv_series.getData().add(new XYChart.Data(xVal,yVal));
+    }
+
+    @FXML
+    private void clearRemoteChartData() {
+        csv_series.getData().clear();
+    }
+
+    @FXML
     private void startBtnCallback() {
         byte[] dataOut = {10, 1, 0};
         Main.getSerialPortHandler().writeSocket(dataOut);
         series.getData().clear();
+        statusLabel.setText("Running");
+        statusLabel.setStyle("-fx-background-color: #7ee868;");
     }
 
     @FXML
     private void stopBtnCallback() {
         byte[] dataOut = {10, 2, 0};
         Main.getSerialPortHandler().writeSocket(dataOut);
+        statusLabel.setText("Stopped");
+        statusLabel.setStyle("-fx-background-color: #FF1919;");
+    }
+
+    @FXML
+    private void loadBtnCallback() {
+        byte[] dataOut = {10, 3, 0};
+        Main.getSerialPortHandler().writeSocket(dataOut);
+        statusLabel.setText("Reading");
+        statusLabel.setStyle("-fx-background-color: #f0e767;");
     }
 
     public remote_controller() {
@@ -123,13 +148,37 @@ public class remote_controller extends page_controller {
     @Override
     public void update(serialData data) {
         Platform.runLater(() -> {
-            String boardTemp = String.valueOf(data.getBoardTemp());
-            String chamberTemp = String.valueOf(data.getChamberTemp());
-            tBoard.setText(boardTemp);
-            tChamber.setText(chamberTemp);
-            if (data.isSerialData()) {
-                addDataToSeries(data.getTime(),data.getChamberTemp());
+            String boardTemp,chamberTemp;
+            switch (data.getType()) {
+                case ONLY_TEMPERATURE:
+                    //System.out.println("Remote controller received ONLY_TEMPERATURE data");
+                    boardTemp = String.valueOf(data.getBoardTemp());
+                    chamberTemp = String.valueOf(data.getChamberTemp());
+                    tBoard.setText(boardTemp);
+                    tChamber.setText(chamberTemp);
+                    break;
+                case SERIAL_DATA:
+                    //System.out.println("Remote controller received SERIAL_DATA data");
+                    boardTemp = String.valueOf(data.getBoardTemp());
+                    chamberTemp = String.valueOf(data.getChamberTemp());
+                    tBoard.setText(boardTemp);
+                    tChamber.setText(chamberTemp);
+                    addDataToSeries(data.getTime(),data.getChamberTemp());
+                    break;
+                case HEAT_PROFILE:
+                    if (data.isFinishedReceiving()) {
+                        //System.out.println("Remote controller received HEAT_PROFILE data");
+                        Double[] local_heat_profile_time_copy = data.get_heat_profile_time().clone();
+                        Double[] local_heat_profile_temperature_copy = data.get_heat_profile_temperature().clone();
+                        this.clearRemoteChartData();
+                        for (int i = 0; i <= data.getLength(); i++) {
+                            this.addDataToRemoteChart(local_heat_profile_time_copy[i], local_heat_profile_temperature_copy[i]);
+                        }
+                        statusLabel.setText("Loaded");
+                    }
+                    break;
             }
+
         });
     }
 }

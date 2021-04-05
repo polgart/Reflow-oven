@@ -1,12 +1,12 @@
 var indexSectionsWithContent =
 {
-  0: "abcdefghilmnoprstw",
-  1: "bist",
+  0: "abcdefghilmnoprstvw",
+  1: "bhist",
   2: "bemps",
   3: "abcdegilmrstw",
-  4: "abcdefhinoprstw",
+  4: "abcdefhinoprstvw",
   5: "s",
-  6: "fnt",
+  6: "fhnt",
   7: "inrstw",
   8: "dfhs"
 };

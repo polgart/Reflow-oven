@@ -7,6 +7,8 @@
 #ifndef RO_PC_COM_V1_STATEMACHINE_H
 #define RO_PC_COM_V1_STATEMACHINE_H
 
+#include <cstdint>
+
 class dataParser;
 
 enum State {
@@ -20,7 +22,13 @@ enum State {
     DESIRED_LO,
     DESIRED_HI,
     TIME_LO,
-    TIME_HI
+    TIME_HI,
+    HEAT_PROFILE_NAME,
+    HEAT_PROFILE_ID,
+    HEAT_PROFILE_SIZE_LO,
+    HEAT_PROFILE_SIZE_HI,
+    HEAT_PROFILE_TEMPERATURE,
+    HEAT_PROFILE_TIME
 };
 
 enum DataType {
@@ -42,7 +50,12 @@ private:
     double boardTemp; // In C
     int time; // In ms
     dataParser* stateMachineDataParser;
-
+    char name[8];
+    uint8_t string_offset;
+    uint8_t heat_profile_id;
+    uint16_t heat_profile_size;
+    uint16_t heat_profile_temperature[512];
+    uint16_t heat_profile_time[512];
 
 };
 

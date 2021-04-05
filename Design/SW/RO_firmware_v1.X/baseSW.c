@@ -17,9 +17,9 @@
  *
  */
 
-const uint16_t EEPROM_ADDRESS = 0x00;
-const uint16_t INTERNAL_MAX_TEMPERATURE = 0x320;
-const uint16_t THERMOCOUPLE_MAX_TEMPERATURE = 0x04B0;
+const uint16_t EEPROM_ADDRESS = 0x00;   /*!< EEPROM address */
+const uint16_t INTERNAL_MAX_TEMPERATURE = 0x320; /*!< INTERNAL_MAX_TEMPERATURE = Max board temperature x 4 */
+const uint16_t THERMOCOUPLE_MAX_TEMPERATURE = 0x04B0;   /*!< THERMOCOUPLE_MAX_TEMPERATURE = Max chamber temperature x 2 */
 
 /* 
  *
@@ -128,6 +128,8 @@ typedef struct
     uint16_t    offset;     /*!<  Buffer offset value */
     uint16_t    size;       /*!<  Number of records in the temperature buffer */
     uint8_t     valid;      /*!<  TEMPERATURE_BUFFER is valid is valid=0x1, invalid else */
+    char        name[8];    /*!<  TEMPERATURE_BUFFER name, 8 byte */
+    uint8_t     ID;         /*!<  TEMPERATURE_BUFFER ID, 1 byte */
 } TEMPERATURE_BUFFER;
 
 
@@ -172,34 +174,52 @@ TEMPERATURE_BUFFER temperatureBufferArray[3];
  */
 
 
-#define SENSOR_DATA_STORE_LENGTH 10 // Maximum 127
+#define SENSOR_DATA_STORE_LENGTH 10 /*!< Number of measurements we want to store in the ring buffer */
 
+
+/*! \brief Temperature sensor data mapping
+ *
+ * This structure is used to store the read from the temperature sensor. Most
+ * important fileds are thermocouple_temperature_data and fault. Maximum board
+ * temperature is 127C, minimum is -55 with 0.0625C resolution. Maximum board
+ * temperature is 1600C, minimum is -250 with 0.25C resolution. For more information
+ * check out the MAX31855 datasheet.
+ */
 typedef union
 {
     struct
     {
-            int8_t oc:1;
-            uint8_t scg:1;
-            uint8_t scv:1;
-            uint8_t reserved2:1;
-            uint16_t internal_temperature_data:12;
-            uint8_t fault:1;
-            uint8_t reserved1:1;
-            uint16_t thermocouple_temperature_data:14;
+            int8_t oc:1;    /*!< Open circuit detected */
+            uint8_t scg:1;  /*!< Short circuit to ground detected */
+            uint8_t scv:1;  /*!< Short circuit to Vcc detected */
+            uint8_t reserved2:1;    /*!< Reserved by the vendor */
+            uint16_t internal_temperature_data:12;  /*!< Board temperature */
+            uint8_t fault:1;    /*!< Fault detected */
+            uint8_t reserved1:1;    /*!< Reserved by the vendor */
+            uint16_t thermocouple_temperature_data:14;  /*!< Chamber temperature */
     } s;
     uint32_t rawData;
 } IC_MAX31855_DATA;
 
+
+/*! \brief Measuremnt data array structure
+ *
+ * This structure holds a maximum of SENSOR_DATA_STORE_LENGTH measurements read
+ * from the temperature sensor. currentData data denotes the array index which
+ * will be overwritten is new data arrives from the sensor. This structure
+ * implements a ring buffer, so currentData only can be between 0 and 
+ * SENSOR_DATA_STORE_LENGTH - 1.
+ */
 typedef struct {
-    IC_MAX31855_DATA* dataArrayQue;
+    IC_MAX31855_DATA* dataArrayQue; /*!< Pointer to measurement data */
     struct {
-        uint8_t isUploaded:1;
-        uint8_t currentData:7;
-    } dataArrayStatus;
+        uint8_t isUploaded:1; /*!< 1 is all records are filled with measurement data in the ring buffer, otherwise 0.  */
+        uint8_t currentData:7; /*!< Ring buffer pointer */
+    } dataArrayStatus; /*!< Measurement data status desriptor */
 } SENSOR_DATA;
 
-static SENSOR_DATA SENSOR_DATA_HANDLER;
-static IC_MAX31855_DATA SENSOR_DATA_ARRAYS[SENSOR_DATA_STORE_LENGTH];
+static SENSOR_DATA SENSOR_DATA_HANDLER; /*!< Global variable, used for access the measurements. IC_MAX31855_DATA can be accessed through this interface. */
+static IC_MAX31855_DATA SENSOR_DATA_ARRAYS[SENSOR_DATA_STORE_LENGTH]; /*!< Global variable, used for storing measurements data. Direct access is not supperted. */
 
 
 /* 
@@ -208,9 +228,36 @@ static IC_MAX31855_DATA SENSOR_DATA_ARRAYS[SENSOR_DATA_STORE_LENGTH];
  *
  */
 
+/*! \brief PC communication status
+ *
+ * PC communication status used to determine the current state int the PC
+ * communication state machine. The communication state machine is implemented
+ * in ReceiveFTDI_callback() function. This function is always when new data is
+ * arrived from the FTDI UART-USB bridge. The current state is the function of
+ * the prevoiuos state and one or more incoming bytes.
+ * 
+ * Control signals are:
+ * 10: Simple command data, new command data is received
+ * 1: Start heting process
+ * 2: Stop heating proces
+ * 4: Load data from the buffer to the current heat profile     
+ * --
+ * 1: Change status to RECEIVE_HEAT_PROFILE
+ * --
+ * 2: Change status to SEND_HEAT_PROFILE_TO_EEPROM
+ * --
+ * 3: Change status to RECEIVE_PROFILE_FROM_EEPROM
+ * --
+ * 4: Change status to WRITE_EEPROM_COMMAND_HIGH_BYTE
+ *    That state is always followed byte WRITE_EEPROM_COMMAND_LOW_BYTE
+ *    In this two states the program is setting the heat profile's address buffer.
+ *    If SEND_HEAT_PROFILE_TO_EEPROM is selected the data will be written to
+ *    the location defined by the address buffer.
+ */
+
 typedef enum
 {
-    NORMAL_OPERATION,
+    NORMAL_OPERATION, /*!< Normal operation, the MCU receives control signals. */
     RECEIVE_HEAT_PROFILE,
     SEND_HEAT_PROFILE_TO_EEPROM,
     RECEIVE_PROFILE_FROM_EEPROM,
@@ -265,6 +312,7 @@ typedef enum {
     TRANSCIEVE_FULL_HEAT_PROFILE,
     TRANSCIEVE_CURRENT_DATA,
     TRANSCIEVE_CURRENT_DATA_WITH_HEAT_ENABLED,
+    TRANSCIEVE_HEAT_PROFILE,
     TRANSCIEVE_IDLE
 } TRANSCIEVE_STATUS;
 
@@ -328,7 +376,9 @@ void loadBufferHeatProfile() {
 void loadDefaultHeatProfile() {
     memcpy(temperatureHeatProfile.currentProfile.data, temperatureHeatProfile.defaultProfile.data, HEAT_PROFILE_SIZE);
     memcpy(temperatureHeatProfile.currentProfile.time, temperatureHeatProfile.defaultProfile.time, HEAT_PROFILE_SIZE);
+    memcpy(temperatureHeatProfile.currentProfile.name, temperatureHeatProfile.defaultProfile.name, 8);
     temperatureHeatProfile.currentProfile.offset=0;
+    temperatureHeatProfile.currentProfile.ID=0;
     temperatureHeatProfile.currentProfile.size=temperatureHeatProfile.defaultProfile.size;
     temperatureHeatProfile.currentProfile.valid=0x1;
 }
@@ -444,6 +494,9 @@ void ReceiveFTDI_callback() {
                     if (msg == 0x02) {
                         disableHeat();
                     }
+                    if (msg == 0x3) {
+                        transciveObj.status = TRANSCIEVE_HEAT_PROFILE;
+                    }
                     if (msg == 0x04) {
                         loadBufferHeatProfile();
                     }
@@ -511,6 +564,9 @@ void genericTranciverFunction() {
         uint8_t lowerTimeStamp = (uint8_t)timeStamp;
         uint8_t upperTimeStamp = (uint8_t)(timeStamp >> 8);
         
+        // Temporary variables for data transmission
+        uint16_t a,it;
+        
         switch(transciveObj.status) {
         case TRANSCIEVE_IDLE:
             break;
@@ -546,7 +602,41 @@ void genericTranciverFunction() {
             UART2_Write(lowerTimeStamp);
             UART2_Write(upperTimeStamp);
             break;
-    }
+        case TRANSCIEVE_HEAT_PROFILE:
+            // DEBUG: Data sent to pin header
+            a = (temperatureHeatProfile.defaultProfile.size+1);
+
+             
+            while (U2STAbits.UTXBF);
+                UART2_Write(0xFF);
+            while (U2STAbits.UTXBF);
+                UART2_Write(0xFD);
+            for (it=0;it<8;it++) {
+                while (U2STAbits.UTXBF);
+                    UART2_Write(temperatureHeatProfile.defaultProfile.name[it]);
+            }
+            while (U2STAbits.UTXBF);
+                UART2_Write(temperatureHeatProfile.defaultProfile.ID);
+            while (U2STAbits.UTXBF);
+                UART2_Write(temperatureHeatProfile.defaultProfile.size);
+            while (U2STAbits.UTXBF);
+                UART2_Write(temperatureHeatProfile.defaultProfile.size >> 8);
+                
+            for (it=0;it<a;it++) {
+                while (U2STAbits.UTXBF);
+                     UART2_Write(temperatureHeatProfile.defaultProfile.data[it]);
+                while (U2STAbits.UTXBF);
+                     UART2_Write(temperatureHeatProfile.defaultProfile.data[it] >> 8);
+            }
+            
+            for (it=0;it<a;it++) {
+                while (U2STAbits.UTXBF);
+                     UART2_Write(temperatureHeatProfile.defaultProfile.time[it]);
+                while (U2STAbits.UTXBF);
+                     UART2_Write(temperatureHeatProfile.defaultProfile.time[it] >> 8);
+            }
+            transciveObj.status = TRANSCIEVE_CURRENT_DATA;
+        }
 }
 
     
@@ -736,7 +826,7 @@ stateTaskList* baseSW_Initialize(void) {
     temperatureHeatProfile.defaultProfile.time = heatProfileDefultTime;
     temperatureHeatProfile.defaultProfile.offset = 0x0;
     
-    temperatureHeatProfile.profileStatus = IDLE;
+    temperatureHeatProfile.profileStatus = TRANSCIEVE_CURRENT_DATA;
     
     //Initialize temperature sensor interface
     
@@ -747,13 +837,13 @@ stateTaskList* baseSW_Initialize(void) {
     //Transcieve object
     transciveObj.FTDITransmissionInProgress=false;
     transciveObj.NextionTransmissionInProgress=false;
-    transciveObj.status = TRANSCIEVE_CURRENT_DATA;
+    transciveObj.status = TRANSCIEVE_HEAT_PROFILE;
     
     
     // Create default heat profile
     temperatureHeatProfile.defaultProfile.time[0]=0;    // 0 ms
     temperatureHeatProfile.defaultProfile.time[1]=750;  // 75s = 750 * 100 ms
-    temperatureHeatProfile.defaultProfile.time[2]=1150; // 115s = 1150 * 100 ms
+    temperatureHeatProfile.defaultProfile.time[2]=1550; // 155s = 1550 * 100 ms
     temperatureHeatProfile.defaultProfile.time[3]=2150; // 215s = 2150 * 100 ms
     temperatureHeatProfile.defaultProfile.time[4]=2350; // 235s = 2350 * 100 ms
     temperatureHeatProfile.defaultProfile.time[5]=2550; // 255s = 2550 * 100 ms
@@ -768,8 +858,17 @@ stateTaskList* baseSW_Initialize(void) {
     temperatureHeatProfile.defaultProfile.data[6]=100;  // 25 * 4 = 100C
     
     temperatureHeatProfile.defaultProfile.valid = 0x1;  // Heat profile is valid
-    temperatureHeatProfile.defaultProfile.size = 0x6;   // Maximum offset in records
+    temperatureHeatProfile.defaultProfile.size = 6;   // Maximum offset in records
     temperatureHeatProfile.defaultProfile.offset = 0x0; // Offset pointer
+    temperatureHeatProfile.defaultProfile.ID = 0x0;
+    temperatureHeatProfile.defaultProfile.name[0] = 'D';
+    temperatureHeatProfile.defaultProfile.name[1] = 'e';
+    temperatureHeatProfile.defaultProfile.name[2] = 'f';
+    temperatureHeatProfile.defaultProfile.name[3] = 'a';
+    temperatureHeatProfile.defaultProfile.name[4] = 'u';
+    temperatureHeatProfile.defaultProfile.name[5] = 'l';
+    temperatureHeatProfile.defaultProfile.name[6] = 't';
+    temperatureHeatProfile.defaultProfile.name[7] = 0x0;
     
     // Initialie current buffer with the default heat profile
     loadDefaultHeatProfile();

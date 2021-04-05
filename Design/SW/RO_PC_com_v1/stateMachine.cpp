@@ -19,9 +19,17 @@ void stateMachine::addData(unsigned char c) {
                 this->type = TEMPERATURE;
                 this->state = PREAMBLE2;
             }
-            if (c == 0xFE) {
+            else if (c == 0xFE) {
                 this->type = TEMPERATURE_WITH_HET_ENABLED;
                 this->state = PREAMBLE2;
+            }
+            else if (c == 0xFD) {
+                this->type = HEAT_PROFILE;
+                this->string_offset = 0;
+                this->state = HEAT_PROFILE_NAME;
+            }
+            else {
+
             }
             break;
         case PREAMBLE2:
@@ -55,6 +63,50 @@ void stateMachine::addData(unsigned char c) {
             this->time *= 10;
             this->state = IDLE;
             this->passData2Parser();
+            break;
+        case HEAT_PROFILE_NAME:
+            this->name[this->string_offset]=c;
+            if (++this->string_offset == 8)
+                this->state = HEAT_PROFILE_ID;
+            break;
+        case HEAT_PROFILE_ID:
+            this->heat_profile_id = c;
+            this->state = HEAT_PROFILE_SIZE_LO;
+            break;
+        case HEAT_PROFILE_SIZE_LO:
+            this->heat_profile_size = c;
+            this->state = HEAT_PROFILE_SIZE_HI;
+            break;
+        case HEAT_PROFILE_SIZE_HI:
+            this->heat_profile_size += c*256;
+            this->string_offset = 0;
+            this->state = HEAT_PROFILE_TEMPERATURE;
+            break;
+        case HEAT_PROFILE_TEMPERATURE:
+            if (this->string_offset % 2 == 0) {
+                this->heat_profile_temperature[this->string_offset/2] = c;
+            }
+            else {
+                this->heat_profile_temperature[this->string_offset/2] += c*256;
+            }
+            if (++this->string_offset==2*(this->heat_profile_size+1)) {
+                this->string_offset = 0;
+                this->state = HEAT_PROFILE_TIME;
+            }
+            break;
+        case HEAT_PROFILE_TIME:
+            if (this->string_offset % 2 == 0) {
+                this->heat_profile_time[this->string_offset/2] = c;
+            }
+            else {
+                this->heat_profile_time[this->string_offset/2] += c*256;
+            }
+            if (++this->string_offset==2*(this->heat_profile_size+1)) {
+                this->passData2Parser();
+                this->state = IDLE;
+            }
+            break;
+
     }
 }
 
@@ -71,7 +123,8 @@ void stateMachine::setDataParser(dataParser* input) {
 }
 
 void stateMachine::passData2Parser() {
-    std::string board,chamber,time;
+    std::string board,chamber,time,id,data,name,length;
+    int it;
     switch (this->type) {
         case TEMPERATURE:
             board = std::to_string(this->boardTemp);
@@ -92,6 +145,31 @@ void stateMachine::passData2Parser() {
             this->stateMachineDataParser->sendDataViaSocket(std::string("d"));
             this->stateMachineDataParser->sendDataViaSocket(time);
             break;
+        case HEAT_PROFILE:
+
+            length = std::to_string(this->heat_profile_size);
+            id = std::to_string(this->heat_profile_id);
+            name = std::string(this->name);
+
+            this->stateMachineDataParser->sendDataViaSocket(std::string("e"));
+            this->stateMachineDataParser->sendDataViaSocket(name);
+            this->stateMachineDataParser->sendDataViaSocket(std::string("f"));
+            this->stateMachineDataParser->sendDataViaSocket(id);
+            this->stateMachineDataParser->sendDataViaSocket(std::string("g"));
+            this->stateMachineDataParser->sendDataViaSocket(length);
+
+            this->stateMachineDataParser->sendDataViaSocket(std::string("h"));
+            for (it = 0; it <= this->heat_profile_size; it++) {
+                data = std::to_string(this->heat_profile_temperature[it]);
+                this->stateMachineDataParser->sendDataViaSocket(data);
+            }
+
+            this->stateMachineDataParser->sendDataViaSocket(std::string("i"));
+            for (it = 0; it <= this->heat_profile_size; it++) {
+                time = std::to_string(this->heat_profile_time[it]);
+                this->stateMachineDataParser->sendDataViaSocket(time);
+            }
+
             break;
     }
 

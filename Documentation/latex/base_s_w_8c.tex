@@ -19,17 +19,19 @@ struct \mbox{\hyperlink{struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r}{TEMPERATURE\
 struct \mbox{\hyperlink{struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e}{TEMPERATURE\+\_\+\+PROFILE}}
 \begin{DoxyCompactList}\small\item\em Reference temperature profile. \end{DoxyCompactList}\item 
 union \mbox{\hyperlink{union_i_c___m_a_x31855___d_a_t_a}{IC\+\_\+\+MAX31855\+\_\+\+DATA}}
-\item 
+\begin{DoxyCompactList}\small\item\em Temperature sensor data mapping. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{struct_s_e_n_s_o_r___d_a_t_a}{SENSOR\+\_\+\+DATA}}
-\item 
+\begin{DoxyCompactList}\small\item\em Measuremnt data array structure. \end{DoxyCompactList}\item 
 union \mbox{\hyperlink{union_b_s___d_a_t_a___o_b_j}{BS\+\_\+\+DATA\+\_\+\+OBJ}}
 \item 
 struct \mbox{\hyperlink{struct_t_r_a_n_s_c_i_e_v_e___o_b_j}{TRANSCIEVE\+\_\+\+OBJ}}
+\item 
+struct \mbox{\hyperlink{struct_h_e_a_t___t_i_m_e_r___o_b_j}{HEAT\+\_\+\+TIMER\+\_\+\+OBJ}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \mbox{\hyperlink{base_s_w_8c_a82ad24592415f1e7dd0fab9811e434ea}{HEAT\+\_\+\+PROFILE\+\_\+\+SIZE}}~1024
+\#define \mbox{\hyperlink{base_s_w_8c_a82ad24592415f1e7dd0fab9811e434ea}{HEAT\+\_\+\+PROFILE\+\_\+\+SIZE}}~255
 \begin{DoxyCompactList}\small\item\em Heat profile buffer size. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{base_s_w_8c_ae8124ed52c1d38dcd771b78a89c1d226}{SENSOR\+\_\+\+DATA\+\_\+\+STORE\+\_\+\+LENGTH}}~10
 \end{DoxyCompactItemize}
@@ -51,7 +53,7 @@ enum \mbox{\hyperlink{base_s_w_8c_aa8f22ecbe143bb20aaab87a0887844c7}{FTDI\+\_\+\
 \mbox{\hyperlink{base_s_w_8c_aa8f22ecbe143bb20aaab87a0887844c7a3a592e9811844c507e9e173f92083a16}{WRITE\+\_\+\+EEPROM\+\_\+\+COMMAND\+\_\+\+HIGH\+\_\+\+BYTE}}
 , \mbox{\hyperlink{base_s_w_8c_aa8f22ecbe143bb20aaab87a0887844c7ad8db6628bc8d9c05c64025d314a65419}{WRITE\+\_\+\+EEPROM\+\_\+\+COMMAND\+\_\+\+LOW\+\_\+\+BYTE}}
  \}
-\item 
+\begin{DoxyCompactList}\small\item\em PC communication status. \end{DoxyCompactList}\item 
 enum \mbox{\hyperlink{base_s_w_8c_a074deb404aea4ae6dca1b9c44d66116a}{NEXTION\+\_\+\+STATUS}} \{ \mbox{\hyperlink{base_s_w_8c_a074deb404aea4ae6dca1b9c44d66116aa90762a477aa0f30aea8aa3cb976a5398}{NEXTION\+\_\+\+NORMAL\+\_\+\+OPERATION}}
 , \mbox{\hyperlink{base_s_w_8c_a074deb404aea4ae6dca1b9c44d66116aad9e1dbc9cdfe9d975f431ad11d5748da}{NEXTION\+\_\+\+WRITE\+\_\+\+EEPROM\+\_\+\+COMMAND\+\_\+\+HIGH\+\_\+\+BYTE}}
 , \mbox{\hyperlink{base_s_w_8c_a074deb404aea4ae6dca1b9c44d66116aaebec46a1f267d51cf56719b5ac4ab19d}{NEXTION\+\_\+\+WRITE\+\_\+\+EEPROM\+\_\+\+COMMAND\+\_\+\+LOW\+\_\+\+BYTE}}
@@ -60,7 +62,12 @@ enum \mbox{\hyperlink{base_s_w_8c_a074deb404aea4ae6dca1b9c44d66116a}{NEXTION\+\_
 \item 
 enum \mbox{\hyperlink{base_s_w_8c_ae5d95f3971b48ffc0b84e3290ef41ed7}{TRANSCIEVE\+\_\+\+STATUS}} \{ \mbox{\hyperlink{base_s_w_8c_ae5d95f3971b48ffc0b84e3290ef41ed7a6d9519cd7bf055df890493eb4f6fa6b6}{TRANSCIEVE\+\_\+\+FULL\+\_\+\+HEAT\+\_\+\+PROFILE}}
 , \mbox{\hyperlink{base_s_w_8c_ae5d95f3971b48ffc0b84e3290ef41ed7a80edd9e2810683393aee79b2f5b9bdbc}{TRANSCIEVE\+\_\+\+CURRENT\+\_\+\+DATA}}
+, \mbox{\hyperlink{base_s_w_8c_ae5d95f3971b48ffc0b84e3290ef41ed7ab2b91ab894433051f4b93fbe31f6be02}{TRANSCIEVE\+\_\+\+CURRENT\+\_\+\+DATA\+\_\+\+WITH\+\_\+\+HEAT\+\_\+\+ENABLED}}
 , \mbox{\hyperlink{base_s_w_8c_ae5d95f3971b48ffc0b84e3290ef41ed7a138de0a3f25fd929967f47c72048b208}{TRANSCIEVE\+\_\+\+IDLE}}
+ \}
+\item 
+enum \mbox{\hyperlink{base_s_w_8c_a79a5812d79ec30e8418055f1f8424fb9}{HEAT\+\_\+\+TIMER\+\_\+\+STATUS}} \{ \mbox{\hyperlink{base_s_w_8c_a79a5812d79ec30e8418055f1f8424fb9a1061be6c3fb88d32829cba6f6b2be304}{RUNNING}}
+, \mbox{\hyperlink{base_s_w_8c_a79a5812d79ec30e8418055f1f8424fb9a948b2aee15f52b421fa4770c47bcfe8c}{STOPPED}}
  \}
 \end{DoxyCompactItemize}
 \doxysubsection*{Functions}
@@ -72,11 +79,15 @@ void \mbox{\hyperlink{base_s_w_8c_a381d6c14a0d21de9943fdf12040729b3}{disable\+He
 \item 
 void \mbox{\hyperlink{base_s_w_8c_aa16cf163141a074b2ddb3a60497d8b99}{Idle\+State\+\_\+callback}} ()
 \item 
-void \mbox{\hyperlink{base_s_w_8c_ab2b78c4d809057c8fa3d4074d99a33e6}{load\+Buffer}} ()
+void \mbox{\hyperlink{base_s_w_8c_a3b239350cad328a0a7002b3b8bedaaf8}{load\+Buffer\+Heat\+Profile}} ()
+\item 
+void \mbox{\hyperlink{base_s_w_8c_a9c9a212e71176cd7de00f133f456098e}{load\+Default\+Heat\+Profile}} ()
 \item 
 bool \mbox{\hyperlink{base_s_w_8c_a83e759d4fde4c1f2290f01c8ba5e7e76}{check\+Start\+Conditions}} ()
 \item 
 void \mbox{\hyperlink{base_s_w_8c_a23b1f41f8c818f17b24b6da7d9af6cd6}{Read\+Temperature\+Data\+\_\+callback}} ()
+\item 
+uint16\+\_\+t \mbox{\hyperlink{base_s_w_8c_a7c86f4204ebfad82dcb4e9a38eb1fa91}{read\+Leatest\+Temperatre\+Measuremnt\+X4}} ()
 \item 
 void \mbox{\hyperlink{base_s_w_8c_a1d1ee0fb69c723856a3009c9dfb74309}{Receive\+Nextion\+Data\+\_\+callback}} ()
 \item 
@@ -109,9 +120,9 @@ void \mbox{\hyperlink{base_s_w_8c_a8027f524cdcb8a3a462b2a6addbab4a5}{base\+SW\+\
 \item 
 const uint16\+\_\+t \mbox{\hyperlink{base_s_w_8c_a563dcdd951ca06a98e8526fc7fa2192f}{EEPROM\+\_\+\+ADDRESS}} = 0x00
 \item 
-const uint16\+\_\+t \mbox{\hyperlink{base_s_w_8c_a0ef8a1d4d3bc515d6b5f09d2ea92784d}{INTERNAL\+\_\+\+MAX\+\_\+\+TEMPERATURE}} = 0x0000
+const uint16\+\_\+t \mbox{\hyperlink{base_s_w_8c_a0ef8a1d4d3bc515d6b5f09d2ea92784d}{INTERNAL\+\_\+\+MAX\+\_\+\+TEMPERATURE}} = 0x320
 \item 
-const uint16\+\_\+t \mbox{\hyperlink{base_s_w_8c_a0e65fe51cfde598b1359de52fe957f96}{THERMOCOUPLE\+\_\+\+MAX\+\_\+\+TEMPERATURE}} = 0x0000
+const uint16\+\_\+t \mbox{\hyperlink{base_s_w_8c_a0e65fe51cfde598b1359de52fe957f96}{THERMOCOUPLE\+\_\+\+MAX\+\_\+\+TEMPERATURE}} = 0x04\+B0
 \item 
 \mbox{\hyperlink{state_task_handler_8h_ac70d77726e89cd77b1604f36f0768724}{state\+Task\+List}} $\ast$ \mbox{\hyperlink{base_s_w_8c_a8f175c7c18b1b26153b20e02c9ac85f2}{Idle\+State}} = NULL
 \begin{DoxyCompactList}\small\item\em Idle state. \end{DoxyCompactList}\item 
@@ -129,11 +140,17 @@ const uint16\+\_\+t \mbox{\hyperlink{base_s_w_8c_a0e65fe51cfde598b1359de52fe957f
 \begin{DoxyCompactList}\small\item\em Read heat profile from EEPROM. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{state_task_handler_8h_ac70d77726e89cd77b1604f36f0768724}{state\+Task\+List}} $\ast$ \mbox{\hyperlink{base_s_w_8c_a08c6431afb7c20104abce9c7e1ddfd80}{Write\+EEPROM}} = NULL
 \begin{DoxyCompactList}\small\item\em Write heat profile into EEPROM. \end{DoxyCompactList}\item 
-uint8\+\_\+t \mbox{\hyperlink{base_s_w_8c_acc1fffcd67af20d39741d2f2654472bd}{heat\+Profile\+Current}} \mbox{[}\mbox{\hyperlink{base_s_w_8c_a82ad24592415f1e7dd0fab9811e434ea}{HEAT\+\_\+\+PROFILE\+\_\+\+SIZE}}\mbox{]}
+uint16\+\_\+t \mbox{\hyperlink{base_s_w_8c_a1673cb858805b80228a862b20a69502b}{heat\+Profile\+Current}} \mbox{[}\mbox{\hyperlink{base_s_w_8c_a82ad24592415f1e7dd0fab9811e434ea}{HEAT\+\_\+\+PROFILE\+\_\+\+SIZE}}\mbox{]}
 \item 
-uint8\+\_\+t \mbox{\hyperlink{base_s_w_8c_a05687d20618c0736fd05307bf70d78c2}{heat\+Profile\+Buffer}} \mbox{[}\mbox{\hyperlink{base_s_w_8c_a82ad24592415f1e7dd0fab9811e434ea}{HEAT\+\_\+\+PROFILE\+\_\+\+SIZE}}\mbox{]}
+uint16\+\_\+t \mbox{\hyperlink{base_s_w_8c_a24a168c4320349b32b46d406e2cfdc51}{heat\+Profile\+Buffer}} \mbox{[}\mbox{\hyperlink{base_s_w_8c_a82ad24592415f1e7dd0fab9811e434ea}{HEAT\+\_\+\+PROFILE\+\_\+\+SIZE}}\mbox{]}
 \item 
-uint8\+\_\+t \mbox{\hyperlink{base_s_w_8c_a64a3817e3aecfb84759dbe16f0598b63}{heat\+Profile\+Defult}} \mbox{[}\mbox{\hyperlink{base_s_w_8c_a82ad24592415f1e7dd0fab9811e434ea}{HEAT\+\_\+\+PROFILE\+\_\+\+SIZE}}\mbox{]}
+uint16\+\_\+t \mbox{\hyperlink{base_s_w_8c_a3e3eb07830daa012131f249c932d34b6}{heat\+Profile\+Defult}} \mbox{[}\mbox{\hyperlink{base_s_w_8c_a82ad24592415f1e7dd0fab9811e434ea}{HEAT\+\_\+\+PROFILE\+\_\+\+SIZE}}\mbox{]}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{base_s_w_8c_a603698ed4a332f0cc9d0d0dd1893049a}{heat\+Profile\+Current\+Time}} \mbox{[}\mbox{\hyperlink{base_s_w_8c_a82ad24592415f1e7dd0fab9811e434ea}{HEAT\+\_\+\+PROFILE\+\_\+\+SIZE}}\mbox{]}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{base_s_w_8c_a465b7c64d07ba2c8f11f1c77bfa793fb}{heat\+Profile\+Buffer\+Time}} \mbox{[}\mbox{\hyperlink{base_s_w_8c_a82ad24592415f1e7dd0fab9811e434ea}{HEAT\+\_\+\+PROFILE\+\_\+\+SIZE}}\mbox{]}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{base_s_w_8c_afa3200c189b651a0d9e5770f79a9cec5}{heat\+Profile\+Defult\+Time}} \mbox{[}\mbox{\hyperlink{base_s_w_8c_a82ad24592415f1e7dd0fab9811e434ea}{HEAT\+\_\+\+PROFILE\+\_\+\+SIZE}}\mbox{]}
 \item 
 static \mbox{\hyperlink{struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e}{TEMPERATURE\+\_\+\+PROFILE}} \mbox{\hyperlink{base_s_w_8c_a95c3c5f6ac11b4bb577a8cec8d78ed83}{temperature\+Heat\+Profile}}
 \item 
@@ -150,6 +167,8 @@ static \mbox{\hyperlink{base_s_w_8c_a074deb404aea4ae6dca1b9c44d66116a}{NEXTION\+
 static uint8\+\_\+t \mbox{\hyperlink{base_s_w_8c_a719eb27927e046143f99cd1be625a495}{HEAT\+\_\+\+IN\+\_\+\+PROGRESS}} = false
 \item 
 static \mbox{\hyperlink{struct_t_r_a_n_s_c_i_e_v_e___o_b_j}{TRANSCIEVE\+\_\+\+OBJ}} \mbox{\hyperlink{base_s_w_8c_a13afc5148f79044f6a591b795e8edbe0}{transcive\+Obj}}
+\item 
+static \mbox{\hyperlink{struct_h_e_a_t___t_i_m_e_r___o_b_j}{HEAT\+\_\+\+TIMER\+\_\+\+OBJ}} \mbox{\hyperlink{base_s_w_8c_ad99df0451b8fa5e332873847854c4676}{heat\+Timer\+Obj}}
 \end{DoxyCompactItemize}
 
 
@@ -158,7 +177,7 @@ static \mbox{\hyperlink{struct_t_r_a_n_s_c_i_e_v_e___o_b_j}{TRANSCIEVE\+\_\+\+OB
 \index{baseSW.c@{baseSW.c}!HEAT\_PROFILE\_SIZE@{HEAT\_PROFILE\_SIZE}}
 \index{HEAT\_PROFILE\_SIZE@{HEAT\_PROFILE\_SIZE}!baseSW.c@{baseSW.c}}
 \doxysubsubsection{\texorpdfstring{HEAT\_PROFILE\_SIZE}{HEAT\_PROFILE\_SIZE}}
-{\footnotesize\ttfamily \#define HEAT\+\_\+\+PROFILE\+\_\+\+SIZE~1024}
+{\footnotesize\ttfamily \#define HEAT\+\_\+\+PROFILE\+\_\+\+SIZE~255}
 
 
 
@@ -174,9 +193,9 @@ Definition at line 38 of file base\+SW.\+c.
 \doxysubsubsection{\texorpdfstring{SENSOR\_DATA\_STORE\_LENGTH}{SENSOR\_DATA\_STORE\_LENGTH}}
 {\footnotesize\ttfamily \#define SENSOR\+\_\+\+DATA\+\_\+\+STORE\+\_\+\+LENGTH~10}
 
+Number of measurements we want to store in the ring buffer 
 
-
-Definition at line 168 of file base\+SW.\+c.
+Definition at line 175 of file base\+SW.\+c.
 
 
 
@@ -187,9 +206,24 @@ Definition at line 168 of file base\+SW.\+c.
 \doxysubsubsection{\texorpdfstring{FTDI\_STATUS}{FTDI\_STATUS}}
 {\footnotesize\ttfamily enum \mbox{\hyperlink{base_s_w_8c_aa8f22ecbe143bb20aaab87a0887844c7}{FTDI\+\_\+\+STATUS}}}
 
-\begin{DoxyEnumFields}{Enumerator}
+
+
+PC communication status. 
+
+PC communication status used to determine the current state int the PC communication state machine. The communication state machine is implemented in \mbox{\hyperlink{base_s_w_8c_af341203893341c4fc0aca6617827cc78}{Receive\+FTDI\+\_\+callback()}} function. This function is always when new data is arrived from the FTDI UART-\/\+USB bridge. The current state is the function of the prevoiuos state and one or more incoming bytes.
+
+Control signals are\+: 10\+: Simple command data, new command data is received 1\+: Start heting process 2\+: Stop heating proces 4\+: Load data from the buffer to the current heat profile ~\newline
+
+
+1\+: Change status to RECEIVE\+\_\+\+HEAT\+\_\+\+PROFILE
+
+2\+: Change status to SEND\+\_\+\+HEAT\+\_\+\+PROFILE\+\_\+\+TO\+\_\+\+EEPROM
+
+3\+: Change status to RECEIVE\+\_\+\+PROFILE\+\_\+\+FROM\+\_\+\+EEPROM
+
+4\+: Change status to WRITE\+\_\+\+EEPROM\+\_\+\+COMMAND\+\_\+\+HIGH\+\_\+\+BYTE That state is always followed byte WRITE\+\_\+\+EEPROM\+\_\+\+COMMAND\+\_\+\+LOW\+\_\+\+BYTE In this two states the program is setting the heat profile\textquotesingle{}s address buffer. If SEND\+\_\+\+HEAT\+\_\+\+PROFILE\+\_\+\+TO\+\_\+\+EEPROM is selected the data will be written to the location defined by the address buffer. \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{NORMAL\_OPERATION@{NORMAL\_OPERATION}!baseSW.c@{baseSW.c}}\index{baseSW.c@{baseSW.c}!NORMAL\_OPERATION@{NORMAL\_OPERATION}}}\mbox{\Hypertarget{base_s_w_8c_aa8f22ecbe143bb20aaab87a0887844c7a40a71b2d40ad7ef49b7e28e422ae351e}\label{base_s_w_8c_aa8f22ecbe143bb20aaab87a0887844c7a40a71b2d40ad7ef49b7e28e422ae351e}} 
-NORMAL\+\_\+\+OPERATION&\\
+NORMAL\+\_\+\+OPERATION&Normal operation, the MCU receives control signals. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{RECEIVE\_HEAT\_PROFILE@{RECEIVE\_HEAT\_PROFILE}!baseSW.c@{baseSW.c}}\index{baseSW.c@{baseSW.c}!RECEIVE\_HEAT\_PROFILE@{RECEIVE\_HEAT\_PROFILE}}}\mbox{\Hypertarget{base_s_w_8c_aa8f22ecbe143bb20aaab87a0887844c7a1b57bbf7b1c2160058a0fbe5858cddb5}\label{base_s_w_8c_aa8f22ecbe143bb20aaab87a0887844c7a1b57bbf7b1c2160058a0fbe5858cddb5}} 
@@ -215,7 +249,27 @@ WRITE\+\_\+\+EEPROM\+\_\+\+COMMAND\+\_\+\+LOW\+\_\+\+BYTE&\\
 \end{DoxyEnumFields}
 
 
-Definition at line 204 of file base\+SW.\+c.
+Definition at line 256 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_a79a5812d79ec30e8418055f1f8424fb9}\label{base_s_w_8c_a79a5812d79ec30e8418055f1f8424fb9}} 
+\index{baseSW.c@{baseSW.c}!HEAT\_TIMER\_STATUS@{HEAT\_TIMER\_STATUS}}
+\index{HEAT\_TIMER\_STATUS@{HEAT\_TIMER\_STATUS}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{HEAT\_TIMER\_STATUS}{HEAT\_TIMER\_STATUS}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{base_s_w_8c_a79a5812d79ec30e8418055f1f8424fb9}{HEAT\+\_\+\+TIMER\+\_\+\+STATUS}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RUNNING@{RUNNING}!baseSW.c@{baseSW.c}}\index{baseSW.c@{baseSW.c}!RUNNING@{RUNNING}}}\mbox{\Hypertarget{base_s_w_8c_a79a5812d79ec30e8418055f1f8424fb9a1061be6c3fb88d32829cba6f6b2be304}\label{base_s_w_8c_a79a5812d79ec30e8418055f1f8424fb9a1061be6c3fb88d32829cba6f6b2be304}} 
+RUNNING&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STOPPED@{STOPPED}!baseSW.c@{baseSW.c}}\index{baseSW.c@{baseSW.c}!STOPPED@{STOPPED}}}\mbox{\Hypertarget{base_s_w_8c_a79a5812d79ec30e8418055f1f8424fb9a948b2aee15f52b421fa4770c47bcfe8c}\label{base_s_w_8c_a79a5812d79ec30e8418055f1f8424fb9a948b2aee15f52b421fa4770c47bcfe8c}} 
+STOPPED&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 330 of file base\+SW.\+c.
 
 \mbox{\Hypertarget{base_s_w_8c_a074deb404aea4ae6dca1b9c44d66116a}\label{base_s_w_8c_a074deb404aea4ae6dca1b9c44d66116a}} 
 \index{baseSW.c@{baseSW.c}!NEXTION\_STATUS@{NEXTION\_STATUS}}
@@ -243,7 +297,7 @@ NEXTION\+\_\+\+RECEIVE\+\_\+\+PROFILE\+\_\+\+FROM\+\_\+\+EEPROM&\\
 \end{DoxyEnumFields}
 
 
-Definition at line 222 of file base\+SW.\+c.
+Definition at line 274 of file base\+SW.\+c.
 
 \mbox{\Hypertarget{base_s_w_8c_a58b2042d633892568e5fbcaf5e4ac423}\label{base_s_w_8c_a58b2042d633892568e5fbcaf5e4ac423}} 
 \index{baseSW.c@{baseSW.c}!TEMPERATURE\_BUFFER\_STATUS@{TEMPERATURE\_BUFFER\_STATUS}}
@@ -275,7 +329,7 @@ IDLE&Temperature buffer is in idle state and ready to be used \\
 \end{DoxyEnumFields}
 
 
-Definition at line 132 of file base\+SW.\+c.
+Definition at line 139 of file base\+SW.\+c.
 
 \mbox{\Hypertarget{base_s_w_8c_ae5d95f3971b48ffc0b84e3290ef41ed7}\label{base_s_w_8c_ae5d95f3971b48ffc0b84e3290ef41ed7}} 
 \index{baseSW.c@{baseSW.c}!TRANSCIEVE\_STATUS@{TRANSCIEVE\_STATUS}}
@@ -292,6 +346,10 @@ TRANSCIEVE\+\_\+\+FULL\+\_\+\+HEAT\+\_\+\+PROFILE&\\
 TRANSCIEVE\+\_\+\+CURRENT\+\_\+\+DATA&\\
 \hline
 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TRANSCIEVE\_CURRENT\_DATA\_WITH\_HEAT\_ENABLED@{TRANSCIEVE\_CURRENT\_DATA\_WITH\_HEAT\_ENABLED}!baseSW.c@{baseSW.c}}\index{baseSW.c@{baseSW.c}!TRANSCIEVE\_CURRENT\_DATA\_WITH\_HEAT\_ENABLED@{TRANSCIEVE\_CURRENT\_DATA\_WITH\_HEAT\_ENABLED}}}\mbox{\Hypertarget{base_s_w_8c_ae5d95f3971b48ffc0b84e3290ef41ed7ab2b91ab894433051f4b93fbe31f6be02}\label{base_s_w_8c_ae5d95f3971b48ffc0b84e3290ef41ed7ab2b91ab894433051f4b93fbe31f6be02}} 
+TRANSCIEVE\+\_\+\+CURRENT\+\_\+\+DATA\+\_\+\+WITH\+\_\+\+HEAT\+\_\+\+ENABLED&\\
+\hline
+
 \raisebox{\heightof{T}}[0pt][0pt]{\index{TRANSCIEVE\_IDLE@{TRANSCIEVE\_IDLE}!baseSW.c@{baseSW.c}}\index{baseSW.c@{baseSW.c}!TRANSCIEVE\_IDLE@{TRANSCIEVE\_IDLE}}}\mbox{\Hypertarget{base_s_w_8c_ae5d95f3971b48ffc0b84e3290ef41ed7a138de0a3f25fd929967f47c72048b208}\label{base_s_w_8c_ae5d95f3971b48ffc0b84e3290ef41ed7a138de0a3f25fd929967f47c72048b208}} 
 TRANSCIEVE\+\_\+\+IDLE&\\
 \hline
@@ -299,7 +357,7 @@ TRANSCIEVE\+\_\+\+IDLE&\\
 \end{DoxyEnumFields}
 
 
-Definition at line 257 of file base\+SW.\+c.
+Definition at line 309 of file base\+SW.\+c.
 
 
 
@@ -312,7 +370,7 @@ Definition at line 257 of file base\+SW.\+c.
 
 
 
-Definition at line 559 of file base\+SW.\+c.
+Definition at line 735 of file base\+SW.\+c.
 
 \mbox{\Hypertarget{base_s_w_8c_a73ac441321bc3bbf8179034ce1f61a0b}\label{base_s_w_8c_a73ac441321bc3bbf8179034ce1f61a0b}} 
 \index{baseSW.c@{baseSW.c}!baseSW\_TMR2\_ISR@{baseSW\_TMR2\_ISR}}
@@ -322,7 +380,7 @@ Definition at line 559 of file base\+SW.\+c.
 
 
 
-Definition at line 532 of file base\+SW.\+c.
+Definition at line 650 of file base\+SW.\+c.
 
 \mbox{\Hypertarget{base_s_w_8c_ad7e00ee96d8ec199bb9b5b48fdecd138}\label{base_s_w_8c_ad7e00ee96d8ec199bb9b5b48fdecd138}} 
 \index{baseSW.c@{baseSW.c}!baseSW\_UART1\_rx\_ISR@{baseSW\_UART1\_rx\_ISR}}
@@ -332,7 +390,7 @@ Definition at line 532 of file base\+SW.\+c.
 
 
 
-Definition at line 551 of file base\+SW.\+c.
+Definition at line 727 of file base\+SW.\+c.
 
 \mbox{\Hypertarget{base_s_w_8c_a6d1cf63a62044d720224a87ec491428f}\label{base_s_w_8c_a6d1cf63a62044d720224a87ec491428f}} 
 \index{baseSW.c@{baseSW.c}!baseSW\_UART1\_tx\_ISR@{baseSW\_UART1\_tx\_ISR}}
@@ -342,7 +400,7 @@ Definition at line 551 of file base\+SW.\+c.
 
 
 
-Definition at line 543 of file base\+SW.\+c.
+Definition at line 719 of file base\+SW.\+c.
 
 \mbox{\Hypertarget{base_s_w_8c_a8027f524cdcb8a3a462b2a6addbab4a5}\label{base_s_w_8c_a8027f524cdcb8a3a462b2a6addbab4a5}} 
 \index{baseSW.c@{baseSW.c}!baseSW\_UART2\_rx\_ISR@{baseSW\_UART2\_rx\_ISR}}
@@ -352,7 +410,7 @@ Definition at line 543 of file base\+SW.\+c.
 
 
 
-Definition at line 555 of file base\+SW.\+c.
+Definition at line 731 of file base\+SW.\+c.
 
 \mbox{\Hypertarget{base_s_w_8c_a15ed18da4c6b19d2eb4c49972003f601}\label{base_s_w_8c_a15ed18da4c6b19d2eb4c49972003f601}} 
 \index{baseSW.c@{baseSW.c}!baseSW\_UART2\_tx\_ISR@{baseSW\_UART2\_tx\_ISR}}
@@ -362,7 +420,7 @@ Definition at line 555 of file base\+SW.\+c.
 
 
 
-Definition at line 547 of file base\+SW.\+c.
+Definition at line 723 of file base\+SW.\+c.
 
 \mbox{\Hypertarget{base_s_w_8c_a83e759d4fde4c1f2290f01c8ba5e7e76}\label{base_s_w_8c_a83e759d4fde4c1f2290f01c8ba5e7e76}} 
 \index{baseSW.c@{baseSW.c}!checkStartConditions@{checkStartConditions}}
@@ -372,7 +430,7 @@ Definition at line 547 of file base\+SW.\+c.
 
 
 
-Definition at line 317 of file base\+SW.\+c.
+Definition at line 381 of file base\+SW.\+c.
 
 \mbox{\Hypertarget{base_s_w_8c_a381d6c14a0d21de9943fdf12040729b3}\label{base_s_w_8c_a381d6c14a0d21de9943fdf12040729b3}} 
 \index{baseSW.c@{baseSW.c}!disableHeat@{disableHeat}}
@@ -382,7 +440,7 @@ Definition at line 317 of file base\+SW.\+c.
 
 
 
-Definition at line 282 of file base\+SW.\+c.
+Definition at line 355 of file base\+SW.\+c.
 
 \mbox{\Hypertarget{base_s_w_8c_a2c86cf77e88db89f9983c1b05aac1d45}\label{base_s_w_8c_a2c86cf77e88db89f9983c1b05aac1d45}} 
 \index{baseSW.c@{baseSW.c}!enableHeat@{enableHeat}}
@@ -392,7 +450,7 @@ Definition at line 282 of file base\+SW.\+c.
 
 
 
-Definition at line 278 of file base\+SW.\+c.
+Definition at line 349 of file base\+SW.\+c.
 
 \mbox{\Hypertarget{base_s_w_8c_a27ccec4e551f47ff3fe3c4b6afc07597}\label{base_s_w_8c_a27ccec4e551f47ff3fe3c4b6afc07597}} 
 \index{baseSW.c@{baseSW.c}!genericTranciverFunction@{genericTranciverFunction}}
@@ -402,7 +460,7 @@ Definition at line 278 of file base\+SW.\+c.
 
 
 
-Definition at line 457 of file base\+SW.\+c.
+Definition at line 538 of file base\+SW.\+c.
 
 \mbox{\Hypertarget{base_s_w_8c_aa16cf163141a074b2ddb3a60497d8b99}\label{base_s_w_8c_aa16cf163141a074b2ddb3a60497d8b99}} 
 \index{baseSW.c@{baseSW.c}!IdleState\_callback@{IdleState\_callback}}
@@ -412,17 +470,27 @@ Definition at line 457 of file base\+SW.\+c.
 
 
 
-Definition at line 287 of file base\+SW.\+c.
+Definition at line 363 of file base\+SW.\+c.
 
-\mbox{\Hypertarget{base_s_w_8c_ab2b78c4d809057c8fa3d4074d99a33e6}\label{base_s_w_8c_ab2b78c4d809057c8fa3d4074d99a33e6}} 
-\index{baseSW.c@{baseSW.c}!loadBuffer@{loadBuffer}}
-\index{loadBuffer@{loadBuffer}!baseSW.c@{baseSW.c}}
-\doxysubsubsection{\texorpdfstring{loadBuffer()}{loadBuffer()}}
-{\footnotesize\ttfamily void load\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{base_s_w_8c_a3b239350cad328a0a7002b3b8bedaaf8}\label{base_s_w_8c_a3b239350cad328a0a7002b3b8bedaaf8}} 
+\index{baseSW.c@{baseSW.c}!loadBufferHeatProfile@{loadBufferHeatProfile}}
+\index{loadBufferHeatProfile@{loadBufferHeatProfile}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{loadBufferHeatProfile()}{loadBufferHeatProfile()}}
+{\footnotesize\ttfamily void load\+Buffer\+Heat\+Profile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-Definition at line 312 of file base\+SW.\+c.
+Definition at line 369 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_a9c9a212e71176cd7de00f133f456098e}\label{base_s_w_8c_a9c9a212e71176cd7de00f133f456098e}} 
+\index{baseSW.c@{baseSW.c}!loadDefaultHeatProfile@{loadDefaultHeatProfile}}
+\index{loadDefaultHeatProfile@{loadDefaultHeatProfile}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{loadDefaultHeatProfile()}{loadDefaultHeatProfile()}}
+{\footnotesize\ttfamily void load\+Default\+Heat\+Profile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 373 of file base\+SW.\+c.
 
 \mbox{\Hypertarget{base_s_w_8c_ae2abe0c4c78bc2075dad10c581eedbbe}\label{base_s_w_8c_ae2abe0c4c78bc2075dad10c581eedbbe}} 
 \index{baseSW.c@{baseSW.c}!ReadEEPROM\_callback@{ReadEEPROM\_callback}}
@@ -432,7 +500,17 @@ Definition at line 312 of file base\+SW.\+c.
 
 
 
-Definition at line 493 of file base\+SW.\+c.
+Definition at line 607 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_a7c86f4204ebfad82dcb4e9a38eb1fa91}\label{base_s_w_8c_a7c86f4204ebfad82dcb4e9a38eb1fa91}} 
+\index{baseSW.c@{baseSW.c}!readLeatestTemperatreMeasuremntX4@{readLeatestTemperatreMeasuremntX4}}
+\index{readLeatestTemperatreMeasuremntX4@{readLeatestTemperatreMeasuremntX4}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{readLeatestTemperatreMeasuremntX4()}{readLeatestTemperatreMeasuremntX4()}}
+{\footnotesize\ttfamily uint16\+\_\+t read\+Leatest\+Temperatre\+Measuremnt\+X4 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 413 of file base\+SW.\+c.
 
 \mbox{\Hypertarget{base_s_w_8c_a23b1f41f8c818f17b24b6da7d9af6cd6}\label{base_s_w_8c_a23b1f41f8c818f17b24b6da7d9af6cd6}} 
 \index{baseSW.c@{baseSW.c}!ReadTemperatureData\_callback@{ReadTemperatureData\_callback}}
@@ -442,7 +520,7 @@ Definition at line 493 of file base\+SW.\+c.
 
 
 
-Definition at line 342 of file base\+SW.\+c.
+Definition at line 403 of file base\+SW.\+c.
 
 \mbox{\Hypertarget{base_s_w_8c_af341203893341c4fc0aca6617827cc78}\label{base_s_w_8c_af341203893341c4fc0aca6617827cc78}} 
 \index{baseSW.c@{baseSW.c}!ReceiveFTDI\_callback@{ReceiveFTDI\_callback}}
@@ -452,7 +530,7 @@ Definition at line 342 of file base\+SW.\+c.
 
 
 
-Definition at line 395 of file base\+SW.\+c.
+Definition at line 470 of file base\+SW.\+c.
 
 \mbox{\Hypertarget{base_s_w_8c_a1d1ee0fb69c723856a3009c9dfb74309}\label{base_s_w_8c_a1d1ee0fb69c723856a3009c9dfb74309}} 
 \index{baseSW.c@{baseSW.c}!ReceiveNextionData\_callback@{ReceiveNextionData\_callback}}
@@ -462,7 +540,7 @@ Definition at line 395 of file base\+SW.\+c.
 
 
 
-Definition at line 352 of file base\+SW.\+c.
+Definition at line 427 of file base\+SW.\+c.
 
 \mbox{\Hypertarget{base_s_w_8c_a3821cc2458a1a57bb47d074adab7041c}\label{base_s_w_8c_a3821cc2458a1a57bb47d074adab7041c}} 
 \index{baseSW.c@{baseSW.c}!TranscieveNextionDATA\_callback@{TranscieveNextionDATA\_callback}}
@@ -472,7 +550,7 @@ Definition at line 352 of file base\+SW.\+c.
 
 
 
-Definition at line 484 of file base\+SW.\+c.
+Definition at line 598 of file base\+SW.\+c.
 
 \mbox{\Hypertarget{base_s_w_8c_a5574a7efe563c4a0dcd5a6d14aa25c81}\label{base_s_w_8c_a5574a7efe563c4a0dcd5a6d14aa25c81}} 
 \index{baseSW.c@{baseSW.c}!TransciveFTDI\_callback@{TransciveFTDI\_callback}}
@@ -482,7 +560,7 @@ Definition at line 484 of file base\+SW.\+c.
 
 
 
-Definition at line 488 of file base\+SW.\+c.
+Definition at line 602 of file base\+SW.\+c.
 
 \mbox{\Hypertarget{base_s_w_8c_a4dd0edb41d6818c4b66830d7d5d5f8d4}\label{base_s_w_8c_a4dd0edb41d6818c4b66830d7d5d5f8d4}} 
 \index{baseSW.c@{baseSW.c}!WriteEEPROM\_callback@{WriteEEPROM\_callback}}
@@ -496,7 +574,7 @@ Write\+EEPROM\+\_\+callback
 
 @\+Description This defines the object in the i2c queue. Each entry is a composed of a list of TRBs, the number of the TRBs and the status of the currently processed TRB. 
 
-Definition at line 510 of file base\+SW.\+c.
+Definition at line 625 of file base\+SW.\+c.
 
 
 
@@ -507,7 +585,7 @@ Definition at line 510 of file base\+SW.\+c.
 \doxysubsubsection{\texorpdfstring{EEPROM\_ADDRESS}{EEPROM\_ADDRESS}}
 {\footnotesize\ttfamily const uint16\+\_\+t EEPROM\+\_\+\+ADDRESS = 0x00}
 
-
+EEPROM address 
 
 Definition at line 20 of file base\+SW.\+c.
 
@@ -519,7 +597,7 @@ Definition at line 20 of file base\+SW.\+c.
 
 
 
-Definition at line 214 of file base\+SW.\+c.
+Definition at line 266 of file base\+SW.\+c.
 
 \mbox{\Hypertarget{base_s_w_8c_a719eb27927e046143f99cd1be625a495}\label{base_s_w_8c_a719eb27927e046143f99cd1be625a495}} 
 \index{baseSW.c@{baseSW.c}!HEAT\_IN\_PROGRESS@{HEAT\_IN\_PROGRESS}}
@@ -529,37 +607,77 @@ Definition at line 214 of file base\+SW.\+c.
 
 
 
-Definition at line 248 of file base\+SW.\+c.
+Definition at line 300 of file base\+SW.\+c.
 
-\mbox{\Hypertarget{base_s_w_8c_a05687d20618c0736fd05307bf70d78c2}\label{base_s_w_8c_a05687d20618c0736fd05307bf70d78c2}} 
+\mbox{\Hypertarget{base_s_w_8c_a24a168c4320349b32b46d406e2cfdc51}\label{base_s_w_8c_a24a168c4320349b32b46d406e2cfdc51}} 
 \index{baseSW.c@{baseSW.c}!heatProfileBuffer@{heatProfileBuffer}}
 \index{heatProfileBuffer@{heatProfileBuffer}!baseSW.c@{baseSW.c}}
 \doxysubsubsection{\texorpdfstring{heatProfileBuffer}{heatProfileBuffer}}
-{\footnotesize\ttfamily uint8\+\_\+t heat\+Profile\+Buffer\mbox{[}\mbox{\hyperlink{base_s_w_8c_a82ad24592415f1e7dd0fab9811e434ea}{HEAT\+\_\+\+PROFILE\+\_\+\+SIZE}}\mbox{]}}
+{\footnotesize\ttfamily uint16\+\_\+t heat\+Profile\+Buffer\mbox{[}\mbox{\hyperlink{base_s_w_8c_a82ad24592415f1e7dd0fab9811e434ea}{HEAT\+\_\+\+PROFILE\+\_\+\+SIZE}}\mbox{]}}
 
 Heat profile buffer for memory operations. It can\textquotesingle{}t be used directily, it has to be loaded into heat\+Profile\+Current 
 
 Definition at line 109 of file base\+SW.\+c.
 
-\mbox{\Hypertarget{base_s_w_8c_acc1fffcd67af20d39741d2f2654472bd}\label{base_s_w_8c_acc1fffcd67af20d39741d2f2654472bd}} 
+\mbox{\Hypertarget{base_s_w_8c_a465b7c64d07ba2c8f11f1c77bfa793fb}\label{base_s_w_8c_a465b7c64d07ba2c8f11f1c77bfa793fb}} 
+\index{baseSW.c@{baseSW.c}!heatProfileBufferTime@{heatProfileBufferTime}}
+\index{heatProfileBufferTime@{heatProfileBufferTime}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{heatProfileBufferTime}{heatProfileBufferTime}}
+{\footnotesize\ttfamily uint16\+\_\+t heat\+Profile\+Buffer\+Time\mbox{[}\mbox{\hyperlink{base_s_w_8c_a82ad24592415f1e7dd0fab9811e434ea}{HEAT\+\_\+\+PROFILE\+\_\+\+SIZE}}\mbox{]}}
+
+Heat profile time buffer for memory operations. It can\textquotesingle{}t be used directily, it has to be loaded into heat\+Profile\+Current 
+
+Definition at line 114 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_a1673cb858805b80228a862b20a69502b}\label{base_s_w_8c_a1673cb858805b80228a862b20a69502b}} 
 \index{baseSW.c@{baseSW.c}!heatProfileCurrent@{heatProfileCurrent}}
 \index{heatProfileCurrent@{heatProfileCurrent}!baseSW.c@{baseSW.c}}
 \doxysubsubsection{\texorpdfstring{heatProfileCurrent}{heatProfileCurrent}}
-{\footnotesize\ttfamily uint8\+\_\+t heat\+Profile\+Current\mbox{[}\mbox{\hyperlink{base_s_w_8c_a82ad24592415f1e7dd0fab9811e434ea}{HEAT\+\_\+\+PROFILE\+\_\+\+SIZE}}\mbox{]}}
+{\footnotesize\ttfamily uint16\+\_\+t heat\+Profile\+Current\mbox{[}\mbox{\hyperlink{base_s_w_8c_a82ad24592415f1e7dd0fab9811e434ea}{HEAT\+\_\+\+PROFILE\+\_\+\+SIZE}}\mbox{]}}
 
 Currently selected heat profile. 
 
 Definition at line 108 of file base\+SW.\+c.
 
-\mbox{\Hypertarget{base_s_w_8c_a64a3817e3aecfb84759dbe16f0598b63}\label{base_s_w_8c_a64a3817e3aecfb84759dbe16f0598b63}} 
+\mbox{\Hypertarget{base_s_w_8c_a603698ed4a332f0cc9d0d0dd1893049a}\label{base_s_w_8c_a603698ed4a332f0cc9d0d0dd1893049a}} 
+\index{baseSW.c@{baseSW.c}!heatProfileCurrentTime@{heatProfileCurrentTime}}
+\index{heatProfileCurrentTime@{heatProfileCurrentTime}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{heatProfileCurrentTime}{heatProfileCurrentTime}}
+{\footnotesize\ttfamily uint16\+\_\+t heat\+Profile\+Current\+Time\mbox{[}\mbox{\hyperlink{base_s_w_8c_a82ad24592415f1e7dd0fab9811e434ea}{HEAT\+\_\+\+PROFILE\+\_\+\+SIZE}}\mbox{]}}
+
+Currently selected heat profile time. 
+
+Definition at line 113 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_a3e3eb07830daa012131f249c932d34b6}\label{base_s_w_8c_a3e3eb07830daa012131f249c932d34b6}} 
 \index{baseSW.c@{baseSW.c}!heatProfileDefult@{heatProfileDefult}}
 \index{heatProfileDefult@{heatProfileDefult}!baseSW.c@{baseSW.c}}
 \doxysubsubsection{\texorpdfstring{heatProfileDefult}{heatProfileDefult}}
-{\footnotesize\ttfamily uint8\+\_\+t heat\+Profile\+Defult\mbox{[}\mbox{\hyperlink{base_s_w_8c_a82ad24592415f1e7dd0fab9811e434ea}{HEAT\+\_\+\+PROFILE\+\_\+\+SIZE}}\mbox{]}}
+{\footnotesize\ttfamily uint16\+\_\+t heat\+Profile\+Defult\mbox{[}\mbox{\hyperlink{base_s_w_8c_a82ad24592415f1e7dd0fab9811e434ea}{HEAT\+\_\+\+PROFILE\+\_\+\+SIZE}}\mbox{]}}
 
 Default heat profile, cannot be deleted 
 
 Definition at line 110 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_afa3200c189b651a0d9e5770f79a9cec5}\label{base_s_w_8c_afa3200c189b651a0d9e5770f79a9cec5}} 
+\index{baseSW.c@{baseSW.c}!heatProfileDefultTime@{heatProfileDefultTime}}
+\index{heatProfileDefultTime@{heatProfileDefultTime}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{heatProfileDefultTime}{heatProfileDefultTime}}
+{\footnotesize\ttfamily uint16\+\_\+t heat\+Profile\+Defult\+Time\mbox{[}\mbox{\hyperlink{base_s_w_8c_a82ad24592415f1e7dd0fab9811e434ea}{HEAT\+\_\+\+PROFILE\+\_\+\+SIZE}}\mbox{]}}
+
+Default heat profile time, cannot be deleted 
+
+Definition at line 115 of file base\+SW.\+c.
+
+\mbox{\Hypertarget{base_s_w_8c_ad99df0451b8fa5e332873847854c4676}\label{base_s_w_8c_ad99df0451b8fa5e332873847854c4676}} 
+\index{baseSW.c@{baseSW.c}!heatTimerObj@{heatTimerObj}}
+\index{heatTimerObj@{heatTimerObj}!baseSW.c@{baseSW.c}}
+\doxysubsubsection{\texorpdfstring{heatTimerObj}{heatTimerObj}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_h_e_a_t___t_i_m_e_r___o_b_j}{HEAT\+\_\+\+TIMER\+\_\+\+OBJ}} heat\+Timer\+Obj\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 340 of file base\+SW.\+c.
 
 \mbox{\Hypertarget{base_s_w_8c_a8f175c7c18b1b26153b20e02c9ac85f2}\label{base_s_w_8c_a8f175c7c18b1b26153b20e02c9ac85f2}} 
 \index{baseSW.c@{baseSW.c}!IdleState@{IdleState}}
@@ -571,7 +689,7 @@ Definition at line 110 of file base\+SW.\+c.
 
 Idle state. 
 
-The task connected to this state cannot be deleted from the task que. This task provides the toggling protection to the SSR, ensuring that the software is properly running. This task is also responsible for disableing the heating process if one of the limits is exceeded. 
+The task connected to this state cannot be deleted from the task que. This task provides the toggling protection to the SSR, ensuring that the software is properly running. This task is also responsible for disabling the heating process if one of the limits is exceeded. 
 
 Definition at line 47 of file base\+SW.\+c.
 
@@ -579,9 +697,9 @@ Definition at line 47 of file base\+SW.\+c.
 \index{baseSW.c@{baseSW.c}!INTERNAL\_MAX\_TEMPERATURE@{INTERNAL\_MAX\_TEMPERATURE}}
 \index{INTERNAL\_MAX\_TEMPERATURE@{INTERNAL\_MAX\_TEMPERATURE}!baseSW.c@{baseSW.c}}
 \doxysubsubsection{\texorpdfstring{INTERNAL\_MAX\_TEMPERATURE}{INTERNAL\_MAX\_TEMPERATURE}}
-{\footnotesize\ttfamily const uint16\+\_\+t INTERNAL\+\_\+\+MAX\+\_\+\+TEMPERATURE = 0x0000}
+{\footnotesize\ttfamily const uint16\+\_\+t INTERNAL\+\_\+\+MAX\+\_\+\+TEMPERATURE = 0x320}
 
-
+INTERNAL\+\_\+\+MAX\+\_\+\+TEMPERATURE = Max board temperature x 4 
 
 Definition at line 21 of file base\+SW.\+c.
 
@@ -593,7 +711,7 @@ Definition at line 21 of file base\+SW.\+c.
 
 
 
-Definition at line 230 of file base\+SW.\+c.
+Definition at line 282 of file base\+SW.\+c.
 
 \mbox{\Hypertarget{base_s_w_8c_af23b05db9a9807c4a6abce18a6d4d8f2}\label{base_s_w_8c_af23b05db9a9807c4a6abce18a6d4d8f2}} 
 \index{baseSW.c@{baseSW.c}!ReadEEPROM@{ReadEEPROM}}
@@ -657,9 +775,9 @@ Definition at line 66 of file base\+SW.\+c.
 \doxysubsubsection{\texorpdfstring{SENSOR\_DATA\_ARRAYS}{SENSOR\_DATA\_ARRAYS}}
 {\footnotesize\ttfamily \mbox{\hyperlink{union_i_c___m_a_x31855___d_a_t_a}{IC\+\_\+\+MAX31855\+\_\+\+DATA}} SENSOR\+\_\+\+DATA\+\_\+\+ARRAYS\mbox{[}\mbox{\hyperlink{base_s_w_8c_ae8124ed52c1d38dcd771b78a89c1d226}{SENSOR\+\_\+\+DATA\+\_\+\+STORE\+\_\+\+LENGTH}}\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
 
+Global variable, used for storing measurements data. Direct access is not supperted. 
 
-
-Definition at line 195 of file base\+SW.\+c.
+Definition at line 220 of file base\+SW.\+c.
 
 \mbox{\Hypertarget{base_s_w_8c_a4c9c129df2ec47d40e423ec488b68003}\label{base_s_w_8c_a4c9c129df2ec47d40e423ec488b68003}} 
 \index{baseSW.c@{baseSW.c}!SENSOR\_DATA\_HANDLER@{SENSOR\_DATA\_HANDLER}}
@@ -667,9 +785,9 @@ Definition at line 195 of file base\+SW.\+c.
 \doxysubsubsection{\texorpdfstring{SENSOR\_DATA\_HANDLER}{SENSOR\_DATA\_HANDLER}}
 {\footnotesize\ttfamily \mbox{\hyperlink{struct_s_e_n_s_o_r___d_a_t_a}{SENSOR\+\_\+\+DATA}} SENSOR\+\_\+\+DATA\+\_\+\+HANDLER\hspace{0.3cm}{\ttfamily [static]}}
 
+Global variable, used for access the measurements. \mbox{\hyperlink{union_i_c___m_a_x31855___d_a_t_a}{IC\+\_\+\+MAX31855\+\_\+\+DATA}} can be accessed through this interface. 
 
-
-Definition at line 194 of file base\+SW.\+c.
+Definition at line 219 of file base\+SW.\+c.
 
 \mbox{\Hypertarget{base_s_w_8c_a17f63b1acf2a4318319bf4ee1034dc32}\label{base_s_w_8c_a17f63b1acf2a4318319bf4ee1034dc32}} 
 \index{baseSW.c@{baseSW.c}!temperatureBufferArray@{temperatureBufferArray}}
@@ -679,7 +797,7 @@ Definition at line 194 of file base\+SW.\+c.
 
 
 
-Definition at line 158 of file base\+SW.\+c.
+Definition at line 165 of file base\+SW.\+c.
 
 \mbox{\Hypertarget{base_s_w_8c_a95c3c5f6ac11b4bb577a8cec8d78ed83}\label{base_s_w_8c_a95c3c5f6ac11b4bb577a8cec8d78ed83}} 
 \index{baseSW.c@{baseSW.c}!temperatureHeatProfile@{temperatureHeatProfile}}
@@ -689,15 +807,15 @@ Definition at line 158 of file base\+SW.\+c.
 
 Global varible, it stores heat profile related data 
 
-Definition at line 157 of file base\+SW.\+c.
+Definition at line 164 of file base\+SW.\+c.
 
 \mbox{\Hypertarget{base_s_w_8c_a0e65fe51cfde598b1359de52fe957f96}\label{base_s_w_8c_a0e65fe51cfde598b1359de52fe957f96}} 
 \index{baseSW.c@{baseSW.c}!THERMOCOUPLE\_MAX\_TEMPERATURE@{THERMOCOUPLE\_MAX\_TEMPERATURE}}
 \index{THERMOCOUPLE\_MAX\_TEMPERATURE@{THERMOCOUPLE\_MAX\_TEMPERATURE}!baseSW.c@{baseSW.c}}
 \doxysubsubsection{\texorpdfstring{THERMOCOUPLE\_MAX\_TEMPERATURE}{THERMOCOUPLE\_MAX\_TEMPERATURE}}
-{\footnotesize\ttfamily const uint16\+\_\+t THERMOCOUPLE\+\_\+\+MAX\+\_\+\+TEMPERATURE = 0x0000}
+{\footnotesize\ttfamily const uint16\+\_\+t THERMOCOUPLE\+\_\+\+MAX\+\_\+\+TEMPERATURE = 0x04\+B0}
 
-
+THERMOCOUPLE\+\_\+\+MAX\+\_\+\+TEMPERATURE = Max chamber temperature x 2 
 
 Definition at line 22 of file base\+SW.\+c.
 
@@ -737,7 +855,7 @@ Definition at line 90 of file base\+SW.\+c.
 
 
 
-Definition at line 269 of file base\+SW.\+c.
+Definition at line 322 of file base\+SW.\+c.
 
 \mbox{\Hypertarget{base_s_w_8c_a08c6431afb7c20104abce9c7e1ddfd80}\label{base_s_w_8c_a08c6431afb7c20104abce9c7e1ddfd80}} 
 \index{baseSW.c@{baseSW.c}!WriteEEPROM@{WriteEEPROM}}

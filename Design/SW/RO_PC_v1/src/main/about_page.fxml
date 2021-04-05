@@ -27,7 +27,7 @@
                      </VBox.margin>
                   </Label>
                   <Label text="Version 1.0" />
-                  <Label text="Latest update: 2021. 03. 21." />
+                  <Label text="Latest update: 2021. 04. 05." />
                   <Label text="Designed by: Tamás Polgár" />
                </children>
                <cursor>

@@ -17,7 +17,7 @@
 <indexterm><primary>baseSW_Initialize</primary><secondary>baseSW.h</secondary></indexterm>
 <indexterm><primary>baseSW.h</primary><secondary>baseSW_Initialize</secondary></indexterm>
 <para><computeroutput><link linkend="_state_task_handler_8h_1ac70d77726e89cd77b1604f36f0768724">stateTaskList</link>* baseSW_Initialize (void )</computeroutput></para><para>
-Definition at line 559 of file baseSW.c.</para>
+Definition at line 735 of file baseSW.c.</para>
 </section>
 </section>
 </section>

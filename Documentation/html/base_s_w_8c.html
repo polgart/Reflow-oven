@@ -63,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_d522931ffa1371640980b621734a4381.html">Users</a></li><li class="navelem"><a class="el" href="dir_0f947898106c48d9e58de08ab5a86050.html">EDU_OBOS_5057</a></li><li class="navelem"><a class="el" href="dir_2b4b7038549cfaf5b533adb1a9e76356.html">Documents</a></li><li class="navelem"><a class="el" href="dir_163ee0286806ad55d98a3407bd663cea.html">Reflow oven</a></li><li class="navelem"><a class="el" href="dir_5f09ffc654cb74a36b76a99b4e5ca3e7.html">Design</a></li><li class="navelem"><a class="el" href="dir_b35860c835ebf4efaf371ebd7d0fb965.html">SW</a></li><li class="navelem"><a class="el" href="dir_3b9fde39f5c0c05cff50c7bc821c5939.html">RO_firmware_v1.X</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_e933556c2d91ca26d574a9556ecaee86.html">Design</a></li><li class="navelem"><a class="el" href="dir_81ac99f95a309b5ba4ec9c826e206f03.html">SW</a></li><li class="navelem"><a class="el" href="dir_5782cc3c0a2578fc5e32d5f32ac4153f.html">RO_firmware_v1.X</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -100,17 +100,21 @@ Data Structures</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference temperature profile.  <a href="struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="union_i_c___m_a_x31855___d_a_t_a.html">IC_MAX31855_DATA</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temperature sensor data mapping.  <a href="union_i_c___m_a_x31855___d_a_t_a.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_s_e_n_s_o_r___d_a_t_a.html">SENSOR_DATA</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Measuremnt data array structure.  <a href="struct_s_e_n_s_o_r___d_a_t_a.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="union_b_s___d_a_t_a___o_b_j.html">BS_DATA_OBJ</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_t_r_a_n_s_c_i_e_v_e___o_b_j.html">TRANSCIEVE_OBJ</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_h_e_a_t___t_i_m_e_r___o_b_j.html">HEAT_TIMER_OBJ</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a82ad24592415f1e7dd0fab9811e434ea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="base_s_w_8c.html#a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</a>&#160;&#160;&#160;1024</td></tr>
+<tr class="memitem:a82ad24592415f1e7dd0fab9811e434ea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="base_s_w_8c.html#a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</a>&#160;&#160;&#160;255</td></tr>
 <tr class="memdesc:a82ad24592415f1e7dd0fab9811e434ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Heat profile buffer size.  <a href="base_s_w_8c.html#a82ad24592415f1e7dd0fab9811e434ea">More...</a><br /></td></tr>
 <tr class="separator:a82ad24592415f1e7dd0fab9811e434ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8124ed52c1d38dcd771b78a89c1d226"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="base_s_w_8c.html#ae8124ed52c1d38dcd771b78a89c1d226">SENSOR_DATA_STORE_LENGTH</a>&#160;&#160;&#160;10</td></tr>
@@ -135,6 +139,7 @@ Enumerations</h2></td></tr>
 , <a class="el" href="base_s_w_8c.html#aa8f22ecbe143bb20aaab87a0887844c7ad8db6628bc8d9c05c64025d314a65419">WRITE_EEPROM_COMMAND_LOW_BYTE</a>
 <br />
  }</td></tr>
+<tr class="memdesc:aa8f22ecbe143bb20aaab87a0887844c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">PC communication status.  <a href="base_s_w_8c.html#aa8f22ecbe143bb20aaab87a0887844c7">More...</a><br /></td></tr>
 <tr class="separator:aa8f22ecbe143bb20aaab87a0887844c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a074deb404aea4ae6dca1b9c44d66116a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="base_s_w_8c.html#a074deb404aea4ae6dca1b9c44d66116a">NEXTION_STATUS</a> { <a class="el" href="base_s_w_8c.html#a074deb404aea4ae6dca1b9c44d66116aa90762a477aa0f30aea8aa3cb976a5398">NEXTION_NORMAL_OPERATION</a>
 , <a class="el" href="base_s_w_8c.html#a074deb404aea4ae6dca1b9c44d66116aad9e1dbc9cdfe9d975f431ad11d5748da">NEXTION_WRITE_EEPROM_COMMAND_HIGH_BYTE</a>
@@ -144,9 +149,14 @@ Enumerations</h2></td></tr>
 <tr class="separator:a074deb404aea4ae6dca1b9c44d66116a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5d95f3971b48ffc0b84e3290ef41ed7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="base_s_w_8c.html#ae5d95f3971b48ffc0b84e3290ef41ed7">TRANSCIEVE_STATUS</a> { <a class="el" href="base_s_w_8c.html#ae5d95f3971b48ffc0b84e3290ef41ed7a6d9519cd7bf055df890493eb4f6fa6b6">TRANSCIEVE_FULL_HEAT_PROFILE</a>
 , <a class="el" href="base_s_w_8c.html#ae5d95f3971b48ffc0b84e3290ef41ed7a80edd9e2810683393aee79b2f5b9bdbc">TRANSCIEVE_CURRENT_DATA</a>
+, <a class="el" href="base_s_w_8c.html#ae5d95f3971b48ffc0b84e3290ef41ed7ab2b91ab894433051f4b93fbe31f6be02">TRANSCIEVE_CURRENT_DATA_WITH_HEAT_ENABLED</a>
 , <a class="el" href="base_s_w_8c.html#ae5d95f3971b48ffc0b84e3290ef41ed7a138de0a3f25fd929967f47c72048b208">TRANSCIEVE_IDLE</a>
  }</td></tr>
 <tr class="separator:ae5d95f3971b48ffc0b84e3290ef41ed7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79a5812d79ec30e8418055f1f8424fb9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="base_s_w_8c.html#a79a5812d79ec30e8418055f1f8424fb9">HEAT_TIMER_STATUS</a> { <a class="el" href="base_s_w_8c.html#a79a5812d79ec30e8418055f1f8424fb9a1061be6c3fb88d32829cba6f6b2be304">RUNNING</a>
+, <a class="el" href="base_s_w_8c.html#a79a5812d79ec30e8418055f1f8424fb9a948b2aee15f52b421fa4770c47bcfe8c">STOPPED</a>
+ }</td></tr>
+<tr class="separator:a79a5812d79ec30e8418055f1f8424fb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -156,12 +166,16 @@ Functions</h2></td></tr>
 <tr class="separator:a381d6c14a0d21de9943fdf12040729b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa16cf163141a074b2ddb3a60497d8b99"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="base_s_w_8c.html#aa16cf163141a074b2ddb3a60497d8b99">IdleState_callback</a> ()</td></tr>
 <tr class="separator:aa16cf163141a074b2ddb3a60497d8b99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2b78c4d809057c8fa3d4074d99a33e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="base_s_w_8c.html#ab2b78c4d809057c8fa3d4074d99a33e6">loadBuffer</a> ()</td></tr>
-<tr class="separator:ab2b78c4d809057c8fa3d4074d99a33e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b239350cad328a0a7002b3b8bedaaf8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="base_s_w_8c.html#a3b239350cad328a0a7002b3b8bedaaf8">loadBufferHeatProfile</a> ()</td></tr>
+<tr class="separator:a3b239350cad328a0a7002b3b8bedaaf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c9a212e71176cd7de00f133f456098e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="base_s_w_8c.html#a9c9a212e71176cd7de00f133f456098e">loadDefaultHeatProfile</a> ()</td></tr>
+<tr class="separator:a9c9a212e71176cd7de00f133f456098e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83e759d4fde4c1f2290f01c8ba5e7e76"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="base_s_w_8c.html#a83e759d4fde4c1f2290f01c8ba5e7e76">checkStartConditions</a> ()</td></tr>
 <tr class="separator:a83e759d4fde4c1f2290f01c8ba5e7e76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23b1f41f8c818f17b24b6da7d9af6cd6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="base_s_w_8c.html#a23b1f41f8c818f17b24b6da7d9af6cd6">ReadTemperatureData_callback</a> ()</td></tr>
 <tr class="separator:a23b1f41f8c818f17b24b6da7d9af6cd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c86f4204ebfad82dcb4e9a38eb1fa91"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="base_s_w_8c.html#a7c86f4204ebfad82dcb4e9a38eb1fa91">readLeatestTemperatreMeasuremntX4</a> ()</td></tr>
+<tr class="separator:a7c86f4204ebfad82dcb4e9a38eb1fa91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d1ee0fb69c723856a3009c9dfb74309"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="base_s_w_8c.html#a1d1ee0fb69c723856a3009c9dfb74309">ReceiveNextionData_callback</a> ()</td></tr>
 <tr class="separator:a1d1ee0fb69c723856a3009c9dfb74309"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af341203893341c4fc0aca6617827cc78"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="base_s_w_8c.html#af341203893341c4fc0aca6617827cc78">ReceiveFTDI_callback</a> ()</td></tr>
@@ -193,9 +207,9 @@ Functions</h2></td></tr>
 Variables</h2></td></tr>
 <tr class="memitem:a563dcdd951ca06a98e8526fc7fa2192f"><td class="memItemLeft" align="right" valign="top">const uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="base_s_w_8c.html#a563dcdd951ca06a98e8526fc7fa2192f">EEPROM_ADDRESS</a> = 0x00</td></tr>
 <tr class="separator:a563dcdd951ca06a98e8526fc7fa2192f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ef8a1d4d3bc515d6b5f09d2ea92784d"><td class="memItemLeft" align="right" valign="top">const uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="base_s_w_8c.html#a0ef8a1d4d3bc515d6b5f09d2ea92784d">INTERNAL_MAX_TEMPERATURE</a> = 0x0000</td></tr>
+<tr class="memitem:a0ef8a1d4d3bc515d6b5f09d2ea92784d"><td class="memItemLeft" align="right" valign="top">const uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="base_s_w_8c.html#a0ef8a1d4d3bc515d6b5f09d2ea92784d">INTERNAL_MAX_TEMPERATURE</a> = 0x320</td></tr>
 <tr class="separator:a0ef8a1d4d3bc515d6b5f09d2ea92784d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e65fe51cfde598b1359de52fe957f96"><td class="memItemLeft" align="right" valign="top">const uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="base_s_w_8c.html#a0e65fe51cfde598b1359de52fe957f96">THERMOCOUPLE_MAX_TEMPERATURE</a> = 0x0000</td></tr>
+<tr class="memitem:a0e65fe51cfde598b1359de52fe957f96"><td class="memItemLeft" align="right" valign="top">const uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="base_s_w_8c.html#a0e65fe51cfde598b1359de52fe957f96">THERMOCOUPLE_MAX_TEMPERATURE</a> = 0x04B0</td></tr>
 <tr class="separator:a0e65fe51cfde598b1359de52fe957f96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f175c7c18b1b26153b20e02c9ac85f2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="state_task_handler_8h.html#ac70d77726e89cd77b1604f36f0768724">stateTaskList</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="base_s_w_8c.html#a8f175c7c18b1b26153b20e02c9ac85f2">IdleState</a> = NULL</td></tr>
 <tr class="memdesc:a8f175c7c18b1b26153b20e02c9ac85f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Idle state.  <a href="base_s_w_8c.html#a8f175c7c18b1b26153b20e02c9ac85f2">More...</a><br /></td></tr>
@@ -221,12 +235,18 @@ Variables</h2></td></tr>
 <tr class="memitem:a08c6431afb7c20104abce9c7e1ddfd80"><td class="memItemLeft" align="right" valign="top"><a class="el" href="state_task_handler_8h.html#ac70d77726e89cd77b1604f36f0768724">stateTaskList</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="base_s_w_8c.html#a08c6431afb7c20104abce9c7e1ddfd80">WriteEEPROM</a> = NULL</td></tr>
 <tr class="memdesc:a08c6431afb7c20104abce9c7e1ddfd80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write heat profile into EEPROM.  <a href="base_s_w_8c.html#a08c6431afb7c20104abce9c7e1ddfd80">More...</a><br /></td></tr>
 <tr class="separator:a08c6431afb7c20104abce9c7e1ddfd80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc1fffcd67af20d39741d2f2654472bd"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="base_s_w_8c.html#acc1fffcd67af20d39741d2f2654472bd">heatProfileCurrent</a> [<a class="el" href="base_s_w_8c.html#a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</a>]</td></tr>
-<tr class="separator:acc1fffcd67af20d39741d2f2654472bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05687d20618c0736fd05307bf70d78c2"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="base_s_w_8c.html#a05687d20618c0736fd05307bf70d78c2">heatProfileBuffer</a> [<a class="el" href="base_s_w_8c.html#a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</a>]</td></tr>
-<tr class="separator:a05687d20618c0736fd05307bf70d78c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64a3817e3aecfb84759dbe16f0598b63"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="base_s_w_8c.html#a64a3817e3aecfb84759dbe16f0598b63">heatProfileDefult</a> [<a class="el" href="base_s_w_8c.html#a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</a>]</td></tr>
-<tr class="separator:a64a3817e3aecfb84759dbe16f0598b63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1673cb858805b80228a862b20a69502b"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="base_s_w_8c.html#a1673cb858805b80228a862b20a69502b">heatProfileCurrent</a> [<a class="el" href="base_s_w_8c.html#a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</a>]</td></tr>
+<tr class="separator:a1673cb858805b80228a862b20a69502b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24a168c4320349b32b46d406e2cfdc51"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="base_s_w_8c.html#a24a168c4320349b32b46d406e2cfdc51">heatProfileBuffer</a> [<a class="el" href="base_s_w_8c.html#a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</a>]</td></tr>
+<tr class="separator:a24a168c4320349b32b46d406e2cfdc51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e3eb07830daa012131f249c932d34b6"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="base_s_w_8c.html#a3e3eb07830daa012131f249c932d34b6">heatProfileDefult</a> [<a class="el" href="base_s_w_8c.html#a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</a>]</td></tr>
+<tr class="separator:a3e3eb07830daa012131f249c932d34b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a603698ed4a332f0cc9d0d0dd1893049a"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="base_s_w_8c.html#a603698ed4a332f0cc9d0d0dd1893049a">heatProfileCurrentTime</a> [<a class="el" href="base_s_w_8c.html#a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</a>]</td></tr>
+<tr class="separator:a603698ed4a332f0cc9d0d0dd1893049a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a465b7c64d07ba2c8f11f1c77bfa793fb"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="base_s_w_8c.html#a465b7c64d07ba2c8f11f1c77bfa793fb">heatProfileBufferTime</a> [<a class="el" href="base_s_w_8c.html#a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</a>]</td></tr>
+<tr class="separator:a465b7c64d07ba2c8f11f1c77bfa793fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa3200c189b651a0d9e5770f79a9cec5"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="base_s_w_8c.html#afa3200c189b651a0d9e5770f79a9cec5">heatProfileDefultTime</a> [<a class="el" href="base_s_w_8c.html#a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</a>]</td></tr>
+<tr class="separator:afa3200c189b651a0d9e5770f79a9cec5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95c3c5f6ac11b4bb577a8cec8d78ed83"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e.html">TEMPERATURE_PROFILE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="base_s_w_8c.html#a95c3c5f6ac11b4bb577a8cec8d78ed83">temperatureHeatProfile</a></td></tr>
 <tr class="separator:a95c3c5f6ac11b4bb577a8cec8d78ed83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17f63b1acf2a4318319bf4ee1034dc32"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r.html">TEMPERATURE_BUFFER</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="base_s_w_8c.html#a17f63b1acf2a4318319bf4ee1034dc32">temperatureBufferArray</a> [3]</td></tr>
@@ -243,6 +263,8 @@ Variables</h2></td></tr>
 <tr class="separator:a719eb27927e046143f99cd1be625a495"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13afc5148f79044f6a591b795e8edbe0"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_t_r_a_n_s_c_i_e_v_e___o_b_j.html">TRANSCIEVE_OBJ</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="base_s_w_8c.html#a13afc5148f79044f6a591b795e8edbe0">transciveObj</a></td></tr>
 <tr class="separator:a13afc5148f79044f6a591b795e8edbe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad99df0451b8fa5e332873847854c4676"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_h_e_a_t___t_i_m_e_r___o_b_j.html">HEAT_TIMER_OBJ</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="base_s_w_8c.html#ad99df0451b8fa5e332873847854c4676">heatTimerObj</a></td></tr>
+<tr class="separator:ad99df0451b8fa5e332873847854c4676"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a82ad24592415f1e7dd0fab9811e434ea"></a>
@@ -252,7 +274,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define HEAT_PROFILE_SIZE&#160;&#160;&#160;1024</td>
+          <td class="memname">#define HEAT_PROFILE_SIZE&#160;&#160;&#160;255</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -275,8 +297,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Number of measurements we want to store in the ring buffer </p>
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00168">168</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00175">175</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>
@@ -292,8 +315,18 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>PC communication status. </p>
+<p>PC communication status used to determine the current state int the PC communication state machine. The communication state machine is implemented in <a class="el" href="base_s_w_8c.html#af341203893341c4fc0aca6617827cc78">ReceiveFTDI_callback()</a> function. This function is always when new data is arrived from the FTDI UART-USB bridge. The current state is the function of the prevoiuos state and one or more incoming bytes.</p>
+<p>Control signals are: 10: Simple command data, new command data is received 1: Start heting process 2: Stop heating proces 4: Load data from the buffer to the current heat profile <br  />
+</p>
+<p>1: Change status to RECEIVE_HEAT_PROFILE</p>
+<p>2: Change status to SEND_HEAT_PROFILE_TO_EEPROM</p>
+<p>3: Change status to RECEIVE_PROFILE_FROM_EEPROM</p>
+<p>4: Change status to WRITE_EEPROM_COMMAND_HIGH_BYTE That state is always followed byte WRITE_EEPROM_COMMAND_LOW_BYTE In this two states the program is setting the heat profile's address buffer. If SEND_HEAT_PROFILE_TO_EEPROM is selected the data will be written to the location defined by the address buffer. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa8f22ecbe143bb20aaab87a0887844c7a40a71b2d40ad7ef49b7e28e422ae351e"></a>NORMAL_OPERATION&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa8f22ecbe143bb20aaab87a0887844c7a40a71b2d40ad7ef49b7e28e422ae351e"></a>NORMAL_OPERATION&#160;</td><td class="fielddoc"><p>Normal operation, the MCU receives control signals. </p>
+</td></tr>
 <tr><td class="fieldname"><a id="aa8f22ecbe143bb20aaab87a0887844c7a1b57bbf7b1c2160058a0fbe5858cddb5"></a>RECEIVE_HEAT_PROFILE&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa8f22ecbe143bb20aaab87a0887844c7ae2d0852810163567f323a00b303e7286"></a>SEND_HEAT_PROFILE_TO_EEPROM&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa8f22ecbe143bb20aaab87a0887844c7ab3de1e25d10ae403e278841fec19a45f"></a>RECEIVE_PROFILE_FROM_EEPROM&#160;</td><td class="fielddoc"></td></tr>
@@ -301,7 +334,27 @@ Variables</h2></td></tr>
 <tr><td class="fieldname"><a id="aa8f22ecbe143bb20aaab87a0887844c7ad8db6628bc8d9c05c64025d314a65419"></a>WRITE_EEPROM_COMMAND_LOW_BYTE&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00204">204</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00256">256</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+
+</div>
+</div>
+<a id="a79a5812d79ec30e8418055f1f8424fb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79a5812d79ec30e8418055f1f8424fb9">&#9670;&nbsp;</a></span>HEAT_TIMER_STATUS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="base_s_w_8c.html#a79a5812d79ec30e8418055f1f8424fb9">HEAT_TIMER_STATUS</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a79a5812d79ec30e8418055f1f8424fb9a1061be6c3fb88d32829cba6f6b2be304"></a>RUNNING&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a79a5812d79ec30e8418055f1f8424fb9a948b2aee15f52b421fa4770c47bcfe8c"></a>STOPPED&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00330">330</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>
@@ -323,7 +376,7 @@ Variables</h2></td></tr>
 <tr><td class="fieldname"><a id="a074deb404aea4ae6dca1b9c44d66116aab849175f420bc7a346b2865c0d2c4a27"></a>NEXTION_RECEIVE_PROFILE_FROM_EEPROM&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00222">222</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00274">274</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>
@@ -352,7 +405,7 @@ Variables</h2></td></tr>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00132">132</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00139">139</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>
@@ -370,10 +423,11 @@ Variables</h2></td></tr>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ae5d95f3971b48ffc0b84e3290ef41ed7a6d9519cd7bf055df890493eb4f6fa6b6"></a>TRANSCIEVE_FULL_HEAT_PROFILE&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ae5d95f3971b48ffc0b84e3290ef41ed7a80edd9e2810683393aee79b2f5b9bdbc"></a>TRANSCIEVE_CURRENT_DATA&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae5d95f3971b48ffc0b84e3290ef41ed7ab2b91ab894433051f4b93fbe31f6be02"></a>TRANSCIEVE_CURRENT_DATA_WITH_HEAT_ENABLED&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ae5d95f3971b48ffc0b84e3290ef41ed7a138de0a3f25fd929967f47c72048b208"></a>TRANSCIEVE_IDLE&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00257">257</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00309">309</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>
@@ -394,7 +448,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00559">559</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00735">735</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>
@@ -414,7 +468,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00532">532</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00650">650</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>
@@ -434,7 +488,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00551">551</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00727">727</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>
@@ -454,7 +508,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00543">543</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00719">719</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>
@@ -474,7 +528,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00555">555</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00731">731</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>
@@ -494,7 +548,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00547">547</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00723">723</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>
@@ -513,7 +567,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00317">317</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00381">381</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>
@@ -532,7 +586,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00282">282</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00355">355</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>
@@ -551,7 +605,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00278">278</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00349">349</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>
@@ -570,7 +624,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00457">457</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00538">538</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>
@@ -589,18 +643,18 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00287">287</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00363">363</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>
-<a id="ab2b78c4d809057c8fa3d4074d99a33e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2b78c4d809057c8fa3d4074d99a33e6">&#9670;&nbsp;</a></span>loadBuffer()</h2>
+<a id="a3b239350cad328a0a7002b3b8bedaaf8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b239350cad328a0a7002b3b8bedaaf8">&#9670;&nbsp;</a></span>loadBufferHeatProfile()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void loadBuffer </td>
+          <td class="memname">void loadBufferHeatProfile </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -608,7 +662,26 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00312">312</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00369">369</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+
+</div>
+</div>
+<a id="a9c9a212e71176cd7de00f133f456098e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c9a212e71176cd7de00f133f456098e">&#9670;&nbsp;</a></span>loadDefaultHeatProfile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void loadDefaultHeatProfile </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00373">373</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>
@@ -627,7 +700,26 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00493">493</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00607">607</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+
+</div>
+</div>
+<a id="a7c86f4204ebfad82dcb4e9a38eb1fa91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c86f4204ebfad82dcb4e9a38eb1fa91">&#9670;&nbsp;</a></span>readLeatestTemperatreMeasuremntX4()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t readLeatestTemperatreMeasuremntX4 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00413">413</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>
@@ -646,7 +738,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00342">342</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00403">403</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>
@@ -665,7 +757,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00395">395</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00470">470</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>
@@ -684,7 +776,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00352">352</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00427">427</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>
@@ -703,7 +795,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00484">484</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00598">598</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>
@@ -722,7 +814,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00488">488</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00602">602</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>
@@ -744,7 +836,7 @@ Variables</h2></td></tr>
 <p>@Summary Copy data from temperature buffer to EEPROM</p>
 <p>@Description This defines the object in the i2c queue. Each entry is a composed of a list of TRBs, the number of the TRBs and the status of the currently processed TRB. </p>
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00510">510</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00625">625</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>
@@ -760,6 +852,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>EEPROM address </p>
 
 <p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00020">20</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
@@ -785,7 +878,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00214">214</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00266">266</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>
@@ -809,18 +902,18 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00248">248</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00300">300</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>
-<a id="a05687d20618c0736fd05307bf70d78c2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05687d20618c0736fd05307bf70d78c2">&#9670;&nbsp;</a></span>heatProfileBuffer</h2>
+<a id="a24a168c4320349b32b46d406e2cfdc51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24a168c4320349b32b46d406e2cfdc51">&#9670;&nbsp;</a></span>heatProfileBuffer</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t heatProfileBuffer[<a class="el" href="base_s_w_8c.html#a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</a>]</td>
+          <td class="memname">uint16_t heatProfileBuffer[<a class="el" href="base_s_w_8c.html#a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</a>]</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -830,14 +923,31 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="acc1fffcd67af20d39741d2f2654472bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc1fffcd67af20d39741d2f2654472bd">&#9670;&nbsp;</a></span>heatProfileCurrent</h2>
+<a id="a465b7c64d07ba2c8f11f1c77bfa793fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a465b7c64d07ba2c8f11f1c77bfa793fb">&#9670;&nbsp;</a></span>heatProfileBufferTime</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t heatProfileCurrent[<a class="el" href="base_s_w_8c.html#a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</a>]</td>
+          <td class="memname">uint16_t heatProfileBufferTime[<a class="el" href="base_s_w_8c.html#a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Heat profile time buffer for memory operations. It can't be used directily, it has to be loaded into heatProfileCurrent </p>
+
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00114">114</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+
+</div>
+</div>
+<a id="a1673cb858805b80228a862b20a69502b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1673cb858805b80228a862b20a69502b">&#9670;&nbsp;</a></span>heatProfileCurrent</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t heatProfileCurrent[<a class="el" href="base_s_w_8c.html#a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</a>]</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -847,20 +957,78 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a64a3817e3aecfb84759dbe16f0598b63"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a64a3817e3aecfb84759dbe16f0598b63">&#9670;&nbsp;</a></span>heatProfileDefult</h2>
+<a id="a603698ed4a332f0cc9d0d0dd1893049a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a603698ed4a332f0cc9d0d0dd1893049a">&#9670;&nbsp;</a></span>heatProfileCurrentTime</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t heatProfileDefult[<a class="el" href="base_s_w_8c.html#a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</a>]</td>
+          <td class="memname">uint16_t heatProfileCurrentTime[<a class="el" href="base_s_w_8c.html#a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Currently selected heat profile time. </p>
+
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00113">113</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+
+</div>
+</div>
+<a id="a3e3eb07830daa012131f249c932d34b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e3eb07830daa012131f249c932d34b6">&#9670;&nbsp;</a></span>heatProfileDefult</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t heatProfileDefult[<a class="el" href="base_s_w_8c.html#a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</a>]</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Default heat profile, cannot be deleted </p>
 
 <p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00110">110</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+
+</div>
+</div>
+<a id="afa3200c189b651a0d9e5770f79a9cec5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa3200c189b651a0d9e5770f79a9cec5">&#9670;&nbsp;</a></span>heatProfileDefultTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t heatProfileDefultTime[<a class="el" href="base_s_w_8c.html#a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Default heat profile time, cannot be deleted </p>
+
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00115">115</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+
+</div>
+</div>
+<a id="ad99df0451b8fa5e332873847854c4676"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad99df0451b8fa5e332873847854c4676">&#9670;&nbsp;</a></span>heatTimerObj</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_h_e_a_t___t_i_m_e_r___o_b_j.html">HEAT_TIMER_OBJ</a> heatTimerObj</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00340">340</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>
@@ -877,7 +1045,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Idle state. </p>
-<p>The task connected to this state cannot be deleted from the task que. This task provides the toggling protection to the SSR, ensuring that the software is properly running. This task is also responsible for disableing the heating process if one of the limits is exceeded. </p>
+<p>The task connected to this state cannot be deleted from the task que. This task provides the toggling protection to the SSR, ensuring that the software is properly running. This task is also responsible for disabling the heating process if one of the limits is exceeded. </p>
 
 <p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00047">47</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
@@ -890,10 +1058,11 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const uint16_t INTERNAL_MAX_TEMPERATURE = 0x0000</td>
+          <td class="memname">const uint16_t INTERNAL_MAX_TEMPERATURE = 0x320</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>INTERNAL_MAX_TEMPERATURE = Max board temperature x 4 </p>
 
 <p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00021">21</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
@@ -919,7 +1088,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00230">230</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00282">282</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>
@@ -1018,8 +1187,9 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Global variable, used for storing measurements data. Direct access is not supperted. </p>
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00195">195</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00220">220</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>
@@ -1042,8 +1212,9 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Global variable, used for access the measurements. <a class="el" href="union_i_c___m_a_x31855___d_a_t_a.html" title="Temperature sensor data mapping.">IC_MAX31855_DATA</a> can be accessed through this interface. </p>
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00194">194</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00219">219</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>
@@ -1059,7 +1230,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00158">158</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00165">165</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>
@@ -1084,7 +1255,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Global varible, it stores heat profile related data </p>
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00157">157</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00164">164</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>
@@ -1095,10 +1266,11 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const uint16_t THERMOCOUPLE_MAX_TEMPERATURE = 0x0000</td>
+          <td class="memname">const uint16_t THERMOCOUPLE_MAX_TEMPERATURE = 0x04B0</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>THERMOCOUPLE_MAX_TEMPERATURE = Max chamber temperature x 2 </p>
 
 <p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00022">22</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
@@ -1162,7 +1334,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00269">269</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00322">322</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>

@@ -25,19 +25,25 @@
 <para>Reference temperature profile. </para>
 </listitem>
             <listitem><para>union <link linkend="_union_i_c___m_a_x31855___d_a_t_a">IC_MAX31855_DATA</link></para>
+
+<para>Temperature sensor data mapping. </para>
 </listitem>
             <listitem><para>struct <link linkend="_struct_s_e_n_s_o_r___d_a_t_a">SENSOR_DATA</link></para>
+
+<para>Measuremnt data array structure. </para>
 </listitem>
             <listitem><para>union <link linkend="_union_b_s___d_a_t_a___o_b_j">BS_DATA_OBJ</link></para>
 </listitem>
             <listitem><para>struct <link linkend="_struct_t_r_a_n_s_c_i_e_v_e___o_b_j">TRANSCIEVE_OBJ</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_struct_h_e_a_t___t_i_m_e_r___o_b_j">HEAT_TIMER_OBJ</link></para>
 </listitem>
         </itemizedlist>
 </simplesect>
 <simplesect>
     <title>Macros    </title>
         <itemizedlist>
-            <listitem><para>#define <link linkend="_base_s_w_8c_1a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</link>   1024</para>
+            <listitem><para>#define <link linkend="_base_s_w_8c_1a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</link>   255</para>
 
 <para>Heat profile buffer size. </para>
 </listitem>
@@ -65,6 +71,8 @@
 <link linkend="_base_s_w_8c_1aa8f22ecbe143bb20aaab87a0887844c7a3a592e9811844c507e9e173f92083a16">WRITE_EEPROM_COMMAND_HIGH_BYTE</link>
 , <link linkend="_base_s_w_8c_1aa8f22ecbe143bb20aaab87a0887844c7ad8db6628bc8d9c05c64025d314a65419">WRITE_EEPROM_COMMAND_LOW_BYTE</link>
  }</para>
+
+<para>PC communication status. </para>
 </listitem>
             <listitem><para>enum <link linkend="_base_s_w_8c_1a074deb404aea4ae6dca1b9c44d66116a">NEXTION_STATUS</link> { <link linkend="_base_s_w_8c_1a074deb404aea4ae6dca1b9c44d66116aa90762a477aa0f30aea8aa3cb976a5398">NEXTION_NORMAL_OPERATION</link>
 , <link linkend="_base_s_w_8c_1a074deb404aea4ae6dca1b9c44d66116aad9e1dbc9cdfe9d975f431ad11d5748da">NEXTION_WRITE_EEPROM_COMMAND_HIGH_BYTE</link>
@@ -74,7 +82,12 @@
 </listitem>
             <listitem><para>enum <link linkend="_base_s_w_8c_1ae5d95f3971b48ffc0b84e3290ef41ed7">TRANSCIEVE_STATUS</link> { <link linkend="_base_s_w_8c_1ae5d95f3971b48ffc0b84e3290ef41ed7a6d9519cd7bf055df890493eb4f6fa6b6">TRANSCIEVE_FULL_HEAT_PROFILE</link>
 , <link linkend="_base_s_w_8c_1ae5d95f3971b48ffc0b84e3290ef41ed7a80edd9e2810683393aee79b2f5b9bdbc">TRANSCIEVE_CURRENT_DATA</link>
+, <link linkend="_base_s_w_8c_1ae5d95f3971b48ffc0b84e3290ef41ed7ab2b91ab894433051f4b93fbe31f6be02">TRANSCIEVE_CURRENT_DATA_WITH_HEAT_ENABLED</link>
 , <link linkend="_base_s_w_8c_1ae5d95f3971b48ffc0b84e3290ef41ed7a138de0a3f25fd929967f47c72048b208">TRANSCIEVE_IDLE</link>
+ }</para>
+</listitem>
+            <listitem><para>enum <link linkend="_base_s_w_8c_1a79a5812d79ec30e8418055f1f8424fb9">HEAT_TIMER_STATUS</link> { <link linkend="_base_s_w_8c_1a79a5812d79ec30e8418055f1f8424fb9a1061be6c3fb88d32829cba6f6b2be304">RUNNING</link>
+, <link linkend="_base_s_w_8c_1a79a5812d79ec30e8418055f1f8424fb9a948b2aee15f52b421fa4770c47bcfe8c">STOPPED</link>
  }</para>
 </listitem>
         </itemizedlist>
@@ -88,11 +101,15 @@
 </listitem>
             <listitem><para>void <link linkend="_base_s_w_8c_1aa16cf163141a074b2ddb3a60497d8b99">IdleState_callback</link> ()</para>
 </listitem>
-            <listitem><para>void <link linkend="_base_s_w_8c_1ab2b78c4d809057c8fa3d4074d99a33e6">loadBuffer</link> ()</para>
+            <listitem><para>void <link linkend="_base_s_w_8c_1a3b239350cad328a0a7002b3b8bedaaf8">loadBufferHeatProfile</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_base_s_w_8c_1a9c9a212e71176cd7de00f133f456098e">loadDefaultHeatProfile</link> ()</para>
 </listitem>
             <listitem><para>bool <link linkend="_base_s_w_8c_1a83e759d4fde4c1f2290f01c8ba5e7e76">checkStartConditions</link> ()</para>
 </listitem>
             <listitem><para>void <link linkend="_base_s_w_8c_1a23b1f41f8c818f17b24b6da7d9af6cd6">ReadTemperatureData_callback</link> ()</para>
+</listitem>
+            <listitem><para>uint16_t <link linkend="_base_s_w_8c_1a7c86f4204ebfad82dcb4e9a38eb1fa91">readLeatestTemperatreMeasuremntX4</link> ()</para>
 </listitem>
             <listitem><para>void <link linkend="_base_s_w_8c_1a1d1ee0fb69c723856a3009c9dfb74309">ReceiveNextionData_callback</link> ()</para>
 </listitem>
@@ -127,9 +144,9 @@
         <itemizedlist>
             <listitem><para>const uint16_t <link linkend="_base_s_w_8c_1a563dcdd951ca06a98e8526fc7fa2192f">EEPROM_ADDRESS</link> = 0x00</para>
 </listitem>
-            <listitem><para>const uint16_t <link linkend="_base_s_w_8c_1a0ef8a1d4d3bc515d6b5f09d2ea92784d">INTERNAL_MAX_TEMPERATURE</link> = 0x0000</para>
+            <listitem><para>const uint16_t <link linkend="_base_s_w_8c_1a0ef8a1d4d3bc515d6b5f09d2ea92784d">INTERNAL_MAX_TEMPERATURE</link> = 0x320</para>
 </listitem>
-            <listitem><para>const uint16_t <link linkend="_base_s_w_8c_1a0e65fe51cfde598b1359de52fe957f96">THERMOCOUPLE_MAX_TEMPERATURE</link> = 0x0000</para>
+            <listitem><para>const uint16_t <link linkend="_base_s_w_8c_1a0e65fe51cfde598b1359de52fe957f96">THERMOCOUPLE_MAX_TEMPERATURE</link> = 0x04B0</para>
 </listitem>
             <listitem><para><link linkend="_state_task_handler_8h_1ac70d77726e89cd77b1604f36f0768724">stateTaskList</link> * <link linkend="_base_s_w_8c_1a8f175c7c18b1b26153b20e02c9ac85f2">IdleState</link> = NULL</para>
 
@@ -163,11 +180,17 @@
 
 <para>Write heat profile into EEPROM. </para>
 </listitem>
-            <listitem><para>uint8_t <link linkend="_base_s_w_8c_1acc1fffcd67af20d39741d2f2654472bd">heatProfileCurrent</link> [<link linkend="_base_s_w_8c_1a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</link>]</para>
+            <listitem><para>uint16_t <link linkend="_base_s_w_8c_1a1673cb858805b80228a862b20a69502b">heatProfileCurrent</link> [<link linkend="_base_s_w_8c_1a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</link>]</para>
 </listitem>
-            <listitem><para>uint8_t <link linkend="_base_s_w_8c_1a05687d20618c0736fd05307bf70d78c2">heatProfileBuffer</link> [<link linkend="_base_s_w_8c_1a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</link>]</para>
+            <listitem><para>uint16_t <link linkend="_base_s_w_8c_1a24a168c4320349b32b46d406e2cfdc51">heatProfileBuffer</link> [<link linkend="_base_s_w_8c_1a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</link>]</para>
 </listitem>
-            <listitem><para>uint8_t <link linkend="_base_s_w_8c_1a64a3817e3aecfb84759dbe16f0598b63">heatProfileDefult</link> [<link linkend="_base_s_w_8c_1a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</link>]</para>
+            <listitem><para>uint16_t <link linkend="_base_s_w_8c_1a3e3eb07830daa012131f249c932d34b6">heatProfileDefult</link> [<link linkend="_base_s_w_8c_1a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</link>]</para>
+</listitem>
+            <listitem><para>uint16_t <link linkend="_base_s_w_8c_1a603698ed4a332f0cc9d0d0dd1893049a">heatProfileCurrentTime</link> [<link linkend="_base_s_w_8c_1a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</link>]</para>
+</listitem>
+            <listitem><para>uint16_t <link linkend="_base_s_w_8c_1a465b7c64d07ba2c8f11f1c77bfa793fb">heatProfileBufferTime</link> [<link linkend="_base_s_w_8c_1a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</link>]</para>
+</listitem>
+            <listitem><para>uint16_t <link linkend="_base_s_w_8c_1afa3200c189b651a0d9e5770f79a9cec5">heatProfileDefultTime</link> [<link linkend="_base_s_w_8c_1a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</link>]</para>
 </listitem>
             <listitem><para>static <link linkend="_struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e">TEMPERATURE_PROFILE</link> <link linkend="_base_s_w_8c_1a95c3c5f6ac11b4bb577a8cec8d78ed83">temperatureHeatProfile</link></para>
 </listitem>
@@ -185,6 +208,8 @@
 </listitem>
             <listitem><para>static <link linkend="_struct_t_r_a_n_s_c_i_e_v_e___o_b_j">TRANSCIEVE_OBJ</link> <link linkend="_base_s_w_8c_1a13afc5148f79044f6a591b795e8edbe0">transciveObj</link></para>
 </listitem>
+            <listitem><para>static <link linkend="_struct_h_e_a_t___t_i_m_e_r___o_b_j">HEAT_TIMER_OBJ</link> <link linkend="_base_s_w_8c_1ad99df0451b8fa5e332873847854c4676">heatTimerObj</link></para>
+</listitem>
         </itemizedlist>
 </simplesect>
 <section>
@@ -193,7 +218,7 @@
     <title>HEAT_PROFILE_SIZE</title>
 <indexterm><primary>HEAT_PROFILE_SIZE</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>HEAT_PROFILE_SIZE</secondary></indexterm>
-<para><computeroutput>#define HEAT_PROFILE_SIZE   1024</computeroutput></para><para>
+<para><computeroutput>#define HEAT_PROFILE_SIZE   255</computeroutput></para><para>
 
 <para>Heat profile buffer size. </para>
 </para>
@@ -205,8 +230,10 @@ Definition at line 38 of file baseSW.c.</para>
     <title>SENSOR_DATA_STORE_LENGTH</title>
 <indexterm><primary>SENSOR_DATA_STORE_LENGTH</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>SENSOR_DATA_STORE_LENGTH</secondary></indexterm>
-<para><computeroutput>#define SENSOR_DATA_STORE_LENGTH   10</computeroutput></para><para>
-Definition at line 168 of file baseSW.c.</para>
+<para><computeroutput>#define SENSOR_DATA_STORE_LENGTH   10</computeroutput></para>
+<para>Number of measurements we want to store in the ring buffer </para>
+<para>
+Definition at line 175 of file baseSW.c.</para>
 </section>
 </section>
 <section>
@@ -215,7 +242,25 @@ Definition at line 168 of file baseSW.c.</para>
     <title>FTDI_STATUS</title>
 <indexterm><primary>FTDI_STATUS</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>FTDI_STATUS</secondary></indexterm>
-<para><computeroutput>enum <link linkend="_base_s_w_8c_1aa8f22ecbe143bb20aaab87a0887844c7">FTDI_STATUS</link></computeroutput></para><informaltable frame="all">
+<para><computeroutput>enum <link linkend="_base_s_w_8c_1aa8f22ecbe143bb20aaab87a0887844c7">FTDI_STATUS</link></computeroutput></para><para>
+
+<para>PC communication status. </para>
+</para>
+
+<para>PC communication status used to determine the current state int the PC communication state machine. The communication state machine is implemented in <link linkend="_base_s_w_8c_1af341203893341c4fc0aca6617827cc78">ReceiveFTDI_callback()</link> function. This function is always when new data is arrived from the FTDI UART-USB bridge. The current state is the function of the prevoiuos state and one or more incoming bytes.</para>
+
+<para>Control signals are: 10: Simple command data, new command data is received 1: Start heting process 2: Stop heating proces 4: Load data from the buffer to the current heat profile 
+<literallayout>&#160;&#xa;</literallayout>
+</para>
+
+<para>1: Change status to RECEIVE_HEAT_PROFILE</para>
+
+<para>2: Change status to SEND_HEAT_PROFILE_TO_EEPROM</para>
+
+<para>3: Change status to RECEIVE_PROFILE_FROM_EEPROM</para>
+
+<para>4: Change status to WRITE_EEPROM_COMMAND_HIGH_BYTE That state is always followed byte WRITE_EEPROM_COMMAND_LOW_BYTE In this two states the program is setting the heat profile&apos;s address buffer. If SEND_HEAT_PROFILE_TO_EEPROM is selected the data will be written to the location defined by the address buffer. </para>
+<informaltable frame="all">
 <title>Enumerator</title>
     <tgroup cols="2" align="left" colsep="1" rowsep="1">
       <colspec colname='c1'/>
@@ -223,7 +268,9 @@ Definition at line 168 of file baseSW.c.</para>
 <tbody>
 <row><entry><indexterm><primary>NORMAL_OPERATION</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>NORMAL_OPERATION</secondary></indexterm>
-<anchor xml:id="_base_s_w_8c_1aa8f22ecbe143bb20aaab87a0887844c7a40a71b2d40ad7ef49b7e28e422ae351e"/>NORMAL_OPERATION</entry><entry></entry></row><row><entry><indexterm><primary>RECEIVE_HEAT_PROFILE</primary><secondary>baseSW.c</secondary></indexterm>
+<anchor xml:id="_base_s_w_8c_1aa8f22ecbe143bb20aaab87a0887844c7a40a71b2d40ad7ef49b7e28e422ae351e"/>NORMAL_OPERATION</entry><entry>
+<para>Normal operation, the MCU receives control signals. </para>
+</entry></row><row><entry><indexterm><primary>RECEIVE_HEAT_PROFILE</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>RECEIVE_HEAT_PROFILE</secondary></indexterm>
 <anchor xml:id="_base_s_w_8c_1aa8f22ecbe143bb20aaab87a0887844c7a1b57bbf7b1c2160058a0fbe5858cddb5"/>RECEIVE_HEAT_PROFILE</entry><entry></entry></row><row><entry><indexterm><primary>SEND_HEAT_PROFILE_TO_EEPROM</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>SEND_HEAT_PROFILE_TO_EEPROM</secondary></indexterm>
@@ -237,7 +284,26 @@ Definition at line 168 of file baseSW.c.</para>
     </tgroup>
 </informaltable>
 <para>
-Definition at line 204 of file baseSW.c.</para>
+Definition at line 256 of file baseSW.c.</para>
+    </section><anchor xml:id="_base_s_w_8c_1a79a5812d79ec30e8418055f1f8424fb9"/>    <section>
+    <title>HEAT_TIMER_STATUS</title>
+<indexterm><primary>HEAT_TIMER_STATUS</primary><secondary>baseSW.c</secondary></indexterm>
+<indexterm><primary>baseSW.c</primary><secondary>HEAT_TIMER_STATUS</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_base_s_w_8c_1a79a5812d79ec30e8418055f1f8424fb9">HEAT_TIMER_STATUS</link></computeroutput></para><informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>RUNNING</primary><secondary>baseSW.c</secondary></indexterm>
+<indexterm><primary>baseSW.c</primary><secondary>RUNNING</secondary></indexterm>
+<anchor xml:id="_base_s_w_8c_1a79a5812d79ec30e8418055f1f8424fb9a1061be6c3fb88d32829cba6f6b2be304"/>RUNNING</entry><entry></entry></row><row><entry><indexterm><primary>STOPPED</primary><secondary>baseSW.c</secondary></indexterm>
+<indexterm><primary>baseSW.c</primary><secondary>STOPPED</secondary></indexterm>
+<anchor xml:id="_base_s_w_8c_1a79a5812d79ec30e8418055f1f8424fb9a948b2aee15f52b421fa4770c47bcfe8c"/>STOPPED</entry><entry></entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line 330 of file baseSW.c.</para>
     </section><anchor xml:id="_base_s_w_8c_1a074deb404aea4ae6dca1b9c44d66116a"/>    <section>
     <title>NEXTION_STATUS</title>
 <indexterm><primary>NEXTION_STATUS</primary><secondary>baseSW.c</secondary></indexterm>
@@ -260,7 +326,7 @@ Definition at line 204 of file baseSW.c.</para>
     </tgroup>
 </informaltable>
 <para>
-Definition at line 222 of file baseSW.c.</para>
+Definition at line 274 of file baseSW.c.</para>
     </section><anchor xml:id="_base_s_w_8c_1a58b2042d633892568e5fbcaf5e4ac423"/>    <section>
     <title>TEMPERATURE_BUFFER_STATUS</title>
 <indexterm><primary>TEMPERATURE_BUFFER_STATUS</primary><secondary>baseSW.c</secondary></indexterm>
@@ -297,7 +363,7 @@ Definition at line 222 of file baseSW.c.</para>
     </tgroup>
 </informaltable>
 <para>
-Definition at line 132 of file baseSW.c.</para>
+Definition at line 139 of file baseSW.c.</para>
     </section><anchor xml:id="_base_s_w_8c_1ae5d95f3971b48ffc0b84e3290ef41ed7"/>    <section>
     <title>TRANSCIEVE_STATUS</title>
 <indexterm><primary>TRANSCIEVE_STATUS</primary><secondary>baseSW.c</secondary></indexterm>
@@ -312,13 +378,15 @@ Definition at line 132 of file baseSW.c.</para>
 <indexterm><primary>baseSW.c</primary><secondary>TRANSCIEVE_FULL_HEAT_PROFILE</secondary></indexterm>
 <anchor xml:id="_base_s_w_8c_1ae5d95f3971b48ffc0b84e3290ef41ed7a6d9519cd7bf055df890493eb4f6fa6b6"/>TRANSCIEVE_FULL_HEAT_PROFILE</entry><entry></entry></row><row><entry><indexterm><primary>TRANSCIEVE_CURRENT_DATA</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>TRANSCIEVE_CURRENT_DATA</secondary></indexterm>
-<anchor xml:id="_base_s_w_8c_1ae5d95f3971b48ffc0b84e3290ef41ed7a80edd9e2810683393aee79b2f5b9bdbc"/>TRANSCIEVE_CURRENT_DATA</entry><entry></entry></row><row><entry><indexterm><primary>TRANSCIEVE_IDLE</primary><secondary>baseSW.c</secondary></indexterm>
+<anchor xml:id="_base_s_w_8c_1ae5d95f3971b48ffc0b84e3290ef41ed7a80edd9e2810683393aee79b2f5b9bdbc"/>TRANSCIEVE_CURRENT_DATA</entry><entry></entry></row><row><entry><indexterm><primary>TRANSCIEVE_CURRENT_DATA_WITH_HEAT_ENABLED</primary><secondary>baseSW.c</secondary></indexterm>
+<indexterm><primary>baseSW.c</primary><secondary>TRANSCIEVE_CURRENT_DATA_WITH_HEAT_ENABLED</secondary></indexterm>
+<anchor xml:id="_base_s_w_8c_1ae5d95f3971b48ffc0b84e3290ef41ed7ab2b91ab894433051f4b93fbe31f6be02"/>TRANSCIEVE_CURRENT_DATA_WITH_HEAT_ENABLED</entry><entry></entry></row><row><entry><indexterm><primary>TRANSCIEVE_IDLE</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>TRANSCIEVE_IDLE</secondary></indexterm>
 <anchor xml:id="_base_s_w_8c_1ae5d95f3971b48ffc0b84e3290ef41ed7a138de0a3f25fd929967f47c72048b208"/>TRANSCIEVE_IDLE</entry><entry></entry></row>    </tbody>
     </tgroup>
 </informaltable>
 <para>
-Definition at line 257 of file baseSW.c.</para>
+Definition at line 309 of file baseSW.c.</para>
 </section>
 </section>
 <section>
@@ -328,109 +396,121 @@ Definition at line 257 of file baseSW.c.</para>
 <indexterm><primary>baseSW_Initialize</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>baseSW_Initialize</secondary></indexterm>
 <para><computeroutput><link linkend="_state_task_handler_8h_1ac70d77726e89cd77b1604f36f0768724">stateTaskList</link>* baseSW_Initialize (void )</computeroutput></para><para>
-Definition at line 559 of file baseSW.c.</para>
+Definition at line 735 of file baseSW.c.</para>
     </section><anchor xml:id="_base_s_w_8c_1a73ac441321bc3bbf8179034ce1f61a0b"/>    <section>
     <title>baseSW_TMR2_ISR()</title>
 <indexterm><primary>baseSW_TMR2_ISR</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>baseSW_TMR2_ISR</secondary></indexterm>
 <para><computeroutput>void baseSW_TMR2_ISR (void )</computeroutput></para><para>
-Definition at line 532 of file baseSW.c.</para>
+Definition at line 650 of file baseSW.c.</para>
     </section><anchor xml:id="_base_s_w_8c_1ad7e00ee96d8ec199bb9b5b48fdecd138"/>    <section>
     <title>baseSW_UART1_rx_ISR()</title>
 <indexterm><primary>baseSW_UART1_rx_ISR</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>baseSW_UART1_rx_ISR</secondary></indexterm>
 <para><computeroutput>void baseSW_UART1_rx_ISR (void )</computeroutput></para><para>
-Definition at line 551 of file baseSW.c.</para>
+Definition at line 727 of file baseSW.c.</para>
     </section><anchor xml:id="_base_s_w_8c_1a6d1cf63a62044d720224a87ec491428f"/>    <section>
     <title>baseSW_UART1_tx_ISR()</title>
 <indexterm><primary>baseSW_UART1_tx_ISR</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>baseSW_UART1_tx_ISR</secondary></indexterm>
 <para><computeroutput>void baseSW_UART1_tx_ISR (void )</computeroutput></para><para>
-Definition at line 543 of file baseSW.c.</para>
+Definition at line 719 of file baseSW.c.</para>
     </section><anchor xml:id="_base_s_w_8c_1a8027f524cdcb8a3a462b2a6addbab4a5"/>    <section>
     <title>baseSW_UART2_rx_ISR()</title>
 <indexterm><primary>baseSW_UART2_rx_ISR</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>baseSW_UART2_rx_ISR</secondary></indexterm>
 <para><computeroutput>void baseSW_UART2_rx_ISR (void )</computeroutput></para><para>
-Definition at line 555 of file baseSW.c.</para>
+Definition at line 731 of file baseSW.c.</para>
     </section><anchor xml:id="_base_s_w_8c_1a15ed18da4c6b19d2eb4c49972003f601"/>    <section>
     <title>baseSW_UART2_tx_ISR()</title>
 <indexterm><primary>baseSW_UART2_tx_ISR</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>baseSW_UART2_tx_ISR</secondary></indexterm>
 <para><computeroutput>void baseSW_UART2_tx_ISR (void )</computeroutput></para><para>
-Definition at line 547 of file baseSW.c.</para>
+Definition at line 723 of file baseSW.c.</para>
     </section><anchor xml:id="_base_s_w_8c_1a83e759d4fde4c1f2290f01c8ba5e7e76"/>    <section>
     <title>checkStartConditions()</title>
 <indexterm><primary>checkStartConditions</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>checkStartConditions</secondary></indexterm>
 <para><computeroutput>bool checkStartConditions ( )</computeroutput></para><para>
-Definition at line 317 of file baseSW.c.</para>
+Definition at line 381 of file baseSW.c.</para>
     </section><anchor xml:id="_base_s_w_8c_1a381d6c14a0d21de9943fdf12040729b3"/>    <section>
     <title>disableHeat()</title>
 <indexterm><primary>disableHeat</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>disableHeat</secondary></indexterm>
 <para><computeroutput>void disableHeat ( )</computeroutput></para><para>
-Definition at line 282 of file baseSW.c.</para>
+Definition at line 355 of file baseSW.c.</para>
     </section><anchor xml:id="_base_s_w_8c_1a2c86cf77e88db89f9983c1b05aac1d45"/>    <section>
     <title>enableHeat()</title>
 <indexterm><primary>enableHeat</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>enableHeat</secondary></indexterm>
 <para><computeroutput>void enableHeat ( )</computeroutput></para><para>
-Definition at line 278 of file baseSW.c.</para>
+Definition at line 349 of file baseSW.c.</para>
     </section><anchor xml:id="_base_s_w_8c_1a27ccec4e551f47ff3fe3c4b6afc07597"/>    <section>
     <title>genericTranciverFunction()</title>
 <indexterm><primary>genericTranciverFunction</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>genericTranciverFunction</secondary></indexterm>
 <para><computeroutput>void genericTranciverFunction ( )</computeroutput></para><para>
-Definition at line 457 of file baseSW.c.</para>
+Definition at line 538 of file baseSW.c.</para>
     </section><anchor xml:id="_base_s_w_8c_1aa16cf163141a074b2ddb3a60497d8b99"/>    <section>
     <title>IdleState_callback()</title>
 <indexterm><primary>IdleState_callback</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>IdleState_callback</secondary></indexterm>
 <para><computeroutput>void IdleState_callback ( )</computeroutput></para><para>
-Definition at line 287 of file baseSW.c.</para>
-    </section><anchor xml:id="_base_s_w_8c_1ab2b78c4d809057c8fa3d4074d99a33e6"/>    <section>
-    <title>loadBuffer()</title>
-<indexterm><primary>loadBuffer</primary><secondary>baseSW.c</secondary></indexterm>
-<indexterm><primary>baseSW.c</primary><secondary>loadBuffer</secondary></indexterm>
-<para><computeroutput>void loadBuffer ( )</computeroutput></para><para>
-Definition at line 312 of file baseSW.c.</para>
+Definition at line 363 of file baseSW.c.</para>
+    </section><anchor xml:id="_base_s_w_8c_1a3b239350cad328a0a7002b3b8bedaaf8"/>    <section>
+    <title>loadBufferHeatProfile()</title>
+<indexterm><primary>loadBufferHeatProfile</primary><secondary>baseSW.c</secondary></indexterm>
+<indexterm><primary>baseSW.c</primary><secondary>loadBufferHeatProfile</secondary></indexterm>
+<para><computeroutput>void loadBufferHeatProfile ( )</computeroutput></para><para>
+Definition at line 369 of file baseSW.c.</para>
+    </section><anchor xml:id="_base_s_w_8c_1a9c9a212e71176cd7de00f133f456098e"/>    <section>
+    <title>loadDefaultHeatProfile()</title>
+<indexterm><primary>loadDefaultHeatProfile</primary><secondary>baseSW.c</secondary></indexterm>
+<indexterm><primary>baseSW.c</primary><secondary>loadDefaultHeatProfile</secondary></indexterm>
+<para><computeroutput>void loadDefaultHeatProfile ( )</computeroutput></para><para>
+Definition at line 373 of file baseSW.c.</para>
     </section><anchor xml:id="_base_s_w_8c_1ae2abe0c4c78bc2075dad10c581eedbbe"/>    <section>
     <title>ReadEEPROM_callback()</title>
 <indexterm><primary>ReadEEPROM_callback</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>ReadEEPROM_callback</secondary></indexterm>
 <para><computeroutput>void ReadEEPROM_callback ( )</computeroutput></para><para>
-Definition at line 493 of file baseSW.c.</para>
+Definition at line 607 of file baseSW.c.</para>
+    </section><anchor xml:id="_base_s_w_8c_1a7c86f4204ebfad82dcb4e9a38eb1fa91"/>    <section>
+    <title>readLeatestTemperatreMeasuremntX4()</title>
+<indexterm><primary>readLeatestTemperatreMeasuremntX4</primary><secondary>baseSW.c</secondary></indexterm>
+<indexterm><primary>baseSW.c</primary><secondary>readLeatestTemperatreMeasuremntX4</secondary></indexterm>
+<para><computeroutput>uint16_t readLeatestTemperatreMeasuremntX4 ( )</computeroutput></para><para>
+Definition at line 413 of file baseSW.c.</para>
     </section><anchor xml:id="_base_s_w_8c_1a23b1f41f8c818f17b24b6da7d9af6cd6"/>    <section>
     <title>ReadTemperatureData_callback()</title>
 <indexterm><primary>ReadTemperatureData_callback</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>ReadTemperatureData_callback</secondary></indexterm>
 <para><computeroutput>void ReadTemperatureData_callback ( )</computeroutput></para><para>
-Definition at line 342 of file baseSW.c.</para>
+Definition at line 403 of file baseSW.c.</para>
     </section><anchor xml:id="_base_s_w_8c_1af341203893341c4fc0aca6617827cc78"/>    <section>
     <title>ReceiveFTDI_callback()</title>
 <indexterm><primary>ReceiveFTDI_callback</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>ReceiveFTDI_callback</secondary></indexterm>
 <para><computeroutput>void ReceiveFTDI_callback ( )</computeroutput></para><para>
-Definition at line 395 of file baseSW.c.</para>
+Definition at line 470 of file baseSW.c.</para>
     </section><anchor xml:id="_base_s_w_8c_1a1d1ee0fb69c723856a3009c9dfb74309"/>    <section>
     <title>ReceiveNextionData_callback()</title>
 <indexterm><primary>ReceiveNextionData_callback</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>ReceiveNextionData_callback</secondary></indexterm>
 <para><computeroutput>void ReceiveNextionData_callback ( )</computeroutput></para><para>
-Definition at line 352 of file baseSW.c.</para>
+Definition at line 427 of file baseSW.c.</para>
     </section><anchor xml:id="_base_s_w_8c_1a3821cc2458a1a57bb47d074adab7041c"/>    <section>
     <title>TranscieveNextionDATA_callback()</title>
 <indexterm><primary>TranscieveNextionDATA_callback</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>TranscieveNextionDATA_callback</secondary></indexterm>
 <para><computeroutput>void TranscieveNextionDATA_callback ( )</computeroutput></para><para>
-Definition at line 484 of file baseSW.c.</para>
+Definition at line 598 of file baseSW.c.</para>
     </section><anchor xml:id="_base_s_w_8c_1a5574a7efe563c4a0dcd5a6d14aa25c81"/>    <section>
     <title>TransciveFTDI_callback()</title>
 <indexterm><primary>TransciveFTDI_callback</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>TransciveFTDI_callback</secondary></indexterm>
 <para><computeroutput>void TransciveFTDI_callback ( )</computeroutput></para><para>
-Definition at line 488 of file baseSW.c.</para>
+Definition at line 602 of file baseSW.c.</para>
     </section><anchor xml:id="_base_s_w_8c_1a4dd0edb41d6818c4b66830d7d5d5f8d4"/>    <section>
     <title>WriteEEPROM_callback()</title>
 <indexterm><primary>WriteEEPROM_callback</primary><secondary>baseSW.c</secondary></indexterm>
@@ -442,7 +522,7 @@ Definition at line 488 of file baseSW.c.</para>
 
 <para>@Description This defines the object in the i2c queue. Each entry is a composed of a list of TRBs, the number of the TRBs and the status of the currently processed TRB. </para>
 <para>
-Definition at line 510 of file baseSW.c.</para>
+Definition at line 625 of file baseSW.c.</para>
 </section>
 </section>
 <section>
@@ -451,44 +531,76 @@ Definition at line 510 of file baseSW.c.</para>
     <title>EEPROM_ADDRESS</title>
 <indexterm><primary>EEPROM_ADDRESS</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>EEPROM_ADDRESS</secondary></indexterm>
-<para><computeroutput>const uint16_t EEPROM_ADDRESS = 0x00</computeroutput></para><para>
+<para><computeroutput>const uint16_t EEPROM_ADDRESS = 0x00</computeroutput></para>
+<para>EEPROM address </para>
+<para>
 Definition at line 20 of file baseSW.c.</para>
     </section><anchor xml:id="_base_s_w_8c_1a7df19956937ec36d493dce374f6cd666"/>    <section>
     <title>ftdiStatus</title>
 <indexterm><primary>ftdiStatus</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>ftdiStatus</secondary></indexterm>
 <para><computeroutput><link linkend="_base_s_w_8c_1aa8f22ecbe143bb20aaab87a0887844c7">FTDI_STATUS</link> ftdiStatus = <link linkend="_base_s_w_8c_1aa8f22ecbe143bb20aaab87a0887844c7a40a71b2d40ad7ef49b7e28e422ae351e">NORMAL_OPERATION</link><computeroutput>[static]</computeroutput></computeroutput></para><para>
-Definition at line 214 of file baseSW.c.</para>
+Definition at line 266 of file baseSW.c.</para>
     </section><anchor xml:id="_base_s_w_8c_1a719eb27927e046143f99cd1be625a495"/>    <section>
     <title>HEAT_IN_PROGRESS</title>
 <indexterm><primary>HEAT_IN_PROGRESS</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>HEAT_IN_PROGRESS</secondary></indexterm>
 <para><computeroutput>uint8_t HEAT_IN_PROGRESS = false<computeroutput>[static]</computeroutput></computeroutput></para><para>
-Definition at line 248 of file baseSW.c.</para>
-    </section><anchor xml:id="_base_s_w_8c_1a05687d20618c0736fd05307bf70d78c2"/>    <section>
+Definition at line 300 of file baseSW.c.</para>
+    </section><anchor xml:id="_base_s_w_8c_1a24a168c4320349b32b46d406e2cfdc51"/>    <section>
     <title>heatProfileBuffer</title>
 <indexterm><primary>heatProfileBuffer</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>heatProfileBuffer</secondary></indexterm>
-<para><computeroutput>uint8_t heatProfileBuffer[<link linkend="_base_s_w_8c_1a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</link>]</computeroutput></para>
+<para><computeroutput>uint16_t heatProfileBuffer[<link linkend="_base_s_w_8c_1a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</link>]</computeroutput></para>
 <para>Heat profile buffer for memory operations. It can&apos;t be used directily, it has to be loaded into heatProfileCurrent </para>
 <para>
 Definition at line 109 of file baseSW.c.</para>
-    </section><anchor xml:id="_base_s_w_8c_1acc1fffcd67af20d39741d2f2654472bd"/>    <section>
+    </section><anchor xml:id="_base_s_w_8c_1a465b7c64d07ba2c8f11f1c77bfa793fb"/>    <section>
+    <title>heatProfileBufferTime</title>
+<indexterm><primary>heatProfileBufferTime</primary><secondary>baseSW.c</secondary></indexterm>
+<indexterm><primary>baseSW.c</primary><secondary>heatProfileBufferTime</secondary></indexterm>
+<para><computeroutput>uint16_t heatProfileBufferTime[<link linkend="_base_s_w_8c_1a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</link>]</computeroutput></para>
+<para>Heat profile time buffer for memory operations. It can&apos;t be used directily, it has to be loaded into heatProfileCurrent </para>
+<para>
+Definition at line 114 of file baseSW.c.</para>
+    </section><anchor xml:id="_base_s_w_8c_1a1673cb858805b80228a862b20a69502b"/>    <section>
     <title>heatProfileCurrent</title>
 <indexterm><primary>heatProfileCurrent</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>heatProfileCurrent</secondary></indexterm>
-<para><computeroutput>uint8_t heatProfileCurrent[<link linkend="_base_s_w_8c_1a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</link>]</computeroutput></para>
+<para><computeroutput>uint16_t heatProfileCurrent[<link linkend="_base_s_w_8c_1a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</link>]</computeroutput></para>
 <para>Currently selected heat profile. </para>
 <para>
 Definition at line 108 of file baseSW.c.</para>
-    </section><anchor xml:id="_base_s_w_8c_1a64a3817e3aecfb84759dbe16f0598b63"/>    <section>
+    </section><anchor xml:id="_base_s_w_8c_1a603698ed4a332f0cc9d0d0dd1893049a"/>    <section>
+    <title>heatProfileCurrentTime</title>
+<indexterm><primary>heatProfileCurrentTime</primary><secondary>baseSW.c</secondary></indexterm>
+<indexterm><primary>baseSW.c</primary><secondary>heatProfileCurrentTime</secondary></indexterm>
+<para><computeroutput>uint16_t heatProfileCurrentTime[<link linkend="_base_s_w_8c_1a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</link>]</computeroutput></para>
+<para>Currently selected heat profile time. </para>
+<para>
+Definition at line 113 of file baseSW.c.</para>
+    </section><anchor xml:id="_base_s_w_8c_1a3e3eb07830daa012131f249c932d34b6"/>    <section>
     <title>heatProfileDefult</title>
 <indexterm><primary>heatProfileDefult</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>heatProfileDefult</secondary></indexterm>
-<para><computeroutput>uint8_t heatProfileDefult[<link linkend="_base_s_w_8c_1a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</link>]</computeroutput></para>
+<para><computeroutput>uint16_t heatProfileDefult[<link linkend="_base_s_w_8c_1a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</link>]</computeroutput></para>
 <para>Default heat profile, cannot be deleted </para>
 <para>
 Definition at line 110 of file baseSW.c.</para>
+    </section><anchor xml:id="_base_s_w_8c_1afa3200c189b651a0d9e5770f79a9cec5"/>    <section>
+    <title>heatProfileDefultTime</title>
+<indexterm><primary>heatProfileDefultTime</primary><secondary>baseSW.c</secondary></indexterm>
+<indexterm><primary>baseSW.c</primary><secondary>heatProfileDefultTime</secondary></indexterm>
+<para><computeroutput>uint16_t heatProfileDefultTime[<link linkend="_base_s_w_8c_1a82ad24592415f1e7dd0fab9811e434ea">HEAT_PROFILE_SIZE</link>]</computeroutput></para>
+<para>Default heat profile time, cannot be deleted </para>
+<para>
+Definition at line 115 of file baseSW.c.</para>
+    </section><anchor xml:id="_base_s_w_8c_1ad99df0451b8fa5e332873847854c4676"/>    <section>
+    <title>heatTimerObj</title>
+<indexterm><primary>heatTimerObj</primary><secondary>baseSW.c</secondary></indexterm>
+<indexterm><primary>baseSW.c</primary><secondary>heatTimerObj</secondary></indexterm>
+<para><computeroutput><link linkend="_struct_h_e_a_t___t_i_m_e_r___o_b_j">HEAT_TIMER_OBJ</link> heatTimerObj<computeroutput>[static]</computeroutput></computeroutput></para><para>
+Definition at line 340 of file baseSW.c.</para>
     </section><anchor xml:id="_base_s_w_8c_1a8f175c7c18b1b26153b20e02c9ac85f2"/>    <section>
     <title>IdleState</title>
 <indexterm><primary>IdleState</primary><secondary>baseSW.c</secondary></indexterm>
@@ -498,21 +610,23 @@ Definition at line 110 of file baseSW.c.</para>
 <para>Idle state. </para>
 </para>
 
-<para>The task connected to this state cannot be deleted from the task que. This task provides the toggling protection to the SSR, ensuring that the software is properly running. This task is also responsible for disableing the heating process if one of the limits is exceeded. </para>
+<para>The task connected to this state cannot be deleted from the task que. This task provides the toggling protection to the SSR, ensuring that the software is properly running. This task is also responsible for disabling the heating process if one of the limits is exceeded. </para>
 <para>
 Definition at line 47 of file baseSW.c.</para>
     </section><anchor xml:id="_base_s_w_8c_1a0ef8a1d4d3bc515d6b5f09d2ea92784d"/>    <section>
     <title>INTERNAL_MAX_TEMPERATURE</title>
 <indexterm><primary>INTERNAL_MAX_TEMPERATURE</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>INTERNAL_MAX_TEMPERATURE</secondary></indexterm>
-<para><computeroutput>const uint16_t INTERNAL_MAX_TEMPERATURE = 0x0000</computeroutput></para><para>
+<para><computeroutput>const uint16_t INTERNAL_MAX_TEMPERATURE = 0x320</computeroutput></para>
+<para>INTERNAL_MAX_TEMPERATURE = Max board temperature x 4 </para>
+<para>
 Definition at line 21 of file baseSW.c.</para>
     </section><anchor xml:id="_base_s_w_8c_1ad2b5ee2fb756cad7b97b80bc28b92861"/>    <section>
     <title>nextionStatus</title>
 <indexterm><primary>nextionStatus</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>nextionStatus</secondary></indexterm>
 <para><computeroutput><link linkend="_base_s_w_8c_1a074deb404aea4ae6dca1b9c44d66116a">NEXTION_STATUS</link> nextionStatus = <link linkend="_base_s_w_8c_1a074deb404aea4ae6dca1b9c44d66116aa90762a477aa0f30aea8aa3cb976a5398">NEXTION_NORMAL_OPERATION</link><computeroutput>[static]</computeroutput></computeroutput></para><para>
-Definition at line 230 of file baseSW.c.</para>
+Definition at line 282 of file baseSW.c.</para>
     </section><anchor xml:id="_base_s_w_8c_1af23b05db9a9807c4a6abce18a6d4d8f2"/>    <section>
     <title>ReadEEPROM</title>
 <indexterm><primary>ReadEEPROM</primary><secondary>baseSW.c</secondary></indexterm>
@@ -565,20 +679,24 @@ Definition at line 66 of file baseSW.c.</para>
     <title>SENSOR_DATA_ARRAYS</title>
 <indexterm><primary>SENSOR_DATA_ARRAYS</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>SENSOR_DATA_ARRAYS</secondary></indexterm>
-<para><computeroutput><link linkend="_union_i_c___m_a_x31855___d_a_t_a">IC_MAX31855_DATA</link> SENSOR_DATA_ARRAYS[<link linkend="_base_s_w_8c_1ae8124ed52c1d38dcd771b78a89c1d226">SENSOR_DATA_STORE_LENGTH</link>]<computeroutput>[static]</computeroutput></computeroutput></para><para>
-Definition at line 195 of file baseSW.c.</para>
+<para><computeroutput><link linkend="_union_i_c___m_a_x31855___d_a_t_a">IC_MAX31855_DATA</link> SENSOR_DATA_ARRAYS[<link linkend="_base_s_w_8c_1ae8124ed52c1d38dcd771b78a89c1d226">SENSOR_DATA_STORE_LENGTH</link>]<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Global variable, used for storing measurements data. Direct access is not supperted. </para>
+<para>
+Definition at line 220 of file baseSW.c.</para>
     </section><anchor xml:id="_base_s_w_8c_1a4c9c129df2ec47d40e423ec488b68003"/>    <section>
     <title>SENSOR_DATA_HANDLER</title>
 <indexterm><primary>SENSOR_DATA_HANDLER</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>SENSOR_DATA_HANDLER</secondary></indexterm>
-<para><computeroutput><link linkend="_struct_s_e_n_s_o_r___d_a_t_a">SENSOR_DATA</link> SENSOR_DATA_HANDLER<computeroutput>[static]</computeroutput></computeroutput></para><para>
-Definition at line 194 of file baseSW.c.</para>
+<para><computeroutput><link linkend="_struct_s_e_n_s_o_r___d_a_t_a">SENSOR_DATA</link> SENSOR_DATA_HANDLER<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Global variable, used for access the measurements. <link linkend="_union_i_c___m_a_x31855___d_a_t_a">IC_MAX31855_DATA</link> can be accessed through this interface. </para>
+<para>
+Definition at line 219 of file baseSW.c.</para>
     </section><anchor xml:id="_base_s_w_8c_1a17f63b1acf2a4318319bf4ee1034dc32"/>    <section>
     <title>temperatureBufferArray</title>
 <indexterm><primary>temperatureBufferArray</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>temperatureBufferArray</secondary></indexterm>
 <para><computeroutput><link linkend="_struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r">TEMPERATURE_BUFFER</link> temperatureBufferArray[3]</computeroutput></para><para>
-Definition at line 158 of file baseSW.c.</para>
+Definition at line 165 of file baseSW.c.</para>
     </section><anchor xml:id="_base_s_w_8c_1a95c3c5f6ac11b4bb577a8cec8d78ed83"/>    <section>
     <title>temperatureHeatProfile</title>
 <indexterm><primary>temperatureHeatProfile</primary><secondary>baseSW.c</secondary></indexterm>
@@ -586,12 +704,14 @@ Definition at line 158 of file baseSW.c.</para>
 <para><computeroutput><link linkend="_struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e">TEMPERATURE_PROFILE</link> temperatureHeatProfile<computeroutput>[static]</computeroutput></computeroutput></para>
 <para>Global varible, it stores heat profile related data </para>
 <para>
-Definition at line 157 of file baseSW.c.</para>
+Definition at line 164 of file baseSW.c.</para>
     </section><anchor xml:id="_base_s_w_8c_1a0e65fe51cfde598b1359de52fe957f96"/>    <section>
     <title>THERMOCOUPLE_MAX_TEMPERATURE</title>
 <indexterm><primary>THERMOCOUPLE_MAX_TEMPERATURE</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>THERMOCOUPLE_MAX_TEMPERATURE</secondary></indexterm>
-<para><computeroutput>const uint16_t THERMOCOUPLE_MAX_TEMPERATURE = 0x0000</computeroutput></para><para>
+<para><computeroutput>const uint16_t THERMOCOUPLE_MAX_TEMPERATURE = 0x04B0</computeroutput></para>
+<para>THERMOCOUPLE_MAX_TEMPERATURE = Max chamber temperature x 2 </para>
+<para>
 Definition at line 22 of file baseSW.c.</para>
     </section><anchor xml:id="_base_s_w_8c_1a8510c904a0838a801df49a56fdf6b2eb"/>    <section>
     <title>TranscieveNextionDATA</title>
@@ -622,7 +742,7 @@ Definition at line 90 of file baseSW.c.</para>
 <indexterm><primary>transciveObj</primary><secondary>baseSW.c</secondary></indexterm>
 <indexterm><primary>baseSW.c</primary><secondary>transciveObj</secondary></indexterm>
 <para><computeroutput><link linkend="_struct_t_r_a_n_s_c_i_e_v_e___o_b_j">TRANSCIEVE_OBJ</link> transciveObj<computeroutput>[static]</computeroutput></computeroutput></para><para>
-Definition at line 269 of file baseSW.c.</para>
+Definition at line 322 of file baseSW.c.</para>
     </section><anchor xml:id="_base_s_w_8c_1a08c6431afb7c20104abce9c7e1ddfd80"/>    <section>
     <title>WriteEEPROM</title>
 <indexterm><primary>WriteEEPROM</primary><secondary>baseSW.c</secondary></indexterm>

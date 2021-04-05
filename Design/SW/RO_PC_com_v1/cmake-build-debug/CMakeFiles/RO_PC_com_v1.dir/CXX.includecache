@@ -6,12 +6,6 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_PC_com_v1/SerialPort.h
-windows.h
--
-iostream
--
-
 C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_PC_com_v1/dataParser.h
 iostream
 -
@@ -21,18 +15,6 @@ stateMachine.h
 C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_PC_com_v1/stateMachine.h
 socketHandler.h
 C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_PC_com_v1/socketHandler.h
-
-C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_PC_com_v1/main.cpp
-SerialPort.h
-C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_PC_com_v1/SerialPort.h
-dataParser.h
-C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_PC_com_v1/dataParser.h
-stdio.h
--
-string.h
--
-thread
--
 
 C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_PC_com_v1/socketHandler.h
 winsock2.h
@@ -46,5 +28,19 @@ string
 socketHandler.h
 C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_PC_com_v1/socketHandler.h
 
+C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_PC_com_v1/stateMachine.cpp
+stateMachine.h
 C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_PC_com_v1/stateMachine.h
+stdlib.h
+-
+string
+-
+iostream
+-
+dataParser.h
+C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_PC_com_v1/dataParser.h
+
+C:/Users/EDU_OBOS_5057/Documents/Reflow oven/Design/SW/RO_PC_com_v1/stateMachine.h
+cstdint
+-
 

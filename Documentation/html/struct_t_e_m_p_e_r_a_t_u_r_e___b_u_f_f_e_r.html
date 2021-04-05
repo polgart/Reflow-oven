@@ -75,31 +75,37 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:abe222f6d3581e7920dcad5306cc906a8"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r.html#abe222f6d3581e7920dcad5306cc906a8">data</a></td></tr>
-<tr class="separator:abe222f6d3581e7920dcad5306cc906a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d286c9bcb0e4c4f62d09f5ec39118e4"><td class="memItemLeft" align="right" valign="top">uint16_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r.html#a5d286c9bcb0e4c4f62d09f5ec39118e4">data</a></td></tr>
+<tr class="separator:a5d286c9bcb0e4c4f62d09f5ec39118e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a224111b5b02bb80eab06a4c76c2ce18c"><td class="memItemLeft" align="right" valign="top">uint16_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r.html#a224111b5b02bb80eab06a4c76c2ce18c">time</a></td></tr>
+<tr class="separator:a224111b5b02bb80eab06a4c76c2ce18c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac681806181c80437cfab37335f62ff39"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r.html#ac681806181c80437cfab37335f62ff39">offset</a></td></tr>
 <tr class="separator:ac681806181c80437cfab37335f62ff39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaba88b24a21a6c70c895c0d55f4a69a0"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r.html#aaba88b24a21a6c70c895c0d55f4a69a0">size</a></td></tr>
+<tr class="separator:aaba88b24a21a6c70c895c0d55f4a69a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75adb1881fa5da948723d7b8807b78cd"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r.html#a75adb1881fa5da948723d7b8807b78cd">valid</a></td></tr>
+<tr class="separator:a75adb1881fa5da948723d7b8807b78cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Reference temperature buffer. </p>
 <p>This temperature buffer structure conatins a 8 bit unsigned integer pointer, and an offset value. The offset used during memory operations or denotes the actual temperature reference (based on time) in the array depending on the context. </p>
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00120">120</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00124">124</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 </div><h2 class="groupheader">Field Documentation</h2>
-<a id="abe222f6d3581e7920dcad5306cc906a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe222f6d3581e7920dcad5306cc906a8">&#9670;&nbsp;</a></span>data</h2>
+<a id="a5d286c9bcb0e4c4f62d09f5ec39118e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d286c9bcb0e4c4f62d09f5ec39118e4">&#9670;&nbsp;</a></span>data</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t* data</td>
+          <td class="memname">uint16_t* data</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Buffer array pointer </p>
+<p>Buffer array pointer, temperature = data*4 </p>
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00122">122</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00126">126</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>
@@ -116,7 +122,58 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>Buffer offset value </p>
 
-<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00123">123</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00128">128</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+
+</div>
+</div>
+<a id="aaba88b24a21a6c70c895c0d55f4a69a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaba88b24a21a6c70c895c0d55f4a69a0">&#9670;&nbsp;</a></span>size</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t size</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Number of records in the temperature buffer </p>
+
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00129">129</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+
+</div>
+</div>
+<a id="a224111b5b02bb80eab06a4c76c2ce18c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a224111b5b02bb80eab06a4c76c2ce18c">&#9670;&nbsp;</a></span>time</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t* time</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Data time * 100[ms] </p>
+
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00127">127</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
+
+</div>
+</div>
+<a id="a75adb1881fa5da948723d7b8807b78cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75adb1881fa5da948723d7b8807b78cd">&#9670;&nbsp;</a></span>valid</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t valid</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p><a class="el" href="struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r.html" title="Reference temperature buffer.">TEMPERATURE_BUFFER</a> is valid is valid=0x1, invalid else </p>
+
+<p class="definition">Definition at line <a class="el" href="base_s_w_8c_source.html#l00130">130</a> of file <a class="el" href="base_s_w_8c_source.html">baseSW.c</a>.</p>
 
 </div>
 </div>

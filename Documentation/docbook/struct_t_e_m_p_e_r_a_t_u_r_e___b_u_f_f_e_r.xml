@@ -10,9 +10,15 @@
 <simplesect>
     <title>Data Fields    </title>
         <itemizedlist>
-            <listitem><para>uint8_t * <link linkend="_struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r_1abe222f6d3581e7920dcad5306cc906a8">data</link></para>
+            <listitem><para>uint16_t * <link linkend="_struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r_1a5d286c9bcb0e4c4f62d09f5ec39118e4">data</link></para>
+</listitem>
+            <listitem><para>uint16_t * <link linkend="_struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r_1a224111b5b02bb80eab06a4c76c2ce18c">time</link></para>
 </listitem>
             <listitem><para>uint16_t <link linkend="_struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r_1ac681806181c80437cfab37335f62ff39">offset</link></para>
+</listitem>
+            <listitem><para>uint16_t <link linkend="_struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r_1aaba88b24a21a6c70c895c0d55f4a69a0">size</link></para>
+</listitem>
+            <listitem><para>uint8_t <link linkend="_struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r_1a75adb1881fa5da948723d7b8807b78cd">valid</link></para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -25,18 +31,18 @@
 
 <para>This temperature buffer structure conatins a 8 bit unsigned integer pointer, and an offset value. The offset used during memory operations or denotes the actual temperature reference (based on time) in the array depending on the context. </para>
 <para>
-Definition at line 120 of file baseSW.c.</para>
+Definition at line 124 of file baseSW.c.</para>
 </section>
 <section>
 <title>Field Documentation</title>
-<anchor xml:id="_struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r_1abe222f6d3581e7920dcad5306cc906a8"/>    <section>
+<anchor xml:id="_struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r_1a5d286c9bcb0e4c4f62d09f5ec39118e4"/>    <section>
     <title>data</title>
 <indexterm><primary>data</primary><secondary>TEMPERATURE_BUFFER</secondary></indexterm>
 <indexterm><primary>TEMPERATURE_BUFFER</primary><secondary>data</secondary></indexterm>
-<para><computeroutput>uint8_t* data</computeroutput></para>
-<para>Buffer array pointer </para>
+<para><computeroutput>uint16_t* data</computeroutput></para>
+<para>Buffer array pointer, temperature = data*4 </para>
 <para>
-Definition at line 122 of file baseSW.c.</para>
+Definition at line 126 of file baseSW.c.</para>
     </section><anchor xml:id="_struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r_1ac681806181c80437cfab37335f62ff39"/>    <section>
     <title>offset</title>
 <indexterm><primary>offset</primary><secondary>TEMPERATURE_BUFFER</secondary></indexterm>
@@ -44,7 +50,31 @@ Definition at line 122 of file baseSW.c.</para>
 <para><computeroutput>uint16_t offset</computeroutput></para>
 <para>Buffer offset value </para>
 <para>
-Definition at line 123 of file baseSW.c.</para>
+Definition at line 128 of file baseSW.c.</para>
+    </section><anchor xml:id="_struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r_1aaba88b24a21a6c70c895c0d55f4a69a0"/>    <section>
+    <title>size</title>
+<indexterm><primary>size</primary><secondary>TEMPERATURE_BUFFER</secondary></indexterm>
+<indexterm><primary>TEMPERATURE_BUFFER</primary><secondary>size</secondary></indexterm>
+<para><computeroutput>uint16_t size</computeroutput></para>
+<para>Number of records in the temperature buffer </para>
+<para>
+Definition at line 129 of file baseSW.c.</para>
+    </section><anchor xml:id="_struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r_1a224111b5b02bb80eab06a4c76c2ce18c"/>    <section>
+    <title>time</title>
+<indexterm><primary>time</primary><secondary>TEMPERATURE_BUFFER</secondary></indexterm>
+<indexterm><primary>TEMPERATURE_BUFFER</primary><secondary>time</secondary></indexterm>
+<para><computeroutput>uint16_t* time</computeroutput></para>
+<para>Data time * 100[ms] </para>
+<para>
+Definition at line 127 of file baseSW.c.</para>
+    </section><anchor xml:id="_struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r_1a75adb1881fa5da948723d7b8807b78cd"/>    <section>
+    <title>valid</title>
+<indexterm><primary>valid</primary><secondary>TEMPERATURE_BUFFER</secondary></indexterm>
+<indexterm><primary>TEMPERATURE_BUFFER</primary><secondary>valid</secondary></indexterm>
+<para><computeroutput>uint8_t valid</computeroutput></para>
+<para><link linkend="_struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r">TEMPERATURE_BUFFER</link> is valid is valid=0x1, invalid else </para>
+<para>
+Definition at line 130 of file baseSW.c.</para>
 </section>
 <para>
 The documentation for this struct was generated from the following file:</para>

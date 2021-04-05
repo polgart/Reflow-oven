@@ -1,7 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_annotated" xml:lang="en-US">
 <title>Data Structures</title>
-Here are the data structures with brief descriptions:<link linkend="_union_b_s___d_a_t_a___o_b_j">BS_DATA_OBJ</link><link linkend="_union_i_c___m_a_x31855___d_a_t_a">IC_MAX31855_DATA</link><link linkend="_struct_s_e_n_s_o_r___d_a_t_a">SENSOR_DATA</link><link linkend="_structstate_task_list__s">stateTaskList_s</link><link linkend="_struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r">TEMPERATURE_BUFFER</link>
+Here are the data structures with brief descriptions:<link linkend="_union_b_s___d_a_t_a___o_b_j">BS_DATA_OBJ</link><link linkend="_struct_h_e_a_t___t_i_m_e_r___o_b_j">HEAT_TIMER_OBJ</link><link linkend="_union_i_c___m_a_x31855___d_a_t_a">IC_MAX31855_DATA</link>
+<para>Temperature sensor data mapping </para>
+<link linkend="_struct_s_e_n_s_o_r___d_a_t_a">SENSOR_DATA</link>
+<para>Measuremnt data array structure </para>
+<link linkend="_structstate_task_list__s">stateTaskList_s</link><link linkend="_struct_t_e_m_p_e_r_a_t_u_r_e___b_u_f_f_e_r">TEMPERATURE_BUFFER</link>
 <para>Reference temperature buffer </para>
 <link linkend="_struct_t_e_m_p_e_r_a_t_u_r_e___p_r_o_f_i_l_e">TEMPERATURE_PROFILE</link>
 <para>Reference temperature profile </para>

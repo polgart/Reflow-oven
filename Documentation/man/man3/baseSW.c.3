@@ -1,4 +1,4 @@
-.TH "baseSW.c" 3 "Thu Feb 25 2021" "Version 1.0" "Reflow Oven firmware" \" -*- nroff -*-
+.TH "baseSW.c" 3 "Mon Apr 5 2021" "Version 1.0" "Reflow Oven firmware" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -43,21 +43,26 @@ baseSW.c
 .ti -1c
 .RI "union \fBIC_MAX31855_DATA\fP"
 .br
+.RI "Temperature sensor data mapping\&. "
 .ti -1c
 .RI "struct \fBSENSOR_DATA\fP"
 .br
+.RI "Measuremnt data array structure\&. "
 .ti -1c
 .RI "union \fBBS_DATA_OBJ\fP"
 .br
 .ti -1c
 .RI "struct \fBTRANSCIEVE_OBJ\fP"
 .br
+.ti -1c
+.RI "struct \fBHEAT_TIMER_OBJ\fP"
+.br
 .in -1c
 .SS "Macros"
 
 .in +1c
 .ti -1c
-.RI "#define \fBHEAT_PROFILE_SIZE\fP   1024"
+.RI "#define \fBHEAT_PROFILE_SIZE\fP   255"
 .br
 .RI "Heat profile buffer size\&. "
 .ti -1c
@@ -74,11 +79,15 @@ baseSW.c
 .ti -1c
 .RI "enum \fBFTDI_STATUS\fP { \fBNORMAL_OPERATION\fP, \fBRECEIVE_HEAT_PROFILE\fP, \fBSEND_HEAT_PROFILE_TO_EEPROM\fP, \fBRECEIVE_PROFILE_FROM_EEPROM\fP, \fBWRITE_EEPROM_COMMAND_HIGH_BYTE\fP, \fBWRITE_EEPROM_COMMAND_LOW_BYTE\fP }"
 .br
+.RI "PC communication status\&. "
 .ti -1c
 .RI "enum \fBNEXTION_STATUS\fP { \fBNEXTION_NORMAL_OPERATION\fP, \fBNEXTION_WRITE_EEPROM_COMMAND_HIGH_BYTE\fP, \fBNEXTION_WRITE_EEPROM_COMMAND_LOW_BYTE\fP, \fBNEXTION_RECEIVE_PROFILE_FROM_EEPROM\fP }"
 .br
 .ti -1c
-.RI "enum \fBTRANSCIEVE_STATUS\fP { \fBTRANSCIEVE_FULL_HEAT_PROFILE\fP, \fBTRANSCIEVE_CURRENT_DATA\fP, \fBTRANSCIEVE_IDLE\fP }"
+.RI "enum \fBTRANSCIEVE_STATUS\fP { \fBTRANSCIEVE_FULL_HEAT_PROFILE\fP, \fBTRANSCIEVE_CURRENT_DATA\fP, \fBTRANSCIEVE_CURRENT_DATA_WITH_HEAT_ENABLED\fP, \fBTRANSCIEVE_IDLE\fP }"
+.br
+.ti -1c
+.RI "enum \fBHEAT_TIMER_STATUS\fP { \fBRUNNING\fP, \fBSTOPPED\fP }"
 .br
 .in -1c
 .SS "Functions"
@@ -94,13 +103,19 @@ baseSW.c
 .RI "void \fBIdleState_callback\fP ()"
 .br
 .ti -1c
-.RI "void \fBloadBuffer\fP ()"
+.RI "void \fBloadBufferHeatProfile\fP ()"
+.br
+.ti -1c
+.RI "void \fBloadDefaultHeatProfile\fP ()"
 .br
 .ti -1c
 .RI "bool \fBcheckStartConditions\fP ()"
 .br
 .ti -1c
 .RI "void \fBReadTemperatureData_callback\fP ()"
+.br
+.ti -1c
+.RI "uint16_t \fBreadLeatestTemperatreMeasuremntX4\fP ()"
 .br
 .ti -1c
 .RI "void \fBReceiveNextionData_callback\fP ()"
@@ -149,10 +164,10 @@ baseSW.c
 .RI "const uint16_t \fBEEPROM_ADDRESS\fP = 0x00"
 .br
 .ti -1c
-.RI "const uint16_t \fBINTERNAL_MAX_TEMPERATURE\fP = 0x0000"
+.RI "const uint16_t \fBINTERNAL_MAX_TEMPERATURE\fP = 0x320"
 .br
 .ti -1c
-.RI "const uint16_t \fBTHERMOCOUPLE_MAX_TEMPERATURE\fP = 0x0000"
+.RI "const uint16_t \fBTHERMOCOUPLE_MAX_TEMPERATURE\fP = 0x04B0"
 .br
 .ti -1c
 .RI "\fBstateTaskList\fP * \fBIdleState\fP = NULL"
@@ -187,13 +202,22 @@ baseSW.c
 .br
 .RI "Write heat profile into EEPROM\&. "
 .ti -1c
-.RI "uint8_t \fBheatProfileCurrent\fP [\fBHEAT_PROFILE_SIZE\fP]"
+.RI "uint16_t \fBheatProfileCurrent\fP [\fBHEAT_PROFILE_SIZE\fP]"
 .br
 .ti -1c
-.RI "uint8_t \fBheatProfileBuffer\fP [\fBHEAT_PROFILE_SIZE\fP]"
+.RI "uint16_t \fBheatProfileBuffer\fP [\fBHEAT_PROFILE_SIZE\fP]"
 .br
 .ti -1c
-.RI "uint8_t \fBheatProfileDefult\fP [\fBHEAT_PROFILE_SIZE\fP]"
+.RI "uint16_t \fBheatProfileDefult\fP [\fBHEAT_PROFILE_SIZE\fP]"
+.br
+.ti -1c
+.RI "uint16_t \fBheatProfileCurrentTime\fP [\fBHEAT_PROFILE_SIZE\fP]"
+.br
+.ti -1c
+.RI "uint16_t \fBheatProfileBufferTime\fP [\fBHEAT_PROFILE_SIZE\fP]"
+.br
+.ti -1c
+.RI "uint16_t \fBheatProfileDefultTime\fP [\fBHEAT_PROFILE_SIZE\fP]"
 .br
 .ti -1c
 .RI "static \fBTEMPERATURE_PROFILE\fP \fBtemperatureHeatProfile\fP"
@@ -219,28 +243,45 @@ baseSW.c
 .ti -1c
 .RI "static \fBTRANSCIEVE_OBJ\fP \fBtransciveObj\fP"
 .br
+.ti -1c
+.RI "static \fBHEAT_TIMER_OBJ\fP \fBheatTimerObj\fP"
+.br
 .in -1c
 .SH "Macro Definition Documentation"
 .PP 
-.SS "#define HEAT_PROFILE_SIZE   1024"
+.SS "#define HEAT_PROFILE_SIZE   255"
 
 .PP
 Heat profile buffer size\&. Each byte in the buffer represents a reference temeprature at a given time\&. The maximum reference temperature is 25+255=280 celsis degree, and the minimum reference temperature is 25 celsius degree\&. 
 .PP
 Definition at line 38 of file baseSW\&.c\&.
 .SS "#define SENSOR_DATA_STORE_LENGTH   10"
-
+Number of measurements we want to store in the ring buffer 
 .PP
-Definition at line 168 of file baseSW\&.c\&.
+Definition at line 175 of file baseSW\&.c\&.
 .SH "Enumeration Type Documentation"
 .PP 
 .SS "enum \fBFTDI_STATUS\fP"
 
 .PP
+PC communication status\&. PC communication status used to determine the current state int the PC communication state machine\&. The communication state machine is implemented in \fBReceiveFTDI_callback()\fP function\&. This function is always when new data is arrived from the FTDI UART-USB bridge\&. The current state is the function of the prevoiuos state and one or more incoming bytes\&.
+.PP
+Control signals are: 10: Simple command data, new command data is received 1: Start heting process 2: Stop heating proces 4: Load data from the buffer to the current heat profile 
+.br
+.PP
+1: Change status to RECEIVE_HEAT_PROFILE
+.PP
+2: Change status to SEND_HEAT_PROFILE_TO_EEPROM
+.PP
+3: Change status to RECEIVE_PROFILE_FROM_EEPROM
+.PP
+4: Change status to WRITE_EEPROM_COMMAND_HIGH_BYTE That state is always followed byte WRITE_EEPROM_COMMAND_LOW_BYTE In this two states the program is setting the heat profile's address buffer\&. If SEND_HEAT_PROFILE_TO_EEPROM is selected the data will be written to the location defined by the address buffer\&. 
+.PP
 \fBEnumerator\fP
 .in +1c
 .TP
 \fB\fINORMAL_OPERATION \fP\fP
+Normal operation, the MCU receives control signals\&. 
 .TP
 \fB\fIRECEIVE_HEAT_PROFILE \fP\fP
 .TP
@@ -252,7 +293,18 @@ Definition at line 168 of file baseSW\&.c\&.
 .TP
 \fB\fIWRITE_EEPROM_COMMAND_LOW_BYTE \fP\fP
 .PP
-Definition at line 204 of file baseSW\&.c\&.
+Definition at line 256 of file baseSW\&.c\&.
+.SS "enum \fBHEAT_TIMER_STATUS\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIRUNNING \fP\fP
+.TP
+\fB\fISTOPPED \fP\fP
+.PP
+Definition at line 330 of file baseSW\&.c\&.
 .SS "enum \fBNEXTION_STATUS\fP"
 
 .PP
@@ -267,7 +319,7 @@ Definition at line 204 of file baseSW\&.c\&.
 .TP
 \fB\fINEXTION_RECEIVE_PROFILE_FROM_EEPROM \fP\fP
 .PP
-Definition at line 222 of file baseSW\&.c\&.
+Definition at line 274 of file baseSW\&.c\&.
 .SS "enum \fBTEMPERATURE_BUFFER_STATUS\fP"
 
 .PP
@@ -288,7 +340,7 @@ Temperature buffer is receiving from EEPROM is in progress
 \fB\fIIDLE \fP\fP
 Temperature buffer is in idle state and ready to be used 
 .PP
-Definition at line 132 of file baseSW\&.c\&.
+Definition at line 139 of file baseSW\&.c\&.
 .SS "enum \fBTRANSCIEVE_STATUS\fP"
 
 .PP
@@ -299,83 +351,93 @@ Definition at line 132 of file baseSW\&.c\&.
 .TP
 \fB\fITRANSCIEVE_CURRENT_DATA \fP\fP
 .TP
+\fB\fITRANSCIEVE_CURRENT_DATA_WITH_HEAT_ENABLED \fP\fP
+.TP
 \fB\fITRANSCIEVE_IDLE \fP\fP
 .PP
-Definition at line 257 of file baseSW\&.c\&.
+Definition at line 309 of file baseSW\&.c\&.
 .SH "Function Documentation"
 .PP 
 .SS "\fBstateTaskList\fP* baseSW_Initialize (void)"
 
 .PP
-Definition at line 559 of file baseSW\&.c\&.
+Definition at line 735 of file baseSW\&.c\&.
 .SS "void baseSW_TMR2_ISR (void)"
 
 .PP
-Definition at line 532 of file baseSW\&.c\&.
+Definition at line 650 of file baseSW\&.c\&.
 .SS "void baseSW_UART1_rx_ISR (void)"
 
 .PP
-Definition at line 551 of file baseSW\&.c\&.
+Definition at line 727 of file baseSW\&.c\&.
 .SS "void baseSW_UART1_tx_ISR (void)"
 
 .PP
-Definition at line 543 of file baseSW\&.c\&.
+Definition at line 719 of file baseSW\&.c\&.
 .SS "void baseSW_UART2_rx_ISR (void)"
 
 .PP
-Definition at line 555 of file baseSW\&.c\&.
+Definition at line 731 of file baseSW\&.c\&.
 .SS "void baseSW_UART2_tx_ISR (void)"
 
 .PP
-Definition at line 547 of file baseSW\&.c\&.
+Definition at line 723 of file baseSW\&.c\&.
 .SS "bool checkStartConditions ()"
 
 .PP
-Definition at line 317 of file baseSW\&.c\&.
+Definition at line 381 of file baseSW\&.c\&.
 .SS "void disableHeat ()"
 
 .PP
-Definition at line 282 of file baseSW\&.c\&.
+Definition at line 355 of file baseSW\&.c\&.
 .SS "void enableHeat ()"
 
 .PP
-Definition at line 278 of file baseSW\&.c\&.
+Definition at line 349 of file baseSW\&.c\&.
 .SS "void genericTranciverFunction ()"
 
 .PP
-Definition at line 457 of file baseSW\&.c\&.
+Definition at line 538 of file baseSW\&.c\&.
 .SS "void IdleState_callback ()"
 
 .PP
-Definition at line 287 of file baseSW\&.c\&.
-.SS "void loadBuffer ()"
+Definition at line 363 of file baseSW\&.c\&.
+.SS "void loadBufferHeatProfile ()"
 
 .PP
-Definition at line 312 of file baseSW\&.c\&.
+Definition at line 369 of file baseSW\&.c\&.
+.SS "void loadDefaultHeatProfile ()"
+
+.PP
+Definition at line 373 of file baseSW\&.c\&.
 .SS "void ReadEEPROM_callback ()"
 
 .PP
-Definition at line 493 of file baseSW\&.c\&.
+Definition at line 607 of file baseSW\&.c\&.
+.SS "uint16_t readLeatestTemperatreMeasuremntX4 ()"
+
+.PP
+Definition at line 413 of file baseSW\&.c\&.
 .SS "void ReadTemperatureData_callback ()"
 
 .PP
-Definition at line 342 of file baseSW\&.c\&.
+Definition at line 403 of file baseSW\&.c\&.
 .SS "void ReceiveFTDI_callback ()"
 
 .PP
-Definition at line 395 of file baseSW\&.c\&.
+Definition at line 470 of file baseSW\&.c\&.
 .SS "void ReceiveNextionData_callback ()"
 
 .PP
-Definition at line 352 of file baseSW\&.c\&.
+Definition at line 427 of file baseSW\&.c\&.
 .SS "void TranscieveNextionDATA_callback ()"
 
 .PP
-Definition at line 484 of file baseSW\&.c\&.
+Definition at line 598 of file baseSW\&.c\&.
 .SS "void TransciveFTDI_callback ()"
 
 .PP
-Definition at line 488 of file baseSW\&.c\&.
+Definition at line 602 of file baseSW\&.c\&.
 .SS "void WriteEEPROM_callback ()"
 WriteEEPROM_callback
 .PP
@@ -383,47 +445,63 @@ WriteEEPROM_callback
 .PP
 @Description This defines the object in the i2c queue\&. Each entry is a composed of a list of TRBs, the number of the TRBs and the status of the currently processed TRB\&. 
 .PP
-Definition at line 510 of file baseSW\&.c\&.
+Definition at line 625 of file baseSW\&.c\&.
 .SH "Variable Documentation"
 .PP 
 .SS "const uint16_t EEPROM_ADDRESS = 0x00"
-
+EEPROM address 
 .PP
 Definition at line 20 of file baseSW\&.c\&.
 .SS "\fBFTDI_STATUS\fP ftdiStatus = \fBNORMAL_OPERATION\fP\fC [static]\fP"
 
 .PP
-Definition at line 214 of file baseSW\&.c\&.
+Definition at line 266 of file baseSW\&.c\&.
 .SS "uint8_t HEAT_IN_PROGRESS = false\fC [static]\fP"
 
 .PP
-Definition at line 248 of file baseSW\&.c\&.
-.SS "uint8_t heatProfileBuffer[\fBHEAT_PROFILE_SIZE\fP]"
+Definition at line 300 of file baseSW\&.c\&.
+.SS "uint16_t heatProfileBuffer[\fBHEAT_PROFILE_SIZE\fP]"
 Heat profile buffer for memory operations\&. It can't be used directily, it has to be loaded into heatProfileCurrent 
 .PP
 Definition at line 109 of file baseSW\&.c\&.
-.SS "uint8_t heatProfileCurrent[\fBHEAT_PROFILE_SIZE\fP]"
+.SS "uint16_t heatProfileBufferTime[\fBHEAT_PROFILE_SIZE\fP]"
+Heat profile time buffer for memory operations\&. It can't be used directily, it has to be loaded into heatProfileCurrent 
+.PP
+Definition at line 114 of file baseSW\&.c\&.
+.SS "uint16_t heatProfileCurrent[\fBHEAT_PROFILE_SIZE\fP]"
 Currently selected heat profile\&. 
 .PP
 Definition at line 108 of file baseSW\&.c\&.
-.SS "uint8_t heatProfileDefult[\fBHEAT_PROFILE_SIZE\fP]"
+.SS "uint16_t heatProfileCurrentTime[\fBHEAT_PROFILE_SIZE\fP]"
+Currently selected heat profile time\&. 
+.PP
+Definition at line 113 of file baseSW\&.c\&.
+.SS "uint16_t heatProfileDefult[\fBHEAT_PROFILE_SIZE\fP]"
 Default heat profile, cannot be deleted 
 .PP
 Definition at line 110 of file baseSW\&.c\&.
+.SS "uint16_t heatProfileDefultTime[\fBHEAT_PROFILE_SIZE\fP]"
+Default heat profile time, cannot be deleted 
+.PP
+Definition at line 115 of file baseSW\&.c\&.
+.SS "\fBHEAT_TIMER_OBJ\fP heatTimerObj\fC [static]\fP"
+
+.PP
+Definition at line 340 of file baseSW\&.c\&.
 .SS "\fBstateTaskList\fP* IdleState = NULL"
 
 .PP
-Idle state\&. The task connected to this state cannot be deleted from the task que\&. This task provides the toggling protection to the SSR, ensuring that the software is properly running\&. This task is also responsible for disableing the heating process if one of the limits is exceeded\&. 
+Idle state\&. The task connected to this state cannot be deleted from the task que\&. This task provides the toggling protection to the SSR, ensuring that the software is properly running\&. This task is also responsible for disabling the heating process if one of the limits is exceeded\&. 
 .PP
 Definition at line 47 of file baseSW\&.c\&.
-.SS "const uint16_t INTERNAL_MAX_TEMPERATURE = 0x0000"
-
+.SS "const uint16_t INTERNAL_MAX_TEMPERATURE = 0x320"
+INTERNAL_MAX_TEMPERATURE = Max board temperature x 4 
 .PP
 Definition at line 21 of file baseSW\&.c\&.
 .SS "\fBNEXTION_STATUS\fP nextionStatus = \fBNEXTION_NORMAL_OPERATION\fP\fC [static]\fP"
 
 .PP
-Definition at line 230 of file baseSW\&.c\&.
+Definition at line 282 of file baseSW\&.c\&.
 .SS "\fBstateTaskList\fP* ReadEEPROM = NULL"
 
 .PP
@@ -449,23 +527,23 @@ Receive data from Nextion HMI state\&. In this task varios control commands are 
 .PP
 Definition at line 66 of file baseSW\&.c\&.
 .SS "\fBIC_MAX31855_DATA\fP SENSOR_DATA_ARRAYS[\fBSENSOR_DATA_STORE_LENGTH\fP]\fC [static]\fP"
-
+Global variable, used for storing measurements data\&. Direct access is not supperted\&. 
 .PP
-Definition at line 195 of file baseSW\&.c\&.
+Definition at line 220 of file baseSW\&.c\&.
 .SS "\fBSENSOR_DATA\fP SENSOR_DATA_HANDLER\fC [static]\fP"
-
+Global variable, used for access the measurements\&. \fBIC_MAX31855_DATA\fP can be accessed through this interface\&. 
 .PP
-Definition at line 194 of file baseSW\&.c\&.
+Definition at line 219 of file baseSW\&.c\&.
 .SS "\fBTEMPERATURE_BUFFER\fP temperatureBufferArray[3]"
 
 .PP
-Definition at line 158 of file baseSW\&.c\&.
+Definition at line 165 of file baseSW\&.c\&.
 .SS "\fBTEMPERATURE_PROFILE\fP temperatureHeatProfile\fC [static]\fP"
 Global varible, it stores heat profile related data 
 .PP
-Definition at line 157 of file baseSW\&.c\&.
-.SS "const uint16_t THERMOCOUPLE_MAX_TEMPERATURE = 0x0000"
-
+Definition at line 164 of file baseSW\&.c\&.
+.SS "const uint16_t THERMOCOUPLE_MAX_TEMPERATURE = 0x04B0"
+THERMOCOUPLE_MAX_TEMPERATURE = Max chamber temperature x 2 
 .PP
 Definition at line 22 of file baseSW\&.c\&.
 .SS "\fBstateTaskList\fP* TranscieveNextionDATA = NULL"
@@ -483,7 +561,7 @@ Definition at line 90 of file baseSW\&.c\&.
 .SS "\fBTRANSCIEVE_OBJ\fP transciveObj\fC [static]\fP"
 
 .PP
-Definition at line 269 of file baseSW\&.c\&.
+Definition at line 322 of file baseSW\&.c\&.
 .SS "\fBstateTaskList\fP* WriteEEPROM = NULL"
 
 .PP

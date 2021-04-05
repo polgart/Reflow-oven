@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['spi1_5fstatus_606',['SPI1_STATUS',['../spi1_8h.html#a023db59f6551e56ce57ee219df328012',1,'spi1.h']]],
-  ['spi1_5ftransfer_5fmode_607',['SPI1_TRANSFER_MODE',['../spi1_8c.html#a46876d5bc7fb1c46f19f110b9f9b6c51',1,'spi1.c']]]
+  ['temperature_5fbuffer_5fstatus_254',['TEMPERATURE_BUFFER_STATUS',['../base_s_w_8c.html#a58b2042d633892568e5fbcaf5e4ac423',1,'baseSW.c']]],
+  ['transcieve_5fstatus_255',['TRANSCIEVE_STATUS',['../base_s_w_8c.html#ae5d95f3971b48ffc0b84e3290ef41ed7',1,'baseSW.c']]]
 ];

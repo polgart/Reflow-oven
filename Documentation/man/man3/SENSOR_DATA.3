@@ -1,8 +1,9 @@
-.TH "SENSOR_DATA" 3 "Thu Feb 25 2021" "Version 1.0" "Reflow Oven firmware" \" -*- nroff -*-
+.TH "SENSOR_DATA" 3 "Mon Apr 5 2021" "Version 1.0" "Reflow Oven firmware" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-SENSOR_DATA
+SENSOR_DATA \- Measuremnt data array structure\&.  
+
 .SH SYNOPSIS
 .br
 .PP
@@ -27,23 +28,29 @@ SENSOR_DATA
 .in -1c
 .SH "Detailed Description"
 .PP 
-Definition at line 186 of file baseSW\&.c\&.
+Measuremnt data array structure\&. 
+
+This structure holds a maximum of SENSOR_DATA_STORE_LENGTH measurements read from the temperature sensor\&. currentData data denotes the array index which will be overwritten is new data arrives from the sensor\&. This structure implements a ring buffer, so currentData only can be between 0 and SENSOR_DATA_STORE_LENGTH - 1\&. 
+.PP
+Definition at line 211 of file baseSW\&.c\&.
 .SH "Field Documentation"
 .PP 
 .SS "uint8_t currentData"
-
+Ring buffer pointer 
 .PP
-Definition at line 190 of file baseSW\&.c\&.
+Definition at line 215 of file baseSW\&.c\&.
 .SS "\fBIC_MAX31855_DATA\fP* dataArrayQue"
-
+Pointer to measurement data 
 .PP
-Definition at line 187 of file baseSW\&.c\&.
+Definition at line 212 of file baseSW\&.c\&.
 .SS "struct { \&.\&.\&. }  dataArrayStatus"
-
+Measurement data status desriptor 
 .SS "uint8_t isUploaded"
-
+1 is all records are filled with measurement data in the ring buffer, otherwise 0\&. 
+.br
+ 
 .PP
-Definition at line 189 of file baseSW\&.c\&.
+Definition at line 214 of file baseSW\&.c\&.
 
 .SH "Author"
 .PP 

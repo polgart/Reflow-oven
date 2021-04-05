@@ -6,6 +6,7 @@
 <chapter>
     <title>Data Structure Documentation</title>
     <xi:include href="union_b_s___d_a_t_a___o_b_j.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="struct_h_e_a_t___t_i_m_e_r___o_b_j.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="union_i_c___m_a_x31855___d_a_t_a.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="struct_s_e_n_s_o_r___d_a_t_a.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="structstate_task_list__s.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
