@@ -16,11 +16,16 @@ enum State {
     TEMP_LO,
     TEMP_HI,
     INT_TEMP_LO,
-    INT_TEMP_HI
+    INT_TEMP_HI,
+    DESIRED_LO,
+    DESIRED_HI,
+    TIME_LO,
+    TIME_HI
 };
 
 enum DataType {
     TEMPERATURE,
+    TEMPERATURE_WITH_HET_ENABLED,
     HEAT_PROFILE
 };
 
@@ -33,8 +38,9 @@ private:
     void passData2Parser();
     enum State state;
     enum DataType type;
-    double chamberTemp;
-    double boardTemp;
+    double chamberTemp; // In C
+    double boardTemp; // In C
+    int time; // In ms
     dataParser* stateMachineDataParser;
 
 

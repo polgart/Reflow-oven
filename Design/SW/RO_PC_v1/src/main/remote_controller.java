@@ -99,9 +99,15 @@ public class remote_controller extends page_controller {
     }
 
     @FXML
+    private void addDataToSeries(Double xVal,Double yVal) {
+        series.getData().add(new XYChart.Data(xVal,yVal));
+    }
+
+    @FXML
     private void startBtnCallback() {
         byte[] dataOut = {10, 1, 0};
         Main.getSerialPortHandler().writeSocket(dataOut);
+        series.getData().clear();
     }
 
     @FXML
@@ -121,6 +127,9 @@ public class remote_controller extends page_controller {
             String chamberTemp = String.valueOf(data.getChamberTemp());
             tBoard.setText(boardTemp);
             tChamber.setText(chamberTemp);
+            if (data.isSerialData()) {
+                addDataToSeries(data.getTime(),data.getChamberTemp());
+            }
         });
     }
 }

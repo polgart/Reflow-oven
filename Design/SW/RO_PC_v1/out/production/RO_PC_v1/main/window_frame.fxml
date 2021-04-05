@@ -17,15 +17,11 @@
               <MenuItem mnemonicParsing="false" text="Close" />
                </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
             <Menu mnemonicParsing="false" text="Tools">
               <items>
                 <MenuItem mnemonicParsing="false" text="Create new profile" />
                   <MenuItem mnemonicParsing="false" text="Import profile" />
+                  <MenuItem mnemonicParsing="false" text="Export profile" />
               </items>
             </Menu>
           <Menu mnemonicParsing="false" text="Help">

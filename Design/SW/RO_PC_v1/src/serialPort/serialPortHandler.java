@@ -83,7 +83,8 @@ public class serialPortHandler extends Thread {
         IDLE,
         BOARD,
         CHAMBER,
-        HEAT_PROFILE
+        HEAT_PROFILE,
+        TIME
     }
     private InetAddress send_address;
     private int send_port;
@@ -121,12 +122,16 @@ public class serialPortHandler extends Thread {
             String received = new String(packet.getData());
             //System.out.println(received);
 
+
+            dataPacket.setSerialData(false);
             switch (rxStateMachine) {
                 case IDLE:
                     if (buf[0]==98)
                         rxStateMachine=stateMachine.BOARD;
                     else if (buf[0]==99)
                         rxStateMachine=stateMachine.CHAMBER;
+                    else if (buf[0]==100)
+                        rxStateMachine=stateMachine.TIME;
                     break;
                 case BOARD:
                     dataPacket.setBoardTemp(Double.parseDouble(received));
@@ -137,6 +142,12 @@ public class serialPortHandler extends Thread {
                     rxStateMachine = stateMachine.IDLE;
                     break;
                 case HEAT_PROFILE:
+                    rxStateMachine = stateMachine.IDLE;
+                    break;
+                case TIME:
+                    System.out.println(received);
+                    dataPacket.setTime(Double.parseDouble(received)/100.0);
+                    dataPacket.setSerialData(true);
                     rxStateMachine = stateMachine.IDLE;
                     break;
 

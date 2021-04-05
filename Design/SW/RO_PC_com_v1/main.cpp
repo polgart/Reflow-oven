@@ -71,6 +71,16 @@ void receiveData(SerialPort* COM_Port,socketHandler* Socket) {
 
 int main()
 {
+
+    //Welcome msg
+    printf("****************************************\n");
+    printf("*             Reflow oven              *\n");
+    printf("*         Communication module         *\n");
+    printf("*                                      *\n");
+    printf("*       Created by: Tamas Polgar       *\n");
+    printf("*                2021                  *\n");
+    printf("****************************************\n");
+
     // Create socket
     socketHandler* Socket = new socketHandler();
     Socket->initSocket();
@@ -85,6 +95,8 @@ int main()
 
     // Start transmitter thread
     thread transmitThread(transmitData,COM_Port,Socket);
+
+    printf("Data transfer in progress...");
 
 
     receiveThread.join();

@@ -19,6 +19,10 @@ void stateMachine::addData(unsigned char c) {
                 this->type = TEMPERATURE;
                 this->state = PREAMBLE2;
             }
+            if (c == 0xFE) {
+                this->type = TEMPERATURE_WITH_HET_ENABLED;
+                this->state = PREAMBLE2;
+            }
             break;
         case PREAMBLE2:
             this->chamberTemp = (double)c / 4;
@@ -34,11 +38,23 @@ void stateMachine::addData(unsigned char c) {
             break;
         case INT_TEMP_LO:
             this->boardTemp += (double)c * 16;
+            if (this->type == TEMPERATURE) {
+                this->state = IDLE;
+                this->passData2Parser();
+            }
+            else if (this->type == TEMPERATURE_WITH_HET_ENABLED) {
+                this->state = INT_TEMP_HI;
+            }
+            break;
+        case INT_TEMP_HI:
+            this->time = (int)c;
+            this->state = TIME_LO;
+            break;
+        case TIME_LO:
+            this->time += 256 * (int)(c);
+            this->time *= 10;
             this->state = IDLE;
             this->passData2Parser();
-            break;
-
-
     }
 }
 
@@ -55,14 +71,27 @@ void stateMachine::setDataParser(dataParser* input) {
 }
 
 void stateMachine::passData2Parser() {
+    std::string board,chamber,time;
     switch (this->type) {
         case TEMPERATURE:
-            std::string board = std::to_string(this->boardTemp);
-            std::string chamber = std::to_string(this->chamberTemp);
+            board = std::to_string(this->boardTemp);
+            chamber = std::to_string(this->chamberTemp);
             this->stateMachineDataParser->sendDataViaSocket(std::string("c"));
             this->stateMachineDataParser->sendDataViaSocket(chamber);
             this->stateMachineDataParser->sendDataViaSocket(std::string("b"));
             this->stateMachineDataParser->sendDataViaSocket(board);
+            break;
+        case TEMPERATURE_WITH_HET_ENABLED:
+            board = std::to_string(this->boardTemp);
+            chamber = std::to_string(this->chamberTemp);
+            time = std::to_string(this->time);
+            this->stateMachineDataParser->sendDataViaSocket(std::string("c"));
+            this->stateMachineDataParser->sendDataViaSocket(chamber);
+            this->stateMachineDataParser->sendDataViaSocket(std::string("b"));
+            this->stateMachineDataParser->sendDataViaSocket(board);
+            this->stateMachineDataParser->sendDataViaSocket(std::string("d"));
+            this->stateMachineDataParser->sendDataViaSocket(time);
+            break;
             break;
     }
 

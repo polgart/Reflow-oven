@@ -11,10 +11,6 @@ public class serialData {
         return boardTemp;
     }
 
-    public Integer getTimestamp() {
-        return timestamp;
-    }
-
     public boolean isScv() {
         return scv;
     }
@@ -35,10 +31,6 @@ public class serialData {
         this.boardTemp = boardTemp;
     }
 
-    public void setTimestamp(Integer timestamp) {
-        this.timestamp = timestamp;
-    }
-
     public void setScv(boolean scv) {
         this.scv = scv;
     }
@@ -52,18 +44,35 @@ public class serialData {
     }
 
 
+    public double getTime() {
+        return time;
+    }
 
+    public void setTime(double time) {
+        this.time = time;
+    }
+
+    public boolean isSerialData() {
+        return serialData;
+    }
+
+    public void setSerialData(boolean serialData) {
+        this.serialData = serialData;
+    }
+
+
+    double time;
     double chamberTemp;
     double boardTemp;
-    Integer timestamp;
     boolean scv;
     boolean scg;
     boolean oc;
+    boolean serialData;
 
-    void serialData(double chamberTemp_sD, double boardTemp_sD, Integer timestamp_sD, boolean scv_sD, boolean scg_sD, boolean oc_sD) {
+
+    void serialData(double chamberTemp_sD, double boardTemp_sD, boolean scv_sD, boolean scg_sD, boolean oc_sD) {
         chamberTemp=chamberTemp_sD;
         boardTemp=boardTemp_sD;
-        timestamp=timestamp_sD;
         scv=scv_sD;
         scg=scg_sD;
         oc=oc_sD;

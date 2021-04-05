@@ -18,8 +18,8 @@
  */
 
 const uint16_t EEPROM_ADDRESS = 0x00;
-const uint16_t INTERNAL_MAX_TEMPERATURE = 0x0000;
-const uint16_t THERMOCOUPLE_MAX_TEMPERATURE = 0x0000;
+const uint16_t INTERNAL_MAX_TEMPERATURE = 0x320;
+const uint16_t THERMOCOUPLE_MAX_TEMPERATURE = 0x04B0;
 
 /* 
  *
@@ -35,7 +35,7 @@ const uint16_t THERMOCOUPLE_MAX_TEMPERATURE = 0x0000;
  *  25+255=280 celsis degree, and the minimum reference temperature is
  *  25 celsius degree.
  */
-#define HEAT_PROFILE_SIZE 1024
+#define HEAT_PROFILE_SIZE 255
 
 /*! \brief Idle state
  *
@@ -105,10 +105,14 @@ stateTaskList* ReadEEPROM = NULL;
  */
 stateTaskList* WriteEEPROM = NULL;
 
-uint8_t heatProfileCurrent[HEAT_PROFILE_SIZE];/*!< Currently selected heat profile. */
-uint8_t heatProfileBuffer[HEAT_PROFILE_SIZE];/*!< Heat profile buffer for memory operations. It can't be used directily, it has to be loaded into heatProfileCurrent*/
-uint8_t heatProfileDefult[HEAT_PROFILE_SIZE];/*!< Default heat profile, cannot be deleted */
+uint16_t heatProfileCurrent[HEAT_PROFILE_SIZE];/*!< Currently selected heat profile. */
+uint16_t heatProfileBuffer[HEAT_PROFILE_SIZE];/*!< Heat profile buffer for memory operations. It can't be used directily, it has to be loaded into heatProfileCurrent*/
+uint16_t heatProfileDefult[HEAT_PROFILE_SIZE];/*!< Default heat profile, cannot be deleted */
 
+
+uint16_t heatProfileCurrentTime[HEAT_PROFILE_SIZE];/*!< Currently selected heat profile time. */
+uint16_t heatProfileBufferTime[HEAT_PROFILE_SIZE];/*!< Heat profile time buffer for memory operations. It can't be used directily, it has to be loaded into heatProfileCurrent*/
+uint16_t heatProfileDefultTime[HEAT_PROFILE_SIZE];/*!< Default heat profile time, cannot be deleted */
 
 /*! \brief Reference temperature buffer
  *
@@ -119,8 +123,11 @@ uint8_t heatProfileDefult[HEAT_PROFILE_SIZE];/*!< Default heat profile, cannot b
  */
 typedef struct
 {   
-    uint8_t     *data;      /*!< Buffer array pointer */
+    uint16_t    *data;      /*!< Buffer array pointer, temperature = data*4 */
+    uint16_t    *time;      /*!< Data time * 100[ms] */
     uint16_t    offset;     /*!<  Buffer offset value */
+    uint16_t    size;       /*!<  Number of records in the temperature buffer */
+    uint8_t     valid;      /*!<  TEMPERATURE_BUFFER is valid is valid=0x1, invalid else */
 } TEMPERATURE_BUFFER;
 
 
@@ -257,6 +264,7 @@ static uint8_t HEAT_IN_PROGRESS = false;
 typedef enum {
     TRANSCIEVE_FULL_HEAT_PROFILE,
     TRANSCIEVE_CURRENT_DATA,
+    TRANSCIEVE_CURRENT_DATA_WITH_HEAT_ENABLED,
     TRANSCIEVE_IDLE
 } TRANSCIEVE_STATUS;
 
@@ -270,6 +278,24 @@ static TRANSCIEVE_OBJ transciveObj;
 
 /* 
  *
+ *                  TIMER STATES
+ *
+ */
+
+typedef enum {
+    RUNNING,
+    STOPPED
+} HEAT_TIMER_STATUS;
+
+typedef struct {
+    HEAT_TIMER_STATUS status;
+    uint16_t timeStamp;
+} HEAT_TIMER_OBJ;
+
+static HEAT_TIMER_OBJ heatTimerObj;
+
+/* 
+ *
  *                  IMPLEMENTATION SECTION 
  *
  */
@@ -277,48 +303,37 @@ static TRANSCIEVE_OBJ transciveObj;
 
 void enableHeat() {
     HEAT_IN_PROGRESS = true;
+    heatTimerObj.status = RUNNING;
+    transciveObj.status = TRANSCIEVE_CURRENT_DATA_WITH_HEAT_ENABLED;
 }
 
 void disableHeat() {
     HEAT_IN_PROGRESS = false;
+    heatTimerObj.status = STOPPED;
+    heatTimerObj.timeStamp = 0x0;
+    transciveObj.status = TRANSCIEVE_CURRENT_DATA;
     SSR_OUTPUT_SetLow();
 }
 
 void IdleState_callback() {
-    //Temperature protection - critical feature
-    uint16_t internalTemp = SENSOR_DATA_HANDLER.dataArrayQue[SENSOR_DATA_HANDLER.dataArrayStatus.currentData].s.internal_temperature_data;
-    uint16_t sensorTemp = SENSOR_DATA_HANDLER.dataArrayQue[SENSOR_DATA_HANDLER.dataArrayStatus.currentData].s.thermocouple_temperature_data;
-    uint16_t desiredTemp = (uint16_t)temperatureHeatProfile.currentProfile.data[temperatureHeatProfile.currentProfile.offset];
-    
-    if (HEAT_IN_PROGRESS) {
-        if (internalTemp > INTERNAL_MAX_TEMPERATURE) {
-            disableHeat();
-            return;
-        }
-    
-        if (sensorTemp > THERMOCOUPLE_MAX_TEMPERATURE || sensorTemp > desiredTemp) {
-            disableHeat();
-            return;
-        }
-        
-        SSR_OUTPUT_SetHigh();
-    }
-            
-            
     //Toggling signal protection - critical feature
     T_PROTECTION_Toggle();
 }
 
 
-void loadBuffer() {
+void loadBufferHeatProfile() {
     memcpy(temperatureHeatProfile.currentProfile.data, temperatureHeatProfile.bufferProfile.data, HEAT_PROFILE_SIZE);
 }
 
+void loadDefaultHeatProfile() {
+    memcpy(temperatureHeatProfile.currentProfile.data, temperatureHeatProfile.defaultProfile.data, HEAT_PROFILE_SIZE);
+    memcpy(temperatureHeatProfile.currentProfile.time, temperatureHeatProfile.defaultProfile.time, HEAT_PROFILE_SIZE);
+    temperatureHeatProfile.currentProfile.offset=0;
+    temperatureHeatProfile.currentProfile.size=temperatureHeatProfile.defaultProfile.size;
+    temperatureHeatProfile.currentProfile.valid=0x1;
+}
 
 bool checkStartConditions() {
-    
-    if (ftdiStatus!=NORMAL_OPERATION)
-        return false; // Transmission in progress
     
     if (SENSOR_DATA_HANDLER.dataArrayQue[SENSOR_DATA_HANDLER.dataArrayStatus.currentData].s.oc)
         return false; // Thermocouple is open
@@ -329,10 +344,10 @@ bool checkStartConditions() {
     if (SENSOR_DATA_HANDLER.dataArrayQue[SENSOR_DATA_HANDLER.dataArrayStatus.currentData].s.scv)
         return false; // Thermocouple is short-circuited to VCC
     
-    if (SENSOR_DATA_HANDLER.dataArrayQue[SENSOR_DATA_HANDLER.dataArrayStatus.currentData].s.internal_temperature_data < INTERNAL_MAX_TEMPERATURE)
+    if (SENSOR_DATA_HANDLER.dataArrayQue[SENSOR_DATA_HANDLER.dataArrayStatus.currentData].s.internal_temperature_data > INTERNAL_MAX_TEMPERATURE)
         return false; // Inernal maximum temperature exceeded
     
-    if (SENSOR_DATA_HANDLER.dataArrayQue[SENSOR_DATA_HANDLER.dataArrayStatus.currentData].s.thermocouple_temperature_data < THERMOCOUPLE_MAX_TEMPERATURE)
+    if (SENSOR_DATA_HANDLER.dataArrayQue[SENSOR_DATA_HANDLER.dataArrayStatus.currentData].s.thermocouple_temperature_data > THERMOCOUPLE_MAX_TEMPERATURE)
         return false; // Thermocouple maximum temperature exceeded
     
     return true;
@@ -348,6 +363,20 @@ void ReadTemperatureData_callback() {
         SENSOR_DATA_HANDLER.dataArrayStatus.currentData = 0;
         SENSOR_DATA_HANDLER.dataArrayStatus.isUploaded = 0x1;
     }
+}
+
+uint16_t readLeatestTemperatreMeasuremntX4() {
+        uint8_t data_index = SENSOR_DATA_HANDLER.dataArrayStatus.currentData;
+        if (data_index==0) {
+            data_index=SENSOR_DATA_STORE_LENGTH;
+        } else {
+            data_index--;
+        }
+        
+        uint16_t d = 0x0;
+        d |= SENSOR_DATA_HANDLER.dataArrayQue[data_index].s.thermocouple_temperature_data;
+        d |= SENSOR_DATA_HANDLER.dataArrayQue[data_index].s.thermocouple_temperature_data >> 8;  
+        return d;
 }
 
 void ReceiveNextionData_callback() {
@@ -368,7 +397,7 @@ void ReceiveNextionData_callback() {
                         disableHeat();
                     }
                     if (msg & 0x04) {
-                        loadBuffer();
+                        loadBufferHeatProfile();
                     }
                     break;
                 case 1:
@@ -416,7 +445,7 @@ void ReceiveFTDI_callback() {
                         disableHeat();
                     }
                     if (msg == 0x04) {
-                        loadBuffer();
+                        loadBufferHeatProfile();
                     }
                     break;
                 case 1:
@@ -463,6 +492,8 @@ void ReceiveFTDI_callback() {
 
 void genericTranciverFunction() {
     
+        // Get sensor data
+    
         uint8_t data_index = SENSOR_DATA_HANDLER.dataArrayStatus.currentData;
         if (data_index==0) {
             data_index=SENSOR_DATA_STORE_LENGTH;
@@ -474,13 +505,19 @@ void genericTranciverFunction() {
         uint8_t temp_hi = SENSOR_DATA_HANDLER.dataArrayQue[data_index].s.thermocouple_temperature_data >> 8;   
         uint8_t int_temp_lo = SENSOR_DATA_HANDLER.dataArrayQue[data_index].s.internal_temperature_data;
         uint8_t int_temp_hi = SENSOR_DATA_HANDLER.dataArrayQue[data_index].s.internal_temperature_data >> 8;
+                
+        // Get time
+        uint16_t timeStamp = heatTimerObj.timeStamp;
+        uint8_t lowerTimeStamp = (uint8_t)timeStamp;
+        uint8_t upperTimeStamp = (uint8_t)(timeStamp >> 8);
         
         switch(transciveObj.status) {
         case TRANSCIEVE_IDLE:
             break;
         case TRANSCIEVE_FULL_HEAT_PROFILE:
-            UART1_WriteBuffer(temperatureHeatProfile.currentProfile.data , HEAT_PROFILE_SIZE );
-            UART2_WriteBuffer(temperatureHeatProfile.currentProfile.data , HEAT_PROFILE_SIZE );
+            /* TODO : WriteBuffer accepts unit8_t, heat profile data is uint16_t*/
+            //UART1_WriteBuffer(temperatureHeatProfile.currentProfile.data , HEAT_PROFILE_SIZE );
+            //UART2_WriteBuffer(temperatureHeatProfile.currentProfile.data , HEAT_PROFILE_SIZE );
             break;
         case TRANSCIEVE_CURRENT_DATA:
             //UART1_Write(0xFF);
@@ -498,6 +535,17 @@ void genericTranciverFunction() {
             UART2_Write(int_temp_hi);
 
             break;
+            
+        case TRANSCIEVE_CURRENT_DATA_WITH_HEAT_ENABLED:
+            UART2_Write(0xFF);
+            UART2_Write(0xFE);
+            UART2_Write(temp_lo);
+            UART2_Write(temp_hi);
+            UART2_Write(int_temp_lo);
+            UART2_Write(int_temp_hi);
+            UART2_Write(lowerTimeStamp);
+            UART2_Write(upperTimeStamp);
+            break;
     }
 }
 
@@ -512,7 +560,8 @@ void TransciveFTDI_callback() {
 
 
 void ReadEEPROM_callback() {
-    EEPROM_Read(EEPROM_ADDRESS,temperatureHeatProfile.addressBuffer,temperatureHeatProfile.bufferProfile.data,HEAT_PROFILE_SIZE);
+    /* TODO: temp data is uint16_t */
+    //EEPROM_Read(EEPROM_ADDRESS,temperatureHeatProfile.addressBuffer,temperatureHeatProfile.bufferProfile.data,HEAT_PROFILE_SIZE);
     temperatureHeatProfile.profileStatus = IDLE;
 }
 
@@ -529,6 +578,9 @@ void ReadEEPROM_callback() {
  */
 
 void WriteEEPROM_callback() {
+    
+    /* TODO : Temp data is uint16_t*/
+    
     /* If the buffer input is not equal to zero there is a transmission in proggress
      and the data in buffer is not consistent. */
     if (temperatureHeatProfile.bufferProfile.offset == 0) {
@@ -539,7 +591,7 @@ void WriteEEPROM_callback() {
 
         for (current_write_cycle = 0; current_write_cycle < write_cycles_max; current_write_cycle++) {
             offset = temperatureHeatProfile.bufferProfile.offset;
-            EEPROM_WritePage(EEPROM_ADDRESS,temperatureHeatProfile.addressBuffer,&(temperatureHeatProfile.bufferProfile.data[offset*page_size]));
+            //EEPROM_WritePage(EEPROM_ADDRESS,temperatureHeatProfile.addressBuffer,&(temperatureHeatProfile.bufferProfile.data[offset*page_size]));
         }
 
     }
@@ -551,6 +603,64 @@ void WriteEEPROM_callback() {
 /* Interrupt service routines */
 
 void baseSW_TMR2_ISR(void) {
+    
+    // SSR control
+    if (HEAT_IN_PROGRESS) {
+        if (checkStartConditions()) {
+            // Increase timeStamp by 100 ms
+            uint16_t cTimeStamp = heatTimerObj.timeStamp++;
+            
+            //Get current temperature offset
+            uint16_t cOffset = temperatureHeatProfile.currentProfile.offset;
+            
+            //Get the number of records in the heat profile
+            uint16_t mOffset = temperatureHeatProfile.currentProfile.size;
+            
+            // Check if we reached the end of the heating process
+            if (cOffset+1 >= mOffset) {
+                disableHeat();
+            } else {
+                // Calculate desired temperature
+                while (temperatureHeatProfile.currentProfile.time[cOffset+1] < cTimeStamp) {
+                    if ((++cOffset) >= mOffset) {
+                        disableHeat();
+                        break;
+                    }
+                }
+                
+                // Get the desired temperature & time in nearest defined points
+                uint16_t temperature1 = temperatureHeatProfile.currentProfile.data[cOffset];
+                uint16_t temperature2 = temperatureHeatProfile.currentProfile.data[cOffset+1];
+                uint16_t time1 = temperatureHeatProfile.currentProfile.time[cOffset];
+                uint16_t time2 = temperatureHeatProfile.currentProfile.time[cOffset+1];
+                
+                uint16_t dTtime = time2 - time1;
+                uint16_t dTtemp = temperature2 - temperature1;
+                uint16_t dcTtime = cTimeStamp - time1;
+                
+                
+                
+                // Calculate the desired temperature
+                double ratio = dcTtime/dTtime;
+                double diff = ratio * (dTtemp);
+                uint16_t desired_temp = temperature1 + (uint16_t)diff;
+                        
+                // Get measured temperature
+                uint16_t current_temperature_X4 = readLeatestTemperatreMeasuremntX4();
+                
+                if (desired_temp < current_temperature_X4) {
+                    SSR_OUTPUT_SetHigh();
+                }
+                
+            }
+            
+        } else {
+            disableHeat();
+        }
+    }
+    
+    // Data transmission
+    
     static char flag = 0;
     if (flag==0) {
         addTask(IdleState,TranscieveNextionDATA);
@@ -615,12 +725,15 @@ stateTaskList* baseSW_Initialize(void) {
     temperatureHeatProfile.defaultProfile = temperatureBufferArray[2];
     
     temperatureHeatProfile.currentProfile.data = heatProfileCurrent;
+    temperatureHeatProfile.currentProfile.time = heatProfileCurrentTime;
     temperatureHeatProfile.currentProfile.offset = 0x0;
     
     temperatureHeatProfile.bufferProfile.data = heatProfileBuffer;
+    temperatureHeatProfile.bufferProfile.time = heatProfileBufferTime;
     temperatureHeatProfile.bufferProfile.offset = 0x0;
     
     temperatureHeatProfile.defaultProfile.data = heatProfileDefult;
+    temperatureHeatProfile.defaultProfile.time = heatProfileDefultTime;
     temperatureHeatProfile.defaultProfile.offset = 0x0;
     
     temperatureHeatProfile.profileStatus = IDLE;
@@ -637,6 +750,29 @@ stateTaskList* baseSW_Initialize(void) {
     transciveObj.status = TRANSCIEVE_CURRENT_DATA;
     
     
+    // Create default heat profile
+    temperatureHeatProfile.defaultProfile.time[0]=0;    // 0 ms
+    temperatureHeatProfile.defaultProfile.time[1]=750;  // 75s = 750 * 100 ms
+    temperatureHeatProfile.defaultProfile.time[2]=1150; // 115s = 1150 * 100 ms
+    temperatureHeatProfile.defaultProfile.time[3]=2150; // 215s = 2150 * 100 ms
+    temperatureHeatProfile.defaultProfile.time[4]=2350; // 235s = 2350 * 100 ms
+    temperatureHeatProfile.defaultProfile.time[5]=2550; // 255s = 2550 * 100 ms
+    temperatureHeatProfile.defaultProfile.time[6]=3700; // 370s = 3700 * 100 ms
+    
+    temperatureHeatProfile.defaultProfile.data[0]=100;  // 25 * 4 = 100C
+    temperatureHeatProfile.defaultProfile.data[1]=600;  // 150 * 4 = 600C
+    temperatureHeatProfile.defaultProfile.data[2]=720;  // 180 * 4 = 720C
+    temperatureHeatProfile.defaultProfile.data[3]=960;  // 240 * 4 = 960C
+    temperatureHeatProfile.defaultProfile.data[4]=1000; // 250 * 4 = 1000C
+    temperatureHeatProfile.defaultProfile.data[5]=960;  // 240 * 4 = 960C
+    temperatureHeatProfile.defaultProfile.data[6]=100;  // 25 * 4 = 100C
+    
+    temperatureHeatProfile.defaultProfile.valid = 0x1;  // Heat profile is valid
+    temperatureHeatProfile.defaultProfile.size = 0x6;   // Maximum offset in records
+    temperatureHeatProfile.defaultProfile.offset = 0x0; // Offset pointer
+    
+    // Initialie current buffer with the default heat profile
+    loadDefaultHeatProfile();
     
     return IdleState;
 
