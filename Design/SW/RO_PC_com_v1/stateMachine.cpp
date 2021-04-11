@@ -28,8 +28,12 @@ void stateMachine::addData(unsigned char c) {
                 this->string_offset = 0;
                 this->state = HEAT_PROFILE_NAME;
             }
+            else if (c == 0xFC) {
+                this->type = TEMPERATURE_WITH_HEAT_ENABLED_TEST_MODE;
+                this->state = PREAMBLE2;
+            }
             else {
-
+                this->state = IDLE;
             }
             break;
         case PREAMBLE2:
@@ -50,7 +54,7 @@ void stateMachine::addData(unsigned char c) {
                 this->state = IDLE;
                 this->passData2Parser();
             }
-            else if (this->type == TEMPERATURE_WITH_HET_ENABLED) {
+            else if (this->type == TEMPERATURE_WITH_HET_ENABLED || this->type == TEMPERATURE_WITH_HEAT_ENABLED_TEST_MODE) {
                 this->state = INT_TEMP_HI;
             }
             break;
@@ -61,6 +65,20 @@ void stateMachine::addData(unsigned char c) {
         case TIME_LO:
             this->time += 256 * (int)(c);
             this->time *= 10;
+            if (this->type == TEMPERATURE_WITH_HET_ENABLED) {
+                this->passData2Parser();
+                this->state = IDLE;
+            }
+            else {
+                this->state = DESIRED_LO;
+            }
+            break;
+        case DESIRED_LO:
+            this->desired_temp = (double)c / 4;
+            this->state = DESIRED_HI;
+            break;
+        case DESIRED_HI:
+            this->desired_temp += (double)c * 64;
             this->state = IDLE;
             this->passData2Parser();
             break;
@@ -106,6 +124,8 @@ void stateMachine::addData(unsigned char c) {
                 this->state = IDLE;
             }
             break;
+        default:
+            printf("Communication error.");
 
     }
 }
@@ -116,6 +136,7 @@ stateMachine::stateMachine() {
     this->state = IDLE;
     this->boardTemp = 0;
     this->chamberTemp = 0;
+    this->msg_ctr = 0;
 }
 
 void stateMachine::setDataParser(dataParser* input) {
@@ -123,7 +144,7 @@ void stateMachine::setDataParser(dataParser* input) {
 }
 
 void stateMachine::passData2Parser() {
-    std::string board,chamber,time,id,data,name,length;
+    std::string board,chamber,time,id,data,name,length,desired_temp;
     int it;
     switch (this->type) {
         case TEMPERATURE:
@@ -133,6 +154,7 @@ void stateMachine::passData2Parser() {
             this->stateMachineDataParser->sendDataViaSocket(chamber);
             this->stateMachineDataParser->sendDataViaSocket(std::string("b"));
             this->stateMachineDataParser->sendDataViaSocket(board);
+            this->stateMachineDataParser->sendDataViaSocket(std::string("EOF")); //End of message
             break;
         case TEMPERATURE_WITH_HET_ENABLED:
             board = std::to_string(this->boardTemp);
@@ -144,6 +166,7 @@ void stateMachine::passData2Parser() {
             this->stateMachineDataParser->sendDataViaSocket(board);
             this->stateMachineDataParser->sendDataViaSocket(std::string("d"));
             this->stateMachineDataParser->sendDataViaSocket(time);
+            this->stateMachineDataParser->sendDataViaSocket(std::string("EOF")); //End of message
             break;
         case HEAT_PROFILE:
 
@@ -169,7 +192,22 @@ void stateMachine::passData2Parser() {
                 time = std::to_string(this->heat_profile_time[it]);
                 this->stateMachineDataParser->sendDataViaSocket(time);
             }
-
+            this->stateMachineDataParser->sendDataViaSocket(std::string("EOF")); //End of message
+            break;
+        case TEMPERATURE_WITH_HEAT_ENABLED_TEST_MODE:
+            board = std::to_string(this->boardTemp);
+            chamber = std::to_string(this->chamberTemp);
+            time = std::to_string(this->time);
+            desired_temp = std::to_string(this->desired_temp);
+            this->stateMachineDataParser->sendDataViaSocket(std::string("c"));
+            this->stateMachineDataParser->sendDataViaSocket(chamber);
+            this->stateMachineDataParser->sendDataViaSocket(std::string("b"));
+            this->stateMachineDataParser->sendDataViaSocket(board);
+            this->stateMachineDataParser->sendDataViaSocket(std::string("d"));
+            this->stateMachineDataParser->sendDataViaSocket(time);
+            this->stateMachineDataParser->sendDataViaSocket(std::string("j"));
+            this->stateMachineDataParser->sendDataViaSocket(desired_temp);
+            this->stateMachineDataParser->sendDataViaSocket(std::string("EOF")); //End of message
             break;
     }
 

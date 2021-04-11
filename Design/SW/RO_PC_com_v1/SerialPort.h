@@ -25,6 +25,8 @@ public:
     ~SerialPort();
 
     int readSerialPort(const unsigned char *buffer, unsigned int buf_size);
+    int readSerialPortEnhanced(const unsigned char *buffer, unsigned int buf_size);
+    bool writeSerialPortEnhanced(const char *buffer, unsigned int buf_size);
     bool writeSerialPort(const char *buffer, unsigned int buf_size);
     bool isConnected();
     void closeSerial();

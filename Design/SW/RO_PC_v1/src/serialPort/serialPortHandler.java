@@ -91,20 +91,43 @@ public class serialPortHandler extends Thread {
         NAME,
         HEAT_PROFILE_LENGTH,
         HEAT_PROFILE_TIME,
-        HEAT_PROFILE_DATA
+        HEAT_PROFILE_DATA,
+        DESIRED_TEMP
     }
     private InetAddress send_address;
     private int send_port;
 
+    private byte uByte(int data) {
+        if (0 <= data && data <= 127)
+            return  (byte)data;
+        if (128 <= data && data <= 255)
+            return (byte)(data - 256);
+        return (byte)0;
+    }
+
     public void writeSocket(byte[] byte_array) {
         //System.out.println("Write operation started.");
+        int msg_length = byte_array.length;
+        if (msg_length>65536) {
+            return;
+        }
+        byte low = uByte(msg_length % 256);
+        byte high = uByte(msg_length / 256);
+        byte[] preamble = {low, high};
+        DatagramPacket out_preamble = new DatagramPacket(preamble, 2, send_address, send_port);
         DatagramPacket out_packet = new DatagramPacket(byte_array, byte_array.length, send_address, send_port);
 
+        try {
+            SendSocket.send(out_preamble);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         try {
             SendSocket.send(out_packet);
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         //System.out.println("Write operation completed.");
     }
 
@@ -122,18 +145,17 @@ public class serialPortHandler extends Thread {
                 e.printStackTrace();
             }
 
-            //InetAddress address = packet.getAddress();
-            //int port = packet.getPort();
             packet = new DatagramPacket(buf, buf.length, send_address, send_port);
-
             String received = new String(packet.getData(), StandardCharsets.UTF_8);
-            //System.out.println(received);
+
 
 
             switch (rxStateMachine) {
                 case IDLE:
-                    if (buf[0]==98)
-                        rxStateMachine=stateMachine.BOARD;
+                    if (buf[0]==98) {
+                        rxStateMachine = stateMachine.BOARD;
+                        dataPacket.setType(serialData.dataTypeEnum.ONLY_TEMPERATURE);
+                    }
                     else if (buf[0]==99)
                         rxStateMachine=stateMachine.CHAMBER;
                     else if (buf[0]==100)
@@ -144,6 +166,8 @@ public class serialPortHandler extends Thread {
                         rxStateMachine=stateMachine.ID;
                     else if (buf[0]==103)
                         rxStateMachine=stateMachine.HEAT_PROFILE_LENGTH;
+                    else if (buf[0]==106)
+                        rxStateMachine=stateMachine.DESIRED_TEMP;
                     else if (buf[0]==104) {
                          rxStateMachine = stateMachine.HEAT_PROFILE_DATA;
                         this.receiveDataCounter=0;
@@ -154,11 +178,13 @@ public class serialPortHandler extends Thread {
                         this.receiveDataCounter=0;
                         dataPacket.init_heat_profile_time();
                     }
+                    else if (buf[0]=='E' && buf[1]=='O' && buf[2]=='F') {
+
+                    }
                     else
                         System.out.println("Unknown packet arrived:"+received);
                     break;
                 case BOARD:
-                    dataPacket.setType(serialData.dataTypeEnum.ONLY_TEMPERATURE);
                     dataPacket.setBoardTemp(Double.parseDouble(received));
                     rxStateMachine = stateMachine.IDLE;
                     break;
@@ -170,31 +196,38 @@ public class serialPortHandler extends Thread {
                     rxStateMachine = stateMachine.IDLE;
                     break;
                 case TIME:
+                    System.out.println("Time:"+received);
                     dataPacket.setTime(Double.parseDouble(received)/100.0);
                     dataPacket.setType(serialData.dataTypeEnum.SERIAL_DATA);
                     rxStateMachine = stateMachine.IDLE;
                     break;
+                case DESIRED_TEMP:
+                    System.out.println("Desired:"+received);
+                    dataPacket.setDesiredTemp(Double.parseDouble(received));
+                    dataPacket.setType(serialData.dataTypeEnum.SERIAL_DATA_WITH_DESIRED_TEMP);
+                    rxStateMachine = stateMachine.IDLE;
+                    break;
                 case NAME:
                     dataPacket.setFinishedReceiving(false);
-                    //System.out.println("Profile name: "+received);
+                    System.out.println("Profile received: "+received);
                     dataPacket.setType(serialData.dataTypeEnum.HEAT_PROFILE);
                     dataPacket.setName(received);
                     rxStateMachine = stateMachine.IDLE;
                     break;
                 case ID:
-                    //System.out.println("Profile ID: "+received);
+                    System.out.println("Profile ID: "+received);
                     dataPacket.setID((int)Double.parseDouble(received));
                     rxStateMachine = stateMachine.IDLE;
                     break;
                 case HEAT_PROFILE_DATA:
-                    //System.out.println("Profile temperature: "+received);
+                    System.out.println("Profile temperature: "+received);
                     dataPacket.add_heat_profile_temperature(Double.parseDouble(received)/4,this.receiveDataCounter);
                     this.receiveDataCounter++;
                     if (this.receiveDataCounter == dataPacket.getLength()+1)
                         rxStateMachine = stateMachine.IDLE;
                     break;
                 case HEAT_PROFILE_TIME:
-                    //System.out.println("Profile time: "+received);
+                    System.out.println("Profile time: "+received);
                     dataPacket.add_heat_profile_time(Double.parseDouble(received)/10,this.receiveDataCounter);
                     this.receiveDataCounter++;
                     if (this.receiveDataCounter == dataPacket.getLength()+1) {
@@ -204,15 +237,30 @@ public class serialPortHandler extends Thread {
                     }
                     break;
                 case HEAT_PROFILE_LENGTH:
-                    //System.out.println("Profile length: "+received);
+                    System.out.println("Profile length: "+received);
                     dataPacket.setLength((int)Double.parseDouble(received));
                     rxStateMachine = stateMachine.IDLE;
                     break;
 
             }
 
-            if (observer!=null)
+            if (observer!=null && buf[0]=='E' && buf[1]=='O' && buf[2]=='F') {
+//                switch (dataPacket.getType()) {
+//                    case ONLY_TEMPERATURE:
+//                        System.out.println("Sending to remote controller ONLY_TEMPERATURE data");
+//                        break;
+//                    case SERIAL_DATA:
+//                        System.out.println("Sending to remote controller SERIAL_DATA data");
+//                        break;
+//                    case HEAT_PROFILE:
+//                        System.out.println("Sending to remote controller HEAT_PROFILE data");
+//                        break;
+//                    case SERIAL_DATA_WITH_DESIRED_TEMP:
+//                        System.out.println("Sending to remote controller SERIAL_DATA_WITH_DESIRED_TEMP data");
+//                        break;
+//                }
                 observer.update(dataPacket);
+            }
 
 
             Arrays.fill(buf,(byte)0);
@@ -221,5 +269,6 @@ public class serialPortHandler extends Thread {
 
         }
         ReceiveSocket.close();
+        SendSocket.close();
     }
 }

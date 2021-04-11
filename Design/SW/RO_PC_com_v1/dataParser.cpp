@@ -18,5 +18,6 @@ dataParser::dataParser(socketHandler* Socket) {
 }
 
 void dataParser::sendDataViaSocket(std::string str) {
+    printf("%s\n",str.c_str());
     this->dataParserSocket->sendSocket(str.c_str());
 }

@@ -16,7 +16,7 @@ SerialPort::SerialPort(const char *portName)
                                 0,
                                 NULL,
                                 OPEN_EXISTING,
-                                FILE_ATTRIBUTE_NORMAL,
+                                FILE_FLAG_OVERLAPPED,
                                 NULL);
     if (this->handler == INVALID_HANDLE_VALUE)
     {
@@ -127,4 +127,127 @@ bool SerialPort::isConnected()
 void SerialPort::closeSerial()
 {
     CloseHandle(this->handler);
+}
+
+int SerialPort::readSerialPortEnhanced(const unsigned char *buffer, unsigned int buf_size) {
+    memset((void*) buffer, 0, buf_size);
+
+    DWORD dwRead;
+    BOOL fWaitingOnRead = FALSE;
+    OVERLAPPED osReader = {0};
+
+    // Create the overlapped event. Must be closed before exiting
+    // to avoid a handle leak.
+    osReader.hEvent = CreateEvent(NULL, TRUE, FALSE, NULL);
+
+    if (osReader.hEvent == NULL) {
+        // Error creating overlapped event; abort.
+        printf("Error creating overlapped event; abort.\n");
+    }
+
+    if (!fWaitingOnRead) {
+        // Issue read operation.
+        if (!ReadFile(this->handler, (void *) buffer, 1, &dwRead, &osReader)) {
+            if (GetLastError() != ERROR_IO_PENDING) {
+                printf("COM Port reading error\n");
+                return 0;
+            } else {
+                fWaitingOnRead = TRUE;
+                //printf("Waiting on read\n");
+            }
+        } else {
+            // read completed immediately
+            //printf("Read completed immediately. (%d)\n",dwRead);
+            return dwRead;
+        }
+    }
+
+    DWORD dwRes;
+
+    if (fWaitingOnRead) {
+        dwRes = WaitForSingleObject(osReader.hEvent, INFINITE);
+        switch(dwRes)
+        {
+            // Read completed.
+            case WAIT_OBJECT_0:
+                if (!GetOverlappedResult(this->handler, &osReader, &dwRead, FALSE)) {
+                    printf("COM Port reading error\n");
+                    return 0;
+                }
+                else {
+                    //printf("Read completed. (%d)\n",dwRead);
+                    fWaitingOnRead = FALSE;
+                    return dwRead;
+                }
+                break;
+
+            case WAIT_TIMEOUT:
+                // Operation isn't complete yet. fWaitingOnRead flag isn't
+                // changed since I'll loop back around, and I don't want
+                // to issue another read until the first one finishes.
+                //
+                // This is a good time to do some background work.
+                break;
+
+            default:
+                // Error in the WaitForSingleObject; abort.
+                // This indicates a problem with the OVERLAPPED structure's
+                // event handle.
+                break;
+        }
+    }
+
+    return 0;
+}
+
+bool SerialPort::writeSerialPortEnhanced(const char *buffer, unsigned int buf_size) {
+    OVERLAPPED osWrite = {0};
+    DWORD dwWritten;
+    DWORD dwRes;
+    BOOL fRes;
+
+    // Create this write operation's OVERLAPPED structure's hEvent.
+    osWrite.hEvent = CreateEvent(NULL, TRUE, FALSE, NULL);
+    if (osWrite.hEvent == NULL) {
+        printf("Error creating overlapped event handle\n");
+        return FALSE;
+    }
+
+    // Issue write.
+    if (!WriteFile(this->handler, (void*)buffer, buf_size, &dwWritten, &osWrite)) {
+        if (GetLastError() != ERROR_IO_PENDING) {
+            printf("WriteFile failed, but isn't delayed. Report error and abort.\n");
+            fRes = FALSE;
+        }
+        else {
+            //printf("Write is pending.\n");
+            dwRes = WaitForSingleObject(osWrite.hEvent, INFINITE);
+
+            switch(dwRes)
+            {
+                // OVERLAPPED structure's event has been signaled.
+                case WAIT_OBJECT_0:
+                    if (!GetOverlappedResult(this->handler, &osWrite, &dwWritten, FALSE))
+                        fRes = FALSE;
+                    else
+                        //printf("Write operation completed successfully.");
+                        fRes = TRUE;
+                    break;
+
+                default:
+                    printf("An error has occurred in WaitForSingleObject.\n");
+                    printf("This usually indicates a problem with the\n");
+                    printf("OVERLAPPED structure's event handle.\n");
+                    fRes = FALSE;
+                    break;
+             }
+        }
+    }
+    else {
+        //printf("WriteFile completed immediately.\n");
+        fRes = TRUE;
+    }
+
+    CloseHandle(osWrite.hEvent);
+    return fRes;
 }

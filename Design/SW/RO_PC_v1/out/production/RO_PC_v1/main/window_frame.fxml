@@ -11,8 +11,6 @@
           <Menu mnemonicParsing="false" text="File">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#loadRemotePage" text="Remote control" />
-                  <MenuItem mnemonicParsing="false" text="Write heat profiel" />
-                  <MenuItem mnemonicParsing="false" text="Read heat profile" />
                   <MenuItem mnemonicParsing="false" onAction="#loadSettingsPage" text="Settings" />
               <MenuItem mnemonicParsing="false" text="Close" />
                </items>

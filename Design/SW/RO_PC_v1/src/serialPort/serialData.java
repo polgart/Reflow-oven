@@ -6,6 +6,7 @@ import java.util.Arrays;
 public class serialData {
 
     public enum dataTypeEnum {
+        SERIAL_DATA_WITH_DESIRED_TEMP,
         SERIAL_DATA,
         ONLY_TEMPERATURE,
         HEAT_PROFILE
@@ -122,9 +123,18 @@ public class serialData {
         return heat_profile_temperature[index];
     }
 
+    public double getDesiredTemp() {
+        return desiredTemp;
+    }
+
+    public void setDesiredTemp(double desiredTemp) {
+        this.desiredTemp = desiredTemp;
+    }
+
     double time;
     double chamberTemp;
     double boardTemp;
+    double desiredTemp;
     boolean scv;
     boolean scg;
     boolean oc;

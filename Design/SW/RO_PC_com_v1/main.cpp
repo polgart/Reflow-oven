@@ -38,10 +38,24 @@ dataParser* Parser;
 void transmitData(SerialPort* COM_Port,socketHandler* Socket) {
     printf("Transmitter thread successfully started\n");
     char rcvBuffer[RcvBufferLength];
+
+    //Waiting for actual data
+    bool waitForData = false;
+    uint16_t dataLength = 0;
+
     while(1) {
         Socket->receiveSocket(rcvBuffer,RcvBufferLength);
-        //printf("%s (%d)\n",rcvBuffer,strlen(rcvBuffer));
-        COM_Port->writeSerialPort(rcvBuffer,strlen(rcvBuffer));
+        if (waitForData) {
+            COM_Port->writeSerialPortEnhanced(rcvBuffer,dataLength);
+            waitForData = false;
+        }
+        else {
+            dataLength = (uint16_t) rcvBuffer[0];
+            dataLength += (uint16_t) rcvBuffer[1] << 8;
+            waitForData = true;
+            //printf("Preamble (%u)\n",dataLength);
+        }
+
     }
     return;
 }
@@ -57,7 +71,7 @@ void receiveData(SerialPort* COM_Port,socketHandler* Socket) {
 
     // Read data
     while(1) {
-        int readBytes = COM_Port->readSerialPort(incomingData, MAX_DATA_LENGTH);
+        int readBytes = COM_Port->readSerialPortEnhanced(incomingData, MAX_DATA_LENGTH);
         if (readBytes) {
             for (int i = 0; i<readBytes;i++) {
                 Parser->addData(incomingData[i]);
@@ -75,11 +89,13 @@ int main()
     //Welcome msg
     printf("****************************************\n");
     printf("*             Reflow oven              *\n");
+    printf("*                                      *\n");
     printf("*         Communication module         *\n");
+    printf("*       Full duplex asynchronous       *\n");
     printf("*                                      *\n");
     printf("*       Created by: Tamas Polgar       *\n");
     printf("*                2021                  *\n");
-    printf("****************************************\n");
+    printf("****************************************\n\n");
 
     // Create socket
     socketHandler* Socket = new socketHandler();
@@ -88,7 +104,7 @@ int main()
     // Open COM Port
     COM_Port = new SerialPort(portName);
     while (!COM_Port->isConnected());
-    printf("COM port connected\n");
+    printf("COM port 3 connected\n");
 
     // Start receiver thread
     thread receiveThread(receiveData,COM_Port,Socket);
@@ -96,11 +112,8 @@ int main()
     // Start transmitter thread
     thread transmitThread(transmitData,COM_Port,Socket);
 
-    printf("Data transfer in progress...");
-
-
     receiveThread.join();
-    transmitThread.join();
+    //transmitThread.join();
     return 0;
 
 }

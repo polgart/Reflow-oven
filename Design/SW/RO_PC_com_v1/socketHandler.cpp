@@ -14,7 +14,7 @@ int socketHandler::initSocket() {
         return 1;
     }
 
-    printf("Sockets initialized successfully.\n");
+    printf("Sockets initialized successfully. (Uplink: %d Downlink: %d)\n",rcv_port,send_port);
 
     return 0;
 }
@@ -113,7 +113,7 @@ socketHandler::initSocketInternal(SOCKET &socket_param,WSAData &wsa_param,sockad
         perror("set opt err:");
     }
 
-    printf("Socket created on port %u\n",port);
+    //printf("Socket created on port %u\n",port);
 
     if (sType == Receive) {
         // Send initial msg to bind socket

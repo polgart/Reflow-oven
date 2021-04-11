@@ -34,7 +34,8 @@ enum State {
 enum DataType {
     TEMPERATURE,
     TEMPERATURE_WITH_HET_ENABLED,
-    HEAT_PROFILE
+    HEAT_PROFILE,
+    TEMPERATURE_WITH_HEAT_ENABLED_TEST_MODE
 };
 
 class stateMachine {
@@ -48,9 +49,11 @@ private:
     enum DataType type;
     double chamberTemp; // In C
     double boardTemp; // In C
+    double desired_temp; // In C
     int time; // In ms
     dataParser* stateMachineDataParser;
     char name[8];
+    uint32_t msg_ctr;
     uint8_t string_offset;
     uint8_t heat_profile_id;
     uint16_t heat_profile_size;
