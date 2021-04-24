@@ -367,6 +367,7 @@ void enableHeat() {
 
 void disableHeat() {
     HEAT_IN_PROGRESS = false;
+    temperatureHeatProfile.currentProfile.offset=0x0;
     heatTimerObj.status = STOPPED;
     heatTimerObj.timeStamp = 0x0;
     transciveObj.status = TRANSCIEVE_CURRENT_DATA;

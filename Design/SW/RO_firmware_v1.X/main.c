@@ -52,6 +52,7 @@
 #include "stateTaskHandler.h"
 #include "baseSW.h"
 #include <stdlib.h>
+#include "piclib30_wrapper.h"
 
 
 
@@ -67,6 +68,8 @@ int main(void)
 {
     // initialize the device
     SYSTEM_Initialize();
+    __delay_ms(50);
+    
     // initalize base software
     stateTaskHandler(baseSW_Initialize());
     
