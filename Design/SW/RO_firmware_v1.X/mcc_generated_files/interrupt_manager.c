@@ -82,5 +82,8 @@ void INTERRUPT_Initialize (void)
     //    TNI: T3 - Timer3
     //    Priority: 1
         IPC2bits.T3IP = 1;
+    //    TI: T1 - Timer1
+    //    Priority: 1
+        IPC0bits.T1IP = 1;
 
 }

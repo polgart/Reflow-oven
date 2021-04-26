@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 #include "baseSW.h"
 #include "stateTaskHandler.h"
 #include "mcc_generated_files/tmr2.h"
@@ -9,7 +10,8 @@
 #include "mcc_generated_files/i2c1.h"
 #include "EEPROM_driver.h"
 #include "mcc_generated_files/pin_manager.h"
-
+#include "mcc_generated_files/tmr1.h"
+#include "piclib30_wrapper.h"
 
 /* 
  *
@@ -275,13 +277,12 @@ static FTDI_STATUS ftdiStatus = NORMAL_OPERATION;
 
 typedef enum
 {
-    NEXTION_NORMAL_OPERATION,
-    NEXTION_WRITE_EEPROM_COMMAND_HIGH_BYTE,
-    NEXTION_WRITE_EEPROM_COMMAND_LOW_BYTE,
-    NEXTION_RECEIVE_PROFILE_FROM_EEPROM
+    NEXTION_IDLE,
+    CHANGE_TEMP,
+    CHANGE_STATUS
 } NEXTION_STATUS;
 
-static NEXTION_STATUS nextionStatus = NEXTION_NORMAL_OPERATION;
+static NEXTION_STATUS nextionStatus;
 
 
 /* 
@@ -352,6 +353,7 @@ typedef struct {
 
 static HEAT_TIMER_OBJ heatTimerObj;
 
+
 /* 
  *
  *                  IMPLEMENTATION SECTION 
@@ -363,15 +365,76 @@ void enableHeat() {
     HEAT_IN_PROGRESS = true;
     heatTimerObj.status = RUNNING;
     transciveObj.status = TRANSCIEVE_CURRENT_DATA_WITH_HEAT_ENABLED;
+    
+    //Nextion display message
+    char str[255];
+    uint8_t it = 0;
+    nextionStatus=CHANGE_STATUS;
+    sprintf(str, "t10.txt=\"RUNNING\"");
+    while (str[it]) {
+        while (U1STAbits.UTXBF);
+        UART1_Write(str[it++]);
+    }
+    it = 0;
+    UART1_Write(0xFF);
+    UART1_Write(0xFF);
+    UART1_Write(0xFF);
+    sprintf(str, "t10.bco=1024");
+    __delay_ms(1);
+    while (str[it]) {
+        while (U1STAbits.UTXBF);
+        UART1_Write(str[it++]);
+    }
+    it = 0;
+    UART1_Write(0xFF);
+    UART1_Write(0xFF);
+    UART1_Write(0xFF);
+        sprintf(str, "cle 1,0");
+    __delay_ms(1);
+    while (str[it]) {
+        while (U1STAbits.UTXBF);
+        UART1_Write(str[it++]);
+    }
+    it = 0;
+    UART1_Write(0xFF);
+    UART1_Write(0xFF);
+    UART1_Write(0xFF);
+    
+    nextionStatus=NEXTION_IDLE;
 }
 
 void disableHeat() {
+    SSR_OUTPUT_SetHigh();
     HEAT_IN_PROGRESS = false;
     temperatureHeatProfile.currentProfile.offset=0x0;
     heatTimerObj.status = STOPPED;
     heatTimerObj.timeStamp = 0x0;
     transciveObj.status = TRANSCIEVE_CURRENT_DATA;
-    SSR_OUTPUT_SetHigh();
+    
+    //Nextion display message
+    char str[255];
+    uint8_t it = 0;
+    nextionStatus=CHANGE_STATUS;
+    sprintf(str, "t10.txt=\"STOPPED\"");
+    while (str[it]) {
+        while (U1STAbits.UTXBF);
+        UART1_Write(str[it++]);
+    }
+    it = 0;
+    UART1_Write(0xFF);
+    UART1_Write(0xFF);
+    UART1_Write(0xFF);
+    sprintf(str, "t10.bco=55978");
+    __delay_ms(1);
+    while (str[it]) {
+        while (U1STAbits.UTXBF);
+        UART1_Write(str[it++]);
+    }
+    it = 0;
+    UART1_Write(0xFF);
+    UART1_Write(0xFF);
+    UART1_Write(0xFF);
+    nextionStatus=NEXTION_IDLE;
 }
 
 void IdleState_callback() {
@@ -448,45 +511,22 @@ uint16_t readLeatestTemperatreMeasuremntX4() {
 }
 
 void ReceiveNextionData_callback() {
-    
-    uint8_t msg = UART1_Read();
-    switch(nextionStatus) {
-        case NORMAL_OPERATION:
-            switch(msg) {
-                case 0:
-                    msg = UART1_Read();
-                    if (msg & 0x01) {
-                        // Start heating - critical feature
-                        if (checkStartConditions()) {
-                            enableHeat();
-                        }
-                    }
-                    if (msg & 0x02) {
-                        disableHeat();
-                    }
-                    if (msg & 0x04) {
-                        loadBufferHeatProfile();
-                    }
-                    break;
-                case 1:
-                    nextionStatus = NEXTION_WRITE_EEPROM_COMMAND_HIGH_BYTE;
-                case 2:
-                    nextionStatus = NEXTION_RECEIVE_PROFILE_FROM_EEPROM;
-            }
-            break;
-        case NEXTION_WRITE_EEPROM_COMMAND_HIGH_BYTE:
-            temperatureHeatProfile.addressBuffer = msg << 8;
-            nextionStatus = NEXTION_WRITE_EEPROM_COMMAND_LOW_BYTE;
-            break;
-        case NEXTION_WRITE_EEPROM_COMMAND_LOW_BYTE:
-            temperatureHeatProfile.addressBuffer = msg;
-            nextionStatus = NEXTION_NORMAL_OPERATION;
-            break;
-        case NEXTION_RECEIVE_PROFILE_FROM_EEPROM:
-            addTask(IdleState,ReadEEPROM);
-            nextionStatus = NEXTION_NORMAL_OPERATION;
+    uint8_t msg = 0x0;
+    while (UART1_RX_DATA_AVAILABLE) {
+        msg = UART1_Read();
+        switch (msg) {
+            case 0x01:
+                // Start heating - critical feature
+                if (checkStartConditions()) {
+                    enableHeat();
+                }
+                break;
+            case 0x02:
+                disableHeat();
+                break;
+        }
     }
-    
+
 }
 
 
@@ -624,9 +664,76 @@ void ReceiveFTDI_callback() {
         }
     } while (!UART2_TRANSFER_STATUS_RX_EMPTY);
 }
-
-void genericTranciverFunction() {
     
+void TranscieveNextionDATA_callback() {
+    if (nextionStatus==NEXTION_IDLE) {
+      uint8_t it=0;
+    // Get sensor data
+    
+        uint8_t data_index = SENSOR_DATA_HANDLER.dataArrayStatus.currentData;
+        if (data_index==0) {
+            data_index=SENSOR_DATA_STORE_LENGTH;
+        } else {
+            data_index--;
+        }
+        
+        uint8_t temp_lo = SENSOR_DATA_HANDLER.dataArrayQue[data_index].s.thermocouple_temperature_data;
+        uint8_t temp_hi = SENSOR_DATA_HANDLER.dataArrayQue[data_index].s.thermocouple_temperature_data >> 8; 
+    
+    // Convert the data for NEXTION display
+    double temperature = 0.0f;
+    temperature = ((double)temp_lo) / 4.0f; 
+    temperature += ((double)temp_hi) * 64.0f;
+    
+    // Get desired value
+    uint16_t desVal = BS_DATA_OBJ.desired_temp;
+    double desTemperature = 0.0f;
+    uint8_t lowerDesVal = (uint8_t)desVal;
+    uint8_t upperDesVal = (uint8_t)(desVal >> 8);
+    desTemperature = ((double)lowerDesVal) / 4.0f; 
+    desTemperature += ((double)upperDesVal) * 64.0f;
+    
+    char str[255];
+    
+    if (!HEAT_IN_PROGRESS) {
+        desTemperature=0.0;
+    }
+ 
+    sprintf(str, "x1.val=%d", (int) (temperature * 100));
+    while (str[it]) {
+        while (U1STAbits.UTXBF);
+        UART1_Write(str[it++]);
+    }
+    it = 0;
+    UART1_Write(0xFF);
+    UART1_Write(0xFF);
+    UART1_Write(0xFF);
+    sprintf(str, "x2.val=%d", (int) (desTemperature * 10));
+    __delay_ms(1);
+    while (str[it]) {
+        while (U1STAbits.UTXBF);
+        UART1_Write(str[it++]);
+    }
+    it = 0;
+    UART1_Write(0xFF);
+    UART1_Write(0xFF);
+    UART1_Write(0xFF);
+    sprintf(str, "add 1,0,%d", (int) (int) (temperature / 1.6574));
+    __delay_ms(5);
+    while (str[it]) {
+        while (U1STAbits.UTXBF);
+        UART1_Write(str[it++]);
+    }
+    it = 0;
+    UART1_Write(0xFF);
+    UART1_Write(0xFF);
+    UART1_Write(0xFF);
+
+    }
+}
+
+void TransciveFTDI_callback() {
+        
         // Get sensor data
     
         uint8_t data_index = SENSOR_DATA_HANDLER.dataArrayStatus.currentData;
@@ -740,15 +847,6 @@ void genericTranciverFunction() {
         }
 }
 
-    
-void TranscieveNextionDATA_callback() {
-    genericTranciverFunction();
-}
-
-void TransciveFTDI_callback() {
-    genericTranciverFunction();
-}
-
 
 void ReadEEPROM_callback() {
     /* TODO: temp data is uint16_t */
@@ -792,6 +890,16 @@ void WriteEEPROM_callback() {
 
 
 /* Interrupt service routines */
+
+void baseSW_TMR1_ISR(void) {
+    static uint8_t tmr1_cntr = 0;
+    if (++tmr1_cntr == 3) {
+        tmr1_cntr = 0;
+        TMR1_Stop();
+        TMR1_SoftwareCounterClear();
+        addTask(IdleState,TranscieveNextionDATA);
+    }
+}
 
 void baseSW_TMR2_ISR(void) {
     
@@ -858,9 +966,15 @@ void baseSW_TMR2_ISR(void) {
     // Data transmission
     
     static char flag = 0;
+    static uint8_t cntr = 0;
     if (flag==0) {
-        addTask(IdleState,TranscieveNextionDATA);
+        if (++cntr == 6) {
+            TMR1_Start();
+            cntr = 0;
+        }
+        addTask(IdleState,TransciveFTDI);
         flag=1;
+        
     } else {
         addTask(IdleState,ReadTemperatureData);
         flag=0;
@@ -902,6 +1016,7 @@ stateTaskList* baseSW_Initialize(void) {
     initilaizeTaskHandler(IdleState);
     
     // Initilize ISRs
+    TMR1_SetInterruptHandler(baseSW_TMR1_ISR);
     TMR2_SetInterruptHandler(baseSW_TMR2_ISR);
     UART1_SetRxInterruptHandler(baseSW_UART1_rx_ISR); // UART1 -> NEXTION
     UART2_SetRxInterruptHandler(baseSW_UART2_rx_ISR); // UART2 -> FTDI
@@ -947,6 +1062,9 @@ stateTaskList* baseSW_Initialize(void) {
     transciveObj.FTDITransmissionInProgress=false;
     transciveObj.NextionTransmissionInProgress=false;
     transciveObj.status = TRANSCIEVE_HEAT_PROFILE;
+    
+    //Initialize NEXTION
+    nextionStatus=NEXTION_IDLE;
     
     
     // Create default heat profile
