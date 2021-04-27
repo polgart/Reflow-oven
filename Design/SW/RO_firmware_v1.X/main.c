@@ -68,8 +68,8 @@ int main(void)
 {
     // initialize the device
     SYSTEM_Initialize();
-    SSR_OUTPUT_SetLow();
-    __delay_ms(500);
+    SSR_OUTPUT_SetHigh();
+    __delay_ms(3000);
     
     // initalize base software
     stateTaskHandler(baseSW_Initialize());

@@ -173,6 +173,12 @@ public class serialPortHandler extends Thread {
                         this.receiveDataCounter=0;
                         dataPacket.init_heat_profile_temperature();
                     }
+                    else if (buf[0]==107) {
+                        dataPacket.setType(serialData.dataTypeEnum.START_EVENT);
+                    }
+                    else if (buf[0]==108) {
+                        dataPacket.setType(serialData.dataTypeEnum.STOP_EVENT);
+                    }
                     else if (buf[0]==105) {
                         rxStateMachine=stateMachine.HEAT_PROFILE_TIME;
                         this.receiveDataCounter=0;

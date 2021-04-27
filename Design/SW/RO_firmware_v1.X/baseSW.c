@@ -366,6 +366,10 @@ void enableHeat() {
     heatTimerObj.status = RUNNING;
     transciveObj.status = TRANSCIEVE_CURRENT_DATA_WITH_HEAT_ENABLED;
     
+    //PC display update
+    UART2_Write(0xFF);
+    UART2_Write(0xFB);
+    
     //Nextion display message
     char str[255];
     uint8_t it = 0;
@@ -410,6 +414,10 @@ void disableHeat() {
     heatTimerObj.status = STOPPED;
     heatTimerObj.timeStamp = 0x0;
     transciveObj.status = TRANSCIEVE_CURRENT_DATA;
+    
+    //PC display update
+    UART2_Write(0xFF);
+    UART2_Write(0xFA);
     
     //Nextion display message
     char str[255];
@@ -512,7 +520,7 @@ uint16_t readLeatestTemperatreMeasuremntX4() {
 
 void ReceiveNextionData_callback() {
     uint8_t msg = 0x0;
-    while (UART1_RX_DATA_AVAILABLE) {
+    while (UART1_IsRxReady()) {
         msg = UART1_Read();
         switch (msg) {
             case 0x01:
@@ -695,10 +703,7 @@ void TranscieveNextionDATA_callback() {
     
     char str[255];
     
-    if (!HEAT_IN_PROGRESS) {
-        desTemperature=0.0;
-    }
- 
+    if (HEAT_IN_PROGRESS) {
     sprintf(str, "x1.val=%d", (int) (temperature * 100));
     while (str[it]) {
         while (U1STAbits.UTXBF);
@@ -719,7 +724,7 @@ void TranscieveNextionDATA_callback() {
     UART1_Write(0xFF);
     UART1_Write(0xFF);
     sprintf(str, "add 1,0,%d", (int) (int) (temperature / 1.6574));
-    __delay_ms(5);
+    __delay_ms(2);
     while (str[it]) {
         while (U1STAbits.UTXBF);
         UART1_Write(str[it++]);
@@ -728,6 +733,29 @@ void TranscieveNextionDATA_callback() {
     UART1_Write(0xFF);
     UART1_Write(0xFF);
     UART1_Write(0xFF);
+    sprintf(str, "add 1,1,%d", (int) (int) (desTemperature / 1.6574));
+    __delay_ms(2);
+    while (str[it]) {
+        while (U1STAbits.UTXBF);
+        UART1_Write(str[it++]);
+    }
+    it = 0;
+    UART1_Write(0xFF);
+    UART1_Write(0xFF);
+    UART1_Write(0xFF);
+    } else {
+    sprintf(str, "x1.val=%d", (int) (temperature * 100));
+    while (str[it]) {
+        while (U1STAbits.UTXBF);
+        UART1_Write(str[it++]);
+    }
+    it = 0;
+    UART1_Write(0xFF);
+    UART1_Write(0xFF);
+    UART1_Write(0xFF);
+    }
+ 
+
 
     }
 }

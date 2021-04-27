@@ -4,11 +4,19 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/EDU_OBOS_5057/Documents/Reflow%20oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/uart1.c</file>
-            <file>file:/C:/Users/EDU_OBOS_5057/Documents/Reflow%20oven/Design/SW/RO_firmware_v1.X/stateTaskHandler.c</file>
-            <file>file:/C:/Users/EDU_OBOS_5057/Documents/Reflow%20oven/Design/SW/RO_firmware_v1.X/main.c</file>
-            <file>file:/C:/Users/EDU_OBOS_5057/Documents/Reflow%20oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/system.c</file>
+            <file>file:/C:/Users/EDU_OBOS_5057/Documents/Reflow%20oven/Design/SW/RO_firmware_v1.X/EEPROM_driver.c</file>
+            <file>file:/C:/Users/EDU_OBOS_5057/Documents/Reflow%20oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/uart1.h</file>
             <file>file:/C:/Users/EDU_OBOS_5057/Documents/Reflow%20oven/Design/SW/RO_firmware_v1.X/baseSW.c</file>
             <file>file:/C:/Users/EDU_OBOS_5057/Documents/Reflow%20oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/tmr2.c</file>
+            <file>file:/C:/Users/EDU_OBOS_5057/Documents/Reflow%20oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/pin_manager.c</file>
+            <file>file:/C:/Users/EDU_OBOS_5057/Documents/Reflow%20oven/Design/SW/RO_firmware_v1.X/stateTaskHandler.h</file>
+            <file>file:/C:/Users/EDU_OBOS_5057/Documents/Reflow%20oven/Design/SW/RO_firmware_v1.X/stateTaskHandler.c</file>
+            <file>file:/C:/Users/EDU_OBOS_5057/Documents/Reflow%20oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/clock.c</file>
+            <file>file:/C:/Users/EDU_OBOS_5057/Documents/Reflow%20oven/Design/SW/RO_firmware_v1.X/main.c</file>
+            <file>file:/C:/Users/EDU_OBOS_5057/Documents/Reflow%20oven/Design/SW/RO_firmware_v1.X/protocol.txt</file>
+            <file>file:/C:/Users/EDU_OBOS_5057/Documents/Reflow%20oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/system.c</file>
+            <file>file:/C:/Users/EDU_OBOS_5057/Documents/Reflow%20oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/i2c1.c</file>
+            <file>file:/C:/Users/EDU_OBOS_5057/Documents/Reflow%20oven/Design/SW/RO_firmware_v1.X/mcc_generated_files/interrupt_manager.c</file>
         </group>
     </open-files>
 </project-private>

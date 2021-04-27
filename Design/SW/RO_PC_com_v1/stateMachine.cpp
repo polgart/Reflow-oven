@@ -32,6 +32,16 @@ void stateMachine::addData(unsigned char c) {
                 this->type = TEMPERATURE_WITH_HEAT_ENABLED_TEST_MODE;
                 this->state = PREAMBLE2;
             }
+            else if (c == 0xFB) {
+                this->type = START_EVENT;
+                this->passData2Parser();
+                this->state = IDLE;
+            }
+            else if (c == 0xFA) {
+                this->type = STOP_EVENT;
+                this->passData2Parser();
+                this->state = IDLE;
+            }
             else {
                 this->state = IDLE;
             }
@@ -207,6 +217,14 @@ void stateMachine::passData2Parser() {
             this->stateMachineDataParser->sendDataViaSocket(time);
             this->stateMachineDataParser->sendDataViaSocket(std::string("j"));
             this->stateMachineDataParser->sendDataViaSocket(desired_temp);
+            this->stateMachineDataParser->sendDataViaSocket(std::string("EOF")); //End of message
+            break;
+        case START_EVENT:
+            this->stateMachineDataParser->sendDataViaSocket(std::string("k"));
+            this->stateMachineDataParser->sendDataViaSocket(std::string("EOF")); //End of message
+            break;
+        case STOP_EVENT:
+            this->stateMachineDataParser->sendDataViaSocket(std::string("l"));
             this->stateMachineDataParser->sendDataViaSocket(std::string("EOF")); //End of message
             break;
     }

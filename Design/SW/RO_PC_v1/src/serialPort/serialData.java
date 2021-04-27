@@ -9,7 +9,9 @@ public class serialData {
         SERIAL_DATA_WITH_DESIRED_TEMP,
         SERIAL_DATA,
         ONLY_TEMPERATURE,
-        HEAT_PROFILE
+        HEAT_PROFILE,
+        START_EVENT,
+        STOP_EVENT
     };
 
     public serialData() {

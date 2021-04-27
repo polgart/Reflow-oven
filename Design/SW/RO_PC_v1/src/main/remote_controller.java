@@ -210,16 +210,12 @@ public class remote_controller extends page_controller {
             Main.getSerialPortHandler().writeSocket(dataOut);
             csv_series.getData().clear();
         }
-        statusLabel.setText("Running");
-        statusLabel.setStyle("-fx-background-color: #7ee868;");
     }
 
     @FXML
     private void stopBtnCallback() {
         byte[] dataOut = {10, 2};
         Main.getSerialPortHandler().writeSocket(dataOut);
-        statusLabel.setText("Stopped");
-        statusLabel.setStyle("-fx-background-color: #FF1919;");
     }
 
     @FXML
@@ -278,6 +274,14 @@ public class remote_controller extends page_controller {
                     tChamber.setText(chamberTemp);
                     addDataToSeries(data.getTime(),data.getChamberTemp());
                     addDataToRemoteChart(data.getTime(),data.getDesiredTemp());
+                    break;
+                case START_EVENT:
+                    statusLabel.setText("Running");
+                    statusLabel.setStyle("-fx-background-color: #7ee868;");
+                    break;
+                case STOP_EVENT:
+                    statusLabel.setText("Stopped");
+                    statusLabel.setStyle("-fx-background-color: #FF1919;");
                     break;
             }
 
